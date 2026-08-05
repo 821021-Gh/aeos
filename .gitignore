@@ -1,0 +1,36 @@
+# Operating System
+.DS_Store
+Thumbs.db
+*:Zone.Identifier
+
+# Editors and IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Environment and secrets
+.env
+.env.*
+
+# Dependencies and build output
+node_modules/
+vendor/
+dist/
+build/
+__pycache__/
+*.pyc
+
+# Test coverage and tool caches
+coverage/
+coverage.xml
+.coverage
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
