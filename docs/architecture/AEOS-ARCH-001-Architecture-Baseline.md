@@ -3,8 +3,8 @@ doc-id: AEOS-ARCH-001
 doc-name: Architecture Baseline
 doc-type: Architecture
 repository: AEOS
-version: 0.1.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-08-05
 updated: 2026-08-05
@@ -15,7 +15,7 @@ related:
 
 # AEOS-ARCH-001 — Architecture Baseline
 
-> EWO-AEOS-0001：導入 WA-001 AI Engineering Workspace Architecture（Approved v1.0.0）作為 AEOS 之唯一架構來源，建立 Architecture Baseline。
+> EWO-AEOS-0001：正式導入 WA-001 AI Engineering Workspace Architecture（Approved v1.0.0）為 AEOS 之唯一架構來源。本文件為 AEOS Architecture 之 Entry Document，正式納入 WA-001 已核准架構。
 
 ## 文件資訊
 
@@ -23,9 +23,9 @@ related:
 |------|------|
 | 文件代號 | AEOS-ARCH-001 |
 | 文件名稱 | Architecture Baseline |
-| 型別 | Architecture |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
+| 型別 | Architecture（Entry Document） |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-05 |
@@ -35,16 +35,18 @@ related:
 
 ## 1. Purpose
 
-本文件為 AEOS（AI Enterprise Operating System）之 Architecture Baseline，其目的為：
+本文件為 AEOS（AI Enterprise Operating System）之 Architecture Baseline 與 Architecture Entry Document，其目的為：
 
-- 將 WA-001 AI Engineering Workspace Architecture（Approved v1.0.0）導入 AEOS，作為唯一架構來源。
-- 建立 AEOS 架構內容之正式基線（Baseline），使後續架構文件可追溯至 WA-001。
-- 界定 Baseline 之內容邊界與治理規則：不重新設計架構、不得新增未經 WA-001 定義之內容。
+- AEOS 為 AI Engineering Workspace 之 Enterprise Root Repository。
+- 正式導入 WA-001 AI Engineering Workspace Architecture（Approved v1.0.0）為 AEOS 之唯一架構來源。
+- 正式納入 WA-001 已核准架構：Workspace Architecture、Enterprise Meta Architecture、Platform Topology、Capability Architecture、Capability Ownership 與 Architecture Principles。
+- 作為後續 Architecture Catalog 之起點，使後續 AEOS 架構文件可追溯至 WA-001。
+- 界定內容邊界與治理規則：不重新設計架構、不得新增未經 WA-001 定義之內容。
 
 ## 2. Background
 
-- AEOS 為 AI Engineering Workspace 之 Enterprise Architecture、Platform Governance 與 Capability Management 之 Repository。
-- WA-001 為已核准之架構來源（狀態：Approved；版本：v1.0.0）。
+- AEOS 為 AI Engineering Workspace 之 Enterprise Root Repository，涵蓋 Enterprise Architecture、Platform Governance 與 Capability Management。
+- WA-001 為已核准之架構來源（狀態：Approved；版本：v1.0.0），其內容為 AEOS 架構之唯一依據。
 - EWO-AEOS-0001 為 AEOS 之第一張 Engineering Work Order，僅涵蓋 Architecture Baseline Import；Repository Foundation 由 EWO-AEOS-0002 獨立交付。
 
 ## 3. Architecture Source — WA-001
@@ -63,27 +65,55 @@ related:
 - AEOS 不得重新設計架構。
 - AEOS 不得新增未經 WA-001 定義之內容。
 
-## 4. Architecture Baseline Scope
+## 4. Approved Architecture（WA-001）
 
-AEOS Architecture Baseline 涵蓋 AEOS 之三個架構領域（依 AEOS Repository 定義）：
+本文件正式納入 WA-001（Approved v1.0.0）已核准之架構，包含下列六個組成。各組成之權威內容以 WA-001 為準；AEOS 不另行持有或變更其定義。
 
-| # | 領域 | 說明 |
-|---|------|------|
-| 1 | Enterprise Architecture | AEOS 之企業架構基線，內容依 WA-001 定義。 |
-| 2 | Platform Governance | AEOS 之平台治理基線，內容依 WA-001 定義。 |
-| 3 | Capability Management | AEOS 之能力管理基線，內容依 WA-001 定義。 |
+### 4.1 Workspace Architecture
 
-各領域之正式文件由後續 EWO 依 WA-001 建立，並登錄於 §8 Baseline Register。
+- 定位：定義 AI Engineering Workspace 之整體架構。
+- 內容範圍：AI Engineering Workspace 之結構、邊界與組成，依 WA-001 定義。
+- 權威來源：WA-001（Approved v1.0.0）。
+
+### 4.2 Enterprise Meta Architecture
+
+- 定位：定義企業層級之 Meta Architecture。
+- 內容範圍：架構之抽象層、框架與跨領域關聯，依 WA-001 定義。
+- 權威來源：WA-001（Approved v1.0.0）。
+
+### 4.3 Platform Topology
+
+- 定位：定義平台之拓撲結構。
+- 內容範圍：平台元件、節點與連結關係，依 WA-001 定義。
+- 權威來源：WA-001（Approved v1.0.0）。
+
+### 4.4 Capability Architecture
+
+- 定位：定義 AI Engineering Workspace 之能力架構。
+- 內容範圍：能力之結構與能力間關係，依 WA-001 定義。
+- 權威來源：WA-001（Approved v1.0.0）。
+
+### 4.5 Capability Ownership
+
+- 定位：定義能力之擁有權模型。
+- 內容範圍：能力之 Owner、責任與治理歸屬，依 WA-001 定義。
+- 權威來源：WA-001（Approved v1.0.0）。
+
+### 4.6 Architecture Principles
+
+- 定位：定義架構原則。
+- 內容範圍：約束後續架構決策之準則，依 WA-001 定義。
+- 權威來源：WA-001（Approved v1.0.0）。
 
 ## 5. Baseline Definition
 
-- AEOS Architecture Baseline 為 WA-001 所定義之架構內容，於 AEOS 內以正式文件呈現之集合。
-- 本文件（AEOS-ARCH-001）為 Baseline 之入口文件（Entry Point），記錄來源、範圍與治理規則。
+- AEOS Architecture Baseline 為 WA-001 已核准架構內容於 AEOS 內之正式基線。
+- 本文件（AEOS-ARCH-001）為 Baseline 之 Entry Document，正式納入 WA-001 已核准架構（§4），並記錄來源、範圍與治理規則。
 - Baseline 內容與 WA-001 保持單一來源對應；AEOS 文件不持有 WA-001 以外之架構決策。
 
 ## 6. Import Method
 
-- 身分對應：每份 AEOS 架構文件 MUST 宣告其對應之 WA-001 內容範圍（章節／文件識別）。
+- 身分對應：每份 AEOS 架構文件 MUST 宣告其對應之 WA-001 內容範圍（架構組成／章節識別）。
 - 內容邊界：AEOS 架構文件內容 MUST NOT 超出 WA-001 定義；發現缺口時，先修訂 WA-001，再更新 AEOS Baseline。
 - 文件形式：AEOS 架構文件以正式 Markdown 文件置於 `docs/architecture/`，遵循 Repository 文件慣例。
 - 追溯：每份 AEOS 架構文件於 References 中引用 WA-001 及來源 EWO。
@@ -95,11 +125,14 @@ AEOS Architecture Baseline 涵蓋 AEOS 之三個架構領域（依 AEOS Reposito
 - WA-001 變更時，AEOS Baseline 以正式 Amendment 對應更新，並記錄於 Revision History。
 - Repository Foundation 不屬於本 Baseline；由 EWO-AEOS-0002 獨立交付。
 
-## 8. Baseline Register
+## 8. Architecture Register
 
-| 文件代號 | 文件名稱 | 對應來源 | 狀態 |
-|----------|----------|----------|------|
-| AEOS-ARCH-001 | Architecture Baseline | WA-001 v1.0.0 | Draft（待 Review） |
+本 Register 為後續 Architecture Catalog 之起點。
+
+| 文件代號 | 文件名稱 | 型別 | 對應來源 | 狀態 |
+|----------|----------|------|----------|------|
+| WA-001 | AI Engineering Workspace Architecture | Architecture Source（外部） | — | Approved v1.0.0 |
+| AEOS-ARCH-001 | Architecture Baseline | Architecture Entry Document | WA-001 v1.0.0 | Approved |
 
 後續 AEOS 架構文件依 WA-001 建立後，於本 Register 登錄並更新版本。
 
@@ -121,4 +154,5 @@ AEOS Architecture Baseline 涵蓋 AEOS 之三個架構領域（依 AEOS Reposito
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
-| 0.1.0 | 2026-08-05 | 初版：導入 WA-001（Approved v1.0.0）為唯一架構來源，建立 AEOS Architecture Baseline（EWO-AEOS-0001） | Codex |
+| 1.0.0 | 2026-08-05 | 正式導入 WA-001（Approved v1.0.0）為唯一架構來源；納入已核准架構（Workspace Architecture、Enterprise Meta Architecture、Platform Topology、Capability Architecture、Capability Ownership、Architecture Principles）；確立 Architecture Register；版本升級至 1.0.0 / Approved（AR-AEOS-0001 RC-001） | Codex |
+| 0.1.0 | 2026-08-05 | 初版：導入 WA-001 為唯一架構來源，建立 Architecture Baseline（EWO-AEOS-0001） | Codex |
