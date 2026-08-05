@@ -2,7 +2,7 @@
 
 ## Engineering Workflow
 
-This repository follows the YEOS Engineering Workflow.
+AEOS adopts the YEOS Engineering Workflow as its engineering delivery process.
 
 ## Commit Convention
 

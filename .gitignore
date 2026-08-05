@@ -25,3 +25,12 @@ dist/
 build/
 __pycache__/
 *.pyc
+
+# Test coverage and tool caches
+coverage/
+coverage.xml
+.coverage
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/

@@ -2,4 +2,4 @@
 
 | Version | Status |
 |---------|--------|
-| 0.1.x-dev | Active Development |
+| 1.0.x | Active |
