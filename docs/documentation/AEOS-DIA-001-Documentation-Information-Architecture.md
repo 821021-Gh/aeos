@@ -3,8 +3,8 @@ doc-id: AEOS-DIA-001
 doc-name: Documentation Information Architecture
 doc-type: Information Architecture
 repository: AEOS
-version: 0.1.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-08-05
 updated: 2026-08-05
@@ -25,8 +25,8 @@ related:
 | 文件代號 | AEOS-DIA-001 |
 | 文件名稱 | Documentation Information Architecture |
 | 型別 | Information Architecture |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-05 |
@@ -68,6 +68,12 @@ AEOS 正式文件依下列分類（Taxonomy）管理；分類碼為 doc-id 之�
 | CON | Constitution | 定義 Repository 身分與治理基礎。 |
 | GOV | Governance | 承載 Platform Governance 之正式文件。 |
 | CAP | Capability | 承載 Capability Management 之正式文件。 |
+| ADR | Architecture Decision Record | 記錄架構決策之背景、決策、理由與影響。 |
+| POL | Policy | 承載政策類正式文件（Platform Governance 政策）。 |
+| STD | Standard | 承載標準類正式文件（工程、文件、API 等標準）。 |
+| REF | Reference | 承載參考資料（術語、對照、外部來源對應等）。 |
+| IDX | Index | 承載索引與目錄（文件索引、Architecture Catalog 等）。 |
+| TPL | Template | 承載文件與工作單範本。 |
 
 命名規則：`<分類碼>-<###>-<Kebab-Case-Name>.md`，前置 Repository 識別 `AEOS-`（例如 `AEOS-ARCH-001-Architecture-Baseline.md`）。
 
@@ -96,11 +102,17 @@ AEOS 文件體系分為四個層級：
 ```
 docs/
 ├── architecture/      — ARCH 文件
+├── adr/               — ADR 文件
 ├── documentation/     — DIA 文件
 ├── specifications/    — SPEC 文件
 ├── constitution/      — CON 文件
+├── policies/          — POL 文件
+├── standards/         — STD 文件
 ├── governance/        — GOV 文件
-└── capability/        — CAP 文件
+├── capability/        — CAP 文件
+├── references/        — REF 文件
+├── indexes/           — IDX 文件
+└── templates/         — TPL 文件
 ```
 
 規則：
@@ -116,12 +128,14 @@ docs/
 | Repository Owner | Repository 層級 | 最終核准者；治理與 Foundation 文件之擁有者。 |
 | Architecture Owner | ARCH、DIA 文件 | 架構與文件資訊架構文件之內容正確性與維護。 |
 | Document Owner | 單份文件 | 由文件 frontmatter 宣告；負責維護、Review 回覆與變更管理。 |
+| Review Owner | Review 流程 | 負責 Architecture Review、Repository Review、Specification Review 與 Governance Review；不等同 Repository Owner。 |
 
 規則：
 
 - 每份正式文件 MUST 於 frontmatter 宣告 owner。
 - 文件變更由 Document Owner 主導，經 EWO 定義範圍。
 - 核准層級：正式文件合併至 main 前 MUST 經 Repository Owner 核准（Review）。
+- Review Owner 負責 Review，Repository Owner 負責最終核准；兩者為不同角色。
 
 ## 7. Cross-reference Strategy
 
@@ -141,6 +155,7 @@ docs/
 | Approved | Review 通過，文件內容正式核定。 |
 | Released | 合併至 main，成為正式基線內容。 |
 | Archived | 不再有效，保留歷史紀錄。 |
+| Deprecated | 文件已由新文件取代；保留既有引用，不得再新增內容。 |
 
 規則：
 
@@ -148,21 +163,32 @@ docs/
 - 版本依 SemVer 管理；Review 修正（RC）更新 minor，重大變更更新 major。
 - 每次狀態或版本變更 MUST 更新 Revision History。
 
-## 9. Governance
+## 9. Documentation Evolution Principles
+
+本文件之長期演進依下列原則：
+
+| # | 原則 | 說明 |
+|---|------|------|
+| EP-001 | Backward Compatibility | 文件體系之演進須保持向後相容；既有 doc-id、路徑與引用不因演進失效。 |
+| EP-002 | Stable Identity | 文件 doc-id 一經建立即穩定不變；內容演進不改變身分。 |
+| EP-003 | Incremental Evolution | 文件體系以增量方式演進，每次變更經 EWO 定義並可追溯。 |
+| EP-004 | No Duplicate Knowledge | 同一知識僅存在於單一權威文件；以 Deprecate 與引用取代複製。 |
+
+## 10. Governance
 
 - 本文件（Taxonomy、Directory Organization、命名規則）之變更 MUST 經 EWO 與 Review。
 - 正式文件合併至 main 前 MUST 通過 Review。
 - 文件不得重新定義 AEOS-ARCH-001／WA-001 已定義之架構內容。
 - Repository Foundation 文件（README 等）不描述架構內容。
 
-## 10. Extension Rules
+## 11. Extension Rules
 
 - 新增文件：依 Taxonomy 選擇分類 → 產生唯一 doc-id → 置於對應目錄 → 宣告 Owner、Status 與 References。
 - 新增分類：需先擴充 §3 Taxonomy 與 §5 Directory Organization（經 EWO）。
 - 新增目錄：僅在實際文件需求存在時建立。
 - 版本相容：Taxonomy 或 Directory Organization 之變更視為 major 變更。
 
-## 11. References
+## 12. References
 
 | 文件 | 型別 | 用途 |
 |------|------|------|
@@ -170,8 +196,9 @@ docs/
 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | AEOS 唯一架構來源 |
 | EWO-AEOS-0003 — Documentation Information Architecture | EWO | 本文件之工作來源 |
 
-## 12. Revision History
+## 13. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-08-05 | 正式定版為 Documentation Information Architecture Foundation：擴充 Taxonomy（ADR／POL／STD／REF／IDX／TPL）、同步 Directory Organization、新增 Review Owner、Lifecycle 新增 Deprecated、新增 Documentation Evolution Principles（DR-AEOS-0003-R1） | Codex |
 | 0.1.0 | 2026-08-05 | 初版：建立 AEOS Documentation Information Architecture（EWO-AEOS-0003） | Codex |
