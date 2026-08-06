@@ -3,7 +3,7 @@ doc-id: AEOS-STD-005
 doc-name: Review Standard
 doc-type: Standard
 repository: AEOS
-version: 1.1.0
+version: 1.2.0
 status: Approved
 owner: Repository Owner
 created: 2026-08-06
@@ -11,6 +11,7 @@ updated: 2026-08-06
 related:
   - EWO-AEOS-0012
   - EWO-AEOS-0022
+  - EWO-AEOS-0033
   - AEOS-ARCH-001
   - AEOS-ARCH-002
   - AEOS-ARCH-003
@@ -40,7 +41,7 @@ related:
 | 文件名稱 | Review Standard |
 | 型別 | Standard |
 | 狀態 | Approved |
-| 版本 | 1.1.0 |
+| 版本 | 1.2.0 |
 | Repository | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
@@ -127,6 +128,7 @@ Review Type 為 Review 之正式分類；Review MUST 依 Review Subject 之型�
 | Capability Review | CA | CAP 文件 | 能力定義與擁有權 |
 | Governance Review | GR | GOV 文件 | 治理 Roadmap、領域與優先序 |
 | Catalog／Matrix Review | CM | CAT、MAT 文件 | Catalog／Matrix 一致性、條目追溯與關係事實（依 AEOS-STD-006） |
+| Report Review | RT | RPT 文件 | 分析完整性、結論 Fact Authority（可追溯至 Approved Architecture 或正式決策）與建議可執行性 |
 
 規則：
 
@@ -343,6 +345,7 @@ Review Consistency Validation 驗證 Review 記錄與資產身分、決策及 PR
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.2.0 | 2026-08-06 | 依 EWO-AEOS-0033 新增 Report Review（RT）：適用 RPT 文件，審查分析完整性、結論 Fact Authority 與建議可執行性（SR-AEOS-0033-R3） | Codex |
 | 1.1.0 | 2026-08-06 | 依 EWO-AEOS-0022 新增 Catalog／Matrix Review（CM）：適用 CAT、MAT 文件，審查 Catalog／Matrix 一致性、條目追溯與關係事實（依 AEOS-STD-006） | Codex |
 | 1.0.0 | 2026-08-06 | 依 Standard Review（SR-AEOS-0012-R1）修正：狀態升版至 Approved 1.0.0；Review Model 新增 Review Hierarchy（Enterprise／Repository／Document Review；Review MUST 遵循 Governance Hierarchy，不得由下層 Review 覆蓋上層已核准決策）；Review Workflow 新增 Review Escalation（Escalation Trigger／Authority／Resolution；適用於 Architecture、Governance、Standard、Policy 等重大 Review）；Review Decision Model 新增 Decision Finality（APPROVED 為正式核准；REJECTED 保留歷史；SUPERSEDED 必須引用新 Decision；REQUEST CHANGES 必須全部 RC 完成後才能重新 Review）；Validation 新增 Review Consistency Validation（C-001～C-005）；Compliance 新增 Review Integrity Checklist | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：定義 Review Model、Review Types、Review Workflow、Review Rules、Review Decision Model、Review Validation 與 Compliance（EWO-AEOS-0012） | Codex |

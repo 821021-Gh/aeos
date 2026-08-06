@@ -3,7 +3,7 @@ doc-id: AEOS-DIA-001
 doc-name: Documentation Information Architecture
 doc-type: Information Architecture
 repository: AEOS
-version: 2.0.0
+version: 3.0.0
 status: Approved
 owner: Architecture Owner
 created: 2026-08-05
@@ -11,6 +11,7 @@ updated: 2026-08-06
 related:
   - EWO-AEOS-0003
   - EWO-AEOS-0022
+  - EWO-AEOS-0033
   - AEOS-ARCH-001
   - WA-001
 ---
@@ -27,7 +28,7 @@ related:
 | 文件名稱 | Documentation Information Architecture |
 | 型別 | Information Architecture |
 | 狀態 | Approved |
-| 版本 | 2.0.0 |
+| 版本 | 3.0.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-05 |
@@ -76,9 +77,16 @@ AEOS 正式文件依下列分類（Taxonomy）管理；分類碼為 doc-id 之�
 | IDX | Index | 承載索引（文件索引、ADR Register 等）；不承載 Catalog／Matrix 文件（CAT／MAT 依 AEOS-STD-006）。 |
 | CAT | Catalog | 登錄已核准架構或治理實體之正式目錄；Schema 依 AEOS-STD-006。 |
 | MAT | Matrix | 登錄已核准關係（Ownership、Dependency 等）之正式矩陣；Schema 依 AEOS-STD-006。 |
+| RPT | Report | 承載正式分析結果（架構盤點、成熟度評估、Readiness Assessment、影響分析等）；Assessment 為 Report 之正式用途分類。 |
 | TPL | Template | 承載文件與工作單範本。 |
 
 命名規則：`<分類碼>-<###>-<Kebab-Case-Name>.md`，前置 Repository 識別 `AEOS-`（例如 `AEOS-ARCH-001-Architecture-Baseline.md`）。
+
+Report（RPT）規則：
+
+- 適用範圍：正式分析結果（架構盤點、成熟度評估、Readiness Assessment、影響分析等）。
+- 禁止用途：不得承載 Architecture 決策（ADR）、Standard（STD）、Policy（POL）、Catalog（CAT）或 Matrix（MAT）內容；不得以 Report 取代 EWO、Review Record 或正式決策文件。
+- Assessment 為 Report 之正式用途分類，不另立獨立 Artifact Type；Readiness Assessment 等以 Report 型別承載。
 
 ## 4. Documentation Information Architecture
 
@@ -115,6 +123,7 @@ docs/
 ├── capability/        — CAP 文件
 ├── catalogs/          — CAT 文件
 ├── matrices/          — MAT 文件
+├── reports/           — RPT 文件
 ├── references/        — REF 文件
 ├── indexes/           — IDX 文件
 └── templates/         — TPL 文件
@@ -206,6 +215,7 @@ docs/
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 3.0.0 | 2026-08-06 | 依 EWO-AEOS-0033 擴充 Taxonomy：新增 Report（RPT）型別；Assessment 定義為 Report 之正式用途分類（不另立 Artifact Type）；定義 RPT 適用範圍與禁止用途；Directory Organization 新增 `docs/reports/`（AR-AEOS-0033-R1） | Codex |
 | 2.0.0 | 2026-08-06 | 依 EWO-AEOS-0022 擴充 Taxonomy：新增 CAT（Catalog）與 MAT（Matrix）為正式且相互獨立之文件型別；IDX 不再承載 Catalog；Directory Organization 新增 `docs/catalogs/` 與 `docs/matrices/`；Catalog／Matrix Schema 統一由 AEOS-STD-006 規範 | Codex |
 | 1.0.0 | 2026-08-05 | 正式定版為 Documentation Information Architecture Foundation：擴充 Taxonomy（ADR／POL／STD／REF／IDX／TPL）、同步 Directory Organization、新增 Review Owner、Lifecycle 新增 Deprecated、新增 Documentation Evolution Principles（DR-AEOS-0003-R1） | Codex |
 | 0.1.0 | 2026-08-05 | 初版：建立 AEOS Documentation Information Architecture（EWO-AEOS-0003） | Codex |
