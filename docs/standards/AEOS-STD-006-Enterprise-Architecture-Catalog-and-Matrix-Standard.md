@@ -3,13 +3,15 @@ doc-id: AEOS-STD-006
 doc-name: Enterprise Architecture Catalog and Matrix Standard
 doc-type: Standard
 repository: AEOS
-version: 0.1.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Repository Owner
 created: 2026-08-06
 updated: 2026-08-06
 related:
   - EWO-AEOS-0022
+  - EWO-AEOS-0023
+  - SR-AEOS-0023-R1
   - AEOS-ARCH-001
   - AEOS-ARCH-004
   - AEOS-ARCH-005
@@ -43,14 +45,14 @@ related:
 | 文件代號 | AEOS-STD-006 |
 | 文件名稱 | Enterprise Architecture Catalog and Matrix Standard |
 | 型別 | Standard |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
 | Repository | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0022、AEOS-DIA-001、AEOS-STD-001～AEOS-STD-005、AEOS-ARCH-001、AEOS-ARCH-004～AEOS-ARCH-010、AEOS-GOV-001、WA-001（Approved v1.0.0） |
-| 關聯文件 | AEOS-ARCH-001～AEOS-ARCH-010、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001、AEOS-STD-001～AEOS-STD-005、WA-001 |
+| 依據文件 | EWO-AEOS-0022、EWO-AEOS-0023、SR-AEOS-0023-R1、AEOS-DIA-001、AEOS-STD-001～AEOS-STD-005、AEOS-ARCH-001、AEOS-ARCH-004～AEOS-ARCH-010、AEOS-GOV-001、WA-001（Approved v1.0.0） |
+| 關聯文件 | EWO-AEOS-0023、SR-AEOS-0023-R1、AEOS-ARCH-001～AEOS-ARCH-010、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001、AEOS-STD-001～AEOS-STD-005、WA-001 |
 
 ## 1. Purpose
 
@@ -330,4 +332,5 @@ Catalog／Matrix 合規檢查至少包含：
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-08-06 | Standard Review 核准並合併；狀態更新為 Approved，成為 AEOS Enterprise Architecture Catalog and Matrix Standard 正式定義（EWO-AEOS-0023；SR-AEOS-0023-R1） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：依 Chief Architect 裁定定義 CAT／MAT 型別、目錄歸屬、統一 Schema、Entry ID／Relationship ID 命名框架、Traceability、Lifecycle、Review、Approval、Change 與一致性規則（EWO-AEOS-0022） | Codex |
