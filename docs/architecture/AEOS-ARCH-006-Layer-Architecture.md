@@ -3,13 +3,15 @@ doc-id: AEOS-ARCH-006
 doc-name: Layer Architecture
 doc-type: Architecture
 repository: AEOS
-version: 0.1.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-08-06
 updated: 2026-08-06
 related:
   - EWO-AEOS-Architecture-0003
+  - EWO-AEOS-0013
+  - AR-AEOS-0013-R1
   - WA-001
   - AEOS-ARCH-001
   - AEOS-ARCH-002
@@ -29,14 +31,14 @@ related:
 | 文件代號 | AEOS-ARCH-006 |
 | 文件名稱 | Layer Architecture |
 | 型別 | Architecture（Layer Architecture） |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-Architecture-0003、WA-001（Approved v1.0.0）、AEOS-ARCH-001（Approved v1.0.0）、AEOS-ARCH-002（Approved v1.0.0）、AEOS-ARCH-004（Approved v1.0.0） |
-| 關聯文件 | AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-STD-001～AEOS-STD-005 |
+| 依據文件 | EWO-AEOS-Architecture-0003、EWO-AEOS-0013、AR-AEOS-0013-R1、WA-001（Approved v1.0.0）、AEOS-ARCH-001（Approved v1.0.0）、AEOS-ARCH-002（Approved v1.0.0）、AEOS-ARCH-004（Approved v1.0.0） |
+| 關聯文件 | EWO-AEOS-0013、AR-AEOS-0013-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-STD-001～AEOS-STD-005 |
 
 ## 1. Purpose
 
@@ -251,4 +253,5 @@ Layer Architecture 合規檢查至少包含：
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-08-06 | Architecture Review 核准並合併；狀態更新為 Approved，成為 AEOS Layer Architecture 正式定義（EWO-AEOS-0013；AR-AEOS-0013-R1） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：依 WA-001 與 AEOS-ARCH-004 定義 Layer Model、Layer Rules、Cross-Layer Relationships、Ownership、Change 與 Compliance（EWO-AEOS-Architecture-0003） | Codex |
