@@ -133,6 +133,7 @@ related:
 |----------|----------|------|----------|------|
 | WA-001 | AI Engineering Workspace Architecture | Architecture Source（外部） | — | Approved v1.0.0 |
 | AEOS-ARCH-001 | Architecture Baseline | Architecture Entry Document | WA-001 v1.0.0 | Approved |
+| AEOS-ARCH-002 | Enterprise Governance Architecture | Architecture | WA-001 v1.0.0 | Approved |
 
 後續 AEOS 架構文件依 WA-001 建立後，於本 Register 登錄並更新版本。
 
