@@ -3,9 +3,9 @@ doc-id: AEOS-ADR-001
 doc-name: Architecture Definition Carrier Decision
 doc-type: ADR
 repository: AEOS
-version: 0.1.0
-status: Draft
-decision-status: Proposed
+version: 1.0.0
+status: Approved
+decision-status: Approved
 decision-owner: Architecture Owner
 decision-date: 2026-08-06
 owner: Architecture Owner
@@ -13,6 +13,8 @@ created: 2026-08-06
 updated: 2026-08-06
 related:
   - EWO-AEOS-0041
+  - EWO-AEOS-0042
+  - AD-AEOS-0041-R1
   - AEOS-ARCH-001
   - AEOS-ARCH-003
   - AEOS-ARCH-004
@@ -34,17 +36,17 @@ AEOS-ARCH-001 §4 所列六項架構組成中，Enterprise Meta Architecture 與
 | 文件代號 | AEOS-ADR-001 |
 | 文件名稱 | Architecture Definition Carrier Decision |
 | 型別 | ADR（Architecture Decision Record） |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
-| Decision Status | Proposed |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
+| Decision Status | Approved |
 | Decision Owner | Architecture Owner |
 | Decision Date | 2026-08-06 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0041、AEOS-ARCH-003（ADR System）、AEOS-ARCH-001（Architecture Baseline） |
-| 關聯文件 | AEOS-ARCH-001、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-006 |
+| 依據文件 | EWO-AEOS-0041、EWO-AEOS-0042、AD-AEOS-0041-R1、AEOS-ARCH-003（ADR System）、AEOS-ARCH-001（Architecture Baseline） |
+| 關聯文件 | EWO-AEOS-0042、AD-AEOS-0041-R1、AEOS-ARCH-001、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-006 |
 
 ## 1. Context
 
@@ -99,4 +101,5 @@ AEOS-ARCH-001 §4 所列六項架構組成中，Enterprise Meta Architecture 與
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-08-06 | Lifecycle Approval（EWO-AEOS-0042）：經 AD-AEOS-0041-R1（Reviewer APPROVED）與 PR #41 合併後，文件狀態更新為 Approved 1.0.0；Decision Status 更新為 Approved（決策已核准） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：記錄 Definition Carrier Decision——Enterprise Meta Architecture 與 Architecture Principles 保留為獨立組成並分別以 AEOS-ARCH-011／AEOS-ARCH-012 承載（EWO-AEOS-0041；AD-AEOS-0041-R1） | Codex |

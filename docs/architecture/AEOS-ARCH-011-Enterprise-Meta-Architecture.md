@@ -3,13 +3,15 @@ doc-id: AEOS-ARCH-011
 doc-name: Enterprise Meta Architecture
 doc-type: Architecture
 repository: AEOS
-version: 0.1.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-08-06
 updated: 2026-08-06
 related:
   - EWO-AEOS-0041
+  - EWO-AEOS-0042
+  - AR-AEOS-0041-R2
   - AEOS-ADR-001
   - AEOS-ARCH-001
   - AEOS-ARCH-002
@@ -33,14 +35,14 @@ Enterprise Meta Architecture 定義 AEOS Enterprise Architecture 之「上層結
 | 文件代號 | AEOS-ARCH-011 |
 | 文件名稱 | Enterprise Meta Architecture |
 | 型別 | Architecture（Enterprise Meta Architecture Definition） |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0041、AEOS-ADR-001、AEOS-ARCH-001（Approved 1.0.0）、AEOS-ARCH-002（Approved 1.0.0）、AEOS-ARCH-003（Approved 1.0.0）、AEOS-ARCH-004（Approved 1.0.0）、AEOS-ARCH-006（Approved 1.0.0） |
-| 關聯文件 | AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-005～010、AEOS-ADR-001、AEOS-STD-001～006 |
+| 依據文件 | EWO-AEOS-0041、EWO-AEOS-0042、AR-AEOS-0041-R2、AEOS-ADR-001、AEOS-ARCH-001（Approved 1.0.0）、AEOS-ARCH-002（Approved 1.0.0）、AEOS-ARCH-003（Approved 1.0.0）、AEOS-ARCH-004（Approved 1.0.0）、AEOS-ARCH-006（Approved 1.0.0） |
+| 關聯文件 | EWO-AEOS-0042、AR-AEOS-0041-R2、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-005～010、AEOS-ADR-001、AEOS-STD-001～006 |
 
 ## 1. Purpose
 
@@ -186,4 +188,5 @@ Enterprise Meta Architecture 之結構元素（整合自現行 Approved AEOS Art
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-08-06 | Lifecycle Approval（EWO-AEOS-0042）：經 AR-AEOS-0041-R2（Reviewer APPROVED）與 PR #41 合併後，狀態更新為 Approved 1.0.0，成為 AEOS Enterprise Meta Architecture 正式 Definition | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：整合現行 Approved AEOS Artifacts 之既有事實，正式定義 Enterprise Meta Architecture（上層結構與關係規則）；明確與 Layer Architecture、Overview 之分工（EWO-AEOS-0041；AR-AEOS-0041-R2） | Codex |
