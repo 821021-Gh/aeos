@@ -137,7 +137,7 @@ related:
 | AEOS-ARCH-003 | Architecture Decision Record System | Architecture | WA-001 v1.0.0 | Approved |
 | AEOS-ARCH-004 | AI Enterprise Architecture Overview | Enterprise Architecture Entry Document | WA-001 v1.0.0、AEOS-ARCH-001 | Approved |
 | AEOS-ARCH-005 | Platform Architecture | Architecture | WA-001 v1.0.0、AEOS-ARCH-004 | Approved |
-| AEOS-ARCH-006 | Layer Architecture | Architecture | WA-001 v1.0.0、AEOS-ARCH-004 | Draft |
+| AEOS-ARCH-006 | Layer Architecture | Architecture | WA-001 v1.0.0、AEOS-ARCH-004 | Approved |
 
 後續 AEOS 架構文件依 WA-001 建立後，於本 Register 登錄並更新版本。
 
