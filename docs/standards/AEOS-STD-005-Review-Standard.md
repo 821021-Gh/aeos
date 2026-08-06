@@ -3,7 +3,7 @@ doc-id: AEOS-STD-005
 doc-name: Review Standard
 doc-type: Standard
 repository: AEOS
-version: 1.2.0
+version: 1.3.0
 status: Approved
 owner: Repository Owner
 created: 2026-08-06
@@ -12,6 +12,7 @@ related:
   - EWO-AEOS-0012
   - EWO-AEOS-0022
   - EWO-AEOS-0033
+  - EWO-AEOS-0037
   - AEOS-ARCH-001
   - AEOS-ARCH-002
   - AEOS-ARCH-003
@@ -41,7 +42,7 @@ related:
 | 文件名稱 | Review Standard |
 | 型別 | Standard |
 | 狀態 | Approved |
-| 版本 | 1.2.0 |
+| 版本 | 1.3.0 |
 | Repository | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
@@ -119,7 +120,7 @@ Review Type 為 Review 之正式分類；Review MUST 依 Review Subject 之型�
 
 | Review Type | Review ID 前綴 | 適用資產 | 審查重點 |
 |-------------|----------------|----------|----------|
-| Architecture Review | AR | ARCH、DIA 文件 | 架構一致性與來源追溯（WA-001／AEOS-ARCH-001） |
+| Architecture Review | AR | ARCH、DIA 文件；Architecture Candidate Assessment RPT（依 AEOS-DIA-001 §3） | 架構一致性與來源追溯（WA-001／AEOS-ARCH-001）；候選識別與 Review Outcome 之 Fact Authority |
 | Repository Review | RR | CON 文件與 Repository 治理文件 | Repository 身分、治理原則與變更管理 |
 | Standard Review | SR | STD 文件 | 標準完整性、與上位文件一致、未重新定義既有標準 |
 | Policy Review | PR | POL 文件 | 政策內容與上位文件一致 |
@@ -136,6 +137,11 @@ Review Type 為 Review 之正式分類；Review MUST 依 Review Subject 之型�
 - 既有型別 Constitution Review（CR）、Documentation Review（DR）沿用既有 Review ID（如 `CR-AEOS-0004-R1`、`DR-AEOS-0003-R1`），保留相容。
 - 本表未列之 Review Type MUST NOT 自創（依 AEOS-STD-004 R-007 Reserved Words）。
 - ReviewType 之完整清單以本標準為唯一權威來源；AEOS-STD-004 §6.3 定義 Review ID 之格式（IR-10），其型別清單由本標準擴充。
+- Architecture Candidate Assessment RPT 使用 AR：AR 同時完成該文件之內容審查與 Lifecycle 核准，不另疊加 RT 作為第二核准路徑。
+- PR 仍為正式 Review Record 載體；AR 判定可包含 Approved、Approved with Conditions、Rejected、Deferred。
+- Architecture Candidate Assessment RPT 應記錄 Review ID 與結果摘要，但不得聲稱取代 Review Record。
+- Catalog 登錄之 Traceability 必須包含 Approved Architecture Candidate Assessment RPT 與對應之 AR Review Record。
+- 若候選核准會新增或變更既有 Enterprise Architecture，仍須依 AEOS-ARCH-003 判斷是否另行建立 ADR；RPT 與 AR 不得取代必要之 ADR。
 
 ## 5. Review Workflow
 
@@ -345,6 +351,7 @@ Review Consistency Validation 驗證 Review 記錄與資產身分、決策及 PR
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.3.0 | 2026-08-06 | 依 EWO-AEOS-0037 擴充 Architecture Review（AR）適用資產至 Architecture Candidate Assessment RPT；定義其唯一 Review 路徑（AR 同時完成內容審查與 Lifecycle 核准，不疊加 RT）；明定 PR 為 Review Record 載體、AR 判定（Approved／Approved with Conditions／Rejected／Deferred）、RPT 僅記錄 Review ID 與結果摘要、Catalog 登錄 Traceability 須含 Approved RPT 與 AR Review Record、必要時仍須依 AEOS-ARCH-003 建立 ADR（SR-AEOS-0037-R2） | Codex |
 | 1.2.0 | 2026-08-06 | 依 EWO-AEOS-0033 新增 Report Review（RT）：適用 RPT 文件，審查分析完整性、結論 Fact Authority 與建議可執行性（SR-AEOS-0033-R3） | Codex |
 | 1.1.0 | 2026-08-06 | 依 EWO-AEOS-0022 新增 Catalog／Matrix Review（CM）：適用 CAT、MAT 文件，審查 Catalog／Matrix 一致性、條目追溯與關係事實（依 AEOS-STD-006） | Codex |
 | 1.0.0 | 2026-08-06 | 依 Standard Review（SR-AEOS-0012-R1）修正：狀態升版至 Approved 1.0.0；Review Model 新增 Review Hierarchy（Enterprise／Repository／Document Review；Review MUST 遵循 Governance Hierarchy，不得由下層 Review 覆蓋上層已核准決策）；Review Workflow 新增 Review Escalation（Escalation Trigger／Authority／Resolution；適用於 Architecture、Governance、Standard、Policy 等重大 Review）；Review Decision Model 新增 Decision Finality（APPROVED 為正式核准；REJECTED 保留歷史；SUPERSEDED 必須引用新 Decision；REQUEST CHANGES 必須全部 RC 完成後才能重新 Review）；Validation 新增 Review Consistency Validation（C-001～C-005）；Compliance 新增 Review Integrity Checklist | Codex |

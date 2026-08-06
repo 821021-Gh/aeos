@@ -3,7 +3,7 @@ doc-id: AEOS-DIA-001
 doc-name: Documentation Information Architecture
 doc-type: Information Architecture
 repository: AEOS
-version: 3.0.0
+version: 3.1.0
 status: Approved
 owner: Architecture Owner
 created: 2026-08-05
@@ -12,6 +12,7 @@ related:
   - EWO-AEOS-0003
   - EWO-AEOS-0022
   - EWO-AEOS-0033
+  - EWO-AEOS-0037
   - AEOS-ARCH-001
   - WA-001
 ---
@@ -28,7 +29,7 @@ related:
 | 文件名稱 | Documentation Information Architecture |
 | 型別 | Information Architecture |
 | 狀態 | Approved |
-| 版本 | 3.0.0 |
+| 版本 | 3.1.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-05 |
@@ -87,6 +88,10 @@ Report（RPT）規則：
 - 適用範圍：正式分析結果（架構盤點、成熟度評估、Readiness Assessment、影響分析等）。
 - 禁止用途：不得承載 Architecture 決策（ADR）、Standard（STD）、Policy（POL）、Catalog（CAT）或 Matrix（MAT）內容；不得以 Report 取代 EWO、Review Record 或正式決策文件。
 - Assessment 為 Report 之正式用途分類，不另立獨立 Artifact Type；Readiness Assessment 等以 Report 型別承載。
+- Architecture Candidate Assessment 為 Report 之正式用途分類；承載候選識別、來源證據、Scope、Boundary、Responsibilities、Exclusions、重疊分析、條件、拒絕或延後理由及 Review Outcome 摘要。
+- Architecture Candidate Assessment RPT 不得承載或取代 Architecture Definition、ADR、Catalog Entry 或正式 Review Record；不得聲稱取代 Review Record。
+- Approved Architecture Candidate Assessment RPT 可作為長期分析 Fact Authority；其 Review Decision 必須追溯至對應之 AR Review Record（PR 載體）。
+- Architecture Candidate Assessment RPT 之適用 Review Type 為 AR（Architecture Review）；不另疊加 RT 作為第二核准路徑。
 
 ## 4. Documentation Information Architecture
 
@@ -215,6 +220,7 @@ docs/
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 3.1.0 | 2026-08-06 | 依 EWO-AEOS-0037 新增 Report 正式用途分類 Architecture Candidate Assessment：定義可承載內容（候選識別、來源證據、Scope、Boundary、Responsibilities、Exclusions、重疊分析、條件、拒絕/延後理由及 Review Outcome 摘要）、禁止用途（不得承載或取代 Architecture Definition、ADR、Catalog Entry 或正式 Review Record）、Fact Authority 定位（Approved RPT 為長期分析依據，Review Decision 追溯至 AR Review Record）與 Review Type（AR，不疊加 RT）（AR-AEOS-0037-R1） | Codex |
 | 3.0.0 | 2026-08-06 | 依 EWO-AEOS-0033 擴充 Taxonomy：新增 Report（RPT）型別；Assessment 定義為 Report 之正式用途分類（不另立 Artifact Type）；定義 RPT 適用範圍與禁止用途；Directory Organization 新增 `docs/reports/`（AR-AEOS-0033-R1） | Codex |
 | 2.0.0 | 2026-08-06 | 依 EWO-AEOS-0022 擴充 Taxonomy：新增 CAT（Catalog）與 MAT（Matrix）為正式且相互獨立之文件型別；IDX 不再承載 Catalog；Directory Organization 新增 `docs/catalogs/` 與 `docs/matrices/`；Catalog／Matrix Schema 統一由 AEOS-STD-006 規範 | Codex |
 | 1.0.0 | 2026-08-05 | 正式定版為 Documentation Information Architecture Foundation：擴充 Taxonomy（ADR／POL／STD／REF／IDX／TPL）、同步 Directory Organization、新增 Review Owner、Lifecycle 新增 Deprecated、新增 Documentation Evolution Principles（DR-AEOS-0003-R1） | Codex |
