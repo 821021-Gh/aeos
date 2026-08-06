@@ -3,13 +3,15 @@ doc-id: AEOS-CAT-001
 doc-name: Platform Catalog
 doc-type: Catalog
 repository: AEOS
-version: 0.1.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-08-06
 updated: 2026-08-06
 related:
   - EWO-AEOS-0024
+  - EWO-AEOS-0025
+  - CM-AEOS-0025-R1
   - AEOS-STD-006
   - AEOS-ARCH-001
   - AEOS-ARCH-004
@@ -32,14 +34,14 @@ related:
 | 文件代號 | AEOS-CAT-001 |
 | 文件名稱 | Platform Catalog |
 | 型別 | Catalog |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0024、AEOS-STD-006（Approved 1.0.0）、AEOS-ARCH-004（Approved 1.0.0）、AEOS-ARCH-005（Approved 1.0.0）、AEOS-ARCH-001、WA-001（Approved v1.0.0） |
-| 關聯文件 | AEOS-ARCH-001、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-STD-001～AEOS-STD-006、WA-001 |
+| 依據文件 | EWO-AEOS-0024、EWO-AEOS-0025、CM-AEOS-0025-R1、AEOS-STD-006（Approved 1.0.0）、AEOS-ARCH-004（Approved 1.0.0）、AEOS-ARCH-005（Approved 1.0.0）、AEOS-ARCH-001、WA-001（Approved v1.0.0） |
+| 關聯文件 | EWO-AEOS-0025、CM-AEOS-0025-R1、AEOS-ARCH-001、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-STD-001～AEOS-STD-006、WA-001 |
 
 ## 1. Purpose
 
@@ -175,4 +177,5 @@ Platform Catalog MUST 符合 AEOS-STD-006 §11 一致性規則：
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-08-06 | Catalog／Matrix Review 核准並合併；狀態更新為 Approved，成為 AEOS Platform Catalog 正式登錄來源（EWO-AEOS-0025；CM-AEOS-0025-R1）；具名 Platform 條目維持 0 | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：依 AEOS-STD-006 建立 Platform Catalog 權威結構、Entry Schema、Lifecycle、Traceability、Change 與一致性規則；本版登錄具名 Platform 條目為 0（現行 Approved Architecture 未核准任何具名 Platform）（EWO-AEOS-0024） | Codex |
