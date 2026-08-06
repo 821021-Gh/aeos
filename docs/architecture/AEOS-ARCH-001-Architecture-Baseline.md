@@ -140,7 +140,7 @@ related:
 | AEOS-ARCH-006 | Layer Architecture | Architecture | WA-001 v1.0.0、AEOS-ARCH-004 | Approved |
 | AEOS-ARCH-007 | Capability Architecture | Architecture | WA-001 v1.0.0、AEOS-ARCH-004 | Approved |
 | AEOS-ARCH-008 | Repository Architecture | Architecture | WA-001 v1.0.0、AEOS-ARCH-004 | Approved |
-| AEOS-ARCH-009 | Dependency Architecture | Architecture | WA-001 v1.0.0、AEOS-ARCH-004 | Draft |
+| AEOS-ARCH-009 | Dependency Architecture | Architecture | WA-001 v1.0.0、AEOS-ARCH-004 | Approved |
 
 後續 AEOS 架構文件依 WA-001 建立後，於本 Register 登錄並更新版本。
 
