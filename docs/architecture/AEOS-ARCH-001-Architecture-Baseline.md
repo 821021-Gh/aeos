@@ -3,7 +3,7 @@ doc-id: AEOS-ARCH-001
 doc-name: Architecture Baseline
 doc-type: Architecture
 repository: AEOS
-version: 1.0.0
+version: 1.1.0
 status: Approved
 owner: Architecture Owner
 created: 2026-08-05
@@ -25,7 +25,7 @@ related:
 | 文件名稱 | Architecture Baseline |
 | 型別 | Architecture（Entry Document） |
 | 狀態 | Approved |
-| 版本 | 1.0.0 |
+| 版本 | 1.1.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-05 |
@@ -142,6 +142,8 @@ related:
 | AEOS-ARCH-008 | Repository Architecture | Architecture | WA-001 v1.0.0、AEOS-ARCH-004 | Approved |
 | AEOS-ARCH-009 | Dependency Architecture | Architecture | WA-001 v1.0.0、AEOS-ARCH-004 | Approved |
 | AEOS-ARCH-010 | Workspace Architecture | Architecture | WA-001 v1.0.0、AEOS-ARCH-004 | Approved |
+| AEOS-ARCH-011 | Enterprise Meta Architecture | Architecture | AEOS-ARCH-004、AEOS-ARCH-006 | Draft |
+| AEOS-ARCH-012 | Architecture Principles | Architecture | AEOS-ARCH-004 | Draft |
 
 後續 AEOS 架構文件依 WA-001 建立後，於本 Register 登錄並更新版本。
 
@@ -157,11 +159,14 @@ related:
 | 文件 | 型別 | 用途 |
 |------|------|------|
 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | AEOS 唯一架構來源 |
+| AEOS-ARCH-011 — Enterprise Meta Architecture | Architecture | Enterprise Meta Architecture Definition（AEOS-ARCH-001 §4.2） |
+| AEOS-ARCH-012 — Architecture Principles | Architecture | Architecture Principles Definition（AEOS-ARCH-001 §4.6） |
 | EWO-AEOS-0001 — Architecture Baseline Import | EWO | 本文件之工作來源 |
 
 ## 11. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.1.0 | 2026-08-06 | 依 EWO-AEOS-0041 同步 Architecture Register：登錄 AEOS-ARCH-011（Enterprise Meta Architecture）與 AEOS-ARCH-012（Architecture Principles）為 Draft；References 新增兩份 Definition 之交叉引用（AR-AEOS-0041-R4） | Codex |
 | 1.0.0 | 2026-08-05 | 正式導入 WA-001（Approved v1.0.0）為唯一架構來源；納入已核准架構（Workspace Architecture、Enterprise Meta Architecture、Platform Topology、Capability Architecture、Capability Ownership、Architecture Principles）；確立 Architecture Register；版本升級至 1.0.0 / Approved（AR-AEOS-0001 RC-001） | Codex |
 | 0.1.0 | 2026-08-05 | 初版：導入 WA-001 為唯一架構來源，建立 Architecture Baseline（EWO-AEOS-0001） | Codex |
