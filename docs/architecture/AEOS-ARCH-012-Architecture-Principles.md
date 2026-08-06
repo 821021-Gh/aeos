@@ -3,13 +3,15 @@ doc-id: AEOS-ARCH-012
 doc-name: Architecture Principles
 doc-type: Architecture
 repository: AEOS
-version: 0.1.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-08-06
 updated: 2026-08-06
 related:
   - EWO-AEOS-0041
+  - EWO-AEOS-0042
+  - AR-AEOS-0041-R3
   - AEOS-ADR-001
   - AEOS-ARCH-001
   - AEOS-ARCH-002
@@ -33,14 +35,14 @@ Architecture Principles 定義約束 AEOS 架構決策之正式準則。本文�
 | 文件代號 | AEOS-ARCH-012 |
 | 文件名稱 | Architecture Principles |
 | 型別 | Architecture（Architecture Principles Definition） |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0041、AEOS-ADR-001、AEOS-ARCH-001（Approved 1.0.0）、AEOS-ARCH-002（Approved 1.0.0）、AEOS-ARCH-004（Approved 1.0.0）、AEOS-CON-001（Approved 1.0.0） |
-| 關聯文件 | AEOS-ARCH-001～010、AEOS-ADR-001、AEOS-CON-001、AEOS-STD-001～006 |
+| 依據文件 | EWO-AEOS-0041、EWO-AEOS-0042、AR-AEOS-0041-R3、AEOS-ADR-001、AEOS-ARCH-001（Approved 1.0.0）、AEOS-ARCH-002（Approved 1.0.0）、AEOS-ARCH-004（Approved 1.0.0）、AEOS-CON-001（Approved 1.0.0） |
+| 關聯文件 | EWO-AEOS-0042、AR-AEOS-0041-R3、AEOS-ARCH-001～010、AEOS-ADR-001、AEOS-CON-001、AEOS-STD-001～006 |
 
 ## 1. Purpose
 
@@ -223,4 +225,5 @@ Architecture Principles 定義約束 AEOS 架構決策之正式準則。本文�
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-08-06 | Lifecycle Approval（EWO-AEOS-0042）：經 AR-AEOS-0041-R3（Reviewer APPROVED）與 PR #41 合併後，狀態更新為 Approved 1.0.0，成為 AEOS Architecture Principles 正式 Definition | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：定義 Architecture Principles（原則模型、六項原則及逐項升格分析、適用範圍、決策／Review 用法、例外治理、與 Governance／Repository Principles 邊界）（EWO-AEOS-0041；AR-AEOS-0041-R3） | Codex |
