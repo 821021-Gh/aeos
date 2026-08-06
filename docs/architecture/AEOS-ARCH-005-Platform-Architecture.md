@@ -3,8 +3,8 @@ doc-id: AEOS-ARCH-005
 doc-name: Platform Architecture
 doc-type: Architecture
 repository: AEOS
-version: 0.1.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-08-06
 updated: 2026-08-06
@@ -28,8 +28,8 @@ related:
 | 文件代號 | AEOS-ARCH-005 |
 | 文件名稱 | Platform Architecture |
 | 型別 | Architecture（Platform Architecture） |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
@@ -353,4 +353,5 @@ Platform Architecture 合規檢查至少包含：
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-08-06 | Architecture Review 核准並合併；狀態更新為 Approved，成為 AEOS Platform Architecture 正式定義（EWO-AEOS-Architecture-0002） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：依 WA-001 與 AEOS-ARCH-004 定義 Platform Identity、Boundary、Classification、Relationship、Interface、Ownership、Catalog、Lifecycle、Change 與 Compliance（EWO-AEOS-Architecture-0002） | Codex |
