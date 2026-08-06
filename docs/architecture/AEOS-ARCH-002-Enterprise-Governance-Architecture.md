@@ -3,23 +3,24 @@ doc-id: AEOS-ARCH-002
 doc-name: Enterprise Governance Architecture
 doc-type: Architecture
 repository: AEOS
-version: 1.0.0
+version: 1.1.0
 status: Approved
 owner: Architecture Owner
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-07
 related:
   - EWO-AEOS-0005
   - AR-AEOS-0005-R1
   - AEOS-ARCH-001
   - AEOS-DIA-001
   - AEOS-CON-001
+  - AEOS-ADR-002
   - WA-001
 ---
 
 # AEOS-ARCH-002 — Enterprise Governance Architecture
 
-> EWO-AEOS-0005：依 WA-001、AEOS-ARCH-001、AEOS-DIA-001 與 AEOS-CON-001 建立 AEOS 之 Enterprise Governance Architecture。本文件為 Enterprise Governance 之正式 Architecture，不是 Governance Standard、Governance Policy 或 ADR。
+> EWO-AEOS-0005：依 AEOS-ADR-002、AEOS-ARCH-001、AEOS-DIA-001 與 AEOS-CON-001 建立 AEOS 之 Enterprise Governance Architecture。本文件為 Enterprise Governance 之正式 Architecture，不是 Governance Standard、Governance Policy 或 ADR。
 
 ## 文件資訊
 
@@ -29,20 +30,20 @@ related:
 | 文件名稱 | Enterprise Governance Architecture |
 | 型別 | Architecture |
 | 狀態 | Approved |
-| 版本 | 1.0.0 |
+| 版本 | 1.1.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0005、AR-AEOS-0005-R1、WA-001（Approved v1.0.0）、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0） |
-| 關聯文件 | EWO-AEOS-0005、AR-AEOS-0005-R1、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、WA-001 |
+| 最後更新 | 2026-08-07 |
+| 依據文件 | EWO-AEOS-0005、AR-AEOS-0005-R1、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0） |
+| 關聯文件 | EWO-AEOS-0005、AR-AEOS-0005-R1、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Governance Vision
 
 本文件定義 AEOS 之 Enterprise Governance Architecture，其願景為：
 
 - AI Engineering Workspace 之企業層級治理以正式 Architecture 承載：結構、領域、階層與關係一致，決策可追溯，演進可控。
-- 治理架構使 Enterprise Architecture（以 WA-001 為唯一架構來源）、Platform Governance 與 Capability Management 於 AEOS 內以一致之方式落地與演進。
+- 治理架構使 Enterprise Architecture（以 Approved Fact Authority Baseline 為架構權威；依 AEOS-ADR-002 §2.2）、Platform Governance 與 Capability Management 於 AEOS 內以一致之方式落地與演進。
 - 治理以正式文件為載體、以 Review 為強制機制、以 EWO 為變更單位。
 
 本文件定義治理「如何組織」，不定義治理「內容」；政策、標準、規格與決策由下位文件承載。
@@ -64,7 +65,7 @@ related:
 - Governance Standard／Governance Policy 之內容（由後續 POL／STD／SPEC／GOV 文件承載）。
 - 單一治理決策之記錄（由 ADR 承載）。
 - Repository Governance 細則（Repository 身分、角色職責、變更規則；由 AEOS-CON-001 承載）。
-- WA-001／AEOS-ARCH-001 已定義之架構內容之重述或修改。
+- Approved 架構載體（AEOS-ARCH-001～012）已定義之架構內容之重述或修改；WA-001 為歷史來源，不作為正式架構權威（AEOS-ADR-002 §2.1）。
 
 ## 3. Governance Layers
 
@@ -89,10 +90,10 @@ Enterprise Governance 分為下列治理領域：
 
 | 領域 | 治理範圍 | 架構來源 |
 |------|----------|----------|
-| Architecture Governance | 架構基線、架構文件與 Register | WA-001、AEOS-ARCH-001 |
+| Architecture Governance | 架構基線、架構文件與 Register | AEOS-ARCH-001（Register）、AEOS-ADR-002 |
 | Documentation Governance | 文件體系、Taxonomy 與文件生命週期 | AEOS-DIA-001 |
-| Platform Governance | 平台層級治理內容與決策 | WA-001（正式內容由後續 EWO 建立） |
-| Capability Governance | 能力定義、擁有權與管理 | WA-001（正式內容由後續 EWO 建立） |
+| Platform Governance | 平台層級治理內容與決策 | 正式內容由後續 EWO 建立（不依 WA-001） |
+| Capability Governance | 能力定義、擁有權與管理 | 正式內容由後續 EWO 建立（不依 WA-001） |
 | Repository Governance | Repository 身分、所有權與變更 | AEOS-CON-001 |
 | Decision Governance | ADR、Architecture Decision、Repository Decision、Review Decision 之記錄與管理 | ADR、Review Records（L4 Governance Decision） |
 
@@ -108,7 +109,7 @@ Enterprise Governance 分為下列治理領域：
 
 | 階層 | 文件類別 | 角色 |
 |------|----------|------|
-| H0 | WA-001（外部架構來源） | 最高架構權威 |
+| H0 | AEOS-ARCH-001（Architecture Baseline） | 最高架構權威 |
 | H1 | AEOS-ARCH-001 | 架構 Entry Document |
 | H2 | AEOS-CON-001 | Repository 治理基線 |
 | H3 | Domain Architecture（AEOS-ARCH-002 等） | 治理／領域結構定義 |
@@ -120,14 +121,16 @@ Enterprise Governance 分為下列治理領域：
 規則：
 
 - 階層愈高，權威愈高；下位文件 MUST NOT 違反上位文件。
-- 內容衝突時依階層解析；架構內容以 WA-001／AEOS-ARCH-001 為準。
+- 內容衝突時依階層解析；架構內容以 Approved 架構載體／AEOS-ARCH-001 為準；WA-001 僅為歷史來源（AEOS-ADR-002 §2.1）。
 - 上位文件變更時，下位文件之引用須於同一或後續 EWO 對應更新，不得保留失效引用。
+
+註：WA-001（外部歷史來源）不作為正式架構權威（AEOS-ADR-002 §2.1）；歷史層級內容保留於 Revision History。
 
 ## 6. Governance Relationships
 
 | 來源 | 關係 | 目標 | 用途 |
 |------|------|------|------|
-| WA-001 | 導入為唯一架構來源 | AEOS-ARCH-001 | 架構基線 |
+| WA-001 | 歷史來源（外部） | AEOS-ADR-002 | 已分類為歷史參考（不作為 Fact Authority） |
 | AEOS-ARCH-001 | 定義架構 Register 與引用樞紐 | 各 ARCH 文件 | 架構追溯 |
 | AEOS-CON-001 | 定義 Repository 治理基線 | 治理文件 | 治理合規依據 |
 | AEOS-DIA-001 | 定義文件分類與生命週期 | 治理文件 | 文件治理 |
@@ -203,15 +206,17 @@ Repository 層級之治理原則以 AEOS-CON-001 為準；本文件不重述。
 
 | # | 文件 | 型別 | 用途 |
 |---|------|------|------|
-| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | AEOS 唯一架構來源 |
+| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
 | REF-002 | AEOS-ARCH-001 — Architecture Baseline | Architecture Entry Document | 架構基線與 Register |
 | REF-003 | AEOS-DIA-001 — Documentation Information Architecture | Information Architecture | 文件分類、Ownership 與生命週期 |
 | REF-004 | AEOS-CON-001 — Repository Constitution（Approved v1.0.0） | Constitution | Repository 治理基線 |
 | REF-005 | EWO-AEOS-0005 — Enterprise Governance Architecture | EWO | 本文件之工作來源 |
+| REF-006 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
 ## 12. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.1.0 | 2026-08-07 | 依 EWO-AEOS-0040 Wave 1（AEOS-ADR-002 已核准並合併至 main）：執行 Authority Rule Transition——Governance Hierarchy H0 改為 AEOS-ARCH-001；WA-001 分類為歷史來源；Governance Domains／Relationships／References 重錨至 Approved Fact Authority Baseline | Codex |
 | 1.0.0 | 2026-08-06 | 依 Architecture Review（AR-AEOS-0005-R1）修正：狀態升版至 Approved 1.0.0；同步 AEOS-ARCH-001 §8 Architecture Register；Governance Domains 新增 Decision Governance（ADR、Architecture Decision、Repository Decision、Review Decision）；Governance Hierarchy 拆分 ADR（H6）與 Review Records（H7）；Governance Lifecycle 新增 Retirement；新增 GA-009 Governance by Evidence | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：定義 Enterprise Governance 之 Vision、Scope、Layers、Domains、Hierarchy、Relationships、Principles、Ownership、Lifecycle 與 Evolution（EWO-AEOS-0005） | Codex |
