@@ -3,13 +3,15 @@ doc-id: AEOS-RPT-001
 doc-name: M5 Catalog／Matrix Readiness Assessment
 doc-type: Report
 repository: AEOS
-version: 0.1.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-08-06
 updated: 2026-08-06
 related:
   - EWO-AEOS-0034
+  - EWO-AEOS-0035
+  - RT-AEOS-0035-R1
   - EWO-AEOS-0032
   - AEOS-DIA-001
   - AEOS-STD-004
@@ -46,14 +48,14 @@ related:
 | 文件名稱 | M5 Catalog／Matrix Readiness Assessment |
 | 型別 | Report |
 | 用途分類 | Readiness Assessment（Report 之正式用途分類，依 AEOS-DIA-001 §3 RPT） |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0034、EWO-AEOS-0032、AEOS-STD-006（Approved 1.0.0）、AEOS-CAT-001～004（Approved 1.0.0）、AEOS-ARCH-004～010（Approved 1.0.0）、AEOS-DIA-001（3.0.0）、AEOS-STD-004（1.2.0）、AEOS-STD-005（1.2.0）、WA-001（Approved v1.0.0） |
-| 關聯文件 | AEOS-ARCH-001、AEOS-ARCH-004～010、AEOS-CAT-001～004、AEOS-DIA-001、AEOS-STD-001～006、WA-001 |
+| 依據文件 | EWO-AEOS-0034、EWO-AEOS-0035、RT-AEOS-0035-R1、EWO-AEOS-0032、AEOS-STD-006（Approved 1.0.0）、AEOS-CAT-001～004（Approved 1.0.0）、AEOS-ARCH-004～010（Approved 1.0.0）、AEOS-DIA-001（3.0.0）、AEOS-STD-004（1.2.0）、AEOS-STD-005（1.2.0）、WA-001（Approved v1.0.0） |
+| 關聯文件 | EWO-AEOS-0035、RT-AEOS-0035-R1、AEOS-ARCH-001、AEOS-ARCH-004～010、AEOS-CAT-001～004、AEOS-DIA-001、AEOS-STD-001～006、WA-001 |
 
 ## 1. Purpose
 
@@ -184,4 +186,5 @@ EWO-AEOS-0032 發現之 Assessment／Report 文件治理缺口已由 EWO-AEOS-00
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-08-06 | Report Review（RT-AEOS-0035-R1）核准並合併；狀態更新為 Approved，成為 AEOS M5 Catalog／Matrix Readiness Assessment 正式報告（EWO-AEOS-0035）；核心評估結論與基線內容不變 | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：承接 EWO-AEOS-0032 之 Readiness Assessment，正式文件化為 Report（RPT）型別；記錄 Catalog／關係基線、Matrix Readiness 判定、阻擋條件、治理缺口解決與建議執行順序（EWO-AEOS-0034） | Codex |
