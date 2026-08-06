@@ -3,13 +3,14 @@ doc-id: AEOS-GOV-001
 doc-name: Enterprise Governance Roadmap
 doc-type: Governance
 repository: AEOS
-version: 1.0.0
+version: 1.1.0
 status: Approved
 owner: Repository Owner
 created: 2026-08-06
 updated: 2026-08-06
 related:
   - EWO-AEOS-0007
+  - EWO-AEOS-0022
   - GR-AEOS-0007-R1
   - AEOS-ARCH-001
   - AEOS-ARCH-002
@@ -31,7 +32,7 @@ related:
 | 文件名稱 | Enterprise Governance Roadmap |
 | 型別 | Governance |
 | 狀態 | Approved |
-| 版本 | 1.0.0 |
+| 版本 | 1.1.0 |
 | Repository | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
@@ -65,6 +66,22 @@ related:
 | M5 — Governance Operationalization | 治理營運化（Review Framework、Domain 治理內容） | §7 Planned Frameworks、§3 Planned Domains | 待執行 |
 
 Current Phase：AEOS 目前位於 M2 — Governance Architecture（已完成）；下一階段為 M3 — Governance Content（待執行）。
+
+### 2.1 Milestone Naming Alignment
+
+本 Roadmap 之 M1～M5 為治理里程碑命名；架構 EWO 系列使用獨立里程碑標籤（M4 — Enterprise Architecture Foundation、M5 — Enterprise Architecture Catalogs）。兩套命名互不取代：
+
+| 命名體系 | 里程碑 | 涵蓋 |
+|----------|--------|------|
+| 本 Roadmap（治理） | M4 — Governance Catalogs | §6 Planned Catalogs（Architecture Catalog、ADR Register、Document Index、Governance Catalog） |
+| 本 Roadmap（治理） | M5 — Governance Operationalization | §7 Planned Frameworks、§3 Planned Domains |
+| 架構 EWO 系列 | M4 — Enterprise Architecture Foundation | AEOS-ARCH-005～010（Platform、Layer、Capability、Repository、Dependency、Workspace Architecture） |
+| 架構 EWO 系列 | M5 — Enterprise Architecture Catalogs | Platform／Capability／Repository／Workspace Catalog 與 Ownership／Dependency Matrix（依 AEOS-STD-006） |
+
+規則：
+
+- 本 Roadmap 之里程碑以本文件為準；架構系列里程碑以對應 EWO／PR 為準。
+- M5 — Enterprise Architecture Catalogs 對應本 Roadmap §6 Planned Catalogs 之架構資產子集，其統一 Schema 依 AEOS-STD-006。
 
 ## 3. Planned Domains
 
@@ -166,10 +183,12 @@ Architecture Governance、Documentation Governance、Repository Governance 與 D
 | REF-005 | AEOS-CON-001 — Repository Constitution（Approved v1.0.0） | Constitution | Repository 治理基線 |
 | REF-006 | AEOS-DIA-001 — Documentation Information Architecture | Information Architecture | 文件分類、生命週期與引用 |
 | REF-007 | EWO-AEOS-0007 — Enterprise Governance Roadmap | EWO | 本文件之工作來源 |
+| REF-008 | AEOS-STD-006 — Enterprise Architecture Catalog and Matrix Standard | Standard | Catalog／Matrix 型別、Schema 與治理規則 |
 
 ## 12. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.1.0 | 2026-08-06 | 依 EWO-AEOS-0022 新增 Milestone Naming Alignment（§2.1）：釐清本 Roadmap 治理里程碑（M4 Governance Catalogs、M5 Governance Operationalization）與架構 EWO 系列里程碑（M4 Enterprise Architecture Foundation、M5 Enterprise Architecture Catalogs）之命名差異與對應關係；M5 Catalogs 之 Schema 依 AEOS-STD-006 | Codex |
 | 1.0.0 | 2026-08-06 | 依 Governance Review（GR-AEOS-0007-R1）修正：狀態升版至 Approved 1.0.0；Governance Milestones 新增 Current Phase（M2 已完成、M3 為下一階段）；Planned Standards 新增 Review Standard、Naming Standard；Planned Catalogs 新增 Governance Catalog（管理 Standards、Policies、Frameworks、Reviews）；Dependencies 新增 DEP-008 Approved Reviews；Evolution Strategy 新增 Milestone 完成後 Review | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：定義 Current Foundation、Governance Milestones、Planned Domains、Planned Standards、Planned Policies、Planned Catalogs、Planned Frameworks、Dependencies、Priority 與 Evolution Strategy（EWO-AEOS-0007） | Codex |
