@@ -9,7 +9,7 @@ decision-status: Proposed
 decision-owner: Architecture Owner
 owner: Architecture Owner
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-07
 related:
   - EWO-AEOS-0040
   - EWO-AEOS-0041
@@ -48,7 +48,7 @@ related:
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-06 |
+| 最後更新 | 2026-08-07 |
 | 依據文件 | EWO-AEOS-0040、EWO-AEOS-0041、EWO-AEOS-0042、AD-AEOS-0041-R1、AR-AEOS-0041-R2、AR-AEOS-0041-R3、AR-AEOS-0041-R4、AEOS-ADR-001（Approved 1.0.0）、AEOS-ARCH-001（Approved 1.2.0）、AEOS-ARCH-003（Approved 1.0.0） |
 | 關聯文件 | AEOS-ADR-001、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-011（Approved 1.0.0）、AEOS-ARCH-012（Approved 1.0.0）、AEOS-DIA-001、AEOS-CON-001、AEOS-STD-001～005、WA-001 |
 
@@ -107,6 +107,10 @@ related:
 - WA-001 MUST NOT 繼續作為 Enterprise Meta-Architecture、Architecture Principles 或其他已經由 Approved AEOS Artifact 承載之事實之正式權威來源。
 - MUST NOT 修改、重建、補寫、重新命名或反向生成 WA-001 原文。
 - MUST NOT 將後續 AEOS 內容偽裝成 WA-001 之原始內容。
+- Repository 不持有 WA-001 原文。
+- WA-001 僅作為歷史參考來源。
+- Repository 不保證 WA-001 原文之完整性、真實性或權威性。
+- Repository 不因引用而構成對 WA-001 原文之擁有或重建。
 
 ### 2.2 Approved Fact Authority Baseline
 
@@ -209,9 +213,12 @@ related:
 | REF-012 | [AEOS-DIA-001 — Documentation Information Architecture](../documentation/AEOS-DIA-001-Documentation-Information-Architecture.md)（Approved 3.1.0） | Information Architecture | Taxonomy、Lifecycle 與目錄組織 |
 | REF-013 | [AEOS-STD-005 — Review Standard](../standards/AEOS-STD-005-Review-Standard.md)（Approved 1.3.0） | Standard | Review Types 與 Review ID 規則（ADR 適用 AD） |
 | REF-014 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Architecture Source（外部） | 歷史來源／背景材料；不作為正式 Fact Authority |
+| REF-015 | [AEOS-RPT-001 — M5 Catalog／Matrix Readiness Assessment](../reports/AEOS-RPT-001-M5-Catalog-Matrix-Readiness-Assessment.md)（Approved 1.0.0） | Report | 正文 §2.5 執行邊界直接引用之既有 Artifact |
+| REF-016 | [AEOS-RPT-002 — Platform Architecture Candidate Assessment](../reports/AEOS-RPT-002-Platform-Architecture-Candidate-Assessment.md)（Draft 0.1.0） | Report | 正文 §2.5 執行邊界直接引用之既有 Artifact |
 
 ## 6. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 0.1.0 | 2026-08-07 | Review Findings 修正（PR #43 Review Report）：F-001 補充 Repository 對 WA-001 原文之立場；F-002 References 補列 AEOS-RPT-001／002，與正文直接引用一致（EWO-AEOS-0040） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：定義 WA-001 Fact Authority Transition 決策（Proposed）——Authority Classification、Approved Fact Authority Baseline、Transition 規則、後續執行順序、執行邊界與生效條件；記錄 EWO-AEOS-0040 Blocker 解除證據（EWO-AEOS-0040） | Codex |
