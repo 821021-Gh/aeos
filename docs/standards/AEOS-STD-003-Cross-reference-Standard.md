@@ -3,11 +3,11 @@ doc-id: AEOS-STD-003
 doc-name: Cross-reference Standard
 doc-type: Standard
 repository: AEOS
-version: 1.0.0
+version: 1.1.0
 status: Approved
 owner: Repository Owner
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-07
 related:
   - EWO-AEOS-0010
   - AEOS-ARCH-001
@@ -18,12 +18,13 @@ related:
   - AEOS-GOV-001
   - AEOS-STD-001
   - AEOS-STD-002
+  - AEOS-ADR-002
   - WA-001
 ---
 
 # AEOS-STD-003 — Cross-reference Standard
 
-> EWO-AEOS-0010：依 WA-001、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001、AEOS-STD-001 與 AEOS-STD-002 建立 AEOS 之 Cross-reference Standard。本文件為 AEOS Repository 所有正式治理文件之唯一 Cross-reference 規範；不是 Documentation Architecture，不是 Metadata Standard，不是 Naming Standard。
+> EWO-AEOS-0010：依 AEOS-ADR-002、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001、AEOS-STD-001 與 AEOS-STD-002 建立 AEOS 之 Cross-reference Standard。本文件為 AEOS Repository 所有正式治理文件之唯一 Cross-reference 規範；不是 Documentation Architecture，不是 Metadata Standard，不是 Naming Standard。
 
 ## Executive Summary
 
@@ -37,13 +38,13 @@ related:
 | 文件名稱 | Cross-reference Standard |
 | 型別 | Standard |
 | 狀態 | Approved |
-| 版本 | 1.0.0 |
+| 版本 | 1.1.0 |
 | Repository | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0010、AEOS-STD-001（Approved v1.0.0）、AEOS-STD-002（Approved v1.0.0）、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-GOV-001（Approved v1.0.0）、AEOS-ARCH-001、WA-001（Approved v1.0.0） |
-| 關聯文件 | EWO-AEOS-0010、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001、AEOS-STD-001、AEOS-STD-002、WA-001 |
+| 最後更新 | 2026-08-07 |
+| 依據文件 | EWO-AEOS-0010、AEOS-STD-001（Approved v1.0.0）、AEOS-STD-002（Approved v1.0.0）、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-GOV-001（Approved v1.0.0）、AEOS-ARCH-001、AEOS-ADR-002（WA-001 Fact Authority Transition） |
+| 關聯文件 | EWO-AEOS-0010、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001、AEOS-STD-001、AEOS-STD-002、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
@@ -63,7 +64,7 @@ related:
 
 - `docs/` 下之正式文件（ARCH、DIA、CON、GOV、STD、POL、SPEC、CAP、ADR、REF、IDX、TPL）間之 Cross-reference。
 - Cross-reference Model、Reference Types、Reference Rules、Reference Validation、Broken Reference Management、Cross-reference Lifecycle 與 Compliance。
-- 對外部來源（如 WA-001）之引用規範。
+- 對外部來源（如 WA-001，歷史參考）之引用規範。
 
 ### 2.2 Out of Scope
 
@@ -114,22 +115,22 @@ Reference Type 為引用之正式分類。下列九種型別為 AEOS 引用之�
 
 | Reference Type | 目標文件 | 用途 |
 |----------------|----------|------|
-| Architecture Reference | ARCH 文件、WA-001 | 架構內容與來源追溯 |
+| Architecture Reference | ARCH 文件 | 架構內容與來源追溯 |
 | Governance Reference | GOV 文件、AEOS-ARCH-002 | 治理結構、Roadmap 與優先序 |
 | Standard Reference | STD 文件 | 標準遵循宣告 |
 | Policy Reference | POL 文件 | 政策遵循宣告 |
 | Specification Reference | SPEC 文件 | 規格遵循宣告 |
 | ADR Reference | ADR 文件 | 架構決策追溯 |
 | EWO Reference | EWO-AEOS-#### | 工作來源與變更依據 |
-| External Reference | Repository 外部來源 | 外部權威來源宣告 |
+| External Reference | Repository 外部來源（含歷史來源，如 WA-001） | 外部來源／歷史來源宣告 |
 | Catalog Reference | Catalog 文件（Architecture／Governance／Capability Catalog） | 目錄登錄與索引關聯 |
 
 ### 4.1 Architecture Reference
 
-- 定義：指向 Architecture 文件（ARCH）或架構來源（WA-001）之引用。
+- 定義：指向 Architecture 文件（ARCH）或 Approved 架構來源（AEOS-ARCH-001／對應架構載體）之引用。
 - 規則：
-  - 架構相關文件 MUST 於 References 宣告其架構來源（AEOS-ARCH-001／WA-001；依 AEOS-DIA-001 DP-003）。
-  - 架構內容 MUST 引用權威來源（WA-001／AEOS-ARCH-001），MUST NOT 重述或重新定義（依 AEOS-ARCH-001 §7）。
+  - 架構相關文件 MUST 於 References 宣告其架構來源（AEOS-ARCH-001／Approved 架構載體；依 AEOS-DIA-001 DP-003）。
+  - 架構內容 MUST 引用權威來源（Approved 架構載體／AEOS-ARCH-001），MUST NOT 重述或重新定義（依 AEOS-ARCH-001 §7）；WA-001 僅可作為歷史來源引用（AEOS-ADR-002 §2.1）。
 
 ### 4.2 Governance Reference
 
@@ -175,10 +176,11 @@ Reference Type 為引用之正式分類。下列九種型別為 AEOS 引用之�
 
 ### 4.8 External Reference
 
-- 定義：指向 Repository 外部來源（如 WA-001）之引用。
+- 定義：指向 Repository 外部來源之引用；外部歷史來源（如 WA-001）僅作為歷史參考，不作為正式 Fact Authority（AEOS-ADR-002 §2.1）。
 - 規則：
   - 外部引用 MUST 依 §5 R-007 於 References 完整宣告。
   - 外部來源（如 WA-001）不納入 AEOS Taxonomy 與 doc-id 編號，MUST NOT 被賦予 AEOS 文件之 doc-id。
+  - 外部歷史來源（如 WA-001）之引用 MUST 標示為歷史參考，MUST NOT 作為正式架構權威依據（依 AEOS-ADR-002 §2.1）。
 
 ### 4.9 Catalog Reference
 
@@ -231,7 +233,7 @@ Reference Type 為引用之正式分類。下列九種型別為 AEOS 引用之�
 ### 5.5 R-005 — Reference Chain
 
 - 引用鏈為「來源 → 目標 → 目標之引用」之可追溯路徑。
-- 引用鏈 MUST 可回溯至權威來源（架構內容至 WA-001／AEOS-ARCH-001；治理內容至 AEOS-CON-001／AEOS-ARCH-002 等）。
+- 引用鏈 MUST 可回溯至權威來源（架構內容至 AEOS-ARCH-001／Approved 架構載體；治理內容至 AEOS-CON-001／AEOS-ARCH-002 等）。
 - 引用鏈 SHOULD 保持最短：直接引用權威來源，避免不必要之中間跳轉。
 - 鏈上每一 Reference MUST 有效且符合本標準（依 §6）。
 
@@ -368,7 +370,7 @@ Reference Recovery 定義引用失效或目標文件演進時之恢復機制，�
 
 | # | 文件 | 型別 | 用途 |
 |---|------|------|------|
-| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | AEOS 唯一架構來源；External Reference 之權威依據 |
+| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
 | REF-002 | AEOS-ARCH-001 — Architecture Baseline | Architecture Entry Document | 架構基線與 Register；Architecture Reference 之引用樞紐 |
 | REF-003 | AEOS-ARCH-002 — Enterprise Governance Architecture | Architecture | Governance Hierarchy 與治理結構 |
 | REF-004 | AEOS-ARCH-003 — Architecture Decision Record System | Architecture | ADR Reference 與決策狀態之依據 |
@@ -378,6 +380,7 @@ Reference Recovery 定義引用失效或目標文件演進時之恢復機制，�
 | REF-008 | AEOS-STD-001 — Documentation Format Standard（Approved v1.0.0） | Standard | 文件格式與撰寫規則 |
 | REF-009 | AEOS-STD-002 — Metadata Standard（Approved v1.0.0） | Standard | Metadata 與 frontmatter 規則 |
 | REF-010 | EWO-AEOS-0010 — Cross-reference Standard | EWO | 本文件之工作來源 |
+| REF-011 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
 本標準（AEOS-STD-003）為 AEOS 唯一 Cross-reference 標準來源（Single Source of Truth）；其他文件 MUST NOT 定義相異之 Cross-reference 規則。
 
@@ -385,5 +388,6 @@ Reference Recovery 定義引用失效或目標文件演進時之恢復機制，�
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.1.0 | 2026-08-07 | 依 EWO-AEOS-0040 Wave 1（AEOS-ADR-002 已核准並合併至 main）：執行 Authority Rule Transition——Architecture Reference 目標限定 ARCH 文件與 Approved 架構來源；WA-001 改列 Historical Reference（External）；External Reference 新增歷史來源規則；Reference Chain 回溯目標重錨至 Approved 架構載體 | Codex |
 | 1.0.0 | 2026-08-06 | 依 Standard Review（SR-AEOS-0010-R1）修正：狀態升版至 Approved 1.0.0；Cross-reference Model 新增 Reference Direction Model（Upward／Lateral／Downward Reference；Cross-reference MUST 維持單向依賴，不得形成循環依賴）；Reference Types 新增 Catalog Reference；Reference Validation 新增 Reference Consistency Validation（C-001～C-004）；Broken Reference Management 新增 Reference Recovery（Deprecated Replacement、Redirect Rule、Superseded Document Mapping）；Compliance 新增 Reference Integrity Checklist | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：定義 Cross-reference Model、Reference Types、Reference Rules、Reference Validation、Broken Reference Management、Cross-reference Lifecycle 與 Compliance（EWO-AEOS-0010） | Codex |

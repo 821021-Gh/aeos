@@ -3,23 +3,24 @@ doc-id: AEOS-DIA-001
 doc-name: Documentation Information Architecture
 doc-type: Information Architecture
 repository: AEOS
-version: 3.1.0
+version: 3.2.0
 status: Approved
 owner: Architecture Owner
 created: 2026-08-05
-updated: 2026-08-06
+updated: 2026-08-07
 related:
   - EWO-AEOS-0003
   - EWO-AEOS-0022
   - EWO-AEOS-0033
   - EWO-AEOS-0037
   - AEOS-ARCH-001
+  - AEOS-ADR-002
   - WA-001
 ---
 
 # AEOS-DIA-001 — Documentation Information Architecture
 
-> EWO-AEOS-0003：依 AEOS-ARCH-001 與 WA-001 建立 AEOS 之 Enterprise Documentation Information Architecture。
+> EWO-AEOS-0003：依 AEOS-ADR-002、AEOS-ARCH-001 建立 AEOS 之 Enterprise Documentation Information Architecture。
 
 ## 文件資訊
 
@@ -29,13 +30,13 @@ related:
 | 文件名稱 | Documentation Information Architecture |
 | 型別 | Information Architecture |
 | 狀態 | Approved |
-| 版本 | 3.1.0 |
+| 版本 | 3.2.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-05 |
-| 最後更新 | 2026-08-06 |
-| 依據文件 | AEOS-ARCH-001、WA-001（Approved v1.0.0） |
-| 關聯文件 | EWO-AEOS-0003 |
+| 最後更新 | 2026-08-07 |
+| 依據文件 | AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001 |
+| 關聯文件 | EWO-AEOS-0003、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
@@ -43,7 +44,7 @@ related:
 
 - 建立 AEOS 正式文件體系之設計原則、分類（Taxonomy）、資訊架構、目錄組織、擁有權、交叉引用、生命週期、治理與擴充規則。
 - 使任何文件之建立、定位、引用與演進有一致之決策依據。
-- 界定文件資訊架構與 Enterprise Architecture 之界線：本文件管理「文件如何組織」，不重新設計架構，不重複 WA-001 內容。
+- 界定文件資訊架構與 Enterprise Architecture 之界線：本文件管理「文件如何組織」，不重新設計架構，不重複 Approved 架構載體內容；WA-001 僅為歷史來源。
 
 注意：本文件不是 Repository Structure，也不是 Documentation Standard；其定位為文件體系之 Enterprise Information Architecture。
 
@@ -53,7 +54,7 @@ related:
 |---|------|------|
 | DP-001 | Documentation First | 正式文件為 AEOS 之主要交付物。 |
 | DP-002 | Single Source of Truth | 每一文件主題僅存在一個權威文件；其他文件以引用取代重述。 |
-| DP-003 | Architecture Traceability | 架構相關文件 MUST 宣告其架構來源（AEOS-ARCH-001／WA-001）並可追溯。 |
+| DP-003 | Architecture Traceability | 架構相關文件 MUST 宣告其架構來源（AEOS-ARCH-001／Approved 架構載體）並可追溯。 |
 | DP-004 | Content Boundary | 文件內容 MUST NOT 超出其宣告之 Scope。 |
 | DP-005 | Decoupled Foundation | Repository Foundation 與架構／治理內容分離管理。 |
 | DP-006 | Formal by Default | 文件以正式內容交付，MUST NOT 使用 Placeholder。 |
@@ -102,14 +103,14 @@ AEOS 文件體系分為四個層級：
 | L1 Entry | Repository 入口 | README.md（Purpose、Structure、Workflow、Referenced Documents）。 |
 | L2 Baseline | 架構入口 | AEOS-ARCH-001（Architecture Baseline／Entry Document）。 |
 | L3 Domain | 分類文件 | 依 Taxonomy 分類之正式文件（SPEC／CON／GOV／CAP 等）。 |
-| L4 Reference | 外部來源 | WA-001（Approved v1.0.0）等架構權威來源。 |
+| L4 Reference | 外部歷史來源 | WA-001（歷史來源，外部）等歷史參考；正式架構權威依 AEOS-ARCH-001 與 Approved 架構載體。 |
 
 資訊架構規則：
 
 - 讀者路徑：README → AEOS-ARCH-001 → L3 分類文件。
 - 每份文件 MUST 可經由 doc-id 被唯一識別。
 - 文件間以 Reference 連結（§7），不以內容複製連結。
-- 架構內容之權威來源為 AEOS-ARCH-001 與 WA-001；L3 文件引用而非重述。
+- 架構內容之權威來源為 AEOS-ARCH-001 與 Approved 架構載體；WA-001 保留為歷史來源（AEOS-ADR-002 §2.1）；L3 文件引用而非重述。
 
 ## 5. Directory Organization
 
@@ -159,7 +160,7 @@ docs/
 ## 7. Cross-reference Strategy
 
 - 引用形式：跨文件引用 MUST 使用 doc-id 與相對路徑；MUST NOT 複製被引用內容。
-- 來源宣告：架構相關文件 MUST 於 References 宣告 AEOS-ARCH-001／WA-001 來源對應。
+- 來源宣告：架構相關文件 MUST 於 References 宣告 AEOS-ARCH-001／Approved 架構載體來源對應；WA-001 引用僅限歷史參考。
 - 樞紐文件：AEOS-ARCH-001（Architecture Register）為架構文件之引用樞紐。
 - 失效處理：被引用文件變更或移動時，引用方 MUST 於同一 EWO 或 RC 更新引用；不得保留失效連結。
 
@@ -197,7 +198,7 @@ docs/
 
 - 本文件（Taxonomy、Directory Organization、命名規則）之變更 MUST 經 EWO 與 Review。
 - 正式文件合併至 main 前 MUST 通過 Review。
-- 文件不得重新定義 AEOS-ARCH-001／WA-001 已定義之架構內容。
+- 文件不得重新定義 AEOS-ARCH-001／Approved 架構載體已定義之架構內容。
 - Repository Foundation 文件（README 等）不描述架構內容。
 
 ## 11. Extension Rules
@@ -212,7 +213,8 @@ docs/
 | 文件 | 型別 | 用途 |
 |------|------|------|
 | AEOS-ARCH-001 — Architecture Baseline | Architecture Entry Document | AEOS 架構基線與 Entry Document |
-| WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | AEOS 唯一架構來源 |
+| WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
+| AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 | AEOS-STD-006 — Enterprise Architecture Catalog and Matrix Standard | Standard | Catalog（CAT）與 Matrix（MAT）型別與 Schema 規範 |
 | EWO-AEOS-0003 — Documentation Information Architecture | EWO | 本文件之工作來源 |
 
@@ -220,6 +222,7 @@ docs/
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 3.2.0 | 2026-08-07 | 依 EWO-AEOS-0040 Wave 1（AEOS-ADR-002 已核准並合併至 main）：執行 Authority Rule Transition——DP-003／L4 Reference／來源宣告／Governance 之架構權威指涉重錨至 AEOS-ARCH-001 與 Approved 架構載體；WA-001 分類為歷史來源 | Codex |
 | 3.1.0 | 2026-08-06 | 依 EWO-AEOS-0037 新增 Report 正式用途分類 Architecture Candidate Assessment：定義可承載內容（候選識別、來源證據、Scope、Boundary、Responsibilities、Exclusions、重疊分析、條件、拒絕/延後理由及 Review Outcome 摘要）、禁止用途（不得承載或取代 Architecture Definition、ADR、Catalog Entry 或正式 Review Record）、Fact Authority 定位（Approved RPT 為長期分析依據，Review Decision 追溯至 AR Review Record）與 Review Type（AR，不疊加 RT）（AR-AEOS-0037-R1） | Codex |
 | 3.0.0 | 2026-08-06 | 依 EWO-AEOS-0033 擴充 Taxonomy：新增 Report（RPT）型別；Assessment 定義為 Report 之正式用途分類（不另立 Artifact Type）；定義 RPT 適用範圍與禁止用途；Directory Organization 新增 `docs/reports/`（AR-AEOS-0033-R1） | Codex |
 | 2.0.0 | 2026-08-06 | 依 EWO-AEOS-0022 擴充 Taxonomy：新增 CAT（Catalog）與 MAT（Matrix）為正式且相互獨立之文件型別；IDX 不再承載 Catalog；Directory Organization 新增 `docs/catalogs/` 與 `docs/matrices/`；Catalog／Matrix Schema 統一由 AEOS-STD-006 規範 | Codex |
