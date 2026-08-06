@@ -3,13 +3,14 @@ doc-id: AEOS-STD-004
 doc-name: Naming Standard
 doc-type: Standard
 repository: AEOS
-version: 1.0.0
+version: 1.1.0
 status: Approved
 owner: Repository Owner
 created: 2026-08-06
 updated: 2026-08-06
 related:
   - EWO-AEOS-0011
+  - EWO-AEOS-0022
   - AEOS-ARCH-001
   - AEOS-ARCH-002
   - AEOS-ARCH-003
@@ -38,7 +39,7 @@ related:
 | 文件名稱 | Naming Standard |
 | 型別 | Standard |
 | 狀態 | Approved |
-| 版本 | 1.0.0 |
+| 版本 | 1.1.0 |
 | Repository | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
@@ -248,7 +249,7 @@ Naming Categories 為命名之正式分類；資產 MUST 依其類別套用對�
 
 ### 5.7 R-007 — Reserved Words
 
-- 保留字 MUST NOT 用於其定義用途以外之命名：`AEOS`、`EWO`、`WA`、Taxonomy TYPE（`ARCH`、`DIA`、`SPEC`、`CON`、`GOV`、`CAP`、`ADR`、`POL`、`STD`、`REF`、`IDX`、`TPL`）、ReviewType（`AR`、`CR`、`DR`、`GR`、`SR`）、`R`、`RC`。
+- 保留字 MUST NOT 用於其定義用途以外之命名：`AEOS`、`EWO`、`WA`、Taxonomy TYPE（`ARCH`、`DIA`、`SPEC`、`CON`、`GOV`、`CAP`、`ADR`、`POL`、`STD`、`REF`、`IDX`、`TPL`、`CAT`、`MAT`）、ReviewType（`AR`、`CR`、`DR`、`GR`、`SR`、`CM`）、`R`、`RC`。
 - 保留前綴 MUST NOT 被其他類別佔用或仿冒。
 - 既有資產使用保留字作為名稱主體時，MUST 依本標準重新命名（經 EWO 與 Review）。
 
@@ -275,10 +276,13 @@ Naming Categories 為命名之正式分類；資產 MUST 依其類別套用對�
 | IR-09 | EWO-AEOS-#### | Engineering Work Order ID | EWO-AEOS-0011 |
 | IR-10 | Review ID | `<ReviewType>-AEOS-<####>-R<##>` | SR-AEOS-0011-R1 |
 | IR-11 | PR Title | `EWO-AEOS-<####> <Document Name>` | EWO-AEOS-0011 Naming Standard |
+| IR-12 | AEOS-CAT-### | Catalog 文件 doc-id（依 AEOS-STD-006） | AEOS-CAT-001 |
+| IR-13 | AEOS-MAT-### | Matrix 文件 doc-id（依 AEOS-STD-006） | AEOS-MAT-001 |
 
-### 6.1 IR-01～IR-08 — 文件 doc-id
+### 6.1 IR-01～IR-08、IR-12～IR-13 — 文件 doc-id
 
-- 全部文件 doc-id MUST 符合 `AEOS-<TYPE>-<###>`；TYPE 依 AEOS-DIA-001 §3 Taxonomy（ARCH、DIA、SPEC、CON、GOV、CAP、ADR、POL、STD、REF、IDX、TPL）。
+- 全部文件 doc-id MUST 符合 `AEOS-<TYPE>-<###>`；TYPE 依 AEOS-DIA-001 §3 Taxonomy（ARCH、DIA、SPEC、CON、GOV、CAP、ADR、POL、STD、REF、IDX、TPL、CAT、MAT）。
+- Catalog（CAT）與 Matrix（MAT）之 doc-id 依 AEOS-STD-006 §4 規範。
 - doc-id MUST 與檔案名稱及 frontmatter 一致（依 AEOS-STD-003 §6.1 C-002、C-003）。
 - 各 TYPE 之流水號 MUST 獨立編號；不同 TYPE 不共用流水號序列。
 
@@ -300,6 +304,7 @@ Naming Categories 為命名之正式分類；資產 MUST 依其類別套用對�
 | DR | Documentation Review |
 | GR | Governance Review |
 | SR | Standard Review |
+| CM | Catalog／Matrix Review |
 
 - `R<##>` 為 Review 序號（例如 R1、R2）；同一 EWO 之 Review 序號 MUST 依序遞增。
 - Review 修正項目 MUST 編號為 `RC-<###>`，並於 PR 描述與 Revision History 宣告。
