@@ -3,8 +3,8 @@ doc-id: AEOS-ARCH-004
 doc-name: AI Enterprise Architecture Overview
 doc-type: Architecture
 repository: AEOS
-version: 0.1.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-08-06
 updated: 2026-08-06
@@ -29,8 +29,8 @@ related:
 | 文件代號 | AEOS-ARCH-004 |
 | 文件名稱 | AI Enterprise Architecture Overview |
 | 型別 | Architecture（Enterprise Architecture Entry Document） |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
@@ -303,4 +303,5 @@ AEOS Enterprise Architecture 採增量演進：
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-08-06 | Architecture Review 核准並合併（PR #13）；狀態更新為 Approved，成為 AEOS Enterprise Architecture 正式總入口 | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：依 WA-001 建立 AEOS Enterprise Architecture 總入口，定義 Platform、Layer、Capability、Repository、Dependency、Workspace 六個架構領域及 Platform Catalog、Capability Catalog、Ownership Matrix、Dependency Matrix 的定位與關係（EWO-AEOS-Architecture-0001） | Codex |
