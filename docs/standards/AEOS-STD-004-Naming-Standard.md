@@ -3,7 +3,7 @@ doc-id: AEOS-STD-004
 doc-name: Naming Standard
 doc-type: Standard
 repository: AEOS
-version: 1.1.0
+version: 1.2.0
 status: Approved
 owner: Repository Owner
 created: 2026-08-06
@@ -11,6 +11,7 @@ updated: 2026-08-06
 related:
   - EWO-AEOS-0011
   - EWO-AEOS-0022
+  - EWO-AEOS-0033
   - AEOS-ARCH-001
   - AEOS-ARCH-002
   - AEOS-ARCH-003
@@ -39,7 +40,7 @@ related:
 | 文件名稱 | Naming Standard |
 | 型別 | Standard |
 | 狀態 | Approved |
-| 版本 | 1.1.0 |
+| 版本 | 1.2.0 |
 | Repository | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
@@ -249,7 +250,7 @@ Naming Categories 為命名之正式分類；資產 MUST 依其類別套用對�
 
 ### 5.7 R-007 — Reserved Words
 
-- 保留字 MUST NOT 用於其定義用途以外之命名：`AEOS`、`EWO`、`WA`、Taxonomy TYPE（`ARCH`、`DIA`、`SPEC`、`CON`、`GOV`、`CAP`、`ADR`、`POL`、`STD`、`REF`、`IDX`、`TPL`、`CAT`、`MAT`）、ReviewType（`AR`、`CR`、`DR`、`GR`、`SR`、`CM`）、`R`、`RC`。
+- 保留字 MUST NOT 用於其定義用途以外之命名：`AEOS`、`EWO`、`WA`、Taxonomy TYPE（`ARCH`、`DIA`、`SPEC`、`CON`、`GOV`、`CAP`、`ADR`、`POL`、`STD`、`REF`、`IDX`、`TPL`、`CAT`、`MAT`、`RPT`）、ReviewType（`AR`、`CR`、`DR`、`GR`、`SR`、`CM`、`RT`）、`R`、`RC`。
 - 保留前綴 MUST NOT 被其他類別佔用或仿冒。
 - 既有資產使用保留字作為名稱主體時，MUST 依本標準重新命名（經 EWO 與 Review）。
 
@@ -278,10 +279,11 @@ Naming Categories 為命名之正式分類；資產 MUST 依其類別套用對�
 | IR-11 | PR Title | `EWO-AEOS-<####> <Document Name>` | EWO-AEOS-0011 Naming Standard |
 | IR-12 | AEOS-CAT-### | Catalog 文件 doc-id（依 AEOS-STD-006） | AEOS-CAT-001 |
 | IR-13 | AEOS-MAT-### | Matrix 文件 doc-id（依 AEOS-STD-006） | AEOS-MAT-001 |
+| IR-14 | AEOS-RPT-### | Report 文件 doc-id | AEOS-RPT-001 |
 
-### 6.1 IR-01～IR-08、IR-12～IR-13 — 文件 doc-id
+### 6.1 IR-01～IR-08、IR-12～IR-14 — 文件 doc-id
 
-- 全部文件 doc-id MUST 符合 `AEOS-<TYPE>-<###>`；TYPE 依 AEOS-DIA-001 §3 Taxonomy（ARCH、DIA、SPEC、CON、GOV、CAP、ADR、POL、STD、REF、IDX、TPL、CAT、MAT）。
+- 全部文件 doc-id MUST 符合 `AEOS-<TYPE>-<###>`；TYPE 依 AEOS-DIA-001 §3 Taxonomy（ARCH、DIA、SPEC、CON、GOV、CAP、ADR、POL、STD、REF、IDX、TPL、CAT、MAT、RPT）。
 - Catalog（CAT）與 Matrix（MAT）之 doc-id 依 AEOS-STD-006 §4 規範。
 - doc-id MUST 與檔案名稱及 frontmatter 一致（依 AEOS-STD-003 §6.1 C-002、C-003）。
 - 各 TYPE 之流水號 MUST 獨立編號；不同 TYPE 不共用流水號序列。
@@ -305,6 +307,7 @@ Naming Categories 為命名之正式分類；資產 MUST 依其類別套用對�
 | GR | Governance Review |
 | SR | Standard Review |
 | CM | Catalog／Matrix Review |
+| RT | Report Review |
 
 - `R<##>` 為 Review 序號（例如 R1、R2）；同一 EWO 之 Review 序號 MUST 依序遞增。
 - Review 修正項目 MUST 編號為 `RC-<###>`，並於 PR 描述與 Revision History 宣告。
@@ -436,5 +439,7 @@ Naming Consistency Validation 驗證命名與資產身分、Metadata、引用及
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.2.0 | 2026-08-06 | 依 EWO-AEOS-0033 新增 Report 文件 doc-id（IR-14 AEOS-RPT-###）；保留字新增 RPT、RT；§6.1 TYPE 清單新增 RPT；ReviewType 新增 RT（Report Review）（SR-AEOS-0033-R2） | Codex |
+| 1.1.0 | 2026-08-06 | 依 EWO-AEOS-0022 新增 CAT／MAT 文件型別與 doc-id（IR-12、IR-13）；保留字新增 CAT／MAT／CM；§6.3 ReviewType 新增 CM（Catalog／Matrix Review） | Codex |
 | 1.0.0 | 2026-08-06 | 依 Standard Review（SR-AEOS-0011-R1）修正：狀態升版至 Approved 1.0.0；Naming Model 新增 Naming Hierarchy（Enterprise／Repository／Document／Identifier Naming；Naming MUST 自上而下保持一致）；Identifier Rules 新增 Identifier Reservation（Reserved Prefix／Reserved Identifier／Retired Identifier；Identifier 一經 Released 不得重新使用）；Validation Rules 新增 Naming Consistency Validation（C-001～C-005）；Naming Lifecycle 新增 Superseded（Proposed → Active → Deprecated → Superseded → Reserved；Superseded Identifier 保留歷史，不得重新配置）；Compliance 新增 Naming Integrity Checklist | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：定義 Naming Model、Naming Categories、Naming Rules、Identifier Rules、Validation Rules、Naming Lifecycle 與 Compliance（EWO-AEOS-0011） | Codex |
