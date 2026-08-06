@@ -7,7 +7,7 @@ version: 1.0.0
 status: Approved
 owner: Architecture Owner
 created: 2026-08-05
-updated: 2026-08-05
+updated: 2026-08-06
 related:
   - EWO-AEOS-0001
   - WA-001
@@ -135,6 +135,7 @@ related:
 | AEOS-ARCH-001 | Architecture Baseline | Architecture Entry Document | WA-001 v1.0.0 | Approved |
 | AEOS-ARCH-002 | Enterprise Governance Architecture | Architecture | WA-001 v1.0.0 | Approved |
 | AEOS-ARCH-003 | Architecture Decision Record System | Architecture | WA-001 v1.0.0 | Approved |
+| AEOS-ARCH-004 | AI Enterprise Architecture Overview | Enterprise Architecture Entry Document | WA-001 v1.0.0、AEOS-ARCH-001 | Draft |
 
 後續 AEOS 架構文件依 WA-001 建立後，於本 Register 登錄並更新版本。
 
