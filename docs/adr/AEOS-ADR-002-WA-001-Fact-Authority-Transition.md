@@ -3,13 +3,14 @@ doc-id: AEOS-ADR-002
 doc-name: WA-001 Fact Authority Transition
 doc-type: ADR
 repository: AEOS
-version: 0.1.0
-status: Draft
-decision-status: Proposed
+version: 1.0.0
+status: Approved
+decision-status: Approved
 decision-owner: Architecture Owner
+decision-date: 2026-08-08
 owner: Architecture Owner
 created: 2026-08-06
-updated: 2026-08-07
+updated: 2026-08-08
 related:
   - EWO-AEOS-0040
   - EWO-AEOS-0041
@@ -40,15 +41,15 @@ related:
 | 文件代號 | AEOS-ADR-002 |
 | 文件名稱 | WA-001 Fact Authority Transition |
 | 型別 | ADR（Architecture Decision Record） |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
-| Decision Status | Proposed |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
+| Decision Status | Approved |
 | Decision Owner | Architecture Owner |
-| Decision Date | —（尚未核准；生效條件達成後更新） |
+| Decision Date | 2026-08-08 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-07 |
+| 最後更新 | 2026-08-08 |
 | 依據文件 | EWO-AEOS-0040、EWO-AEOS-0041、EWO-AEOS-0042、AD-AEOS-0041-R1、AR-AEOS-0041-R2、AR-AEOS-0041-R3、AR-AEOS-0041-R4、AEOS-ADR-001（Approved 1.0.0）、AEOS-ARCH-001（Approved 1.2.0）、AEOS-ARCH-003（Approved 1.0.0） |
 | 關聯文件 | AEOS-ADR-001、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-011（Approved 1.0.0）、AEOS-ARCH-012（Approved 1.0.0）、AEOS-DIA-001、AEOS-CON-001、AEOS-STD-001～005、WA-001 |
 
@@ -220,5 +221,6 @@ related:
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-08-08 | 依 EWO-AEOS-0040 執行 ADR Lifecycle Completion（ADR Lifecycle Consistency Adjudication：Case A）：status Draft→Approved、version 0.1.0→1.0.0、decision-status Proposed→Approved、記錄 decision-date 2026-08-08（依 AEOS-ARCH-003 §3／§8、AEOS-STD-002 §8／CF-002／OF-03／OF-05）；本 PR 為 AD Review 載體，Review ID 依 AEOS-STD-005 R-003 於 Review 通過後記入 related／Revision History | Codex |
 | 0.1.0 | 2026-08-07 | Review Findings 修正（PR #43 Review Report）：F-001 補充 Repository 對 WA-001 原文之立場；F-002 References 補列 AEOS-RPT-001／002，與正文直接引用一致（EWO-AEOS-0040） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：定義 WA-001 Fact Authority Transition 決策（Proposed）——Authority Classification、Approved Fact Authority Baseline、Transition 規則、後續執行順序、執行邊界與生效條件；記錄 EWO-AEOS-0040 Blocker 解除證據（EWO-AEOS-0040） | Codex |
