@@ -3,15 +3,16 @@ doc-id: AEOS-ARCH-007
 doc-name: Capability Architecture
 doc-type: Architecture
 repository: AEOS
-version: 1.0.0
+version: 1.1.0
 status: Approved
 owner: Architecture Owner
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-08
 related:
   - EWO-AEOS-0014
   - EWO-AEOS-0015
   - AR-AEOS-0015-R1
+  - AEOS-ADR-002
   - WA-001
   - AEOS-ARCH-001
   - AEOS-ARCH-004
@@ -23,7 +24,7 @@ related:
 
 ## Executive Summary
 
-本文件依 WA-001 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Capability Architecture，定義 Capability 的識別、邊界、分類、關係、Ownership、Dependency、Lifecycle 與治理規則。Capability 以能力責任與企業結果描述，不以特定實作取代能力定義；Platform 提供 Capability 的組織與運作邊界，Repository 實現 Capability，Ownership Matrix 記錄責任歸屬。本文件不重新設計 WA-001、不建立具名 Capability Catalog、不建立實作設計，也不取代任何專項架構或治理文件。
+本文件依 AEOS-ADR-002 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Capability Architecture，定義 Capability 的識別、邊界、分類、關係、Ownership、Dependency、Lifecycle 與治理規則。Capability 以能力責任與企業結果描述，不以特定實作取代能力定義；Platform 提供 Capability 的組織與運作邊界，Repository 實現 Capability，Ownership Matrix 記錄責任歸屬。本文件不重新設計 Approved 架構載體、不建立具名 Capability Catalog、不建立實作設計，也不取代任何專項架構或治理文件。
 
 ## 文件資訊
 
@@ -33,19 +34,19 @@ related:
 | 文件名稱 | Capability Architecture |
 | 型別 | Architecture（Capability Architecture） |
 | 狀態 | Approved |
-| 版本 | 1.0.0 |
+| 版本 | 1.1.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0014、EWO-AEOS-0015、AR-AEOS-0015-R1、WA-001（Approved v1.0.0）、AEOS-ARCH-001（Approved v1.0.0）、AEOS-ARCH-004（Approved v1.0.0）、AEOS-ARCH-005（Approved v1.0.0）、AEOS-ARCH-006（Approved v1.0.0） |
-| 關聯文件 | EWO-AEOS-0015、AR-AEOS-0015-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-ARCH-006、AEOS-STD-001～AEOS-STD-005 |
+| 最後更新 | 2026-08-08 |
+| 依據文件 | EWO-AEOS-0014、EWO-AEOS-0015、AR-AEOS-0015-R1、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001（Approved v1.0.0）、AEOS-ARCH-004（Approved v1.0.0）、AEOS-ARCH-005（Approved v1.0.0）、AEOS-ARCH-006（Approved v1.0.0） |
+| 關聯文件 | EWO-AEOS-0015、AR-AEOS-0015-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-ARCH-006、AEOS-STD-001～AEOS-STD-005、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
 本文件之目的為：
 
-- 將 WA-001 的 Capability Architecture 與 Capability Ownership 轉化為 AEOS 內可治理、可追溯的 Capability Architecture。
+- 將 Capability Architecture 與 Capability Ownership 轉化為 AEOS 內可治理、可追溯的 Capability Architecture。
 - 以能力責任與企業結果描述 Capability，不以特定實作取代能力定義（AEOS-ARCH-004 §6.3）。
 - 定義 Capability 之邊界、關係、依賴與生命週期（AEOS-ARCH-004 §6.3）。
 - 定義 Capability 的識別、分類、Ownership 與治理規則，使每項 Capability 具有明確責任歸屬（AEOS-ARCH-004 §7）。
@@ -69,7 +70,7 @@ related:
 
 本文件不涵蓋：
 
-- 重新定義或修改 WA-001 的 Capability Architecture 或 Capability Ownership。
+- 重新定義或修改 Approved 架構載體之 Capability Architecture 或 Capability Ownership。
 - 具名 Capability 條目與 Capability Catalog 之建立（Catalog 應作為後續獨立架構資產）。
 - Ownership Matrix 之實際條目。
 - 個別 Platform、Repository 或實作之內部設計。
@@ -82,8 +83,8 @@ Capability Architecture 適用下列權威順序：
 
 | 層級 | 資產 | 權威角色 |
 |------|------|----------|
-| C0 | WA-001 | Capability Architecture 與 Capability Ownership 的唯一來源 |
-| C1 | AEOS-ARCH-001 | 將 WA-001 納入 AEOS Architecture Baseline |
+| C0 | AEOS-ARCH-001 | 最高架構權威 |
+| C1 | AEOS-ARCH-001 | 架構 Entry Document 與 Architecture Register |
 | C2 | AEOS-ARCH-004 | 定義 Capability Architecture 在 Enterprise Architecture 中的定位與 MUST |
 | C3 | AEOS-ARCH-005、AEOS-ARCH-006 | 定義 Platform 承載 Capability 與 Layer 責任分層（L4 Capability） |
 | C4 | AEOS-ARCH-007（本文件） | 定義 Capability 模型、邊界、關係與治理規則 |
@@ -91,9 +92,9 @@ Capability Architecture 適用下列權威順序：
 
 規則：
 
-- 下位資產 MUST 符合上位資產，且 MUST NOT 隱性建立新的 Capability 或改寫 WA-001 已核准內容。
+- 下位資產 MUST 符合上位資產，且 MUST NOT 隱性建立新的 Capability 或改寫 Approved 架構載體已核准內容。
 - Capability 與 Platform 必須分離定義：Platform 是承載與治理邊界，Capability 是可提供之能力（AEOS-ARCH-004 §7）。
-- 發現 WA-001 未涵蓋的 Capability 需求時，MUST 先透過正式架構變更處理。
+- 發現 Approved 架構載體未涵蓋的 Capability 需求時，MUST 先透過正式架構變更處理。
 
 ## 4. Capability Definition
 
@@ -183,7 +184,7 @@ Capability 分類用於建立治理、比較與演進決策之共用語言；分
 
 - 每個 Capability MUST 指定單一 Primary Classification。
 - 分類判定 MUST 以能力責任與企業結果為依據，MUST NOT 單憑 Repository 名稱、部署方式、供應商產品或組織單位決定。
-- 具名分類類別 MUST 可追溯至 WA-001 或經 Architecture Review 核准；本文件不建立具名類別清單。
+- 具名分類類別 MUST 可追溯至 AEOS-ARCH-001／Approved 架構載體或經 Architecture Review 核准；本文件不建立具名類別清單。
 - 無法清楚分類通常代表 Boundary 尚未完成，MUST 在登錄前解決。
 
 ## 8. Capability Relationship Model
@@ -289,7 +290,7 @@ Capability Architecture 合規檢查至少包含：
 
 | 檢查領域 | 合規要求 |
 |----------|----------|
-| Authority | Capability 可追溯至 WA-001、AEOS-ARCH-001 與 AEOS-ARCH-004 |
+| Authority | Capability 可追溯至 AEOS-ARCH-001 與 Approved 架構載體 |
 | Identity | 具唯一、穩定且不可重用的 Capability ID |
 | Outcome | 以能力責任與企業結果描述，不以特定實作取代 |
 | Boundary | Outcome、責任、包含與排除範圍明確 |
@@ -308,8 +309,8 @@ Capability Architecture 合規檢查至少包含：
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
-| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | Capability Architecture 與 Capability Ownership 的唯一來源 |
-| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](AEOS-ARCH-001-Architecture-Baseline.md)（Approved v1.0.0） | Architecture | 將 WA-001 正式納入 AEOS |
+| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
+| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](AEOS-ARCH-001-Architecture-Baseline.md)（Approved v1.0.0） | Architecture | 架構基線與 Architecture Register |
 | REF-003 | [AEOS-ARCH-002 — Enterprise Governance Architecture](AEOS-ARCH-002-Enterprise-Governance-Architecture.md)（Approved v1.0.0） | Architecture | Governance Domains 與分類值域來源 |
 | REF-004 | [AEOS-ARCH-003 — Architecture Decision Record System](AEOS-ARCH-003-Architecture-Decision-Record-System.md)（Approved v1.0.0） | Architecture | 重大架構決策紀錄機制 |
 | REF-005 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved v1.0.0） | Architecture | Capability Architecture 的上位定位與 MUST |
@@ -319,10 +320,12 @@ Capability Architecture 合規檢查至少包含：
 | REF-009 | [AEOS-DIA-001 — Documentation Information Architecture](../documentation/AEOS-DIA-001-Documentation-Information-Architecture.md) | Information Architecture | 文件分類、組織與生命週期 |
 | REF-010 | [AEOS-STD-001 — Documentation Format Standard](../standards/AEOS-STD-001-Documentation-Format-Standard.md)、[AEOS-STD-002 — Metadata Standard](../standards/AEOS-STD-002-Metadata-Standard.md)、[AEOS-STD-003 — Cross-reference Standard](../standards/AEOS-STD-003-Cross-reference-Standard.md)、[AEOS-STD-004 — Naming Standard](../standards/AEOS-STD-004-Naming-Standard.md)、[AEOS-STD-005 — Review Standard](../standards/AEOS-STD-005-Review-Standard.md) | Standards | 文件格式、Metadata、Cross-reference、Naming 與 Review 規則 |
 | REF-011 | EWO-AEOS-0014 | EWO | 本文件之工作來源 |
+| REF-012 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
 ## 15. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.1.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 2（AEOS-ADR-002 已核准）：執行 Architecture Transition——WA-001 分類為歷史來源（Historical Reference）；Authority 階層（C0）與對應來源重錨至 AEOS-ARCH-001／Approved 架構載體；References 重錨（EWO-AEOS-0040） | Codex |
 | 1.0.0 | 2026-08-06 | Architecture Review 核准並合併；狀態更新為 Approved，成為 AEOS Capability Architecture 正式定義（EWO-AEOS-0015；AR-AEOS-0015-R1） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：依 WA-001 與 AEOS-ARCH-004 定義 Capability Identity、Boundary、Classification、Relationship、Dependency、Ownership、Lifecycle、Change 與 Compliance（EWO-AEOS-0014） | Codex |

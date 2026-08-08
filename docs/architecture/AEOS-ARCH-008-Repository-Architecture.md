@@ -3,15 +3,16 @@ doc-id: AEOS-ARCH-008
 doc-name: Repository Architecture
 doc-type: Architecture
 repository: AEOS
-version: 1.0.0
+version: 1.1.0
 status: Approved
 owner: Architecture Owner
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-08
 related:
   - EWO-AEOS-0016
   - EWO-AEOS-0017
   - AR-AEOS-0017-R1
+  - AEOS-ADR-002
   - WA-001
   - AEOS-ARCH-001
   - AEOS-ARCH-004
@@ -24,7 +25,7 @@ related:
 
 ## Executive Summary
 
-本文件依 WA-001 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Repository Architecture，定義 Repository 的識別、責任邊界、類型、角色、與 Platform／Capability 的關係、Ownership、Dependency、Lifecycle、Change 與治理規則。Repository 是版本化治理與交付邊界：一個 Platform 可由一個或多個 Repository 支援，Repository 實現 Capability 並承載架構資產或實作責任，但 Repository 不等同 Platform、Capability 或 Implementation。本文件不重新設計既定 Architecture、不建立具名 Repository Catalog 或實際 Repository 清單、不建立實作設計，也不開始 Dependency Architecture。
+本文件依 AEOS-ADR-002 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Repository Architecture，定義 Repository 的識別、責任邊界、類型、角色、與 Platform／Capability 的關係、Ownership、Dependency、Lifecycle、Change 與治理規則。Repository 是版本化治理與交付邊界：一個 Platform 可由一個或多個 Repository 支援，Repository 實現 Capability 並承載架構資產或實作責任，但 Repository 不等同 Platform、Capability 或 Implementation。本文件不重新設計既定 Architecture、不建立具名 Repository Catalog 或實際 Repository 清單、不建立實作設計，也不開始 Dependency Architecture。
 
 ## 文件資訊
 
@@ -34,13 +35,13 @@ related:
 | 文件名稱 | Repository Architecture |
 | 型別 | Architecture（Repository Architecture） |
 | 狀態 | Approved |
-| 版本 | 1.0.0 |
+| 版本 | 1.1.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0016、EWO-AEOS-0017、AR-AEOS-0017-R1、WA-001（Approved v1.0.0）、AEOS-ARCH-001（Approved v1.0.0）、AEOS-ARCH-004（Approved v1.0.0）、AEOS-ARCH-005（Approved v1.0.0）、AEOS-ARCH-006（Approved v1.0.0）、AEOS-ARCH-007（Approved v1.0.0） |
-| 關聯文件 | EWO-AEOS-0017、AR-AEOS-0017-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-ARCH-006、AEOS-ARCH-007、AEOS-STD-001～AEOS-STD-005 |
+| 最後更新 | 2026-08-08 |
+| 依據文件 | EWO-AEOS-0016、EWO-AEOS-0017、AR-AEOS-0017-R1、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001（Approved v1.0.0）、AEOS-ARCH-004（Approved v1.0.0）、AEOS-ARCH-005（Approved v1.0.0）、AEOS-ARCH-006（Approved v1.0.0）、AEOS-ARCH-007（Approved v1.0.0） |
+| 關聯文件 | EWO-AEOS-0017、AR-AEOS-0017-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-ARCH-006、AEOS-ARCH-007、AEOS-STD-001～AEOS-STD-005、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
@@ -71,7 +72,7 @@ related:
 
 本文件不涵蓋：
 
-- 重新定義或修改既定 Architecture（WA-001、AEOS-ARCH-001、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-ARCH-006、AEOS-ARCH-007）。
+- 重新定義或修改既定 Architecture（AEOS-ARCH-001、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-ARCH-006、AEOS-ARCH-007）。
 - 具名 Repository Catalog 或實際 Repository 清單之建立（Catalog 應作為後續獨立架構資產）。
 - Repository Mapping 之實際條目。
 - Dependency Architecture 之建立（屬後續獨立 EWO）。
@@ -84,8 +85,8 @@ Repository Architecture 適用下列權威順序：
 
 | 層級 | 資產 | 權威角色 |
 |------|------|----------|
-| R0 | WA-001 | Workspace Architecture 與 Repository 角色之唯一來源 |
-| R1 | AEOS-ARCH-001 | 將 WA-001 納入 AEOS Architecture Baseline |
+| R0 | AEOS-ARCH-001 | 最高架構權威 |
+| R1 | AEOS-ARCH-001 | 架構 Entry Document 與 Architecture Register |
 | R2 | AEOS-ARCH-004 | 定義 Repository Architecture 在 Enterprise Architecture 中的定位與 MUST |
 | R3 | AEOS-ARCH-005、AEOS-ARCH-006、AEOS-ARCH-007 | 定義 Platform 承載、L5 Repository 層級與 Capability 實現關係 |
 | R4 | AEOS-ARCH-008（本文件） | 定義 Repository 模型、類型、邊界與治理規則 |
@@ -95,7 +96,7 @@ Repository Architecture 適用下列權威順序：
 
 - 下位資產 MUST 符合上位資產，且 MUST NOT 隱性建立新的 Repository 或改寫既定架構。
 - Repository 與 Platform、Capability MUST 分離定義：Platform 是承載與治理邊界，Capability 是可提供之能力，Repository 是版本化治理與交付邊界（AEOS-ARCH-004 §7、AEOS-ARCH-005 §4.2）。
-- 發現 WA-001 未涵蓋的 Repository 需求時，MUST 先透過正式架構變更處理。
+- 發現 Approved 架構載體未涵蓋的 Repository 需求時，MUST 先透過正式架構變更處理。
 
 ## 4. Repository Definition
 
@@ -288,7 +289,7 @@ Repository Architecture 合規檢查至少包含：
 
 | 檢查領域 | 合規要求 |
 |----------|----------|
-| Authority | Repository 可追溯至 WA-001、AEOS-ARCH-001 與 AEOS-ARCH-004 |
+| Authority | Repository 可追溯至 AEOS-ARCH-001 與 Approved 架構載體 |
 | Identity | 具唯一、穩定且不可重用的 Repository ID |
 | Boundary | Mission、責任、Authority、包含與排除範圍明確 |
 | Type | 具有單一 Primary Type 且判定依據成立 |
@@ -306,8 +307,8 @@ Repository Architecture 合規檢查至少包含：
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
-| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | Workspace Architecture 與 Repository 角色之唯一來源 |
-| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](AEOS-ARCH-001-Architecture-Baseline.md)（Approved v1.0.0） | Architecture | 將 WA-001 正式納入 AEOS |
+| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
+| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](AEOS-ARCH-001-Architecture-Baseline.md)（Approved v1.0.0） | Architecture | 架構基線與 Architecture Register |
 | REF-003 | [AEOS-ARCH-002 — Enterprise Governance Architecture](AEOS-ARCH-002-Enterprise-Governance-Architecture.md)（Approved v1.0.0） | Architecture | Governance Domains 與治理階層 |
 | REF-004 | [AEOS-ARCH-003 — Architecture Decision Record System](AEOS-ARCH-003-Architecture-Decision-Record-System.md)（Approved v1.0.0） | Architecture | 重大架構決策紀錄機制 |
 | REF-005 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved v1.0.0） | Architecture | Repository Architecture 的上位定位與 MUST |
@@ -318,10 +319,12 @@ Repository Architecture 合規檢查至少包含：
 | REF-010 | [AEOS-DIA-001 — Documentation Information Architecture](../documentation/AEOS-DIA-001-Documentation-Information-Architecture.md) | Information Architecture | 文件分類、組織與生命週期 |
 | REF-011 | [AEOS-STD-001 — Documentation Format Standard](../standards/AEOS-STD-001-Documentation-Format-Standard.md)、[AEOS-STD-002 — Metadata Standard](../standards/AEOS-STD-002-Metadata-Standard.md)、[AEOS-STD-003 — Cross-reference Standard](../standards/AEOS-STD-003-Cross-reference-Standard.md)、[AEOS-STD-004 — Naming Standard](../standards/AEOS-STD-004-Naming-Standard.md)、[AEOS-STD-005 — Review Standard](../standards/AEOS-STD-005-Review-Standard.md) | Standards | 文件格式、Metadata、Cross-reference、Naming 與 Review 規則 |
 | REF-012 | EWO-AEOS-0016 | EWO | 本文件之工作來源 |
+| REF-013 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
 ## 15. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.1.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 2（AEOS-ADR-002 已核准）：執行 Architecture Transition——WA-001 分類為歷史來源（Historical Reference）；Authority 階層（R0）與對應來源重錨至 AEOS-ARCH-001／Approved 架構載體；References 重錨（EWO-AEOS-0040） | Codex |
 | 1.0.0 | 2026-08-06 | Architecture Review 核准並合併；狀態更新為 Approved，成為 AEOS Repository Architecture 正式定義（EWO-AEOS-0017；AR-AEOS-0017-R1） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：依 WA-001 與 AEOS-ARCH-004 定義 Repository Identity、Boundary、Type、Relationship、Dependency、Ownership、Lifecycle、Change 與 Compliance（EWO-AEOS-0016） | Codex |
