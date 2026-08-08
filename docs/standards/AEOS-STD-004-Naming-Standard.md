@@ -3,11 +3,11 @@ doc-id: AEOS-STD-004
 doc-name: Naming Standard
 doc-type: Standard
 repository: AEOS
-version: 1.2.0
+version: 1.3.0
 status: Approved
 owner: Repository Owner
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-08
 related:
   - EWO-AEOS-0011
   - EWO-AEOS-0022
@@ -21,12 +21,13 @@ related:
   - AEOS-STD-001
   - AEOS-STD-002
   - AEOS-STD-003
+  - AEOS-ADR-002
   - WA-001
 ---
 
 # AEOS-STD-004 — Naming Standard
 
-> EWO-AEOS-0011：依 WA-001、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001、AEOS-STD-001、AEOS-STD-002 與 AEOS-STD-003 建立 AEOS 之 Naming Standard。本文件為 AEOS Repository 所有正式治理資產之唯一 Naming 規範；不是 Metadata Standard，不是 Cross-reference Standard，不是 Documentation Information Architecture。
+> EWO-AEOS-0011：依 AEOS-ADR-002、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001、AEOS-STD-001、AEOS-STD-002 與 AEOS-STD-003 建立 AEOS 之 Naming Standard。本文件為 AEOS Repository 所有正式治理資產之唯一 Naming 規範；不是 Metadata Standard，不是 Cross-reference Standard，不是 Documentation Information Architecture。
 
 ## Executive Summary
 
@@ -40,13 +41,13 @@ related:
 | 文件名稱 | Naming Standard |
 | 型別 | Standard |
 | 狀態 | Approved |
-| 版本 | 1.2.0 |
+| 版本 | 1.3.0 |
 | Repository | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0011、AEOS-STD-001（Approved v1.0.0）、AEOS-STD-002（Approved v1.0.0）、AEOS-STD-003（Approved v1.0.0）、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-GOV-001（Approved v1.0.0）、AEOS-ARCH-001、WA-001（Approved v1.0.0） |
-| 關聯文件 | EWO-AEOS-0011、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001、AEOS-STD-001、AEOS-STD-002、AEOS-STD-003、WA-001 |
+| 最後更新 | 2026-08-08 |
+| 依據文件 | EWO-AEOS-0011、AEOS-STD-001（Approved v1.1.0）、AEOS-STD-002（Approved v1.1.0）、AEOS-STD-003（Approved v1.1.0）、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-GOV-001（Approved v1.2.0）、AEOS-ARCH-001、AEOS-ADR-002（WA-001 Fact Authority Transition） |
+| 關聯文件 | EWO-AEOS-0011、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001、AEOS-STD-001、AEOS-STD-002、AEOS-STD-003、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
@@ -109,7 +110,7 @@ related:
 規則：
 
 - Naming MUST 自上而下保持一致；下層命名 MUST 依循上層命名之格式與前綴，MUST NOT 與上層衝突。
-- Enterprise Naming 之來源（WA-001）為最高命名權威（依 AEOS-ARCH-002 §5 H0）；AEOS 命名 MUST NOT 與其衝突。
+- Enterprise Naming 之來源（AEOS-ARCH-001）為最高命名權威（依 AEOS-ARCH-002 §5 H0）；AEOS 命名 MUST NOT 與其衝突。
 - 上層命名變更時，下層命名 MUST 於同一或後續 EWO 對應更新。
 
 ## 4. Naming Categories
@@ -421,7 +422,7 @@ Naming Consistency Validation 驗證命名與資產身分、Metadata、引用及
 
 | # | 文件 | 型別 | 用途 |
 |---|------|------|------|
-| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | AEOS 唯一架構來源 |
+| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
 | REF-002 | AEOS-ARCH-001 — Architecture Baseline | Architecture Entry Document | 架構基線與 Register |
 | REF-003 | AEOS-ARCH-002 — Enterprise Governance Architecture | Architecture | Governance Hierarchy 與治理結構 |
 | REF-004 | AEOS-ARCH-003 — Architecture Decision Record System | Architecture | ADR 編號規則與 ADR Register |
@@ -432,6 +433,7 @@ Naming Consistency Validation 驗證命名與資產身分、Metadata、引用及
 | REF-009 | AEOS-STD-002 — Metadata Standard（Approved v1.0.0） | Standard | Metadata 與 frontmatter 規則 |
 | REF-010 | AEOS-STD-003 — Cross-reference Standard（Approved v1.0.0） | Standard | 引用形式與一致性驗證 |
 | REF-011 | EWO-AEOS-0011 — Naming Standard | EWO | 本文件之工作來源 |
+| REF-012 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
 本標準（AEOS-STD-004）為 AEOS 唯一 Naming 標準來源（Single Source of Truth）；其他文件 MUST NOT 定義相異之命名規則。
 
@@ -439,6 +441,7 @@ Naming Consistency Validation 驗證命名與資產身分、Metadata、引用及
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.3.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 3（AEOS-ADR-002 已核准）：執行 Governance Authority Transition——WA-001 分類為歷史來源（Historical Reference）；Enterprise Naming 權威來源與 References 重錨至 AEOS-ARCH-001／Approved 架構載體（EWO-AEOS-0040） | Codex |
 | 1.2.0 | 2026-08-06 | 依 EWO-AEOS-0033 新增 Report 文件 doc-id（IR-14 AEOS-RPT-###）；保留字新增 RPT、RT；§6.1 TYPE 清單新增 RPT；ReviewType 新增 RT（Report Review）（SR-AEOS-0033-R2） | Codex |
 | 1.1.0 | 2026-08-06 | 依 EWO-AEOS-0022 新增 CAT／MAT 文件型別與 doc-id（IR-12、IR-13）；保留字新增 CAT／MAT／CM；§6.3 ReviewType 新增 CM（Catalog／Matrix Review） | Codex |
 | 1.0.0 | 2026-08-06 | 依 Standard Review（SR-AEOS-0011-R1）修正：狀態升版至 Approved 1.0.0；Naming Model 新增 Naming Hierarchy（Enterprise／Repository／Document／Identifier Naming；Naming MUST 自上而下保持一致）；Identifier Rules 新增 Identifier Reservation（Reserved Prefix／Reserved Identifier／Retired Identifier；Identifier 一經 Released 不得重新使用）；Validation Rules 新增 Naming Consistency Validation（C-001～C-005）；Naming Lifecycle 新增 Superseded（Proposed → Active → Deprecated → Superseded → Reserved；Superseded Identifier 保留歷史，不得重新配置）；Compliance 新增 Naming Integrity Checklist | Codex |

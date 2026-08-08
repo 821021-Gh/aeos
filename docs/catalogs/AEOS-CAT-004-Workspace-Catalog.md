@@ -3,11 +3,11 @@ doc-id: AEOS-CAT-004
 doc-name: Workspace Catalog
 doc-type: Catalog
 repository: AEOS
-version: 1.0.0
+version: 1.1.0
 status: Approved
 owner: Architecture Owner
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-08
 related:
   - EWO-AEOS-0030
   - EWO-AEOS-0031
@@ -16,6 +16,7 @@ related:
   - AEOS-ARCH-001
   - AEOS-ARCH-004
   - AEOS-ARCH-010
+  - AEOS-ADR-002
   - WA-001
 ---
 
@@ -35,13 +36,13 @@ related:
 | 文件名稱 | Workspace Catalog |
 | 型別 | Catalog |
 | 狀態 | Approved |
-| 版本 | 1.0.0 |
+| 版本 | 1.1.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0030、EWO-AEOS-0031、CM-AEOS-0031-R1、AEOS-STD-006（Approved 1.0.0）、AEOS-ARCH-004（Approved 1.0.0）、AEOS-ARCH-010（Approved 1.0.0）、AEOS-ARCH-001（Approved 1.0.0）、WA-001（Approved v1.0.0） |
-| 關聯文件 | EWO-AEOS-0031、CM-AEOS-0031-R1、AEOS-ARCH-001、AEOS-ARCH-004、AEOS-ARCH-010、AEOS-STD-001～AEOS-STD-006、WA-001 |
+| 最後更新 | 2026-08-08 |
+| 依據文件 | EWO-AEOS-0030、EWO-AEOS-0031、CM-AEOS-0031-R1、AEOS-STD-006（Approved 1.1.0）、AEOS-ARCH-004（Approved 1.1.0）、AEOS-ARCH-010（Approved 1.1.0）、AEOS-ARCH-001（Approved 1.3.0）、AEOS-ADR-002（WA-001 Fact Authority Transition） |
+| 關聯文件 | EWO-AEOS-0031、CM-AEOS-0031-R1、AEOS-ARCH-001、AEOS-ARCH-004、AEOS-ARCH-010、AEOS-STD-001～AEOS-STD-006、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
@@ -80,8 +81,8 @@ Workspace Catalog 依下列權威順序運作：
 
 | 層級 | 資產 | 權威角色 |
 |------|------|----------|
-| W0 | WA-001 | Workspace Architecture 之唯一來源 |
-| W1 | AEOS-ARCH-001 | 將 WA-001 納入 AEOS Architecture Baseline |
+| W0 | AEOS-ARCH-001 | 最高架構權威 |
+| W1 | AEOS-ARCH-001 | 架構 Entry Document 與 Architecture Register |
 | W2 | AEOS-ARCH-004 | Workspace Architecture 於 Enterprise Architecture 之定位 |
 | W3 | AEOS-ARCH-010 | Workspace 身分、Purpose、Boundary、Type／Level 與登錄規則 |
 | W4 | AEOS-STD-006 | Catalog Schema、Entry ID、Lifecycle、Review 與一致性規則 |
@@ -130,7 +131,7 @@ Workspace Entry MUST 具備下列欄位（依 AEOS-STD-006 §5.1 與 AEOS-ARCH-0
 | Type／Classification | Enterprise Workspace（AEOS-ARCH-010 §7.1） |
 | Status | Active |
 | Owner | Workspace Owner（角色，依 AEOS-ARCH-010 §9.1；具名 incumbent 未核准） |
-| Architecture Reference | [AEOS-ARCH-010](../architecture/AEOS-ARCH-010-Workspace-Architecture.md)（Approved 1.0.0）§4.1、§5、§7.1；[AEOS-ARCH-001](../architecture/AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.0.0）§1；[AEOS-ARCH-004](../architecture/AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.0.0）§4；WA-001（Approved v1.0.0） |
+| Architecture Reference | [AEOS-ARCH-010](../architecture/AEOS-ARCH-010-Workspace-Architecture.md)（Approved 1.1.0）§4.1、§5、§7.1；[AEOS-ARCH-001](../architecture/AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.3.0）§1；[AEOS-ARCH-004](../architecture/AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.1.0）§4；WA-001（歷史來源） |
 | Validated Facts | 定位：AI Engineering Workspace 之正式企業架構邊界，統合 Platform、Capability、Repository、Dependency 與治理資產（AEOS-ARCH-010 §4.1、§6.2）；Type：Enterprise Workspace（AEOS-ARCH-010 §7.1）；Composition：具名組成元素尚未核准登錄（本 EWO 不推測 Repository Placement／Platform-Capability Mapping） |
 | Related Entries | 無（無合規引用；AEOS-STD-006 §5.1 空值表達） |
 | Version／Review Date | 1.0.0／2026-08-06 |
@@ -138,10 +139,10 @@ Workspace Entry MUST 具備下列欄位（依 AEOS-STD-006 §5.1 與 AEOS-ARCH-0
 
 ### 5.2 登錄結論與排除說明
 
-- WS-001 之正式依據：AEOS-ARCH-010 §7.1 明示「WA-001 已核准之 Workspace 類型為 Enterprise Workspace（AI Engineering Workspace），為目前唯一已核准類型」；AEOS-ARCH-001 §1 與 AEOS-ARCH-004 §4 亦以「AI Engineering Workspace」為 Workspace 之正式名稱。
-- 不登錄其他 Workspace：AEOS-ARCH-010 §7.1 明示其他 Workspace 類型 MUST 先經 WA-001 變更與 Architecture Review 核准；目前無其他具名 Workspace。
+- WS-001 之正式依據：AEOS-ARCH-010 §7.1 明示「Approved 架構載體已核准之 Workspace 類型為 Enterprise Workspace（AI Engineering Workspace），為目前唯一已核准類型」；AEOS-ARCH-001 §1 與 AEOS-ARCH-004 §4 亦以「AI Engineering Workspace」為 Workspace 之正式名稱。
+- 不登錄其他 Workspace：AEOS-ARCH-010 §7.1 明示其他 Workspace 類型 MUST 先經正式架構變更與 Architecture Review 核准；目前無其他具名 Workspace。
 - 不登錄資料夾、Repository、執行環境或開發環境：僅實際存在不構成正式架構或決策依據。
-- 後續具名 Workspace MUST 經正式 Architecture Review／WA-001 內容核准後，依 §7 登錄。
+- 後續具名 Workspace MUST 經正式 Architecture Review／Approved 架構載體內容核准後，依 §7 登錄。
 
 ## 6. Document Lifecycle vs Entry Lifecycle
 
@@ -184,16 +185,18 @@ Workspace Catalog MUST 符合 AEOS-STD-006 §11 一致性規則：
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
-| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | Workspace Architecture 之唯一來源 |
-| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](../architecture/AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.0.0） | Architecture Entry Document | 架構基線；定義 AI Engineering Workspace |
-| REF-003 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](../architecture/AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.0.0） | Architecture | Workspace Architecture 之定位 |
-| REF-004 | [AEOS-ARCH-010 — Workspace Architecture](../architecture/AEOS-ARCH-010-Workspace-Architecture.md)（Approved 1.0.0） | Architecture | Workspace 身分、Purpose、Boundary、Type／Level 與登錄規則 |
-| REF-005 | [AEOS-STD-006 — Enterprise Architecture Catalog and Matrix Standard](../standards/AEOS-STD-006-Enterprise-Architecture-Catalog-and-Matrix-Standard.md)（Approved 1.0.0） | Standard | Catalog Schema、Entry ID、Lifecycle、Review 與一致性規則 |
+| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
+| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](../architecture/AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.3.0） | Architecture Entry Document | 架構基線；定義 AI Engineering Workspace |
+| REF-003 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](../architecture/AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.1.0） | Architecture | Workspace Architecture 之定位 |
+| REF-004 | [AEOS-ARCH-010 — Workspace Architecture](../architecture/AEOS-ARCH-010-Workspace-Architecture.md)（Approved 1.1.0） | Architecture | Workspace 身分、Purpose、Boundary、Type／Level 與登錄規則 |
+| REF-005 | [AEOS-STD-006 — Enterprise Architecture Catalog and Matrix Standard](../standards/AEOS-STD-006-Enterprise-Architecture-Catalog-and-Matrix-Standard.md)（Approved 1.1.0） | Standard | Catalog Schema、Entry ID、Lifecycle、Review 與一致性規則 |
 | REF-006 | EWO-AEOS-0030 | EWO | 本文件之工作來源 |
+| REF-007 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
 ## 10. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.1.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 3（AEOS-ADR-002 已核准）：執行 Governance Authority Transition——WA-001 分類為歷史來源（Historical Reference）；Authority 階層（W0）與 References 重錨至 AEOS-ARCH-001／Approved 架構載體；登錄條目與內容不變（EWO-AEOS-0040） | Codex |
 | 1.0.0 | 2026-08-06 | Catalog／Matrix Review 核准並合併；狀態更新為 Approved，成為 AEOS Workspace Catalog 正式登錄來源（EWO-AEOS-0031；CM-AEOS-0031-R1）；登錄條目維持 1（WS-001 AI Engineering Workspace，內容不變） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：依 AEOS-STD-006 建立 Workspace Catalog 權威結構、Entry Schema、Lifecycle、Traceability、Change 與一致性規則；登錄 WS-001 AI Engineering Workspace（Enterprise Workspace，依 AEOS-ARCH-010 §7.1）；Entry ID 前綴依 STD-006 §6.1 使用 WS（EWO-AEOS-0030） | Codex |

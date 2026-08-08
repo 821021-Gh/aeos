@@ -3,11 +3,11 @@ doc-id: AEOS-STD-006
 doc-name: Enterprise Architecture Catalog and Matrix Standard
 doc-type: Standard
 repository: AEOS
-version: 1.0.0
+version: 1.1.0
 status: Approved
 owner: Repository Owner
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-08
 related:
   - EWO-AEOS-0022
   - EWO-AEOS-0023
@@ -27,6 +27,7 @@ related:
   - AEOS-STD-003
   - AEOS-STD-004
   - AEOS-STD-005
+  - AEOS-ADR-002
   - WA-001
 ---
 
@@ -46,13 +47,13 @@ related:
 | 文件名稱 | Enterprise Architecture Catalog and Matrix Standard |
 | 型別 | Standard |
 | 狀態 | Approved |
-| 版本 | 1.0.0 |
+| 版本 | 1.1.0 |
 | Repository | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0022、EWO-AEOS-0023、SR-AEOS-0023-R1、AEOS-DIA-001、AEOS-STD-001～AEOS-STD-005、AEOS-ARCH-001、AEOS-ARCH-004～AEOS-ARCH-010、AEOS-GOV-001、WA-001（Approved v1.0.0） |
-| 關聯文件 | EWO-AEOS-0023、SR-AEOS-0023-R1、AEOS-ARCH-001～AEOS-ARCH-010、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001、AEOS-STD-001～AEOS-STD-005、WA-001 |
+| 最後更新 | 2026-08-08 |
+| 依據文件 | EWO-AEOS-0022、EWO-AEOS-0023、SR-AEOS-0023-R1、AEOS-DIA-001、AEOS-STD-001～AEOS-STD-005、AEOS-ARCH-001、AEOS-ARCH-004～AEOS-ARCH-010、AEOS-GOV-001、AEOS-ADR-002（WA-001 Fact Authority Transition） |
+| 關聯文件 | EWO-AEOS-0023、SR-AEOS-0023-R1、AEOS-ARCH-001～AEOS-ARCH-010、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001、AEOS-STD-001～AEOS-STD-005、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
@@ -314,7 +315,7 @@ Catalog／Matrix 合規檢查至少包含：
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
-| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | AEOS 唯一架構來源 |
+| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
 | REF-002 | [AEOS-ARCH-001 — Architecture Baseline](AEOS-ARCH-001-Architecture-Baseline.md) | Architecture Entry Document | Architecture Register 與架構基線 |
 | REF-003 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved v1.0.0） | Architecture | Catalog／Matrix 資產定位（§8） |
 | REF-004 | [AEOS-ARCH-005 — Platform Architecture](AEOS-ARCH-005-Platform-Architecture.md)（Approved v1.0.0） | Architecture | Platform Catalog 欄位與 Lifecycle |
@@ -327,10 +328,12 @@ Catalog／Matrix 合規檢查至少包含：
 | REF-011 | [AEOS-GOV-001 — Enterprise Governance Roadmap](../governance/AEOS-GOV-001-Enterprise-Governance-Roadmap.md)（Approved v1.0.0） | Governance | M5 里程碑命名對齊 |
 | REF-012 | [AEOS-STD-001 — Documentation Format Standard](AEOS-STD-001-Documentation-Format-Standard.md)、[AEOS-STD-002 — Metadata Standard](AEOS-STD-002-Metadata-Standard.md)、[AEOS-STD-003 — Cross-reference Standard](AEOS-STD-003-Cross-reference-Standard.md)、[AEOS-STD-004 — Naming Standard](AEOS-STD-004-Naming-Standard.md)、[AEOS-STD-005 — Review Standard](AEOS-STD-005-Review-Standard.md) | Standards | 文件格式、Metadata、Cross-reference、Naming 與 Review 規則 |
 | REF-013 | EWO-AEOS-0022 | EWO | 本文件之工作來源 |
+| REF-014 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
 ## 14. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.1.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 3（AEOS-ADR-002 已核准）：執行 Governance Authority Transition——WA-001 分類為歷史來源（Historical Reference）；References 重錨至 AEOS-ARCH-001／Approved 架構載體（EWO-AEOS-0040） | Codex |
 | 1.0.0 | 2026-08-06 | Standard Review 核准並合併；狀態更新為 Approved，成為 AEOS Enterprise Architecture Catalog and Matrix Standard 正式定義（EWO-AEOS-0023；SR-AEOS-0023-R1） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：依 Chief Architect 裁定定義 CAT／MAT 型別、目錄歸屬、統一 Schema、Entry ID／Relationship ID 命名框架、Traceability、Lifecycle、Review、Approval、Change 與一致性規則（EWO-AEOS-0022） | Codex |

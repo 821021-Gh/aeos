@@ -3,11 +3,11 @@ doc-id: AEOS-STD-005
 doc-name: Review Standard
 doc-type: Standard
 repository: AEOS
-version: 1.3.0
+version: 1.4.0
 status: Approved
 owner: Repository Owner
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-08
 related:
   - EWO-AEOS-0012
   - EWO-AEOS-0022
@@ -23,12 +23,13 @@ related:
   - AEOS-STD-002
   - AEOS-STD-003
   - AEOS-STD-004
+  - AEOS-ADR-002
   - WA-001
 ---
 
 # AEOS-STD-005 — Review Standard
 
-> EWO-AEOS-0012：依 WA-001、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001、AEOS-STD-001、AEOS-STD-002、AEOS-STD-003 與 AEOS-STD-004 建立 AEOS 之 Review Standard。本文件為 AEOS Repository 所有正式治理資產之唯一 Review 規範；不是 Documentation Format，不是 Metadata，不是 Cross-reference，不是 Naming。
+> EWO-AEOS-0012：依 AEOS-ADR-002、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001、AEOS-STD-001、AEOS-STD-002、AEOS-STD-003 與 AEOS-STD-004 建立 AEOS 之 Review Standard。本文件為 AEOS Repository 所有正式治理資產之唯一 Review 規範；不是 Documentation Format，不是 Metadata，不是 Cross-reference，不是 Naming。
 
 ## Executive Summary
 
@@ -42,13 +43,13 @@ related:
 | 文件名稱 | Review Standard |
 | 型別 | Standard |
 | 狀態 | Approved |
-| 版本 | 1.3.0 |
+| 版本 | 1.4.0 |
 | Repository | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0012、AEOS-STD-001（Approved v1.0.0）、AEOS-STD-002（Approved v1.0.0）、AEOS-STD-003（Approved v1.0.0）、AEOS-STD-004（Approved v1.0.0）、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-GOV-001（Approved v1.0.0）、AEOS-ARCH-001、WA-001（Approved v1.0.0） |
-| 關聯文件 | EWO-AEOS-0012、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001、AEOS-STD-001、AEOS-STD-002、AEOS-STD-003、AEOS-STD-004、WA-001 |
+| 最後更新 | 2026-08-08 |
+| 依據文件 | EWO-AEOS-0012、AEOS-STD-001（Approved 1.1.0）、AEOS-STD-002（Approved 1.1.0）、AEOS-STD-003（Approved 1.1.0）、AEOS-STD-004（Approved 1.3.0）、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-GOV-001（Approved 1.2.0）、AEOS-ARCH-001、AEOS-ADR-002（WA-001 Fact Authority Transition） |
+| 關聯文件 | EWO-AEOS-0012、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001、AEOS-STD-001、AEOS-STD-002、AEOS-STD-003、AEOS-STD-004、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
@@ -120,7 +121,7 @@ Review Type 為 Review 之正式分類；Review MUST 依 Review Subject 之型�
 
 | Review Type | Review ID 前綴 | 適用資產 | 審查重點 |
 |-------------|----------------|----------|----------|
-| Architecture Review | AR | ARCH、DIA 文件；Architecture Candidate Assessment RPT（依 AEOS-DIA-001 §3） | 架構一致性與來源追溯（WA-001／AEOS-ARCH-001）；候選識別與 Review Outcome 之 Fact Authority |
+| Architecture Review | AR | ARCH、DIA 文件；Architecture Candidate Assessment RPT（依 AEOS-DIA-001 §3） | 架構一致性與來源追溯（AEOS-ARCH-001／Approved 架構載體）；候選識別與 Review Outcome 之 Fact Authority |
 | Repository Review | RR | CON 文件與 Repository 治理文件 | Repository 身分、治理原則與變更管理 |
 | Standard Review | SR | STD 文件 | 標準完整性、與上位文件一致、未重新定義既有標準 |
 | Policy Review | PR | POL 文件 | 政策內容與上位文件一致 |
@@ -172,7 +173,7 @@ Review Escalation 適用於 Architecture、Governance、Standard、Policy 等重
 | 機制 | 定義 | 規則 |
 |------|------|------|
 | Escalation Trigger | 觸發升級之情況（Review 意見分歧、無法達成 APPROVED、範圍超出 Review Owner 權限、上位文件衝突等） | MUST 於 PR 記錄觸發原因 |
-| Escalation Authority | 升級之裁決者（Repository Owner；架構相關為 Architecture Owner／WA-001 來源） | Escalation Authority MUST 為 Review Owner 之上一層級（依 §3.1） |
+| Escalation Authority | 升級之裁決者（Repository Owner；架構相關為 Architecture Owner／Approved 架構載體來源） | Escalation Authority MUST 為 Review Owner 之上一層級（依 §3.1） |
 | Escalation Resolution | 升級後之決策（維持、修改或推翻原決策） | Resolution MUST 記錄於 PR，並以 Review ID 或新 Decision 宣告；不得由下層 Review 覆蓋（依 §3.1） |
 
 規則：
@@ -332,7 +333,7 @@ Review Consistency Validation 驗證 Review 記錄與資產身分、決策及 PR
 
 | # | 文件 | 型別 | 用途 |
 |---|------|------|------|
-| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | AEOS 唯一架構來源 |
+| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
 | REF-002 | AEOS-ARCH-001 — Architecture Baseline | Architecture Entry Document | 架構基線與 Register |
 | REF-003 | AEOS-ARCH-002 — Enterprise Governance Architecture | Architecture | Governance Hierarchy 與治理結構 |
 | REF-004 | AEOS-ARCH-003 — Architecture Decision Record System | Architecture | ADR Review 與決策狀態之依據 |
@@ -344,6 +345,7 @@ Review Consistency Validation 驗證 Review 記錄與資產身分、決策及 PR
 | REF-010 | AEOS-STD-003 — Cross-reference Standard（Approved v1.0.0） | Standard | 引用形式與一致性驗證 |
 | REF-011 | AEOS-STD-004 — Naming Standard（Approved v1.0.0） | Standard | Review ID 格式與命名規則 |
 | REF-012 | EWO-AEOS-0012 — Review Standard | EWO | 本文件之工作來源 |
+| REF-013 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
 本標準（AEOS-STD-005）為 AEOS 唯一 Review 標準來源（Single Source of Truth）；其他文件 MUST NOT 定義相異之 Review 規則。
 
@@ -351,6 +353,7 @@ Review Consistency Validation 驗證 Review 記錄與資產身分、決策及 PR
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.4.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 3（AEOS-ADR-002 已核准）：執行 Governance Authority Transition——WA-001 分類為歷史來源（Historical Reference）；AR 來源追溯與 Escalation Authority 重錨至 AEOS-ARCH-001／Approved 架構載體；References 重錨（EWO-AEOS-0040） | Codex |
 | 1.3.0 | 2026-08-06 | 依 EWO-AEOS-0037 擴充 Architecture Review（AR）適用資產至 Architecture Candidate Assessment RPT；定義其唯一 Review 路徑（AR 同時完成內容審查與 Lifecycle 核准，不疊加 RT）；明定 PR 為 Review Record 載體、AR 判定（Approved／Approved with Conditions／Rejected／Deferred）、RPT 僅記錄 Review ID 與結果摘要、Catalog 登錄 Traceability 須含 Approved RPT 與 AR Review Record、必要時仍須依 AEOS-ARCH-003 建立 ADR（SR-AEOS-0037-R2） | Codex |
 | 1.2.0 | 2026-08-06 | 依 EWO-AEOS-0033 新增 Report Review（RT）：適用 RPT 文件，審查分析完整性、結論 Fact Authority 與建議可執行性（SR-AEOS-0033-R3） | Codex |
 | 1.1.0 | 2026-08-06 | 依 EWO-AEOS-0022 新增 Catalog／Matrix Review（CM）：適用 CAT、MAT 文件，審查 Catalog／Matrix 一致性、條目追溯與關係事實（依 AEOS-STD-006） | Codex |

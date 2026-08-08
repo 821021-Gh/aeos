@@ -3,11 +3,11 @@ doc-id: AEOS-CAT-003
 doc-name: Repository Catalog
 doc-type: Catalog
 repository: AEOS
-version: 1.0.0
+version: 1.1.0
 status: Approved
 owner: Architecture Owner
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-08
 related:
   - EWO-AEOS-0028
   - EWO-AEOS-0029
@@ -17,6 +17,7 @@ related:
   - AEOS-ARCH-004
   - AEOS-ARCH-008
   - AEOS-CON-001
+  - AEOS-ADR-002
   - WA-001
 ---
 
@@ -36,13 +37,13 @@ related:
 | 文件名稱 | Repository Catalog |
 | 型別 | Catalog |
 | 狀態 | Approved |
-| 版本 | 1.0.0 |
+| 版本 | 1.1.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0028、EWO-AEOS-0029、CM-AEOS-0029-R1、AEOS-STD-006（Approved 1.0.0）、AEOS-ARCH-004（Approved 1.0.0）、AEOS-ARCH-008（Approved 1.0.0）、AEOS-ARCH-001（Approved 1.0.0）、AEOS-CON-001（Approved 1.0.0）、WA-001（Approved v1.0.0） |
-| 關聯文件 | EWO-AEOS-0029、CM-AEOS-0029-R1、AEOS-ARCH-001、AEOS-ARCH-004、AEOS-ARCH-008、AEOS-CON-001、AEOS-STD-001～AEOS-STD-006、WA-001 |
+| 最後更新 | 2026-08-08 |
+| 依據文件 | EWO-AEOS-0028、EWO-AEOS-0029、CM-AEOS-0029-R1、AEOS-STD-006（Approved 1.1.0）、AEOS-ARCH-004（Approved 1.1.0）、AEOS-ARCH-008（Approved 1.1.0）、AEOS-ARCH-001（Approved 1.3.0）、AEOS-CON-001（Approved 1.0.0）、AEOS-ADR-002（WA-001 Fact Authority Transition） |
+| 關聯文件 | EWO-AEOS-0029、CM-AEOS-0029-R1、AEOS-ARCH-001、AEOS-ARCH-004、AEOS-ARCH-008、AEOS-CON-001、AEOS-STD-001～AEOS-STD-006、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
@@ -81,8 +82,8 @@ Repository Catalog 依下列權威順序運作：
 
 | 層級 | 資產 | 權威角色 |
 |------|------|----------|
-| R0 | WA-001 | Workspace Architecture 與 Repository 角色之唯一來源 |
-| R1 | AEOS-ARCH-001 | 將 WA-001 納入 AEOS Architecture Baseline；定義 AEOS 為 Enterprise Root Repository |
+| R0 | AEOS-ARCH-001 | 最高架構權威 |
+| R1 | AEOS-ARCH-001 | 架構 Entry Document 與 Architecture Register；定義 AEOS 為 Enterprise Root Repository |
 | R2 | AEOS-ARCH-004 | Repository Architecture 於 Enterprise Architecture 之定位 |
 | R3 | AEOS-ARCH-008 | Repository 身分、Type、Boundary 與登錄規則 |
 | R4 | AEOS-CON-001 | AEOS Repository 正式身分、使命與治理基線 |
@@ -185,17 +186,19 @@ Repository Catalog MUST 符合 AEOS-STD-006 §11 一致性規則：
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
-| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | Workspace Architecture 與 Repository 角色之唯一來源 |
-| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](../architecture/AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.0.0） | Architecture Entry Document | 架構基線；定義 AEOS 為 Enterprise Root Repository |
-| REF-003 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](../architecture/AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.0.0） | Architecture | Repository Architecture 之定位 |
-| REF-004 | [AEOS-ARCH-008 — Repository Architecture](../architecture/AEOS-ARCH-008-Repository-Architecture.md)（Approved 1.0.0） | Architecture | Repository 身分、Type、Boundary 與登錄規則 |
+| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
+| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](../architecture/AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.3.0） | Architecture Entry Document | 架構基線；定義 AEOS 為 Enterprise Root Repository |
+| REF-003 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](../architecture/AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.1.0） | Architecture | Repository Architecture 之定位 |
+| REF-004 | [AEOS-ARCH-008 — Repository Architecture](../architecture/AEOS-ARCH-008-Repository-Architecture.md)（Approved 1.1.0） | Architecture | Repository 身分、Type、Boundary 與登錄規則 |
 | REF-005 | [AEOS-CON-001 — Repository Constitution](../constitution/AEOS-CON-001-Repository-Constitution.md)（Approved 1.0.0） | Constitution | AEOS Repository 正式身分與治理基線 |
-| REF-006 | [AEOS-STD-006 — Enterprise Architecture Catalog and Matrix Standard](../standards/AEOS-STD-006-Enterprise-Architecture-Catalog-and-Matrix-Standard.md)（Approved 1.0.0） | Standard | Catalog Schema、Entry ID、Lifecycle、Review 與一致性規則 |
+| REF-006 | [AEOS-STD-006 — Enterprise Architecture Catalog and Matrix Standard](../standards/AEOS-STD-006-Enterprise-Architecture-Catalog-and-Matrix-Standard.md)（Approved 1.1.0） | Standard | Catalog Schema、Entry ID、Lifecycle、Review 與一致性規則 |
 | REF-007 | EWO-AEOS-0028 | EWO | 本文件之工作來源 |
+| REF-008 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
 ## 10. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.1.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 3（AEOS-ADR-002 已核准）：執行 Governance Authority Transition——WA-001 分類為歷史來源（Historical Reference）；Authority 階層（R0）與 References 重錨至 AEOS-ARCH-001／Approved 架構載體；登錄條目與內容不變（EWO-AEOS-0040） | Codex |
 | 1.0.0 | 2026-08-06 | Catalog／Matrix Review 核准並合併；狀態更新為 Approved，成為 AEOS Repository Catalog 正式登錄來源（EWO-AEOS-0029；CM-AEOS-0029-R1）；登錄條目維持 1（REP-001 AEOS，內容不變） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：依 AEOS-STD-006 建立 Repository Catalog 權威結構、Entry Schema、Lifecycle、Traceability、Change 與一致性規則；登錄 REP-001 AEOS（Enterprise Root Repository，依 AEOS-CON-001 §2 與 AEOS-ARCH-001 §1）；其他 Repository 因缺乏正式依據不登錄（EWO-AEOS-0028） | Codex |

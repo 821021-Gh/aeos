@@ -3,11 +3,11 @@ doc-id: AEOS-STD-002
 doc-name: Metadata Standard
 doc-type: Standard
 repository: AEOS
-version: 1.0.0
+version: 1.1.0
 status: Approved
 owner: Repository Owner
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-08
 related:
   - EWO-AEOS-0009
   - SR-AEOS-0009-R1
@@ -16,12 +16,13 @@ related:
   - AEOS-CON-001
   - AEOS-GOV-001
   - AEOS-STD-001
+  - AEOS-ADR-002
   - WA-001
 ---
 
 # AEOS-STD-002 — Metadata Standard
 
-> EWO-AEOS-0009：依 WA-001、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001 與 AEOS-STD-001 建立 AEOS 之 Metadata Standard。本文件為所有正式文件之唯一 Metadata 規範；不是 Frontmatter Template，不是 Documentation Format。
+> EWO-AEOS-0009：依 AEOS-ADR-002、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001 與 AEOS-STD-001 建立 AEOS 之 Metadata Standard。本文件為所有正式文件之唯一 Metadata 規範；不是 Frontmatter Template，不是 Documentation Format。
 
 ## Executive Summary
 
@@ -35,13 +36,13 @@ related:
 | 文件名稱 | Metadata Standard |
 | 型別 | Standard |
 | 狀態 | Approved |
-| 版本 | 1.0.0 |
+| 版本 | 1.1.0 |
 | Repository | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0009、SR-AEOS-0009-R1、AEOS-STD-001（Approved v1.0.0）、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-GOV-001（Approved v1.0.0）、AEOS-ARCH-001、WA-001（Approved v1.0.0） |
-| 關聯文件 | EWO-AEOS-0009、SR-AEOS-0009-R1、AEOS-STD-001、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001、WA-001 |
+| 最後更新 | 2026-08-08 |
+| 依據文件 | EWO-AEOS-0009、SR-AEOS-0009-R1、AEOS-STD-001（Approved v1.1.0）、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-GOV-001（Approved v1.2.0）、AEOS-ARCH-001、AEOS-ADR-002（WA-001 Fact Authority Transition） |
+| 關聯文件 | EWO-AEOS-0009、SR-AEOS-0009-R1、AEOS-STD-001、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
@@ -197,7 +198,7 @@ related:
 
 | # | 文件 | 型別 | 用途 |
 |---|------|------|------|
-| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | AEOS 唯一架構來源 |
+| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
 | REF-002 | AEOS-ARCH-001 — Architecture Baseline | Architecture Entry Document | 架構基線與 Register |
 | REF-003 | AEOS-DIA-001 — Documentation Information Architecture | Information Architecture | Taxonomy、狀態與生命週期 |
 | REF-004 | AEOS-CON-001 — Repository Constitution（Approved v1.0.0） | Constitution | Repository 治理基線 |
@@ -205,6 +206,7 @@ related:
 | REF-006 | AEOS-STD-001 — Documentation Format Standard（Approved v1.0.0） | Standard | 文件格式與 Mandatory Sections |
 | REF-007 | AEOS-ARCH-003 — Architecture Decision Record System | Architecture | ADR Optional Fields |
 | REF-008 | EWO-AEOS-0009 — Metadata Standard | EWO | 本文件之工作來源 |
+| REF-009 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
 本標準（AEOS-STD-002）為 AEOS 唯一 Metadata 標準來源（Single Source of Truth）；其他文件 MUST NOT 定義相異之 Metadata 欄位規則。
 
@@ -212,5 +214,6 @@ related:
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.1.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 3（AEOS-ADR-002 已核准）：執行 Governance Authority Transition——WA-001 分類為歷史來源（Historical Reference）；References 重錨至 AEOS-ARCH-001／Approved 架構載體（EWO-AEOS-0040） | Codex |
 | 1.0.0 | 2026-08-06 | 依 Standard Review（SR-AEOS-0009-R1）修正：狀態升版至 Approved 1.0.0；Metadata Lifecycle 新增 Deprecated（Draft → Review → Approved → Released → Deprecated → Archived）；Field Definitions 新增 Field ID（MF／OF）；Validation Rules 新增 Cross-field Validation；Compliance Checklist 新增 Metadata Consistency；References 宣告本標準為唯一 Metadata 標準來源 | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：定義 Metadata Model、Mandatory Fields、Optional Fields、Field Definitions、Validation Rules、Lifecycle 與 Compliance（EWO-AEOS-0009） | Codex |

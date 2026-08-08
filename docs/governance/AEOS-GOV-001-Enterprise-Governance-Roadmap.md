@@ -3,11 +3,11 @@ doc-id: AEOS-GOV-001
 doc-name: Enterprise Governance Roadmap
 doc-type: Governance
 repository: AEOS
-version: 1.1.0
+version: 1.2.0
 status: Approved
 owner: Repository Owner
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-08
 related:
   - EWO-AEOS-0007
   - EWO-AEOS-0022
@@ -17,12 +17,13 @@ related:
   - AEOS-ARCH-003
   - AEOS-CON-001
   - AEOS-DIA-001
+  - AEOS-ADR-002
   - WA-001
 ---
 
 # AEOS-GOV-001 — Enterprise Governance Roadmap
 
-> EWO-AEOS-0007：依 WA-001、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001 與 AEOS-DIA-001 建立 AEOS 之 Enterprise Governance Roadmap。本文件定義 AEOS Repository 自身之治理建設 Roadmap，作為後續 EWO Planning 之正式依據；不是 Product Roadmap、Platform Roadmap 或 Workspace Roadmap。
+> EWO-AEOS-0007：依 AEOS-ADR-002、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001 與 AEOS-DIA-001 建立 AEOS 之 Enterprise Governance Roadmap。本文件定義 AEOS Repository 自身之治理建設 Roadmap，作為後續 EWO Planning 之正式依據；不是 Product Roadmap、Platform Roadmap 或 Workspace Roadmap。
 
 ## 文件資訊
 
@@ -32,13 +33,13 @@ related:
 | 文件名稱 | Enterprise Governance Roadmap |
 | 型別 | Governance |
 | 狀態 | Approved |
-| 版本 | 1.1.0 |
+| 版本 | 1.2.0 |
 | Repository | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0007、GR-AEOS-0007-R1、WA-001（Approved v1.0.0）、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001（Approved v1.0.0）、AEOS-DIA-001 |
-| 關聯文件 | EWO-AEOS-0007、GR-AEOS-0007-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001、AEOS-DIA-001、WA-001 |
+| 最後更新 | 2026-08-08 |
+| 依據文件 | EWO-AEOS-0007、GR-AEOS-0007-R1、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001（Approved v1.0.0）、AEOS-DIA-001 |
+| 關聯文件 | EWO-AEOS-0007、GR-AEOS-0007-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001、AEOS-DIA-001、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Current Foundation
 
@@ -89,8 +90,8 @@ Current Phase：AEOS 目前位於 M2 — Governance Architecture（已完成）�
 
 | Domain | 目的 | 來源 | 狀態 |
 |--------|------|------|------|
-| Platform Governance | 建立平台層級治理之正式內容與決策 | WA-001（正式內容由後續 EWO 建立） | Planned |
-| Capability Governance | 建立能力定義、擁有權與管理之正式內容 | WA-001（正式內容由後續 EWO 建立） | Planned |
+| Platform Governance | 建立平台層級治理之正式內容與決策 | 正式內容由後續 EWO 建立（不依 WA-001） | Planned |
+| Capability Governance | 建立能力定義、擁有權與管理之正式內容 | 正式內容由後續 EWO 建立（不依 WA-001） | Planned |
 
 Architecture Governance、Documentation Governance、Repository Governance 與 Decision Governance 已分別由 AEOS-ARCH-001／AEOS-DIA-001／AEOS-CON-001／AEOS-ARCH-003 建立，不列入 Planned。
 
@@ -131,14 +132,14 @@ Architecture Governance、Documentation Governance、Repository Governance 與 D
 | Framework | 目的 | 優先序 |
 |-----------|------|--------|
 | Governance Review Framework | 定義 Review Records、CR／RC 與核准之操作框架 | P2 |
-| Capability Management Framework | 定義 Capability 管理之操作框架（依 WA-001） | P3 |
-| Platform Governance Framework | 定義 Platform 治理之操作框架（依 WA-001） | P3 |
+| Capability Management Framework | 定義 Capability 管理之操作框架（依 Approved 架構載體） | P3 |
+| Platform Governance Framework | 定義 Platform 治理之操作框架（依 Approved 架構載體） | P3 |
 
 ## 8. Dependencies
 
 | # | 依賴 | 影響 | 狀態 |
 |---|------|------|------|
-| DEP-001 | WA-001（唯一架構來源） | Platform／Capability 領域內容 | 已核准 |
+| DEP-001 | AEOS-ARCH-001／Approved 架構載體 | Platform／Capability 領域內容 | 已核准 |
 | DEP-002 | AEOS-ARCH-001 | Architecture Catalog、架構文件 | 已完成 |
 | DEP-003 | AEOS-ARCH-002 | Governance Domains、Review Framework | 已完成 |
 | DEP-004 | AEOS-ARCH-003 | ADR Register、Review Records | 已完成 |
@@ -156,7 +157,7 @@ Architecture Governance、Documentation Governance、Repository Governance 與 D
 | P0 | 已完成項目（M1、M2） | 已交付，納入 Current Foundation |
 | P1 | Planned Standards、Planned Policies（M3） | 治理內容基礎，優先於目錄與框架 |
 | P2 | Planned Catalogs、Governance Review Framework（M4、M5 部分） | 依 P1 文件穩定後建立 |
-| P3 | Platform／Capability Governance 內容（M5） | 依 WA-001 與 P1／P2 成果展開 |
+| P3 | Platform／Capability Governance 內容（M5） | 依 Approved 架構載體與 P1／P2 成果展開 |
 
 規則：
 
@@ -176,7 +177,7 @@ Architecture Governance、Documentation Governance、Repository Governance 與 D
 
 | # | 文件 | 型別 | 用途 |
 |---|------|------|------|
-| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | AEOS 唯一架構來源 |
+| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
 | REF-002 | AEOS-ARCH-001 — Architecture Baseline | Architecture Entry Document | 架構基線與 Register |
 | REF-003 | AEOS-ARCH-002 — Enterprise Governance Architecture | Architecture | Governance Domains 與治理結構 |
 | REF-004 | AEOS-ARCH-003 — Architecture Decision Record System | Architecture | ADR System 與 ADR Register |
@@ -184,11 +185,13 @@ Architecture Governance、Documentation Governance、Repository Governance 與 D
 | REF-006 | AEOS-DIA-001 — Documentation Information Architecture | Information Architecture | 文件分類、生命週期與引用 |
 | REF-007 | EWO-AEOS-0007 — Enterprise Governance Roadmap | EWO | 本文件之工作來源 |
 | REF-008 | AEOS-STD-006 — Enterprise Architecture Catalog and Matrix Standard | Standard | Catalog／Matrix 型別、Schema 與治理規則 |
+| REF-009 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
 ## 12. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.2.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 3（AEOS-ADR-002 已核准）：執行 Governance Authority Transition——WA-001 分類為歷史來源（Historical Reference）；Governance Domains、Dependency、References 重錨至 AEOS-ARCH-001／Approved 架構載體（EWO-AEOS-0040） | Codex |
 | 1.1.0 | 2026-08-06 | 依 EWO-AEOS-0022 新增 Milestone Naming Alignment（§2.1）：釐清本 Roadmap 治理里程碑（M4 Governance Catalogs、M5 Governance Operationalization）與架構 EWO 系列里程碑（M4 Enterprise Architecture Foundation、M5 Enterprise Architecture Catalogs）之命名差異與對應關係；M5 Catalogs 之 Schema 依 AEOS-STD-006 | Codex |
 | 1.0.0 | 2026-08-06 | 依 Governance Review（GR-AEOS-0007-R1）修正：狀態升版至 Approved 1.0.0；Governance Milestones 新增 Current Phase（M2 已完成、M3 為下一階段）；Planned Standards 新增 Review Standard、Naming Standard；Planned Catalogs 新增 Governance Catalog（管理 Standards、Policies、Frameworks、Reviews）；Dependencies 新增 DEP-008 Approved Reviews；Evolution Strategy 新增 Milestone 完成後 Review | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：定義 Current Foundation、Governance Milestones、Planned Domains、Planned Standards、Planned Policies、Planned Catalogs、Planned Frameworks、Dependencies、Priority 與 Evolution Strategy（EWO-AEOS-0007） | Codex |
