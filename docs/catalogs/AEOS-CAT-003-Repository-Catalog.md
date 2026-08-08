@@ -132,7 +132,7 @@ Repository Entry MUST 具備下列欄位（依 AEOS-STD-006 §5.1 與 AEOS-ARCH-
 | Type／Classification | Enterprise Root Repository（AEOS-ARCH-004 §6.4、AEOS-ARCH-008 §7） |
 | Status | Active |
 | Owner | Repository Owner（AEOS-CON-001 owner；AEOS-ARCH-004 §9） |
-| Architecture Reference | [AEOS-ARCH-001](../architecture/AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.0.0）§1；[AEOS-CON-001](../constitution/AEOS-CON-001-Repository-Constitution.md)（Approved 1.0.0）§1、§2；[AEOS-ARCH-004](../architecture/AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.0.0）§6.4 |
+| Architecture Reference | [AEOS-ARCH-001](../architecture/AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.3.0）§1；[AEOS-CON-001](../constitution/AEOS-CON-001-Repository-Constitution.md)（Approved 1.0.0）§1、§2；[AEOS-ARCH-004](../architecture/AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.1.0）§6.4 |
 | Validated Facts | 定位：AI Engineering Workspace 之 Enterprise Root Repository，承載 Workspace 層級之企業架構、治理與共同控制資產（AEOS-CON-001 §1、AEOS-ARCH-001 §1）；Platform Reference：無（尚未核准具名 Platform）；Capability References：無（尚未核准具名 Capability）；Dependencies：無（尚未核准，不推測） |
 | Related Entries | 無（無合規引用；AEOS-STD-006 §5.1 空值表達） |
 | Version／Review Date | 1.0.0／2026-08-06 |

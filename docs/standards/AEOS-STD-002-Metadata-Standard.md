@@ -202,8 +202,8 @@ related:
 | REF-002 | AEOS-ARCH-001 — Architecture Baseline | Architecture Entry Document | 架構基線與 Register |
 | REF-003 | AEOS-DIA-001 — Documentation Information Architecture | Information Architecture | Taxonomy、狀態與生命週期 |
 | REF-004 | AEOS-CON-001 — Repository Constitution（Approved v1.0.0） | Constitution | Repository 治理基線 |
-| REF-005 | AEOS-GOV-001 — Enterprise Governance Roadmap（Approved v1.0.0） | Governance | Planned Standards 與優先序 |
-| REF-006 | AEOS-STD-001 — Documentation Format Standard（Approved v1.0.0） | Standard | 文件格式與 Mandatory Sections |
+| REF-005 | AEOS-GOV-001 — Enterprise Governance Roadmap（Approved 1.2.0） | Governance | Planned Standards 與優先序 |
+| REF-006 | AEOS-STD-001 — Documentation Format Standard（Approved 1.1.0） | Standard | 文件格式與 Mandatory Sections |
 | REF-007 | AEOS-ARCH-003 — Architecture Decision Record System | Architecture | ADR Optional Fields |
 | REF-008 | EWO-AEOS-0009 — Metadata Standard | EWO | 本文件之工作來源 |
 | REF-009 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |

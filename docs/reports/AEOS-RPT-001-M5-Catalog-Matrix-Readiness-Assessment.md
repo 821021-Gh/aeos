@@ -88,9 +88,9 @@ related:
 本報告直接承接 EWO-AEOS-0032 之盤點與判定，不重新進行架構分析。判定之 Fact Authority：
 
 - Catalog 條目事實：四份 Approved Catalog（AEOS-CAT-001～004，Approved 1.0.0）。
-- Matrix 建立規則：AEOS-STD-006（Approved 1.0.0）。
-- 領域規則：AEOS-ARCH-004～010（Approved 1.0.0）。
-- 文件型別與識別規則：AEOS-DIA-001（3.0.0）、AEOS-STD-004（1.2.0）、AEOS-STD-005（1.2.0）。
+- Matrix 建立規則：AEOS-STD-006（Approved 1.1.0）。
+- 領域規則：AEOS-ARCH-004～010（Approved 1.1.0）。
+- 文件型別與識別規則：AEOS-DIA-001（3.2.0）、AEOS-STD-004（1.3.0）、AEOS-STD-005（1.4.0）。
 - 判定結論之可追溯性：本報告每一項判定均可回溯至 EWO-AEOS-0032 與上述 Fact Authority；本報告不登錄任何未經核准之事實。
 
 ## 4. Catalog Baseline
@@ -170,16 +170,16 @@ EWO-AEOS-0032 發現之 Assessment／Report 文件治理缺口已由 EWO-AEOS-00
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
 | REF-001 | EWO-AEOS-0032 — M5 Catalog／Matrix Readiness Assessment（評估結果） | EWO | 本報告之評估來源與判定依據 |
-| REF-002 | [AEOS-STD-006 — Enterprise Architecture Catalog and Matrix Standard](../standards/AEOS-STD-006-Enterprise-Architecture-Catalog-and-Matrix-Standard.md)（Approved 1.0.0） | Standard | Matrix 建立規則與 Relationship ID |
-| REF-003 | [AEOS-CAT-001 — Platform Catalog](../catalogs/AEOS-CAT-001-Platform-Catalog.md)（Approved 1.0.0） | Catalog | Platform 條目基線 |
-| REF-004 | [AEOS-CAT-002 — Capability Catalog](../catalogs/AEOS-CAT-002-Capability-Catalog.md)（Approved 1.0.0） | Catalog | Capability 條目基線 |
-| REF-005 | [AEOS-CAT-003 — Repository Catalog](../catalogs/AEOS-CAT-003-Repository-Catalog.md)（Approved 1.0.0） | Catalog | Repository 條目基線 |
-| REF-006 | [AEOS-CAT-004 — Workspace Catalog](../catalogs/AEOS-CAT-004-Workspace-Catalog.md)（Approved 1.0.0） | Catalog | Workspace 條目基線 |
-| REF-007 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](../architecture/AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.0.0） | Architecture | Catalog／Matrix 資產定位 |
-| REF-008 | AEOS-ARCH-005～010（Approved 1.0.0） | Architecture | Ownership、Dependency、Repository、Workspace 與 Mapping 相關規則 |
-| REF-009 | [AEOS-DIA-001 — Documentation Information Architecture](../documentation/AEOS-DIA-001-Documentation-Information-Architecture.md)（3.0.0） | Information Architecture | Report（RPT）型別與 Taxonomy |
-| REF-010 | [AEOS-STD-004 — Naming Standard](../standards/AEOS-STD-004-Naming-Standard.md)（1.2.0） | Standard | 識別與命名規則 |
-| REF-011 | [AEOS-STD-005 — Review Standard](../standards/AEOS-STD-005-Review-Standard.md)（1.2.0） | Standard | Report Review（RT）規則 |
+| REF-002 | [AEOS-STD-006 — Enterprise Architecture Catalog and Matrix Standard](../standards/AEOS-STD-006-Enterprise-Architecture-Catalog-and-Matrix-Standard.md)（Approved 1.1.0） | Standard | Matrix 建立規則與 Relationship ID |
+| REF-003 | [AEOS-CAT-001 — Platform Catalog](../catalogs/AEOS-CAT-001-Platform-Catalog.md)（Approved 1.1.0） | Catalog | Platform 條目基線 |
+| REF-004 | [AEOS-CAT-002 — Capability Catalog](../catalogs/AEOS-CAT-002-Capability-Catalog.md)（Approved 1.1.0） | Catalog | Capability 條目基線 |
+| REF-005 | [AEOS-CAT-003 — Repository Catalog](../catalogs/AEOS-CAT-003-Repository-Catalog.md)（Approved 1.1.0） | Catalog | Repository 條目基線 |
+| REF-006 | [AEOS-CAT-004 — Workspace Catalog](../catalogs/AEOS-CAT-004-Workspace-Catalog.md)（Approved 1.1.0） | Catalog | Workspace 條目基線 |
+| REF-007 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](../architecture/AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.1.0） | Architecture | Catalog／Matrix 資產定位 |
+| REF-008 | AEOS-ARCH-005～010（Approved 1.1.0） | Architecture | Ownership、Dependency、Repository、Workspace 與 Mapping 相關規則 |
+| REF-009 | [AEOS-DIA-001 — Documentation Information Architecture](../documentation/AEOS-DIA-001-Documentation-Information-Architecture.md)（3.2.0） | Information Architecture | Report（RPT）型別與 Taxonomy |
+| REF-010 | [AEOS-STD-004 — Naming Standard](../standards/AEOS-STD-004-Naming-Standard.md)（1.3.0） | Standard | 識別與命名規則 |
+| REF-011 | [AEOS-STD-005 — Review Standard](../standards/AEOS-STD-005-Review-Standard.md)（1.4.0） | Standard | Report Review（RT）規則 |
 | REF-012 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
 | REF-013 | EWO-AEOS-0034 | EWO | 本文件之工作來源 |
 | REF-014 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |

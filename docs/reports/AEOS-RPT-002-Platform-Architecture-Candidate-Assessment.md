@@ -249,12 +249,12 @@ related:
 | REF-004 | [AEOS-ARCH-005 — Platform Architecture](../architecture/AEOS-ARCH-005-Platform-Architecture.md)（Approved 1.1.0） | Architecture | Platform 定義、身分、邊界、分類與 Catalog 規則 |
 | REF-005 | AEOS-ARCH-006～010（Approved 1.1.0） | Architecture | Layer、Capability、Repository、Dependency、Workspace 定義與區別 |
 | REF-006 | [AEOS-ARCH-003 — Architecture Decision Record System](../architecture/AEOS-ARCH-003-Architecture-Decision-Record-System.md)（Approved 1.1.0） | Architecture | ADR Requirement Assessment |
-| REF-007 | [AEOS-CAT-001 — Platform Catalog](../catalogs/AEOS-CAT-001-Platform-Catalog.md)（Approved 1.0.0） | Catalog | 現行登錄基線 |
-| REF-008 | [AEOS-STD-006 — Enterprise Architecture Catalog and Matrix Standard](../standards/AEOS-STD-006-Enterprise-Architecture-Catalog-and-Matrix-Standard.md)（Approved 1.0.0） | Standard | Platform Entry Schema 與登錄規則 |
-| REF-009 | [AEOS-RPT-001 — M5 Catalog／Matrix Readiness Assessment](../reports/AEOS-RPT-001-M5-Catalog-Matrix-Readiness-Assessment.md)（Approved 1.0.0） | Report | 承接之 Readiness 判定 |
-| REF-010 | [AEOS-DIA-001 — Documentation Information Architecture](../documentation/AEOS-DIA-001-Documentation-Information-Architecture.md)（3.1.0） | Information Architecture | Architecture Candidate Assessment 用途分類 |
-| REF-011 | [AEOS-STD-004 — Naming Standard](../standards/AEOS-STD-004-Naming-Standard.md)（1.2.0） | Standard | Review ID 與識別規則 |
-| REF-012 | [AEOS-STD-005 — Review Standard](../standards/AEOS-STD-005-Review-Standard.md)（1.3.0） | Standard | AR Review 路徑與 Review Record 規則 |
+| REF-007 | [AEOS-CAT-001 — Platform Catalog](../catalogs/AEOS-CAT-001-Platform-Catalog.md)（Approved 1.1.0） | Catalog | 現行登錄基線 |
+| REF-008 | [AEOS-STD-006 — Enterprise Architecture Catalog and Matrix Standard](../standards/AEOS-STD-006-Enterprise-Architecture-Catalog-and-Matrix-Standard.md)（Approved 1.1.0） | Standard | Platform Entry Schema 與登錄規則 |
+| REF-009 | [AEOS-RPT-001 — M5 Catalog／Matrix Readiness Assessment](../reports/AEOS-RPT-001-M5-Catalog-Matrix-Readiness-Assessment.md)（Approved 1.1.0） | Report | 承接之 Readiness 判定 |
+| REF-010 | [AEOS-DIA-001 — Documentation Information Architecture](../documentation/AEOS-DIA-001-Documentation-Information-Architecture.md)（3.2.0） | Information Architecture | Architecture Candidate Assessment 用途分類 |
+| REF-011 | [AEOS-STD-004 — Naming Standard](../standards/AEOS-STD-004-Naming-Standard.md)（1.3.0） | Standard | Review ID 與識別規則 |
+| REF-012 | [AEOS-STD-005 — Review Standard](../standards/AEOS-STD-005-Review-Standard.md)（1.4.0） | Standard | AR Review 路徑與 Review Record 規則 |
 | REF-013 | EWO-AEOS-0038 | EWO | 本文件之工作來源 |
 
 ## 15. Revision History

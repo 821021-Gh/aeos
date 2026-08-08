@@ -93,7 +93,7 @@ Workspace Catalog 依下列權威順序運作：
 - 本文件之型別為 Catalog（CAT），置於 `docs/catalogs/`，doc-id 為 `AEOS-CAT-004`（AEOS-STD-006 §4）。
 - 條目 Schema 依 AEOS-STD-006 §5 統一定義；本文件僅套用，不重複設計。
 - Workspace Entry ID MUST 使用 `WS-###`（AEOS-STD-006 §6.1），唯一、穩定且不可重用。
-- Workspace Architecture 之正式文件 ID 為 AEOS-ARCH-010（Approved 1.0.0），本文件依其內容運作。
+- Workspace Architecture 之正式文件 ID 為 AEOS-ARCH-010（Approved 1.1.0），本文件依其內容運作。
 
 ## 4. Entry Schema
 

@@ -339,11 +339,11 @@ Review Consistency Validation 驗證 Review 記錄與資產身分、決策及 PR
 | REF-004 | AEOS-ARCH-003 — Architecture Decision Record System | Architecture | ADR Review 與決策狀態之依據 |
 | REF-005 | AEOS-CON-001 — Repository Constitution（Approved v1.0.0） | Constitution | 治理原則（GP-009）與核准角色 |
 | REF-006 | AEOS-DIA-001 — Documentation Information Architecture | Information Architecture | Review Owner 角色與文件生命週期 |
-| REF-007 | AEOS-GOV-001 — Enterprise Governance Roadmap（Approved v1.0.0） | Governance | Planned Standards 與優先序 |
-| REF-008 | AEOS-STD-001 — Documentation Format Standard（Approved v1.0.0） | Standard | 文件格式與撰寫規則 |
-| REF-009 | AEOS-STD-002 — Metadata Standard（Approved v1.0.0） | Standard | Metadata 與 frontmatter 規則 |
-| REF-010 | AEOS-STD-003 — Cross-reference Standard（Approved v1.0.0） | Standard | 引用形式與一致性驗證 |
-| REF-011 | AEOS-STD-004 — Naming Standard（Approved v1.0.0） | Standard | Review ID 格式與命名規則 |
+| REF-007 | AEOS-GOV-001 — Enterprise Governance Roadmap（Approved 1.2.0） | Governance | Planned Standards 與優先序 |
+| REF-008 | AEOS-STD-001 — Documentation Format Standard（Approved 1.1.0） | Standard | 文件格式與撰寫規則 |
+| REF-009 | AEOS-STD-002 — Metadata Standard（Approved 1.1.0） | Standard | Metadata 與 frontmatter 規則 |
+| REF-010 | AEOS-STD-003 — Cross-reference Standard（Approved 1.1.0） | Standard | 引用形式與一致性驗證 |
+| REF-011 | AEOS-STD-004 — Naming Standard（Approved 1.3.0） | Standard | Review ID 格式與命名規則 |
 | REF-012 | EWO-AEOS-0012 — Review Standard | EWO | 本文件之工作來源 |
 | REF-013 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 

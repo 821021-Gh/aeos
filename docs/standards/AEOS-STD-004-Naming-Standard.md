@@ -428,10 +428,10 @@ Naming Consistency Validation 驗證命名與資產身分、Metadata、引用及
 | REF-004 | AEOS-ARCH-003 — Architecture Decision Record System | Architecture | ADR 編號規則與 ADR Register |
 | REF-005 | AEOS-CON-001 — Repository Constitution（Approved v1.0.0） | Constitution | Repository 身分與治理原則 |
 | REF-006 | AEOS-DIA-001 — Documentation Information Architecture | Information Architecture | Taxonomy、目錄與命名規則 |
-| REF-007 | AEOS-GOV-001 — Enterprise Governance Roadmap（Approved v1.0.0） | Governance | Planned Standards 與優先序 |
-| REF-008 | AEOS-STD-001 — Documentation Format Standard（Approved v1.0.0） | Standard | 文件格式與撰寫規則 |
-| REF-009 | AEOS-STD-002 — Metadata Standard（Approved v1.0.0） | Standard | Metadata 與 frontmatter 規則 |
-| REF-010 | AEOS-STD-003 — Cross-reference Standard（Approved v1.0.0） | Standard | 引用形式與一致性驗證 |
+| REF-007 | AEOS-GOV-001 — Enterprise Governance Roadmap（Approved 1.2.0） | Governance | Planned Standards 與優先序 |
+| REF-008 | AEOS-STD-001 — Documentation Format Standard（Approved 1.1.0） | Standard | 文件格式與撰寫規則 |
+| REF-009 | AEOS-STD-002 — Metadata Standard（Approved 1.1.0） | Standard | Metadata 與 frontmatter 規則 |
+| REF-010 | AEOS-STD-003 — Cross-reference Standard（Approved 1.1.0） | Standard | 引用形式與一致性驗證 |
 | REF-011 | EWO-AEOS-0011 — Naming Standard | EWO | 本文件之工作來源 |
 | REF-012 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 

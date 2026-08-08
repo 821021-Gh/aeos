@@ -317,15 +317,15 @@ Catalog／Matrix 合規檢查至少包含：
 |----|------|------|------|
 | REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
 | REF-002 | [AEOS-ARCH-001 — Architecture Baseline](AEOS-ARCH-001-Architecture-Baseline.md) | Architecture Entry Document | Architecture Register 與架構基線 |
-| REF-003 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved v1.0.0） | Architecture | Catalog／Matrix 資產定位（§8） |
-| REF-004 | [AEOS-ARCH-005 — Platform Architecture](AEOS-ARCH-005-Platform-Architecture.md)（Approved v1.0.0） | Architecture | Platform Catalog 欄位與 Lifecycle |
-| REF-005 | [AEOS-ARCH-006 — Layer Architecture](AEOS-ARCH-006-Layer-Architecture.md)（Approved v1.0.0） | Architecture | 依賴方向與責任分層 |
-| REF-006 | [AEOS-ARCH-007 — Capability Architecture](AEOS-ARCH-007-Capability-Architecture.md)（Approved v1.0.0） | Architecture | Capability Catalog 與 Ownership |
-| REF-007 | [AEOS-ARCH-008 — Repository Architecture](AEOS-ARCH-008-Repository-Architecture.md)（Approved v1.0.0） | Architecture | Repository Catalog 與類型 |
-| REF-008 | [AEOS-ARCH-009 — Dependency Architecture](AEOS-ARCH-009-Dependency-Architecture.md)（Approved v1.0.0） | Architecture | Dependency Matrix 與依賴規則 |
-| REF-009 | [AEOS-ARCH-010 — Workspace Architecture](AEOS-ARCH-010-Workspace-Architecture.md)（Approved v1.0.0） | Architecture | Workspace Catalog 與 Composition |
+| REF-003 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.1.0） | Architecture | Catalog／Matrix 資產定位（§8） |
+| REF-004 | [AEOS-ARCH-005 — Platform Architecture](AEOS-ARCH-005-Platform-Architecture.md)（Approved 1.1.0） | Architecture | Platform Catalog 欄位與 Lifecycle |
+| REF-005 | [AEOS-ARCH-006 — Layer Architecture](AEOS-ARCH-006-Layer-Architecture.md)（Approved 1.1.0） | Architecture | 依賴方向與責任分層 |
+| REF-006 | [AEOS-ARCH-007 — Capability Architecture](AEOS-ARCH-007-Capability-Architecture.md)（Approved 1.1.0） | Architecture | Capability Catalog 與 Ownership |
+| REF-007 | [AEOS-ARCH-008 — Repository Architecture](AEOS-ARCH-008-Repository-Architecture.md)（Approved 1.1.0） | Architecture | Repository Catalog 與類型 |
+| REF-008 | [AEOS-ARCH-009 — Dependency Architecture](AEOS-ARCH-009-Dependency-Architecture.md)（Approved 1.1.0） | Architecture | Dependency Matrix 與依賴規則 |
+| REF-009 | [AEOS-ARCH-010 — Workspace Architecture](AEOS-ARCH-010-Workspace-Architecture.md)（Approved 1.1.0） | Architecture | Workspace Catalog 與 Composition |
 | REF-010 | [AEOS-DIA-001 — Documentation Information Architecture](../documentation/AEOS-DIA-001-Documentation-Information-Architecture.md) | Information Architecture | Taxonomy 與 Directory Organization |
-| REF-011 | [AEOS-GOV-001 — Enterprise Governance Roadmap](../governance/AEOS-GOV-001-Enterprise-Governance-Roadmap.md)（Approved v1.0.0） | Governance | M5 里程碑命名對齊 |
+| REF-011 | [AEOS-GOV-001 — Enterprise Governance Roadmap](../governance/AEOS-GOV-001-Enterprise-Governance-Roadmap.md)（Approved 1.2.0） | Governance | M5 里程碑命名對齊 |
 | REF-012 | [AEOS-STD-001 — Documentation Format Standard](AEOS-STD-001-Documentation-Format-Standard.md)、[AEOS-STD-002 — Metadata Standard](AEOS-STD-002-Metadata-Standard.md)、[AEOS-STD-003 — Cross-reference Standard](AEOS-STD-003-Cross-reference-Standard.md)、[AEOS-STD-004 — Naming Standard](AEOS-STD-004-Naming-Standard.md)、[AEOS-STD-005 — Review Standard](AEOS-STD-005-Review-Standard.md) | Standards | 文件格式、Metadata、Cross-reference、Naming 與 Review 規則 |
 | REF-013 | EWO-AEOS-0022 | EWO | 本文件之工作來源 |
 | REF-014 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
