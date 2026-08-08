@@ -19,6 +19,7 @@ related:
   - AR-AEOS-0041-R2
   - AR-AEOS-0041-R3
   - AR-AEOS-0041-R4
+  - AD-AEOS-0040-R1
   - AEOS-ADR-001
   - AEOS-ARCH-001
   - AEOS-ARCH-003
@@ -222,5 +223,6 @@ related:
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
 | 1.0.0 | 2026-08-08 | 依 EWO-AEOS-0040 執行 ADR Lifecycle Completion（ADR Lifecycle Consistency Adjudication：Case A）：status Draft→Approved、version 0.1.0→1.0.0、decision-status Proposed→Approved、記錄 decision-date 2026-08-08（依 AEOS-ARCH-003 §3／§8、AEOS-STD-002 §8／CF-002／OF-03／OF-05）；本 PR 為 AD Review 載體，Review ID 依 AEOS-STD-005 R-003 於 Review 通過後記入 related／Revision History | Codex |
+| 1.0.0 | 2026-08-08 | EWO Close：依 AEOS-STD-005 R-003 補紀錄 AD Review ID `AD-AEOS-0040-R1`（ADR Lifecycle Completion 之 AD Review，於 PR #45 核准並合併）（EWO-AEOS-0040） | Codex |
 | 0.1.0 | 2026-08-07 | Review Findings 修正（PR #43 Review Report）：F-001 補充 Repository 對 WA-001 原文之立場；F-002 References 補列 AEOS-RPT-001／002，與正文直接引用一致（EWO-AEOS-0040） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：定義 WA-001 Fact Authority Transition 決策（Proposed）——Authority Classification、Approved Fact Authority Baseline、Transition 規則、後續執行順序、執行邊界與生效條件；記錄 EWO-AEOS-0040 Blocker 解除證據（EWO-AEOS-0040） | Codex |
