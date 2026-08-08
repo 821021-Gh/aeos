@@ -3,13 +3,14 @@ doc-id: AEOS-ADR-002
 doc-name: WA-001 Fact Authority Transition
 doc-type: ADR
 repository: AEOS
-version: 0.1.0
-status: Draft
-decision-status: Proposed
+version: 1.0.0
+status: Approved
+decision-status: Approved
 decision-owner: Architecture Owner
+decision-date: 2026-08-08
 owner: Architecture Owner
 created: 2026-08-06
-updated: 2026-08-07
+updated: 2026-08-08
 related:
   - EWO-AEOS-0040
   - EWO-AEOS-0041
@@ -27,11 +28,11 @@ related:
 
 # AEOS-ADR-002 — WA-001 Fact Authority Transition
 
-> EWO-AEOS-0040：記錄 WA-001 Fact Authority Transition 之正式決策（Proposed），定義 WA-001 之 Authority Classification、WA-001 與 AEOS Approved Architecture Artifacts 之權威關係、Fact Authority Transition 之適用範圍、既有引用之最小重錨原則、歷史參考之轉換、禁止事項、後續執行順序與生效條件。本 ADR 為 EWO-AEOS-0040 執行 Blocker 解除後之第一項恢復交付；本階段僅提出決策，不執行 Transition。
+> EWO-AEOS-0040：記錄 WA-001 Fact Authority Transition 之正式決策，定義 WA-001 之 Authority Classification、WA-001 與 AEOS Approved Architecture Artifacts 之權威關係、Fact Authority Transition 之適用範圍、既有引用之最小重錨原則、歷史參考之轉換、禁止事項、後續執行順序與生效條件。本 ADR 為 EWO-AEOS-0040 執行 Blocker 解除後之第一項恢復交付；本 ADR 之決策已依 ADR Lifecycle Completion 核准（Approved 1.0.0）。
 
 ## Executive Summary
 
-本 ADR 提出（Proposed）WA-001 Fact Authority Transition 決策：WA-001 保留為歷史來源、背景材料與不可獨立驗證之歷史引用，MUST NOT 繼續作為 Enterprise Meta-Architecture、Architecture Principles 或其他已經由 Approved AEOS Artifact 承載之事實之正式權威來源；正式事實之權威由現行 Approved Artifacts 承載（AEOS-ARCH-011、AEOS-ARCH-012、AEOS-ADR-001，並由 AEOS-ARCH-001 Register 登錄）。Transition 僅允許最小必要之 Authority Classification 更新與 Reference Re-anchoring，且必須於本 ADR 核准並生效後依既定順序執行；MUST NOT 重建、改寫、反向推導 WA-001，MUST NOT 建立新 Platform、Capability、Ownership、Dependency、Mapping、Placement 或 Matrix，MUST NOT 開始 Candidate Assessment、執行 PC-003 或處理 Catalog Registration。本 Draft ADR（0.1.0 / Draft / Proposed）不宣告 Transition 決策已正式生效，亦不執行 Transition。
+本 ADR 記錄 WA-001 Fact Authority Transition 決策（`decision-status`：`Approved`）：WA-001 保留為歷史來源、背景材料與不可獨立驗證之歷史引用，MUST NOT 繼續作為 Enterprise Meta-Architecture、Architecture Principles 或其他已經由 Approved AEOS Artifact 承載之事實之正式權威來源；正式事實之權威由現行 Approved Artifacts 承載（AEOS-ARCH-011、AEOS-ARCH-012、AEOS-ADR-001，並由 AEOS-ARCH-001 Register 登錄）。Transition 僅允許最小必要之 Authority Classification 更新與 Reference Re-anchoring，且必須於本 ADR 核准並生效後依既定順序執行；MUST NOT 重建、改寫、反向推導 WA-001，MUST NOT 建立新 Platform、Capability、Ownership、Dependency、Mapping、Placement 或 Matrix，MUST NOT 開始 Candidate Assessment、執行 PC-003 或處理 Catalog Registration。本 ADR 已依 ADR Lifecycle Completion 升版至 1.0.0 / Approved；Transition 決策依 §2.6 生效條件正式生效。
 
 ## 文件資訊
 
@@ -40,16 +41,16 @@ related:
 | 文件代號 | AEOS-ADR-002 |
 | 文件名稱 | WA-001 Fact Authority Transition |
 | 型別 | ADR（Architecture Decision Record） |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
-| Decision Status | Proposed |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
+| Decision Status | Approved |
 | Decision Owner | Architecture Owner |
-| Decision Date | —（尚未核准；生效條件達成後更新） |
+| Decision Date | 2026-08-08 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-07 |
-| 依據文件 | EWO-AEOS-0040、EWO-AEOS-0041、EWO-AEOS-0042、AD-AEOS-0041-R1、AR-AEOS-0041-R2、AR-AEOS-0041-R3、AR-AEOS-0041-R4、AEOS-ADR-001（Approved 1.0.0）、AEOS-ARCH-001（Approved 1.2.0）、AEOS-ARCH-003（Approved 1.0.0） |
+| 最後更新 | 2026-08-08 |
+| 依據文件 | EWO-AEOS-0040、EWO-AEOS-0041、EWO-AEOS-0042、AD-AEOS-0041-R1、AR-AEOS-0041-R2、AR-AEOS-0041-R3、AR-AEOS-0041-R4、AEOS-ADR-001（Approved 1.0.0）、AEOS-ARCH-001（Approved 1.3.0）、AEOS-ARCH-003（Approved 1.0.0） |
 | 關聯文件 | AEOS-ADR-001、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-011（Approved 1.0.0）、AEOS-ARCH-012（Approved 1.0.0）、AEOS-DIA-001、AEOS-CON-001、AEOS-STD-001～005、WA-001 |
 
 ## 1. Context
@@ -93,13 +94,13 @@ related:
 
 - 「Blocker 解除」與「Fact Authority Transition 實際執行」為兩件不同之事：
   - **Blocker 解除**：本階段已依 §1.2 證據完成（執行層面恢復既有 In Progress 工作）。
-  - **Fact Authority Transition 實際執行**：僅在本 ADR 依 §2.6 達成生效條件後，依 §2.4 執行順序另行執行；本階段不得執行。
-- 本 ADR 僅提出決策（`decision-status`：`Proposed`），不宣告決策已正式生效，不宣告 Transition 已完成，不宣告 EWO-AEOS-0040 已完成。
+  - **Fact Authority Transition 實際執行**：僅在本 ADR 依 §2.6 達成生效條件後，依 §2.4 執行順序另行執行。
+- 本 ADR 之決策已核准（`decision-status`：`Approved`）並依 §2.6 生效條件正式生效；本 ADR 不宣告 Transition 已完成，不宣告 EWO-AEOS-0040 已完成。
 - 本 ADR 不修改任何既有 Artifact 之 Authority Classification 或 References；不執行引用重錨；不建立後續 Architecture Artifact。
 
 ## 2. Decision
 
-> 本節為 Proposed 決策內容（`decision-status`：`Proposed`）。依 §2.6 生效條件達成前，本決策不具正式效力；本 Draft ADR 不宣告 Transition 決策已正式生效。
+> 本節為 Approved 決策內容（`decision-status`：`Approved`）。本決策依 §2.6 生效條件正式生效。
 
 ### 2.1 WA-001 Authority Classification
 
@@ -145,7 +146,7 @@ related:
 - 無法由 Approved Artifact 驗證之 WA-001 內容 MUST NOT 自動遷移為正式事實。
 - 遇內容缺口、衝突或語意不確定時，MUST 停止遷移並進入後續獨立評估，MUST NOT 自行補寫。
 
-### 2.4 後續執行順序（本階段不得執行）
+### 2.4 後續執行順序
 
 1. 核准並使本 Transition ADR 於 `main` 生效；
 2. 建立受影響文件與引用之精確清單；
@@ -175,7 +176,7 @@ related:
 6. 後續獨立 Approval 動作（若 Repository 現行 Lifecycle 流程要求）；
 7. Approved 狀態可由 `main` 驗證。
 
-- 本 Draft ADR（`status`：`Draft`；`decision-status`：`Proposed`）不宣告 Transition 決策已正式生效。
+- 本 ADR（`status`：`Approved`；`decision-status`：`Approved`）之 Transition 決策依 §2.6 生效條件正式生效。
 
 ## 3. Alternatives
 
@@ -204,13 +205,13 @@ related:
 | REF-003 | EWO-AEOS-0042 | EWO | Blocker 解除前置 EWO（Definition Artifacts Approval） |
 | REF-004 | AD-AEOS-0041-R1、AR-AEOS-0041-R2／R3／R4 | Review Record | 既有可驗證 Review 紀錄（PR 為載體）；Blocker 解除證據 |
 | REF-005 | [AEOS-ADR-001 — Architecture Definition Carrier Decision](AEOS-ADR-001-Architecture-Definition-Carrier-Decision.md)（Approved 1.0.0） | ADR | 決定 Definition Carrier；宣告 WA-001 Fact Authority Transition 由本 ADR 處理 |
-| REF-006 | [AEOS-ARCH-001 — Architecture Baseline](../architecture/AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.2.0） | Architecture Entry Document | §4 六項組成、§8 Architecture Register、References 與 Revision History |
+| REF-006 | [AEOS-ARCH-001 — Architecture Baseline](../architecture/AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.3.0） | Architecture Entry Document | §4 六項組成、§8 Architecture Register、References 與 Revision History |
 | REF-007 | [AEOS-ARCH-003 — Architecture Decision Record System](../architecture/AEOS-ARCH-003-Architecture-Decision-Record-System.md)（Approved 1.0.0） | Architecture | ADR Framework、Template、Lifecycle、Status Model 與 ADR Register |
 | REF-008 | [AEOS-ARCH-011 — Enterprise Meta Architecture](../architecture/AEOS-ARCH-011-Enterprise-Meta-Architecture.md)（Approved 1.0.0） | Architecture | Enterprise Meta Architecture 正式定義載體 |
 | REF-009 | [AEOS-ARCH-012 — Architecture Principles](../architecture/AEOS-ARCH-012-Architecture-Principles.md)（Approved 1.0.0） | Architecture | Architecture Principles 正式定義載體 |
-| REF-010 | [AEOS-ARCH-002 — Enterprise Governance Architecture](../architecture/AEOS-ARCH-002-Enterprise-Governance-Architecture.md)（Approved 1.0.0） | Architecture | Governance Hierarchy（ADR H6、Review Records H7） |
+| REF-010 | [AEOS-ARCH-002 — Enterprise Governance Architecture](../architecture/AEOS-ARCH-002-Enterprise-Governance-Architecture.md)（Approved 1.1.0） | Architecture | Governance Hierarchy（ADR H6、Review Records H7） |
 | REF-011 | [AEOS-CON-001 — Repository Constitution](../constitution/AEOS-CON-001-Repository-Constitution.md)（Approved 1.0.0） | Constitution | Repository 治理基線與變更管理 |
-| REF-012 | [AEOS-DIA-001 — Documentation Information Architecture](../documentation/AEOS-DIA-001-Documentation-Information-Architecture.md)（Approved 3.1.0） | Information Architecture | Taxonomy、Lifecycle 與目錄組織 |
+| REF-012 | [AEOS-DIA-001 — Documentation Information Architecture](../documentation/AEOS-DIA-001-Documentation-Information-Architecture.md)（Approved 3.2.0） | Information Architecture | Taxonomy、Lifecycle 與目錄組織 |
 | REF-013 | [AEOS-STD-005 — Review Standard](../standards/AEOS-STD-005-Review-Standard.md)（Approved 1.3.0） | Standard | Review Types 與 Review ID 規則（ADR 適用 AD） |
 | REF-014 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Architecture Source（外部） | 歷史來源／背景材料；不作為正式 Fact Authority |
 | REF-015 | [AEOS-RPT-001 — M5 Catalog／Matrix Readiness Assessment](../reports/AEOS-RPT-001-M5-Catalog-Matrix-Readiness-Assessment.md)（Approved 1.0.0） | Report | 正文 §2.5 執行邊界直接引用之既有 Artifact |
@@ -220,5 +221,6 @@ related:
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-08-08 | 依 EWO-AEOS-0040 執行 ADR Lifecycle Completion（ADR Lifecycle Consistency Adjudication：Case A）：status Draft→Approved、version 0.1.0→1.0.0、decision-status Proposed→Approved、記錄 decision-date 2026-08-08（依 AEOS-ARCH-003 §3／§8、AEOS-STD-002 §8／CF-002／OF-03／OF-05）；本 PR 為 AD Review 載體，Review ID 依 AEOS-STD-005 R-003 於 Review 通過後記入 related／Revision History | Codex |
 | 0.1.0 | 2026-08-07 | Review Findings 修正（PR #43 Review Report）：F-001 補充 Repository 對 WA-001 原文之立場；F-002 References 補列 AEOS-RPT-001／002，與正文直接引用一致（EWO-AEOS-0040） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：定義 WA-001 Fact Authority Transition 決策（Proposed）——Authority Classification、Approved Fact Authority Baseline、Transition 規則、後續執行順序、執行邊界與生效條件；記錄 EWO-AEOS-0040 Blocker 解除證據（EWO-AEOS-0040） | Codex |
