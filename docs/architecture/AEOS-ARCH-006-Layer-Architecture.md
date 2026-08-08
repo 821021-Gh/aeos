@@ -3,15 +3,16 @@ doc-id: AEOS-ARCH-006
 doc-name: Layer Architecture
 doc-type: Architecture
 repository: AEOS
-version: 1.0.0
+version: 1.1.0
 status: Approved
 owner: Architecture Owner
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-08
 related:
   - EWO-AEOS-Architecture-0003
   - EWO-AEOS-0013
   - AR-AEOS-0013-R1
+  - AEOS-ADR-002
   - WA-001
   - AEOS-ARCH-001
   - AEOS-ARCH-002
@@ -22,7 +23,7 @@ related:
 
 ## Executive Summary
 
-本文件依 WA-001 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Layer Architecture，定義企業架構責任的分層模型、每一層的責任與禁止承載內容、相鄰層與跨層依賴的允許方向，以及防止下位層繞過上位治理或反向控制上位架構的規則。Layer Architecture 是全部架構領域的共同分層基準，使治理、平台、能力、Repository 與實作責任保持清楚邊界，並為 Repository Architecture 與 Dependency Architecture 提供統一的分層與依賴方向依據。本文件不重新設計 WA-001、不建立實作設計，也不取代任何專項架構或治理文件。
+本文件依 AEOS-ADR-002 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Layer Architecture，定義企業架構責任的分層模型、每一層的責任與禁止承載內容、相鄰層與跨層依賴的允許方向，以及防止下位層繞過上位治理或反向控制上位架構的規則。Layer Architecture 是全部架構領域的共同分層基準，使治理、平台、能力、Repository 與實作責任保持清楚邊界，並為 Repository Architecture 與 Dependency Architecture 提供統一的分層與依賴方向依據。本文件不重新設計 Approved 架構載體、不建立實作設計，也不取代任何專項架構或治理文件。
 
 ## 文件資訊
 
@@ -32,19 +33,19 @@ related:
 | 文件名稱 | Layer Architecture |
 | 型別 | Architecture（Layer Architecture） |
 | 狀態 | Approved |
-| 版本 | 1.0.0 |
+| 版本 | 1.1.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-Architecture-0003、EWO-AEOS-0013、AR-AEOS-0013-R1、WA-001（Approved v1.0.0）、AEOS-ARCH-001（Approved v1.0.0）、AEOS-ARCH-002（Approved v1.0.0）、AEOS-ARCH-004（Approved v1.0.0） |
-| 關聯文件 | EWO-AEOS-0013、AR-AEOS-0013-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-STD-001～AEOS-STD-005 |
+| 最後更新 | 2026-08-08 |
+| 依據文件 | EWO-AEOS-Architecture-0003、EWO-AEOS-0013、AR-AEOS-0013-R1、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001（Approved 1.3.0）、AEOS-ARCH-002（Approved 1.1.0）、AEOS-ARCH-004（Approved 1.1.0） |
+| 關聯文件 | EWO-AEOS-0013、AR-AEOS-0013-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-STD-001～AEOS-STD-005、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
 本文件之目的為：
 
-- 將 WA-001 的 Workspace Architecture 與 Enterprise Meta Architecture 轉化為 AEOS 內可治理、可追溯的 Layer Architecture。
+- 將 Workspace Architecture 與 Enterprise Meta Architecture 轉化為 AEOS 內可治理、可追溯的 Layer Architecture。
 - 定義企業架構責任的分層模型，使治理、平台、能力、Repository 與實作責任保持清楚邊界（AEOS-ARCH-004 §6.2）。
 - 定義每一架構層的責任與禁止承載之內容（AEOS-ARCH-004 §6.2）。
 - 定義相鄰層與跨層依賴的允許方向（AEOS-ARCH-004 §6.2）。
@@ -67,7 +68,7 @@ related:
 
 本文件不涵蓋：
 
-- 重新定義或修改 WA-001 的 Workspace Architecture 或 Enterprise Meta Architecture。
+- 重新定義或修改 Approved 架構載體之 Workspace Architecture 或 Enterprise Meta Architecture。
 - 個別 Platform、Capability、Repository 或 Workspace 的內部設計。
 - Governance Layers（AEOS-ARCH-002 §3）與文件權威階層（AEOS-ARCH-004 §3）之重述或取代。
 - Catalog、Matrix 之實際條目。
@@ -79,8 +80,8 @@ Layer Architecture 適用下列權威順序：
 
 | 層級 | 資產 | 權威角色 |
 |------|------|----------|
-| L0 | WA-001 | Workspace Architecture 與 Enterprise Meta Architecture 的唯一來源 |
-| L1 | AEOS-ARCH-001 | 將 WA-001 納入 AEOS Architecture Baseline |
+| L0 | AEOS-ARCH-001 | 最高架構權威 |
+| L1 | AEOS-ARCH-001 | 架構 Entry Document 與 Architecture Register |
 | L2 | AEOS-ARCH-002 | 定義 Governance Layers 與治理階層 |
 | L3 | AEOS-ARCH-004 | 定義 Layer Architecture 在 Enterprise Architecture 中的定位與 MUST |
 | L4 | AEOS-ARCH-006（本文件） | 定義 Layer 模型、責任邊界與依賴方向規則 |
@@ -90,7 +91,7 @@ Layer Architecture 適用下列權威順序：
 
 - 下位資產 MUST 符合上位資產，且 MUST NOT 隱性建立新的 Layer 或依賴方向。
 - Layer Architecture 與 Governance Layers（AEOS-ARCH-002 §3）互補：前者定義架構責任分層，後者定義治理權威分層；兩者不得互相取代。
-- 發現 WA-001 未涵蓋的 Layer 需求時，MUST 先透過正式架構變更處理。
+- 發現 Approved 架構載體未涵蓋的 Layer 需求時，MUST 先透過正式架構變更處理。
 
 ## 4. Layer Model
 
@@ -113,7 +114,7 @@ Layer 是企業架構中具備明確責任、邊界與依賴方向的穩定架�
 | 層級 | 名稱 | 核心責任 | 禁止承載 |
 |------|------|----------|----------|
 | L1 | Governance | 定義治理原則、規則與核准路徑；承載 Policy、Standard、Review 與決策紀錄 | 不得定義實作細節或未經核准之架構事實 |
-| L2 | Enterprise Architecture | 定義 Workspace 層級之架構結構、領域邊界與 Register | 不得重新設計 WA-001、不得建立平行架構來源 |
+| L2 | Enterprise Architecture | 定義 Workspace 層級之架構結構、領域邊界與 Register | 不得重新設計 Approved 架構載體、不得建立平行架構來源 |
 | L3 | Platform | 定義 Platform 身分、邊界、分類、關係與生命週期 | 不得將 Repository、Capability、Product 或 Service 等同 Platform |
 | L4 | Capability | 定義能力之責任、組合、關係與擁有權 | 不得以特定實作或 Repository 取代能力定義 |
 | L5 | Repository | 定義 Repository 身分、類型、責任與映射 | 不得繞過上位治理或擴張架構 Authority |
@@ -121,7 +122,7 @@ Layer 是企業架構中具備明確責任、邊界與依賴方向的穩定架�
 
 規則：
 
-- 每一 Layer MUST 具有明確責任與禁止承載內容，且 MUST 可追溯至 WA-001 或 AEOS-ARCH-004 已核准內容。
+- 每一 Layer MUST 具有明確責任與禁止承載內容，且 MUST 可追溯至 AEOS-ARCH-001／Approved 架構載體已核准內容。
 - L1～L5 之權威內容由 AEOS 正式文件承載；L6 之實作責任保留於 Production Repositories（AEOS-ARCH-004 §3.3.2）。
 - Layer 之禁止承載內容 MUST NOT 以任何形式落入下位文件或實作。
 
@@ -223,7 +224,7 @@ Layer Architecture 合規檢查至少包含：
 
 | 檢查領域 | 合規要求 |
 |----------|----------|
-| Authority | Layer 可追溯至 WA-001、AEOS-ARCH-001 與 AEOS-ARCH-004 |
+| Authority | Layer 可追溯至 AEOS-ARCH-001 與 Approved 架構載體 |
 | Responsibility | 每層之核心責任與禁止承載內容明確，且與上位文件一致 |
 | Dependency Direction | 依賴方向符合「上位約束、下位依賴」原則，無反向控制 |
 | Bypass Prevention | 無繞過上位治理之變更路徑 |
@@ -238,20 +239,22 @@ Layer Architecture 合規檢查至少包含：
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
-| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | Workspace Architecture 與 Enterprise Meta Architecture 的唯一來源 |
-| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](AEOS-ARCH-001-Architecture-Baseline.md)（Approved v1.0.0） | Architecture | 將 WA-001 正式納入 AEOS |
-| REF-003 | [AEOS-ARCH-002 — Enterprise Governance Architecture](AEOS-ARCH-002-Enterprise-Governance-Architecture.md)（Approved v1.0.0） | Architecture | Governance Layers 與治理階層 |
-| REF-004 | [AEOS-ARCH-003 — Architecture Decision Record System](AEOS-ARCH-003-Architecture-Decision-Record-System.md)（Approved v1.0.0） | Architecture | 重大架構決策紀錄機制 |
-| REF-005 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved v1.0.0） | Architecture | Layer Architecture 的上位定位與 MUST |
-| REF-006 | [AEOS-ARCH-005 — Platform Architecture](AEOS-ARCH-005-Platform-Architecture.md)（Approved v1.0.0） | Architecture | Platform 領域（L3）之責任與關係 |
+| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
+| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.3.0） | Architecture | 架構基線與 Architecture Register |
+| REF-003 | [AEOS-ARCH-002 — Enterprise Governance Architecture](AEOS-ARCH-002-Enterprise-Governance-Architecture.md)（Approved 1.1.0） | Architecture | Governance Layers 與治理階層 |
+| REF-004 | [AEOS-ARCH-003 — Architecture Decision Record System](AEOS-ARCH-003-Architecture-Decision-Record-System.md)（Approved 1.1.0） | Architecture | 重大架構決策紀錄機制 |
+| REF-005 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.1.0） | Architecture | Layer Architecture 的上位定位與 MUST |
+| REF-006 | [AEOS-ARCH-005 — Platform Architecture](AEOS-ARCH-005-Platform-Architecture.md)（Approved 1.1.0） | Architecture | Platform 領域（L3）之責任與關係 |
 | REF-007 | [AEOS-CON-001 — Repository Constitution](../constitution/AEOS-CON-001-Repository-Constitution.md)（Approved v1.0.0） | Constitution | Repository 治理基線與變更管理 |
 | REF-008 | [AEOS-DIA-001 — Documentation Information Architecture](../documentation/AEOS-DIA-001-Documentation-Information-Architecture.md) | Information Architecture | 文件分類、組織與生命週期 |
 | REF-009 | [AEOS-STD-001 — Documentation Format Standard](../standards/AEOS-STD-001-Documentation-Format-Standard.md)、[AEOS-STD-002 — Metadata Standard](../standards/AEOS-STD-002-Metadata-Standard.md)、[AEOS-STD-003 — Cross-reference Standard](../standards/AEOS-STD-003-Cross-reference-Standard.md)、[AEOS-STD-004 — Naming Standard](../standards/AEOS-STD-004-Naming-Standard.md)、[AEOS-STD-005 — Review Standard](../standards/AEOS-STD-005-Review-Standard.md) | Standards | 文件格式、Metadata、Cross-reference、Naming 與 Review 規則 |
 | REF-010 | EWO-AEOS-Architecture-0003 | EWO | 本文件之工作來源 |
+| REF-011 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
 ## 11. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.1.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 2（AEOS-ADR-002 已核准）：執行 Architecture Transition——WA-001 分類為歷史來源（Historical Reference）；Authority 階層（L0）與對應來源重錨至 AEOS-ARCH-001／Approved 架構載體；References 重錨（EWO-AEOS-0040） | Codex |
 | 1.0.0 | 2026-08-06 | Architecture Review 核准並合併；狀態更新為 Approved，成為 AEOS Layer Architecture 正式定義（EWO-AEOS-0013；AR-AEOS-0013-R1） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：依 WA-001 與 AEOS-ARCH-004 定義 Layer Model、Layer Rules、Cross-Layer Relationships、Ownership、Change 與 Compliance（EWO-AEOS-Architecture-0003） | Codex |

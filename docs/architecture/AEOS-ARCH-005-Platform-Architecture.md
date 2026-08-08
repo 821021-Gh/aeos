@@ -3,13 +3,14 @@ doc-id: AEOS-ARCH-005
 doc-name: Platform Architecture
 doc-type: Architecture
 repository: AEOS
-version: 1.0.0
+version: 1.1.0
 status: Approved
 owner: Architecture Owner
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-08
 related:
   - EWO-AEOS-Architecture-0002
+  - AEOS-ADR-002
   - WA-001
   - AEOS-ARCH-001
   - AEOS-ARCH-004
@@ -19,7 +20,7 @@ related:
 
 ## Executive Summary
 
-本文件依 WA-001 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Platform Architecture，定義 Platform 的身分、邊界、責任、分類、關係、擁有權、生命週期及治理規則。Platform 是承載一組連貫 Capability 並協調多個 Repository 的穩定企業架構邊界，不等同於單一 Repository、產品、服務、部署環境或技術元件。本文件建立後續 Platform Catalog 的權威結構，但不在未經核准的情況下新增具名 Platform 條目。
+本文件依 AEOS-ADR-002 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Platform Architecture，定義 Platform 的身分、邊界、責任、分類、關係、擁有權、生命週期及治理規則。Platform 是承載一組連貫 Capability 並協調多個 Repository 的穩定企業架構邊界，不等同於單一 Repository、產品、服務、部署環境或技術元件。本文件建立後續 Platform Catalog 的權威結構，但不在未經核准的情況下新增具名 Platform 條目。
 
 ## 文件資訊
 
@@ -29,19 +30,19 @@ related:
 | 文件名稱 | Platform Architecture |
 | 型別 | Architecture（Platform Architecture） |
 | 狀態 | Approved |
-| 版本 | 1.0.0 |
+| 版本 | 1.1.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-Architecture-0002、WA-001（Approved v1.0.0）、AEOS-ARCH-004（Approved v1.0.0） |
-| 關聯文件 | AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-STD-001～AEOS-STD-005 |
+| 最後更新 | 2026-08-08 |
+| 依據文件 | EWO-AEOS-Architecture-0002、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-004（Approved 1.1.0） |
+| 關聯文件 | AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-STD-001～AEOS-STD-005、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
 本文件之目的為：
 
-- 將 WA-001 的 Platform Topology 轉化為 AEOS 內可治理、可追溯的 Platform Architecture。
+- 將 Platform Topology 轉化為 AEOS 內可治理、可追溯的 Platform Architecture。
 - 建立 Platform 的共同語言、識別規則與責任邊界。
 - 定義 Platform 與 Workspace、Layer、Capability、Repository、Ownership 及 Dependency 的正式關係。
 - 建立 Platform Catalog 的結構、准入條件與維護規則。
@@ -65,8 +66,8 @@ related:
 
 本文件不涵蓋：
 
-- 重新定義或修改 WA-001 的 Platform Topology。
-- 未經 WA-001 或正式 Architecture Review 核准的具名 Platform 清單。
+- 重新定義或修改 Approved 架構載體之 Platform Topology。
+- 未經正式 Architecture Review 核准的具名 Platform 清單。
 - 個別 Platform 的內部技術架構、部署拓撲或實作設計。
 - Capability Catalog、Repository Mapping、Ownership Matrix 或 Dependency Matrix 的實際條目。
 - Product、Service、Application、Infrastructure 或 Runtime Component 的詳細分類。
@@ -78,8 +79,8 @@ Platform Architecture 適用下列權威順序：
 
 | 層級 | 資產 | 權威角色 |
 |------|------|----------|
-| P0 | WA-001 | Platform Topology 與 Workspace Architecture 的唯一來源 |
-| P1 | AEOS-ARCH-001 | 將 WA-001 納入 AEOS Architecture Baseline |
+| P0 | AEOS-ARCH-001 | 最高架構權威 |
+| P1 | AEOS-ARCH-001 | 架構 Entry Document 與 Architecture Register |
 | P2 | AEOS-ARCH-004 | 定義 Platform Architecture 在 Enterprise Architecture 中的定位 |
 | P3 | AEOS-ARCH-005 | 定義 Platform 模型、邊界、關係與治理規則 |
 | P4 | Platform Catalog | 登錄已核准 Platform 及其權威屬性 |
@@ -90,7 +91,7 @@ Platform Architecture 適用下列權威順序：
 - 下位資產 MUST 符合上位資產，且 MUST NOT 隱性建立新的 Platform Topology。
 - Platform Catalog MUST 僅登錄經正式 Architecture Review 核准的 Platform。
 - Platform 內部設計不得擴張其 Enterprise Boundary 或覆寫其他 Platform 的 Authority。
-- 發現 WA-001 未涵蓋的 Platform 需求時，MUST 先透過正式架構變更處理。
+- 發現 Approved 架構載體未涵蓋的 Platform 需求時，MUST 先透過正式架構變更處理。
 
 ## 4. Platform Definition
 
@@ -323,7 +324,7 @@ Platform Architecture 合規檢查至少包含：
 
 | 檢查領域 | 合規要求 |
 |----------|----------|
-| Authority | Platform 可追溯至 WA-001、AEOS-ARCH-001 與 AEOS-ARCH-004 |
+| Authority | Platform 可追溯至 AEOS-ARCH-001 與 Approved 架構載體 |
 | Identity | 具唯一、穩定且不可重用的 Platform ID |
 | Boundary | Mission、責任、Authority、包含與排除範圍明確 |
 | Classification | 具有單一 Primary Classification 且判定依據成立 |
@@ -341,17 +342,19 @@ Platform Architecture 合規檢查至少包含：
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
-| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | Workspace Architecture 與 Platform Topology 的唯一來源 |
-| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](AEOS-ARCH-001-Architecture-Baseline.md)（Approved v1.0.0） | Architecture | 將 WA-001 正式納入 AEOS |
-| REF-003 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved v1.0.0） | Architecture | Platform Architecture 的上位定位與關係模型 |
-| REF-004 | [AEOS-ARCH-002 — Enterprise Governance Architecture](AEOS-ARCH-002-Enterprise-Governance-Architecture.md)（Approved v1.0.0） | Architecture | Enterprise、Platform 與 Capability 治理關係 |
-| REF-005 | [AEOS-ARCH-003 — Architecture Decision Record System](AEOS-ARCH-003-Architecture-Decision-Record-System.md)（Approved v1.0.0） | Architecture | 重大 Platform 決策紀錄機制 |
+| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
+| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.3.0） | Architecture | 架構基線與 Architecture Register |
+| REF-003 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.1.0） | Architecture | Platform Architecture 的上位定位與關係模型 |
+| REF-004 | [AEOS-ARCH-002 — Enterprise Governance Architecture](AEOS-ARCH-002-Enterprise-Governance-Architecture.md)（Approved 1.1.0） | Architecture | Enterprise、Platform 與 Capability 治理關係 |
+| REF-005 | [AEOS-ARCH-003 — Architecture Decision Record System](AEOS-ARCH-003-Architecture-Decision-Record-System.md)（Approved 1.1.0） | Architecture | 重大 Platform 決策紀錄機制 |
 | REF-006 | [AEOS-STD-001 — Documentation Format Standard](../standards/AEOS-STD-001-Documentation-Format-Standard.md)、[AEOS-STD-002 — Metadata Standard](../standards/AEOS-STD-002-Metadata-Standard.md)、[AEOS-STD-003 — Cross-reference Standard](../standards/AEOS-STD-003-Cross-reference-Standard.md)、[AEOS-STD-004 — Naming Standard](../standards/AEOS-STD-004-Naming-Standard.md)、[AEOS-STD-005 — Review Standard](../standards/AEOS-STD-005-Review-Standard.md) | Standards | 文件格式、Metadata、Cross-reference、Naming 與 Review 規則 |
 | REF-007 | EWO-AEOS-Architecture-0002 | EWO | 本文件之工作來源 |
+| REF-008 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
 ## 16. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.1.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 2（AEOS-ADR-002 已核准）：執行 Architecture Transition——WA-001 分類為歷史來源（Historical Reference）；Authority 階層（P0）與對應來源重錨至 AEOS-ARCH-001／Approved 架構載體；References 重錨（EWO-AEOS-0040） | Codex |
 | 1.0.0 | 2026-08-06 | Architecture Review 核准並合併；狀態更新為 Approved，成為 AEOS Platform Architecture 正式定義（EWO-AEOS-Architecture-0002） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：依 WA-001 與 AEOS-ARCH-004 定義 Platform Identity、Boundary、Classification、Relationship、Interface、Ownership、Catalog、Lifecycle、Change 與 Compliance（EWO-AEOS-Architecture-0002） | Codex |

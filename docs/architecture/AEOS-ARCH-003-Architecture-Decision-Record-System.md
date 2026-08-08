@@ -3,11 +3,11 @@ doc-id: AEOS-ARCH-003
 doc-name: Architecture Decision Record System
 doc-type: Architecture
 repository: AEOS
-version: 1.0.0
+version: 1.1.0
 status: Approved
 owner: Architecture Owner
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-08
 related:
   - EWO-AEOS-0006
   - AR-AEOS-0006-R1
@@ -15,12 +15,13 @@ related:
   - AEOS-ARCH-002
   - AEOS-DIA-001
   - AEOS-CON-001
+  - AEOS-ADR-002
   - WA-001
 ---
 
 # AEOS-ARCH-003 — Architecture Decision Record System
 
-> EWO-AEOS-0006：依 WA-001、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001 與 AEOS-ARCH-002 建立 AEOS 之 Architecture Decision Record（ADR）System。本文件定義 ADR Framework，不是第一份 ADR。
+> EWO-AEOS-0006：依 AEOS-ADR-002、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001 與 AEOS-ARCH-002 建立 AEOS 之 Architecture Decision Record（ADR）System。本文件定義 ADR Framework，不是第一份 ADR。
 
 ## 文件資訊
 
@@ -30,13 +31,13 @@ related:
 | 文件名稱 | Architecture Decision Record System |
 | 型別 | Architecture |
 | 狀態 | Approved |
-| 版本 | 1.0.0 |
+| 版本 | 1.1.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0006、AR-AEOS-0006-R1、WA-001（Approved v1.0.0）、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-ARCH-002 |
-| 關聯文件 | EWO-AEOS-0006、AR-AEOS-0006-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-DIA-001、AEOS-CON-001、WA-001 |
+| 最後更新 | 2026-08-08 |
+| 依據文件 | EWO-AEOS-0006、AR-AEOS-0006-R1、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-ARCH-002 |
+| 關聯文件 | EWO-AEOS-0006、AR-AEOS-0006-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-DIA-001、AEOS-CON-001、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. ADR Architecture
 
@@ -118,7 +119,7 @@ ADR 依下列流程演進，文件狀態依 AEOS-DIA-001 §8 管理：
 - ADR 之建立與變更 MUST 依 YEOS Engineering Workflow 以 EWO 提出，經正式 Review 後合併（依 AEOS-CON-001 GP-003／GP-009）。
 - 每份 ADR MUST 於 frontmatter 宣告 owner；Document Owner 負責維護，Architecture Owner 負責架構相關 ADR 之內容審查。
 - ADR MUST NOT 重述既有文件內容；以 References 引用取代複製。
-- ADR MUST NOT 變更 WA-001／AEOS-ARCH-001 已核准之架構內容；決策與架構衝突時，先修訂架構來源，再以 ADR 記錄決策。
+- ADR MUST NOT 變更 AEOS-ARCH-001／Approved 架構載體已核准之架構內容；決策與架構衝突時，先修訂架構來源，再以 ADR 記錄決策。
 - ADR 核准依 Governance Hierarchy（AEOS-ARCH-002 §5）與 Review 流程；核准結果記錄於 Review Records。
 
 ### 6.1 Supersede Rules
@@ -132,7 +133,7 @@ ADR 依下列流程演進，文件狀態依 AEOS-DIA-001 §8 管理：
 
 | 關係 | 引用方式 | 用途 |
 |------|----------|------|
-| ADR ↔ 架構來源 | 引用 WA-001／AEOS-ARCH-001／AEOS-ARCH-002 | 宣告決策之架構依據。 |
+| ADR ↔ 架構來源 | 引用 AEOS-ARCH-001／AEOS-ARCH-002／Approved 架構載體 | 宣告決策之架構依據。 |
 | ADR ↔ Constitution | 引用 AEOS-CON-001 | Governance Decision Reference。 |
 | ADR ↔ EWO | 引用來源 EWO | 決策可追溯至工作來源。 |
 | ADR ↔ ADR | supersedes／superseded-by | 記錄決策取代關係。 |
@@ -165,16 +166,18 @@ ADR 依下列流程演進，文件狀態依 AEOS-DIA-001 §8 管理：
 
 | # | 文件 | 型別 | 用途 |
 |---|------|------|------|
-| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | AEOS 唯一架構來源 |
+| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
 | REF-002 | AEOS-ARCH-001 — Architecture Baseline | Architecture Entry Document | 架構基線與 Register |
 | REF-003 | AEOS-DIA-001 — Documentation Information Architecture | Information Architecture | 文件分類、命名、生命週期與引用 |
 | REF-004 | AEOS-CON-001 — Repository Constitution（Approved v1.0.0） | Constitution | Repository 治理基線 |
 | REF-005 | AEOS-ARCH-002 — Enterprise Governance Architecture | Architecture | Decision Governance 與 Governance Hierarchy |
 | REF-006 | EWO-AEOS-0006 — Architecture Decision Record System | EWO | 本文件之工作來源 |
+| REF-007 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
 ## 10. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.1.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 2（AEOS-ADR-002 已核准）：執行 Architecture Transition——WA-001 分類為歷史來源（Historical Reference）；ADR 架構來源與 References 重錨至 AEOS-ARCH-001／Approved 架構載體（EWO-AEOS-0040） | Codex |
 | 1.0.0 | 2026-08-06 | 依 Architecture Review（AR-AEOS-0006-R1）修正：狀態升版至 Approved 1.0.0；ADR Taxonomy 新增 Governance Decision、Documentation Decision、Platform Decision；ADR Template 新增 Decision Owner、Decision Date；ADR Governance 新增 Supersede Rules；ADR Cross-reference 新增 ADR ↔ Constitution（Governance Decision Reference）；ADR Status Model 新增 Rejected | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：定義 ADR System 之 ADR Architecture、Taxonomy、Lifecycle、Numbering、Template、Governance、Cross-reference 與 Status Model（EWO-AEOS-0006） | Codex |

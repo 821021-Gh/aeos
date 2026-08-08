@@ -3,15 +3,16 @@ doc-id: AEOS-ARCH-010
 doc-name: Workspace Architecture
 doc-type: Architecture
 repository: AEOS
-version: 1.0.0
+version: 1.1.0
 status: Approved
 owner: Architecture Owner
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-08
 related:
   - EWO-AEOS-0020
   - EWO-AEOS-0021
   - AR-AEOS-0021-R1
+  - AEOS-ADR-002
   - WA-001
   - AEOS-ARCH-001
   - AEOS-ARCH-004
@@ -26,7 +27,7 @@ related:
 
 ## Executive Summary
 
-本文件依 WA-001 的 Workspace Architecture 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Workspace Architecture，將 WA-001 既定設計正式轉化為 AEOS 內可治理、可追溯的架構定義，涵蓋 Workspace 的目的、識別、組成、責任邊界、類型與層級，以及與 Platform、Capability、Repository、Dependency、Implementation 的關係。本文件亦定義 Workspace 的 Ownership、Membership、Lifecycle、Provisioning、Change、Access 與治理規則。Workspace 是所有 Platform、Capability、Repository 與治理資產共同形成的整體，不等同 Repository、Platform、Project 或 Runtime Environment。本文件不重新設計既定 Architecture、不建立具名 Workspace Catalog 或實際 Workspace 清單、不建立特定工具配置，也不提前開始 M5 Catalog／Matrix 資產。
+本文件依 AEOS-ADR-002、AEOS-ARCH-001 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Workspace Architecture，將 Approved 架構載體既定設計正式轉化為 AEOS 內可治理、可追溯的架構定義，涵蓋 Workspace 的目的、識別、組成、責任邊界、類型與層級，以及與 Platform、Capability、Repository、Dependency、Implementation 的關係。本文件亦定義 Workspace 的 Ownership、Membership、Lifecycle、Provisioning、Change、Access 與治理規則。Workspace 是所有 Platform、Capability、Repository 與治理資產共同形成的整體，不等同 Repository、Platform、Project 或 Runtime Environment。本文件不重新設計既定 Architecture、不建立具名 Workspace Catalog 或實際 Workspace 清單、不建立特定工具配置，也不提前開始 M5 Catalog／Matrix 資產。
 
 ## 文件資訊
 
@@ -36,19 +37,19 @@ related:
 | 文件名稱 | Workspace Architecture |
 | 型別 | Architecture（Workspace Architecture） |
 | 狀態 | Approved |
-| 版本 | 1.0.0 |
+| 版本 | 1.1.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0020、EWO-AEOS-0021、AR-AEOS-0021-R1、WA-001（Approved v1.0.0）、AEOS-ARCH-001（Approved v1.0.0）、AEOS-ARCH-004（Approved v1.0.0）、AEOS-ARCH-005（Approved v1.0.0）、AEOS-ARCH-006（Approved v1.0.0）、AEOS-ARCH-007（Approved v1.0.0）、AEOS-ARCH-008（Approved v1.0.0）、AEOS-ARCH-009（Approved v1.0.0） |
-| 關聯文件 | EWO-AEOS-0021、AR-AEOS-0021-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-ARCH-006、AEOS-ARCH-007、AEOS-ARCH-008、AEOS-ARCH-009、AEOS-STD-001～AEOS-STD-005 |
+| 最後更新 | 2026-08-08 |
+| 依據文件 | EWO-AEOS-0020、EWO-AEOS-0021、AR-AEOS-0021-R1、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001（Approved 1.3.0）、AEOS-ARCH-004（Approved 1.1.0）、AEOS-ARCH-005（Approved 1.1.0）、AEOS-ARCH-006（Approved 1.1.0）、AEOS-ARCH-007（Approved 1.1.0）、AEOS-ARCH-008（Approved 1.1.0）、AEOS-ARCH-009（Approved 1.1.0） |
+| 關聯文件 | EWO-AEOS-0021、AR-AEOS-0021-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-ARCH-006、AEOS-ARCH-007、AEOS-ARCH-008、AEOS-ARCH-009、AEOS-STD-001～AEOS-STD-005、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
 本文件之目的為：
 
-- 以 WA-001 之 Workspace Architecture 為來源，將其既定設計正式轉化為 AEOS Workspace Architecture（AEOS-ARCH-004 §6.6）。
+- 以 Approved 架構載體之 Workspace Architecture 為來源，將其既定設計正式轉化為 AEOS Workspace Architecture（AEOS-ARCH-004 §6.6）。
 - 定義 Workspace Boundary、Composition、Interaction 與 Shared Governance（AEOS-ARCH-004 §6.6）。
 - 統合 Platform、Capability、Repository 與 Dependency View，作為跨 Repository 協作、Workspace 演進與整體一致性檢查之架構依據（AEOS-ARCH-004 §6.6）。
 - 定義 Workspace 的目的、識別、組成、責任邊界、類型與層級。
@@ -73,7 +74,7 @@ related:
 
 本文件不涵蓋：
 
-- 重新定義或修改既定 Architecture（WA-001、AEOS-ARCH-001、AEOS-ARCH-004～AEOS-ARCH-009）。
+- 重新定義或修改既定 Architecture（AEOS-ARCH-001、AEOS-ARCH-004～AEOS-ARCH-009）。
 - 具名 Workspace Catalog、實際 Workspace 清單或特定工具配置之建立。
 - M5 Catalog／Matrix 資產之提前建立（Platform、Capability、Repository、Dependency、Workspace Catalog 與 Ownership、Dependency Matrix 均屬後續 EWO）。
 - 個別 Platform、Capability、Repository 之內部技術架構、部署拓撲或實作設計。
@@ -85,8 +86,8 @@ Workspace Architecture 適用下列權威順序：
 
 | 層級 | 資產 | 權威角色 |
 |------|------|----------|
-| W0 | WA-001 | Workspace Architecture 之唯一來源 |
-| W1 | AEOS-ARCH-001 | 將 WA-001 納入 AEOS Architecture Baseline |
+| W0 | AEOS-ARCH-001 | 最高架構權威 |
+| W1 | AEOS-ARCH-001 | 架構 Entry Document 與 Architecture Register |
 | W2 | AEOS-ARCH-004 | 定義 Workspace Architecture 在 Enterprise Architecture 中的定位與 MUST |
 | W3 | AEOS-ARCH-005～AEOS-ARCH-009 | 定義 Platform、Layer、Capability、Repository、Dependency 之邊界與關係 |
 | W4 | AEOS-ARCH-010（本文件） | 定義 Workspace 模型、組成、邊界與治理規則 |
@@ -96,7 +97,7 @@ Workspace Architecture 適用下列權威順序：
 
 - 下位資產 MUST 符合上位資產，且 MUST NOT 隱性建立新的 Workspace 事實或改寫既定架構。
 - Workspace 與 Platform、Capability、Repository MUST 分離定義：Workspace 是統合整體之邊界，Platform 是承載邊界，Capability 是能力定義，Repository 是治理與交付邊界。
-- 發現 WA-001 未涵蓋的 Workspace 需求時，MUST 先透過正式架構變更處理。
+- 發現 Approved 架構載體未涵蓋的 Workspace 需求時，MUST 先透過正式架構變更處理。
 
 ## 4. Workspace Definition
 
@@ -178,7 +179,7 @@ Workspace 由下列正式元素構成：
 
 ### 7.1 Types
 
-WA-001 已核准之 Workspace 類型為 **Enterprise Workspace（AI Engineering Workspace）**，為目前唯一已核准類型。其他 Workspace 類型 MUST 先經 WA-001 變更與 Architecture Review 核准，不得由本文件或下位文件自行建立。
+Approved 架構載體已核准之 Workspace 類型為 **Enterprise Workspace（AI Engineering Workspace）**，為目前唯一已核准類型。其他 Workspace 類型 MUST 先經正式架構變更與 Architecture Review 核准，不得由本文件或下位文件自行建立。
 
 ### 7.2 Levels
 
@@ -295,7 +296,7 @@ Workspace Architecture 合規檢查至少包含：
 
 | 檢查領域 | 合規要求 |
 |----------|----------|
-| Authority | Workspace 可追溯至 WA-001、AEOS-ARCH-001 與 AEOS-ARCH-004 |
+| Authority | Workspace 可追溯至 AEOS-ARCH-001 與 Approved 架構載體 |
 | Identity | 具唯一、穩定且不可重用的 Workspace ID |
 | Composition | 組成元素（Platform、Capability、Repository、Dependency）已識別且可追溯 |
 | Boundary | Purpose、責任、包含與排除範圍明確 |
@@ -316,24 +317,26 @@ Workspace Architecture 合規檢查至少包含：
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
-| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | Workspace Architecture 之唯一來源 |
-| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](AEOS-ARCH-001-Architecture-Baseline.md)（Approved v1.0.0） | Architecture | 將 WA-001 正式納入 AEOS |
-| REF-003 | [AEOS-ARCH-002 — Enterprise Governance Architecture](AEOS-ARCH-002-Enterprise-Governance-Architecture.md)（Approved v1.0.0） | Architecture | Governance 階層與領域 |
-| REF-004 | [AEOS-ARCH-003 — Architecture Decision Record System](AEOS-ARCH-003-Architecture-Decision-Record-System.md)（Approved v1.0.0） | Architecture | 重大架構決策紀錄機制 |
-| REF-005 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved v1.0.0） | Architecture | Workspace Architecture 的上位定位與 MUST |
-| REF-006 | [AEOS-ARCH-005 — Platform Architecture](AEOS-ARCH-005-Platform-Architecture.md)（Approved v1.0.0） | Architecture | Platform 承載與組成關係 |
-| REF-007 | [AEOS-ARCH-006 — Layer Architecture](AEOS-ARCH-006-Layer-Architecture.md)（Approved v1.0.0） | Architecture | 責任分層與依賴方向規則 |
-| REF-008 | [AEOS-ARCH-007 — Capability Architecture](AEOS-ARCH-007-Capability-Architecture.md)（Approved v1.0.0） | Architecture | Capability 定義與關係 |
-| REF-009 | [AEOS-ARCH-008 — Repository Architecture](AEOS-ARCH-008-Repository-Architecture.md)（Approved v1.0.0） | Architecture | Repository 治理與交付邊界 |
-| REF-010 | [AEOS-ARCH-009 — Dependency Architecture](AEOS-ARCH-009-Dependency-Architecture.md)（Approved v1.0.0） | Architecture | 依賴方向與治理規則 |
+| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
+| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.3.0） | Architecture | 架構基線與 Architecture Register |
+| REF-003 | [AEOS-ARCH-002 — Enterprise Governance Architecture](AEOS-ARCH-002-Enterprise-Governance-Architecture.md)（Approved 1.1.0） | Architecture | Governance 階層與領域 |
+| REF-004 | [AEOS-ARCH-003 — Architecture Decision Record System](AEOS-ARCH-003-Architecture-Decision-Record-System.md)（Approved 1.1.0） | Architecture | 重大架構決策紀錄機制 |
+| REF-005 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.1.0） | Architecture | Workspace Architecture 的上位定位與 MUST |
+| REF-006 | [AEOS-ARCH-005 — Platform Architecture](AEOS-ARCH-005-Platform-Architecture.md)（Approved 1.1.0） | Architecture | Platform 承載與組成關係 |
+| REF-007 | [AEOS-ARCH-006 — Layer Architecture](AEOS-ARCH-006-Layer-Architecture.md)（Approved 1.1.0） | Architecture | 責任分層與依賴方向規則 |
+| REF-008 | [AEOS-ARCH-007 — Capability Architecture](AEOS-ARCH-007-Capability-Architecture.md)（Approved 1.1.0） | Architecture | Capability 定義與關係 |
+| REF-009 | [AEOS-ARCH-008 — Repository Architecture](AEOS-ARCH-008-Repository-Architecture.md)（Approved 1.1.0） | Architecture | Repository 治理與交付邊界 |
+| REF-010 | [AEOS-ARCH-009 — Dependency Architecture](AEOS-ARCH-009-Dependency-Architecture.md)（Approved 1.1.0） | Architecture | 依賴方向與治理規則 |
 | REF-011 | [AEOS-CON-001 — Repository Constitution](../constitution/AEOS-CON-001-Repository-Constitution.md)（Approved v1.0.0） | Constitution | Repository 治理基線與變更管理 |
 | REF-012 | [AEOS-DIA-001 — Documentation Information Architecture](../documentation/AEOS-DIA-001-Documentation-Information-Architecture.md) | Information Architecture | 文件分類、組織與生命週期 |
 | REF-013 | [AEOS-STD-001 — Documentation Format Standard](../standards/AEOS-STD-001-Documentation-Format-Standard.md)、[AEOS-STD-002 — Metadata Standard](../standards/AEOS-STD-002-Metadata-Standard.md)、[AEOS-STD-003 — Cross-reference Standard](../standards/AEOS-STD-003-Cross-reference-Standard.md)、[AEOS-STD-004 — Naming Standard](../standards/AEOS-STD-004-Naming-Standard.md)、[AEOS-STD-005 — Review Standard](../standards/AEOS-STD-005-Review-Standard.md) | Standards | 文件格式、Metadata、Cross-reference、Naming 與 Review 規則 |
 | REF-014 | EWO-AEOS-0020 | EWO | 本文件之工作來源 |
+| REF-015 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
 ## 15. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.1.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 2（AEOS-ADR-002 已核准）：執行 Architecture Transition——WA-001 分類為歷史來源（Historical Reference）；Authority 階層（W0）與對應來源重錨至 AEOS-ARCH-001／Approved 架構載體；References 重錨（EWO-AEOS-0040） | Codex |
 | 1.0.0 | 2026-08-06 | Architecture Review 核准並合併；狀態更新為 Approved，成為 AEOS Workspace Architecture 正式定義（EWO-AEOS-0021；AR-AEOS-0021-R1） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：依 WA-001 與 AEOS-ARCH-004 定義 Workspace Identity、Composition、Boundary、Type／Level、Relationship、Ownership、Membership、Lifecycle、Provisioning、Change、Access 與 Compliance（EWO-AEOS-0020） | Codex |
