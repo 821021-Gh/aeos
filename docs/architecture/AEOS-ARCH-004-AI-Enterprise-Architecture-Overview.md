@@ -36,7 +36,7 @@ related:
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-08 |
-| 依據文件 | EWO-AEOS-Architecture-0001、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001（Approved v1.0.0） |
+| 依據文件 | EWO-AEOS-Architecture-0001、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001（Approved 1.3.0） |
 | 關聯文件 | AEOS-ARCH-002、AEOS-ARCH-003、AEOS-DIA-001、AEOS-CON-001、AEOS-STD-001～AEOS-STD-005、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose

@@ -35,7 +35,7 @@ related:
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-08 |
-| 依據文件 | EWO-AEOS-Architecture-0002、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-004（Approved v1.0.0） |
+| 依據文件 | EWO-AEOS-Architecture-0002、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-004（Approved 1.1.0） |
 | 關聯文件 | AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-STD-001～AEOS-STD-005、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
@@ -343,10 +343,10 @@ Platform Architecture 合規檢查至少包含：
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
 | REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
-| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](AEOS-ARCH-001-Architecture-Baseline.md)（Approved v1.0.0） | Architecture | 架構基線與 Architecture Register |
-| REF-003 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved v1.0.0） | Architecture | Platform Architecture 的上位定位與關係模型 |
-| REF-004 | [AEOS-ARCH-002 — Enterprise Governance Architecture](AEOS-ARCH-002-Enterprise-Governance-Architecture.md)（Approved v1.0.0） | Architecture | Enterprise、Platform 與 Capability 治理關係 |
-| REF-005 | [AEOS-ARCH-003 — Architecture Decision Record System](AEOS-ARCH-003-Architecture-Decision-Record-System.md)（Approved v1.0.0） | Architecture | 重大 Platform 決策紀錄機制 |
+| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.3.0） | Architecture | 架構基線與 Architecture Register |
+| REF-003 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.1.0） | Architecture | Platform Architecture 的上位定位與關係模型 |
+| REF-004 | [AEOS-ARCH-002 — Enterprise Governance Architecture](AEOS-ARCH-002-Enterprise-Governance-Architecture.md)（Approved 1.1.0） | Architecture | Enterprise、Platform 與 Capability 治理關係 |
+| REF-005 | [AEOS-ARCH-003 — Architecture Decision Record System](AEOS-ARCH-003-Architecture-Decision-Record-System.md)（Approved 1.1.0） | Architecture | 重大 Platform 決策紀錄機制 |
 | REF-006 | [AEOS-STD-001 — Documentation Format Standard](../standards/AEOS-STD-001-Documentation-Format-Standard.md)、[AEOS-STD-002 — Metadata Standard](../standards/AEOS-STD-002-Metadata-Standard.md)、[AEOS-STD-003 — Cross-reference Standard](../standards/AEOS-STD-003-Cross-reference-Standard.md)、[AEOS-STD-004 — Naming Standard](../standards/AEOS-STD-004-Naming-Standard.md)、[AEOS-STD-005 — Review Standard](../standards/AEOS-STD-005-Review-Standard.md) | Standards | 文件格式、Metadata、Cross-reference、Naming 與 Review 規則 |
 | REF-007 | EWO-AEOS-Architecture-0002 | EWO | 本文件之工作來源 |
 | REF-008 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
