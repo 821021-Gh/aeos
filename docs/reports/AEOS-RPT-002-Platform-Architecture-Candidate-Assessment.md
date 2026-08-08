@@ -3,11 +3,11 @@ doc-id: AEOS-RPT-002
 doc-name: Platform Architecture Candidate Assessment
 doc-type: Report
 repository: AEOS
-version: 0.1.0
+version: 0.2.0
 status: Draft
 owner: Architecture Owner
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-08
 related:
   - EWO-AEOS-0038
   - AR-AEOS-0038-R1
@@ -26,6 +26,7 @@ related:
   - AEOS-ARCH-008
   - AEOS-ARCH-009
   - AEOS-ARCH-010
+  - AEOS-ADR-002
   - WA-001
 ---
 
@@ -46,13 +47,13 @@ related:
 | 型別 | Report |
 | 用途分類 | Architecture Candidate Assessment（依 AEOS-DIA-001 §3 RPT 規則） |
 | 狀態 | Draft |
-| 版本 | 0.1.0 |
+| 版本 | 0.2.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0038、AEOS-STD-006（Approved 1.0.0）、AEOS-CAT-001（Approved 1.0.0）、AEOS-RPT-001（Approved 1.0.0）、AEOS-ARCH-001、AEOS-ARCH-004～010（Approved 1.0.0）、AEOS-DIA-001（3.1.0）、AEOS-STD-004（1.2.0）、AEOS-STD-005（1.3.0）、AEOS-ARCH-003、WA-001（Approved v1.0.0，外部來源） |
-| 關聯文件 | AEOS-ARCH-001～010、AEOS-CAT-001、AEOS-RPT-001、AEOS-DIA-001、AEOS-STD-001～006、WA-001 |
+| 最後更新 | 2026-08-08 |
+| 依據文件 | EWO-AEOS-0038、AEOS-STD-006（Approved 1.1.0）、AEOS-CAT-001（Approved 1.1.0）、AEOS-RPT-001（Approved 1.1.0）、AEOS-ARCH-001、AEOS-ARCH-004～010（Approved 1.1.0）、AEOS-DIA-001（3.2.0）、AEOS-STD-004（1.2.0）、AEOS-STD-005（1.3.0）、AEOS-ARCH-003、WA-001（Approved v1.0.0，外部來源） |
+| 關聯文件 | AEOS-ARCH-001～010、AEOS-CAT-001、AEOS-RPT-001、AEOS-DIA-001、AEOS-STD-001～006、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
@@ -242,22 +243,23 @@ related:
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
-| REF-001 | WA-001 — Workspace Architecture（Approved v1.0.0，外部來源） | Architecture Source | Platform Topology 唯一來源（內容未於 AEOS 發布） |
-| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](../architecture/AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.0.0） | Architecture Entry Document | 導入 WA-001；AEOS 為 Enterprise Root Repository |
-| REF-003 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](../architecture/AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.0.0） | Architecture | Platform 領域定位與關係模型 |
-| REF-004 | [AEOS-ARCH-005 — Platform Architecture](../architecture/AEOS-ARCH-005-Platform-Architecture.md)（Approved 1.0.0） | Architecture | Platform 定義、身分、邊界、分類與 Catalog 規則 |
-| REF-005 | AEOS-ARCH-006～010（Approved 1.0.0） | Architecture | Layer、Capability、Repository、Dependency、Workspace 定義與區別 |
-| REF-006 | [AEOS-ARCH-003 — Architecture Decision Record System](../architecture/AEOS-ARCH-003-Architecture-Decision-Record-System.md)（Approved 1.0.0） | Architecture | ADR Requirement Assessment |
-| REF-007 | [AEOS-CAT-001 — Platform Catalog](../catalogs/AEOS-CAT-001-Platform-Catalog.md)（Approved 1.0.0） | Catalog | 現行登錄基線 |
-| REF-008 | [AEOS-STD-006 — Enterprise Architecture Catalog and Matrix Standard](../standards/AEOS-STD-006-Enterprise-Architecture-Catalog-and-Matrix-Standard.md)（Approved 1.0.0） | Standard | Platform Entry Schema 與登錄規則 |
-| REF-009 | [AEOS-RPT-001 — M5 Catalog／Matrix Readiness Assessment](../reports/AEOS-RPT-001-M5-Catalog-Matrix-Readiness-Assessment.md)（Approved 1.0.0） | Report | 承接之 Readiness 判定 |
-| REF-010 | [AEOS-DIA-001 — Documentation Information Architecture](../documentation/AEOS-DIA-001-Documentation-Information-Architecture.md)（3.1.0） | Information Architecture | Architecture Candidate Assessment 用途分類 |
-| REF-011 | [AEOS-STD-004 — Naming Standard](../standards/AEOS-STD-004-Naming-Standard.md)（1.2.0） | Standard | Review ID 與識別規則 |
-| REF-012 | [AEOS-STD-005 — Review Standard](../standards/AEOS-STD-005-Review-Standard.md)（1.3.0） | Standard | AR Review 路徑與 Review Record 規則 |
+| REF-001 | WA-001 — Workspace Architecture（Approved v1.0.0，外部來源） | Historical Reference（External） | Platform Topology 歷史來源（內容未於 AEOS 發布） |
+| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](../architecture/AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.3.0） | Architecture Entry Document | 架構基線；AEOS 為 Enterprise Root Repository |
+| REF-003 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](../architecture/AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.1.0） | Architecture | Platform 領域定位與關係模型 |
+| REF-004 | [AEOS-ARCH-005 — Platform Architecture](../architecture/AEOS-ARCH-005-Platform-Architecture.md)（Approved 1.1.0） | Architecture | Platform 定義、身分、邊界、分類與 Catalog 規則 |
+| REF-005 | AEOS-ARCH-006～010（Approved 1.1.0） | Architecture | Layer、Capability、Repository、Dependency、Workspace 定義與區別 |
+| REF-006 | [AEOS-ARCH-003 — Architecture Decision Record System](../architecture/AEOS-ARCH-003-Architecture-Decision-Record-System.md)（Approved 1.1.0） | Architecture | ADR Requirement Assessment |
+| REF-007 | [AEOS-CAT-001 — Platform Catalog](../catalogs/AEOS-CAT-001-Platform-Catalog.md)（Approved 1.1.0） | Catalog | 現行登錄基線 |
+| REF-008 | [AEOS-STD-006 — Enterprise Architecture Catalog and Matrix Standard](../standards/AEOS-STD-006-Enterprise-Architecture-Catalog-and-Matrix-Standard.md)（Approved 1.1.0） | Standard | Platform Entry Schema 與登錄規則 |
+| REF-009 | [AEOS-RPT-001 — M5 Catalog／Matrix Readiness Assessment](../reports/AEOS-RPT-001-M5-Catalog-Matrix-Readiness-Assessment.md)（Approved 1.1.0） | Report | 承接之 Readiness 判定 |
+| REF-010 | [AEOS-DIA-001 — Documentation Information Architecture](../documentation/AEOS-DIA-001-Documentation-Information-Architecture.md)（3.2.0） | Information Architecture | Architecture Candidate Assessment 用途分類 |
+| REF-011 | [AEOS-STD-004 — Naming Standard](../standards/AEOS-STD-004-Naming-Standard.md)（1.3.0） | Standard | Review ID 與識別規則 |
+| REF-012 | [AEOS-STD-005 — Review Standard](../standards/AEOS-STD-005-Review-Standard.md)（1.4.0） | Standard | AR Review 路徑與 Review Record 規則 |
 | REF-013 | EWO-AEOS-0038 | EWO | 本文件之工作來源 |
 
 ## 15. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 0.2.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 3（AEOS-ADR-002 已核准）：執行 Governance Authority Transition——WA-001 分類為歷史來源（Historical Reference）；References 型別與版本釘同步；評估結論與內容不變（EWO-AEOS-0040） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：依 Approved Fact Authority 完成 Platform Candidate 識別與 Architecture Review 判定（PC-001 Rejected、PC-002 Rejected、PC-003 Deferred）；記錄 WA-001 可用性限制、ADR Requirement Assessment 與 Catalog Registration Readiness（EWO-AEOS-0038；AR-AEOS-0038-R1） | Codex |

@@ -3,11 +3,11 @@ doc-id: AEOS-CAT-001
 doc-name: Platform Catalog
 doc-type: Catalog
 repository: AEOS
-version: 1.0.0
+version: 1.1.0
 status: Approved
 owner: Architecture Owner
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-08
 related:
   - EWO-AEOS-0024
   - EWO-AEOS-0025
@@ -16,6 +16,7 @@ related:
   - AEOS-ARCH-001
   - AEOS-ARCH-004
   - AEOS-ARCH-005
+  - AEOS-ADR-002
   - WA-001
 ---
 
@@ -35,13 +36,13 @@ related:
 | 文件名稱 | Platform Catalog |
 | 型別 | Catalog |
 | 狀態 | Approved |
-| 版本 | 1.0.0 |
+| 版本 | 1.1.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-06 |
-| 依據文件 | EWO-AEOS-0024、EWO-AEOS-0025、CM-AEOS-0025-R1、AEOS-STD-006（Approved 1.0.0）、AEOS-ARCH-004（Approved 1.0.0）、AEOS-ARCH-005（Approved 1.0.0）、AEOS-ARCH-001、WA-001（Approved v1.0.0） |
-| 關聯文件 | EWO-AEOS-0025、CM-AEOS-0025-R1、AEOS-ARCH-001、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-STD-001～AEOS-STD-006、WA-001 |
+| 最後更新 | 2026-08-08 |
+| 依據文件 | EWO-AEOS-0024、EWO-AEOS-0025、CM-AEOS-0025-R1、AEOS-STD-006（Approved 1.1.0）、AEOS-ARCH-004（Approved 1.1.0）、AEOS-ARCH-005（Approved 1.1.0）、AEOS-ARCH-001、AEOS-ADR-002（WA-001 Fact Authority Transition） |
+| 關聯文件 | EWO-AEOS-0025、CM-AEOS-0025-R1、AEOS-ARCH-001、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-STD-001～AEOS-STD-006、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
@@ -79,8 +80,8 @@ Platform Catalog 依下列權威順序運作：
 
 | 層級 | 資產 | 權威角色 |
 |------|------|----------|
-| P0 | WA-001 | Platform Topology 之唯一來源 |
-| P1 | AEOS-ARCH-001 | 將 WA-001 納入 AEOS Architecture Baseline |
+| P0 | AEOS-ARCH-001 | 最高架構權威 |
+| P1 | AEOS-ARCH-001 | 架構 Entry Document 與 Architecture Register |
 | P2 | AEOS-ARCH-004 | Platform Architecture 於 Enterprise Architecture 之定位 |
 | P3 | AEOS-ARCH-005 | Platform 身分、邊界、分類與登錄規則 |
 | P4 | AEOS-STD-006 | Catalog Schema、Entry ID、Lifecycle、Review 與一致性規則 |
@@ -123,7 +124,7 @@ Platform Entry MUST 具備下列欄位（依 AEOS-STD-006 §5.1 與 AEOS-ARCH-00
 - 現行 Approved Architecture（AEOS-ARCH-004、AEOS-ARCH-005）未核准任何具名 Platform；AEOS-ARCH-005 明示「不在未經核准的情況下新增具名 Platform 條目」。
 - WA-001 之 Platform Topology 為外部權威來源；其具名 Platform 清單未於 AEOS 內發布或經 Architecture Review 核准。
 - 依 AEOS-STD-006 §3.2 Fact Authority，Catalog MUST NOT 自行創造 Platform；故本版不登錄任何條目，亦不為追求數量新增候選條目。
-- 後續具名 Platform MUST 經正式 Architecture Review／WA-001 內容核准後，依 §7 登錄。
+- 後續具名 Platform MUST 經正式 Architecture Review／Approved 架構載體內容核准後，依 §7 登錄。
 
 ## 6. Document Lifecycle vs Entry Lifecycle
 
@@ -166,16 +167,18 @@ Platform Catalog MUST 符合 AEOS-STD-006 §11 一致性規則：
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
-| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0） | Architecture Source | Platform Topology 之唯一來源 |
-| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](../architecture/AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.0.0） | Architecture Entry Document | 架構基線與 Register |
-| REF-003 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](../architecture/AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.0.0） | Architecture | Platform Architecture 之定位 |
-| REF-004 | [AEOS-ARCH-005 — Platform Architecture](../architecture/AEOS-ARCH-005-Platform-Architecture.md)（Approved 1.0.0） | Architecture | Platform 身分、邊界、分類與登錄規則 |
-| REF-005 | [AEOS-STD-006 — Enterprise Architecture Catalog and Matrix Standard](../standards/AEOS-STD-006-Enterprise-Architecture-Catalog-and-Matrix-Standard.md)（Approved 1.0.0） | Standard | Catalog Schema、Entry ID、Lifecycle、Review 與一致性規則 |
+| REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
+| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](../architecture/AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.3.0） | Architecture Entry Document | 架構基線與 Register |
+| REF-003 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](../architecture/AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.1.0） | Architecture | Platform Architecture 之定位 |
+| REF-004 | [AEOS-ARCH-005 — Platform Architecture](../architecture/AEOS-ARCH-005-Platform-Architecture.md)（Approved 1.1.0） | Architecture | Platform 身分、邊界、分類與登錄規則 |
+| REF-005 | [AEOS-STD-006 — Enterprise Architecture Catalog and Matrix Standard](../standards/AEOS-STD-006-Enterprise-Architecture-Catalog-and-Matrix-Standard.md)（Approved 1.1.0） | Standard | Catalog Schema、Entry ID、Lifecycle、Review 與一致性規則 |
 | REF-006 | EWO-AEOS-0024 | EWO | 本文件之工作來源 |
+| REF-007 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
 ## 10. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.1.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 3（AEOS-ADR-002 已核准）：執行 Governance Authority Transition——WA-001 分類為歷史來源（Historical Reference）；Authority 階層（P0）與 References 重錨至 AEOS-ARCH-001／Approved 架構載體；登錄條目與內容不變（EWO-AEOS-0040） | Codex |
 | 1.0.0 | 2026-08-06 | Catalog／Matrix Review 核准並合併；狀態更新為 Approved，成為 AEOS Platform Catalog 正式登錄來源（EWO-AEOS-0025；CM-AEOS-0025-R1）；具名 Platform 條目維持 0 | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：依 AEOS-STD-006 建立 Platform Catalog 權威結構、Entry Schema、Lifecycle、Traceability、Change 與一致性規則；本版登錄具名 Platform 條目為 0（現行 Approved Architecture 未核准任何具名 Platform）（EWO-AEOS-0024） | Codex |
