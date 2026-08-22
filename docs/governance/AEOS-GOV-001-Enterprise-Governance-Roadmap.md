@@ -3,20 +3,22 @@ doc-id: AEOS-GOV-001
 doc-name: Enterprise Governance Roadmap
 doc-type: Governance
 repository: AEOS
-version: 1.2.0
+version: 1.3.0
 status: Approved
 owner: Repository Owner
 created: 2026-08-06
-updated: 2026-08-08
+updated: 2026-08-22
 related:
   - EWO-AEOS-0007
   - EWO-AEOS-0022
+  - EWO-AEOS-0043
   - GR-AEOS-0007-R1
   - AEOS-ARCH-001
   - AEOS-ARCH-002
   - AEOS-ARCH-003
   - AEOS-CON-001
   - AEOS-DIA-001
+  - AEOS-STD-007
   - AEOS-ADR-002
   - WA-001
 ---
@@ -33,13 +35,13 @@ related:
 | 文件名稱 | Enterprise Governance Roadmap |
 | 型別 | Governance |
 | 狀態 | Approved |
-| 版本 | 1.2.0 |
+| 版本 | 1.3.0 |
 | Repository | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-08 |
-| 依據文件 | EWO-AEOS-0007、GR-AEOS-0007-R1、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001（Approved v1.0.0）、AEOS-DIA-001 |
-| 關聯文件 | EWO-AEOS-0007、GR-AEOS-0007-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001、AEOS-DIA-001、AEOS-ADR-002、WA-001（歷史來源） |
+| 最後更新 | 2026-08-22 |
+| 依據文件 | EWO-AEOS-0007、EWO-AEOS-0043、GR-AEOS-0007-R1、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001（Approved v1.0.0）、AEOS-DIA-001 |
+| 關聯文件 | EWO-AEOS-0007、EWO-AEOS-0043、GR-AEOS-0007-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001、AEOS-DIA-001、AEOS-STD-007、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Current Foundation
 
@@ -104,6 +106,7 @@ Architecture Governance、Documentation Governance、Repository Governance 與 D
 | Cross-reference Standard | 定義跨文件引用之形式與維護規則 | P1 |
 | Naming Standard | 定義文件、目錄與檔案命名之標準 | P1 |
 | Review Standard | 定義 Review 程序、CR／RC 與核准之標準 | P2 |
+| AI Engineering Context and Token Budget Standard | 定義按需 Context、Token Budget、狀態快照、Delta Output、模型分級與 Cache 原則 | P1 |
 
 規則：Standards 以 AEOS-DIA-001 為上位依據，將既有文件規則操作化；不重新定義已完成文件。
 
@@ -186,11 +189,13 @@ Architecture Governance、Documentation Governance、Repository Governance 與 D
 | REF-007 | EWO-AEOS-0007 — Enterprise Governance Roadmap | EWO | 本文件之工作來源 |
 | REF-008 | AEOS-STD-006 — Enterprise Architecture Catalog and Matrix Standard | Standard | Catalog／Matrix 型別、Schema 與治理規則 |
 | REF-009 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
+| REF-010 | AEOS-STD-007 — AI Engineering Context and Token Budget Standard（Draft 0.1.0） | Standard | 按需 Context、Token Budget、狀態快照、Delta Output、模型分級與 Cache 原則 |
 
 ## 12. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.3.0 | 2026-08-22 | 依 EWO-AEOS-0043 將 AI Engineering Context and Token Budget Standard 納入 §4 Planned Standards，作為按需 Context、狀態快照、Delta Output、模型分級與 Cache 治理之 Roadmap 依據 | Codex |
 | 1.2.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 3（AEOS-ADR-002 已核准）：執行 Governance Authority Transition——WA-001 分類為歷史來源（Historical Reference）；Governance Domains、Dependency、References 重錨至 AEOS-ARCH-001／Approved 架構載體（EWO-AEOS-0040） | Codex |
 | 1.1.0 | 2026-08-06 | 依 EWO-AEOS-0022 新增 Milestone Naming Alignment（§2.1）：釐清本 Roadmap 治理里程碑（M4 Governance Catalogs、M5 Governance Operationalization）與架構 EWO 系列里程碑（M4 Enterprise Architecture Foundation、M5 Enterprise Architecture Catalogs）之命名差異與對應關係；M5 Catalogs 之 Schema 依 AEOS-STD-006 | Codex |
 | 1.0.0 | 2026-08-06 | 依 Governance Review（GR-AEOS-0007-R1）修正：狀態升版至 Approved 1.0.0；Governance Milestones 新增 Current Phase（M2 已完成、M3 為下一階段）；Planned Standards 新增 Review Standard、Naming Standard；Planned Catalogs 新增 Governance Catalog（管理 Standards、Policies、Frameworks、Reviews）；Dependencies 新增 DEP-008 Approved Reviews；Evolution Strategy 新增 Milestone 完成後 Review | Codex |
