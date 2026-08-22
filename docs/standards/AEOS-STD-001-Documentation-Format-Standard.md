@@ -3,13 +3,14 @@ doc-id: AEOS-STD-001
 doc-name: Documentation Format Standard
 doc-type: Standard
 repository: AEOS
-version: 1.1.0
+version: 1.2.0
 status: Approved
 owner: Repository Owner
 created: 2026-08-06
-updated: 2026-08-08
+updated: 2026-08-22
 related:
   - EWO-AEOS-0008
+  - EWO-AEOS-0043
   - SR-AEOS-0008-R1
   - AEOS-DIA-001
   - AEOS-CON-001
@@ -24,7 +25,7 @@ related:
 
 ## Executive Summary
 
-本文件定義 AEOS 正式治理文件之格式標準，涵蓋文件結構、章節規則、必要章節、撰寫規則、表格與合規要求；適用於 `docs/` 下之正式文件。
+本文件定義 AEOS 正式治理文件之格式標準，涵蓋文件結構、章節規則、必要章節、撰寫規則、表格與合規要求；正式格式適用於 `docs/` 下之正式文件，§6.2 語言規則另適用於 Repository 內 Markdown 與敘述性文件。
 
 ## 文件資訊
 
@@ -34,13 +35,13 @@ related:
 | 文件名稱 | Documentation Format Standard |
 | 型別 | Standard |
 | 狀態 | Approved |
-| 版本 | 1.1.0 |
+| 版本 | 1.2.0 |
 | Repository | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-08 |
-| 依據文件 | EWO-AEOS-0008、SR-AEOS-0008-R1、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-GOV-001（Approved v1.0.0）、AEOS-ARCH-001、AEOS-ADR-002（WA-001 Fact Authority Transition） |
-| 關聯文件 | EWO-AEOS-0008、SR-AEOS-0008-R1、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001、AEOS-ADR-002、WA-001（歷史來源） |
+| 最後更新 | 2026-08-22 |
+| 依據文件 | EWO-AEOS-0008、EWO-AEOS-0043、SR-AEOS-0008-R1、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-GOV-001（Approved 1.3.0）、AEOS-ARCH-001、AEOS-ADR-002（WA-001 Fact Authority Transition） |
+| 關聯文件 | EWO-AEOS-0008、EWO-AEOS-0043、SR-AEOS-0008-R1、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
@@ -60,6 +61,7 @@ related:
 
 - `docs/` 下之正式文件（ARCH、DIA、CON、GOV、STD、POL、SPEC、CAP、ADR、REF、IDX、TPL）。
 - 文件格式要求：Document Structure、Section Rules、Mandatory Sections、Writing Rules、Tables、Examples 與 Compliance。
+- Repository 內全部 Markdown 與敘述性文件之語言規則；`docs/` 外檔案僅適用 §6.2，不因此納入其他正式文件格式要求。
 
 ### 2.2 Out of Scope
 
@@ -69,7 +71,7 @@ related:
 - Documentation Architecture、Taxonomy 與生命週期（由 AEOS-DIA-001 定義）。
 - Repository 治理原則與變更管理（由 AEOS-CON-001 定義）。
 - Governance Roadmap 內容與優先序（由 AEOS-GOV-001 定義）。
-- Repository Foundation 文件（README、CHANGELOG、CONTRIBUTING 等）。
+- Repository Foundation 文件（README、CHANGELOG、CONTRIBUTING 等）之正式文件結構與 Metadata；其語言仍適用 §6.2。
 
 ## 3. Document Structure
 
@@ -119,7 +121,7 @@ related:
 
 ## 6. Writing Rules
 
-- 正式文件以 Traditional Chinese 撰寫；doc-id、EWO、Review、Scope 等標準語保留英文。
+- 正式文件以繁體中文撰寫；必要英文保留規則依 §6.2。
 - 規範強度使用 MUST、MUST NOT、SHOULD、SHOULD NOT 表達；不得混用模糊用語（例如「盡量」、「最好」）。
 - 句子 MUST 完整、明確、無歧義；避免行銷用語與冗詞。
 - 使用條列式呈現規則與項目；同一文件內條列格式 MUST 一致。
@@ -143,6 +145,15 @@ related:
 - 上述用語 MUST 以英文大寫呈現，MUST NOT 改寫為其他用語。
 - SHALL 不建議使用；一律以 MUST 取代。
 - 模糊用語（例如「盡量」、「最好」）MUST NOT 用於規範性要求。
+
+### 6.2 Language and Narrative Documentation
+
+- Repository 內 Markdown、README、CHANGELOG、CONTRIBUTING、`AGENTS.md`、狀態快照、操作說明、註解型說明與其他敘述性文件 MUST 使用繁體中文；僅本節列出的必要英文內容 MAY 保留原文。
+- 程式碼、程式識別子、API／SDK 名稱、CLI 命令、檔名、路徑、設定鍵、環境變數、資料格式、錯誤訊息、Log 原文、版本號、doc-id、EWO／Review ID、標準識別碼與外部規範正式名稱 MAY 保留英文。
+- 必要且能避免歧義的技術名詞 MAY 保留英文；首次出現時 SHOULD 以繁體中文說明其用途，但不得創造會影響搜尋、互通或標準一致性的強制翻譯。
+- 程式碼區塊、機器可讀內容、API Payload、Schema 與外部引用原文 MUST 保持其有效語法與正式名稱，不得為符合語言原則而改寫。
+- 新增或修改的敘述內容 MUST 遵循本節；既有英文文件 MAY 於相關 EWO 觸及時逐步轉換，不要求在無關變更中一次全面翻譯。
+- 同一段落若同時包含中英文，中文應承載說明，英文僅保留必要技術內容；MUST NOT 以整段英文取代可清楚表達的繁體中文說明。
 
 ## 7. Tables
 
@@ -280,6 +291,7 @@ related:
 | References | 引用使用 doc-id 與相對路徑；來源與關聯文件完整宣告。 |
 | Revision History | 最新版本與 frontmatter 之 version／status 一致；變更已記錄。 |
 | No Placeholder | 無 TBD、TODO、XXX、待補 等未完成內容。 |
+| Language | Markdown 與敘述性內容使用繁體中文；必要英文僅限 §6.2 定義之範圍。 |
 
 ## 10. References
 
@@ -289,7 +301,7 @@ related:
 | REF-002 | AEOS-ARCH-001 — Architecture Baseline | Architecture Entry Document | 架構基線與 Register |
 | REF-003 | AEOS-DIA-001 — Documentation Information Architecture | Information Architecture | 文件體系、Taxonomy 與引用規則 |
 | REF-004 | AEOS-CON-001 — Repository Constitution（Approved v1.0.0） | Constitution | Repository 治理基線 |
-| REF-005 | AEOS-GOV-001 — Enterprise Governance Roadmap（Approved 1.2.0） | Governance | Planned Standards 與優先序 |
+| REF-005 | AEOS-GOV-001 — Enterprise Governance Roadmap（Approved 1.3.0） | Governance | Planned Standards 與優先序 |
 | REF-006 | EWO-AEOS-0008 — Documentation Format Standard | EWO | 本文件之工作來源 |
 | REF-007 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
@@ -297,6 +309,7 @@ related:
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.2.0 | 2026-08-22 | 依 EWO-AEOS-0043 補強 §6.2 Language and Narrative Documentation：明確規定 Repository Markdown 與敘述性文件使用繁體中文，並界定必要英文技術名詞、程式碼、API、檔名、命令、識別碼與外部標準原名之保留範圍 | Codex |
 | 1.1.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 3（AEOS-ADR-002 已核准）：執行 Governance Authority Transition——WA-001 分類為歷史來源（Historical Reference）；References 重錨至 AEOS-ARCH-001／Approved 架構載體；格式範例同步（EWO-AEOS-0040） | Codex |
 | 1.0.0 | 2026-08-06 | 依 Standard Review（SR-AEOS-0008-R1）修正：狀態升版至 Approved 1.0.0；Mandatory Sections 新增 Executive Summary（Title 與文件資訊之間）；Writing Rules 新增 Normative Language（MUST／MUST NOT／SHOULD／SHOULD NOT／MAY；SHALL 不建議使用）；Compliance 新增 Compliance Checklist；References 新增 AEOS-ARCH-001（Architecture Entry Document）；Examples 新增完整最小文件範例 | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：定義 Purpose、Scope、Document Structure、Section Rules、Mandatory Sections、Writing Rules、Tables、Examples 與 Compliance（EWO-AEOS-0008） | Codex |
