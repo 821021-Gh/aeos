@@ -9,9 +9,9 @@
 | Branch | `agent/ewo-aeos-0043-ai-context-token-budget-standard` |
 | Current Milestone | Governance Content 增量 |
 | Current EWO／Issue | EWO-AEOS-0043 — AI Engineering Context and Token Budget Standard |
-| Current PR | — |
+| Current PR | #49 — Draft |
 | Blocker | 無 |
-| Next Action | 完成 Repository 驗證後提交 Standard Review／Draft PR |
+| Next Action | 依 AEOS-STD-005 執行 Standard Review |
 
 ## 最近重要決策
 
