@@ -12,6 +12,7 @@ related:
   - EWO-AEOS-0008
   - EWO-AEOS-0043
   - SR-AEOS-0008-R1
+  - SR-AEOS-0043-R1
   - AEOS-DIA-001
   - AEOS-CON-001
   - AEOS-GOV-001
@@ -40,8 +41,8 @@ related:
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-22 |
-| 依據文件 | EWO-AEOS-0008、EWO-AEOS-0043、SR-AEOS-0008-R1、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-GOV-001（Approved 1.3.0）、AEOS-ARCH-001、AEOS-ADR-002（WA-001 Fact Authority Transition） |
-| 關聯文件 | EWO-AEOS-0008、EWO-AEOS-0043、SR-AEOS-0008-R1、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001、AEOS-ADR-002、WA-001（歷史來源） |
+| 依據文件 | EWO-AEOS-0008、EWO-AEOS-0043、SR-AEOS-0008-R1、SR-AEOS-0043-R1、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-GOV-001（Approved 1.3.0）、AEOS-ARCH-001、AEOS-ADR-002（WA-001 Fact Authority Transition） |
+| 關聯文件 | EWO-AEOS-0008、EWO-AEOS-0043、SR-AEOS-0008-R1、SR-AEOS-0043-R1、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
@@ -304,12 +305,13 @@ related:
 | REF-005 | AEOS-GOV-001 — Enterprise Governance Roadmap（Approved 1.3.0） | Governance | Planned Standards 與優先序 |
 | REF-006 | EWO-AEOS-0008 — Documentation Format Standard | EWO | 本文件之工作來源 |
 | REF-007 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
+| REF-008 | SR-AEOS-0043-R1 — Standard Review | Review | §6.2 語言規則與 PR #49 生命週期追溯 Review；決策為 REQUEST CHANGES |
 
 ## 11. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
-| 1.2.0 | 2026-08-22 | 依 EWO-AEOS-0043 補強 §6.2 Language and Narrative Documentation：明確規定 Repository Markdown 與敘述性文件使用繁體中文，並界定必要英文技術名詞、程式碼、API、檔名、命令、識別碼與外部標準原名之保留範圍 | Codex |
+| 1.2.0 | 2026-08-22 | 依 EWO-AEOS-0043 補強 §6.2 Language and Narrative Documentation：明確規定 Repository Markdown 與敘述性文件使用繁體中文，並界定必要英文技術名詞、程式碼、API、檔名、命令、識別碼與外部標準原名之保留範圍；SR-AEOS-0043-R1 記錄 PR #49 合併後之 Review Traceability 修正，等待 R2 | Codex |
 | 1.1.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 3（AEOS-ADR-002 已核准）：執行 Governance Authority Transition——WA-001 分類為歷史來源（Historical Reference）；References 重錨至 AEOS-ARCH-001／Approved 架構載體；格式範例同步（EWO-AEOS-0040） | Codex |
 | 1.0.0 | 2026-08-06 | 依 Standard Review（SR-AEOS-0008-R1）修正：狀態升版至 Approved 1.0.0；Mandatory Sections 新增 Executive Summary（Title 與文件資訊之間）；Writing Rules 新增 Normative Language（MUST／MUST NOT／SHOULD／SHOULD NOT／MAY；SHALL 不建議使用）；Compliance 新增 Compliance Checklist；References 新增 AEOS-ARCH-001（Architecture Entry Document）；Examples 新增完整最小文件範例 | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：定義 Purpose、Scope、Document Structure、Section Rules、Mandatory Sections、Writing Rules、Tables、Examples 與 Compliance（EWO-AEOS-0008） | Codex |

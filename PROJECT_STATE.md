@@ -6,12 +6,12 @@
 | 項目 | 目前狀態 |
 |------|----------|
 | Repository | AEOS |
-| Branch | `agent/ewo-aeos-0043-ai-context-token-budget-standard` |
+| Branch | `agent/ewo-aeos-0043-lifecycle-correction` |
 | Current Milestone | Governance Content 增量 |
 | Current EWO／Issue | EWO-AEOS-0043 — AI Engineering Context and Token Budget Standard |
-| Current PR | #49 — Draft |
+| Current PR | #49 — Merged；生命週期修正 PR 待建立 |
 | Blocker | 無 |
-| Next Action | 依 AEOS-STD-005 執行 Standard Review |
+| Next Action | 建立生命週期修正 Draft PR，提交 SR-AEOS-0043-R2／GR-AEOS-0043-R2 Re-review |
 
 ## 最近重要決策
 
@@ -19,3 +19,4 @@
 - Context 預設按需載入，不得以整個 Repository 或完整歷史對話作為啟動 Context。
 - Markdown 與敘述性文件原則上使用繁體中文；必要英文技術內容保留原名。
 - 正式治理內容仍依 AEOS Governance Workflow、EWO、Review 與 main 基線生效。
+- PR #49 已在 Review 完成前合併；SR-AEOS-0043-R1 與 GR-AEOS-0043-R1 均為 REQUEST CHANGES，須以修正 PR 完成生命週期收斂。
