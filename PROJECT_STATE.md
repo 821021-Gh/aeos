@@ -9,9 +9,9 @@
 | Branch | `agent/ewo-aeos-0043-lifecycle-correction` |
 | Current Milestone | Governance Content 增量 |
 | Current EWO／Issue | EWO-AEOS-0043 — AI Engineering Context and Token Budget Standard |
-| Current PR | #49 — Merged；生命週期修正 PR 待建立 |
+| Current PR | #50 — Draft（PR #49 已合併） |
 | Blocker | 無 |
-| Next Action | 建立生命週期修正 Draft PR，提交 SR-AEOS-0043-R2／GR-AEOS-0043-R2 Re-review |
+| Next Action | 提交 SR-AEOS-0043-R2／GR-AEOS-0043-R2 Re-review |
 
 ## 最近重要決策
 
