@@ -3,14 +3,15 @@ doc-id: AEOS-STD-007
 doc-name: AI Engineering Context and Token Budget Standard
 doc-type: Standard
 repository: AEOS
-version: 0.2.0
-status: Review
+version: 1.0.0
+status: Approved
 owner: Repository Owner
 created: 2026-08-22
 updated: 2026-08-22
 related:
   - EWO-AEOS-0043
   - SR-AEOS-0043-R1
+  - SR-AEOS-0043-R2
   - AEOS-ARCH-001
   - AEOS-CON-001
   - AEOS-DIA-001
@@ -37,14 +38,14 @@ related:
 | 文件代號 | AEOS-STD-007 |
 | 文件名稱 | AI Engineering Context and Token Budget Standard |
 | 型別 | Standard |
-| 狀態 | Review |
-| 版本 | 0.2.0 |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
 | Repository | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-22 |
 | 最後更新 | 2026-08-22 |
-| 依據文件 | EWO-AEOS-0043、SR-AEOS-0043-R1、AEOS-ARCH-001、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001（Approved 1.3.0）、AEOS-STD-001（Approved 1.2.0） |
-| 關聯文件 | EWO-AEOS-0043、SR-AEOS-0043-R1、AEOS-STD-002～AEOS-STD-005 |
+| 依據文件 | EWO-AEOS-0043、SR-AEOS-0043-R1、SR-AEOS-0043-R2、AEOS-ARCH-001、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001（Approved 1.3.0）、AEOS-STD-001（Approved 1.2.0） |
+| 關聯文件 | EWO-AEOS-0043、SR-AEOS-0043-R1、SR-AEOS-0043-R2、AEOS-STD-002～AEOS-STD-005 |
 
 ## 1. Purpose
 
@@ -345,12 +346,14 @@ AI Engineering 工作完成前 MUST 驗證：
 | REF-009 | [AEOS-STD-005 — Review Standard](AEOS-STD-005-Review-Standard.md)（Approved 1.4.0） | Standard | Review、Approval、Merge 與 Close |
 | REF-010 | EWO-AEOS-0043 — AI Engineering Context and Token Budget Standard | EWO | 本文件之工作來源 |
 | REF-011 | SR-AEOS-0043-R1 — Standard Review | Review | PR #49 合併後之生命週期與追溯性 Review；決策為 REQUEST CHANGES |
+| REF-012 | SR-AEOS-0043-R2 — Standard Re-review | Review | R1 全部 RC 已 Resolved；決策為 APPROVED |
 
-本標準（AEOS-STD-007）核准後，為 AEOS AI Engineering Context 與 Token Budget 規範之唯一來源；其他文件 SHOULD 以引用取代重述。
+本標準（AEOS-STD-007）為 AEOS AI Engineering Context 與 Token Budget 規範之唯一來源；其他文件 SHOULD 以引用取代重述。
 
 ## 16. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-08-22 | 依 SR-AEOS-0043-R2 完成 Standard Re-review：R1 全部 RC 已 Resolved，Metadata、格式、引用、命名、內容完整性與 Review Traceability 驗證通過；決策為 APPROVED（EWO-AEOS-0043） | Codex |
 | 0.2.0 | 2026-08-22 | 依 SR-AEOS-0043-R1（REQUEST CHANGES）進入 Review：記錄 PR #49 於 Draft 狀態合併造成的生命週期不一致，補齊 Review Traceability；文件不得在 R2 APPROVED 前升為 Approved 1.0.0（EWO-AEOS-0043） | Codex |
 | 0.1.0 | 2026-08-22 | 初版建立：定義按需載入 Context、Token Budget、Project State／Closure Snapshot、Delta Output、長對話切換、模型分級、Prompt／Semantic Cache、驗證與合規（EWO-AEOS-0043） | Codex |
