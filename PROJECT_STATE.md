@@ -11,16 +11,19 @@
 | Working Branch | `agent/ewo-aeos-0044-enterprise-ai-agent-architecture` |
 | Current Milestone | Enterprise AI Agent Architecture Foundation |
 | Current EWO／Issue | EWO-AEOS-0044 — Enterprise AI Agent Architecture Foundation（Issue #51） |
-| Current PR | 待建立 Draft PR |
+| Current PR | #52 — Draft Review Package |
 | Blocker | 無 |
-| Next Action | 建立 Review Package，執行 Architecture / ADR Review |
+| Next Action | 執行 Architecture / ADR / Governance Review |
 
 ## 目前候選交付
 
-- `AEOS-ADR-003 — Agent Control Plane and Runtime Separation Decision`：Proposed 0.1.0。
-- `AEOS-ARCH-013 — Enterprise AI Agent Architecture`：Draft 0.1.0。
-- 核心方向：Agent Control Plane 與 Runtime Plane 邏輯分離；Runtime Neutral；透過版本化 Execution Contract 與 Provider Adapter Boundary 解耦。
-- 本輪不新增任何具名 Platform、Agent framework、runtime、model provider、memory provider 或 tool product 為架構必要元件。
+- `AEOS-ADR-003 — Agent Control Plane and Runtime Separation Decision`：Proposed 0.2.0。
+- `AEOS-ARCH-013 — Enterprise AI Agent Architecture`：Draft 0.2.0。
+- 核心方向：Enterprise governance authority 與 Agent Execution Plane 邏輯分離；Runtime Neutral、Harness Neutral；透過版本化 Execution Contract 與 Provider Adapter Boundary 解耦。
+- Agent Harness / Orchestration implementation 可替換、並存或組合，並可接受 delegated execution control，但不得因此取得 Enterprise governance authority。
+- Composite Harness / Runtime Chain 必須維持 approval、authorization、scope、revocation 與 audit evidence continuity。
+- AEOS 不預先指定任何具名 implementation 必須擔任 supervisor、runtime、model router 或其他唯一角色。
+- 本輪不新增任何具名 Platform、Agent framework、Harness、runtime、model provider、memory provider 或 tool product 為架構必要元件。
 - Draft / Proposed 尚未納入 `AEOS-ARCH-001` Approved Architecture Register；僅在完成 Review 與 Approval 後執行 baseline amendment。
 
 ## 最近重要決策與工作原則
