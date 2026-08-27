@@ -8,19 +8,19 @@
 | Repository | AEOS |
 | Source of Truth | `main` |
 | Baseline HEAD | `3409a16a5138808e27f10f8ceccca7dec26efbf3` |
-| Working Branch | `agent/ewo-aeos-0045-closure-correction` |
+| Working Branch | 無 |
 | Current Milestone | Productizable Platform Architecture |
-| Current EWO／Issue | EWO-AEOS-0045 — Productizable Platform Boundary（Issue #54）— Merge completed, closure correction pending |
-| Current PR | #55 — Merged |
+| Current EWO／Issue | EWO-AEOS-0045 — Productizable Platform Boundary（Issue #54）— Closed |
+| Current PR | #55 — Merged；#57 — Post-merge closure correction |
 | Blocker | 無 |
-| Next Action | 合併 post-merge closure correction，完成 Approved baseline registration 與 EWO closure |
+| Next Action | 開始下一個 AEOS Productization / Agent Architecture EWO |
 
-## Closure Correction 候選交付
+## 已完成交付
 
-- `AEOS-ADR-004 — Productization Boundary Decision`：升級為 Approved 1.0.0。
-- `AEOS-ARCH-014 — Productizable Platform Architecture`：升級為 Approved 1.0.0。
-- `AEOS-ARCH-001 — Architecture Baseline`：升級為 1.5.0，登錄 AEOS-ARCH-014。
-- 四層 Productization Model 成為正式架構基線：Company-specific Reference Implementation、Reusable Enterprise Capability、Platform Core、Commercial Product / Solution Packaging。
+- `AEOS-ADR-004 — Productization Boundary Decision`：Approved 1.0.0。
+- `AEOS-ARCH-014 — Productizable Platform Architecture`：Approved 1.0.0。
+- `AEOS-ARCH-001 — Architecture Baseline`：1.5.0，登錄 AEOS-ARCH-014 為 Approved Architecture。
+- 四層 Productization Model 已成為正式架構基線：Company-specific Reference Implementation、Reusable Enterprise Capability、Platform Core、Commercial Product / Solution Packaging。
 - Platform Core MUST NOT 依賴 company-specific schema、workflow、brand、channel 或 single-customer integration。
 - Internal capability 需經 Evidence → Decoupling → Contract → Adapter / Configuration Isolation → Portability Validation → Architecture Review → Catalog / Baseline Admission，才可提升為 reusable / platform 候選。
 - Internal production system 被定義為 reference implementation，不自動等同 future commercial product。
@@ -30,8 +30,11 @@
 
 - `AEOS-ADR-003 — Agent Control Plane and Runtime Separation Decision`：Approved 1.0.0。
 - `AEOS-ARCH-013 — Enterprise AI Agent Architecture`：Approved 1.0.0。
-- `AEOS-ARCH-001 — Architecture Baseline`：main 目前 1.4.0，closure correction 合併後升級至 1.5.0。
+- `AEOS-ADR-004 — Productization Boundary Decision`：Approved 1.0.0。
+- `AEOS-ARCH-014 — Productizable Platform Architecture`：Approved 1.0.0。
+- `AEOS-ARCH-001 — Architecture Baseline`：1.5.0。
 - EWO-AEOS-0044 已 Closed。
+- EWO-AEOS-0045 已 Closed。
 - PR #55 已 Merged，merge commit `3409a16a5138808e27f10f8ceccca7dec26efbf3`。
 
 ## 最近重要決策與工作原則
