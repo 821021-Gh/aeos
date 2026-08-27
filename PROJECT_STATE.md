@@ -7,25 +7,30 @@
 |------|----------|
 | Repository | AEOS |
 | Source of Truth | `main` |
-| Baseline HEAD | `26aad75af9fa6e58ea9e30f228d55252cb909c15` |
-| Working Branch | 無 |
-| Current Milestone | Enterprise AI Agent Architecture Foundation |
-| Current EWO／Issue | EWO-AEOS-0044 — Enterprise AI Agent Architecture Foundation（Issue #51）— Closed |
-| Current PR | #52 — Merged |
+| Baseline HEAD | `563430f576c4bf27e56b48e3db4f4851f6a2358c` |
+| Working Branch | `agent/ewo-aeos-0045-productizable-platform-boundary` |
+| Current Milestone | Productizable Platform Architecture |
+| Current EWO／Issue | EWO-AEOS-0045 — Productizable Platform Boundary（Issue #54） |
+| Current PR | 待建立 Draft Review Package |
 | Blocker | 無 |
-| Next Action | 開始下一個 AEOS Agent Architecture EWO |
+| Next Action | 建立 Draft PR 並執行 Architecture / ADR / Governance Review |
 
-## 已完成交付
+## 目前候選交付
+
+- `AEOS-ADR-004 — Productization Boundary Decision`：Proposed 0.1.0。
+- `AEOS-ARCH-014 — Productizable Platform Architecture`：Draft 0.1.0。
+- 四層 Productization Model：Company-specific Reference Implementation、Reusable Enterprise Capability、Platform Core、Commercial Product / Solution Packaging。
+- Platform Core MUST NOT 依賴 company-specific schema、workflow、brand、channel 或 single-customer integration。
+- Internal capability 需經 Evidence → Decoupling → Contract → Adapter / Configuration Isolation → Portability Validation → Architecture Review → Catalog / Baseline Admission，才可提升為 reusable / platform 候選。
+- Internal production system 被定義為 reference implementation，不自動等同 future commercial product。
+- AEOS 保持 Enterprise Architecture / Governance authority，不強制等同單一 SaaS 商品。
+
+## 已完成基線
 
 - `AEOS-ADR-003 — Agent Control Plane and Runtime Separation Decision`：Approved 1.0.0。
 - `AEOS-ARCH-013 — Enterprise AI Agent Architecture`：Approved 1.0.0。
-- `AEOS-ARCH-001 — Architecture Baseline`：已登錄 AEOS-ARCH-013 為 Approved Architecture。
-- 核心方向：Enterprise governance authority 與 Agent Execution Plane 邏輯分離；Runtime Neutral、Harness Neutral；透過版本化 Execution Contract 與 Provider Adapter Boundary 解耦。
-- Agent Harness / Orchestration implementation 可替換、並存或組合，並可接受 delegated execution control，但不得因此取得 Enterprise governance authority。
-- Composite Harness / Runtime Chain 必須維持 approval、authorization、scope、revocation 與 audit evidence continuity。
-- AEOS 不預先指定任何具名 implementation 必須擔任 supervisor、runtime、model router 或其他唯一角色。
-- 本輪不新增任何具名 Platform、Agent framework、Harness、runtime、model provider、memory provider 或 tool product 為架構必要元件。
-- EWO-AEOS-0044 已完成 closure；後續 Agent Architecture 工作應以 `main` 上 Approved ADR / Architecture / Register 為基線。
+- `AEOS-ARCH-001 — Architecture Baseline`：1.4.0，已登錄 AEOS-ARCH-013。
+- EWO-AEOS-0044 已 Closed。
 
 ## 最近重要決策與工作原則
 
