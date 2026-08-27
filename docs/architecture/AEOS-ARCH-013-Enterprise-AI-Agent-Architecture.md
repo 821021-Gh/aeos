@@ -3,11 +3,11 @@ doc-id: AEOS-ARCH-013
 doc-name: Enterprise AI Agent Architecture
 doc-type: Architecture
 repository: AEOS
-version: 0.2.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-08-26
-updated: 2026-08-26
+updated: 2026-08-27
 related:
   - EWO-AEOS-0044
   - AEOS-ADR-003
@@ -31,7 +31,7 @@ related:
 
 Control Plane 保有企業層級的 policy、approval、authorization、admission、composition policy、routing、audit 與 revocation authority；Harness / Runtime 僅能在有效 Execution Contract、delegated execution authority 與授權範圍內執行、協調或轉派工作。
 
-本文件目前為 Draft，不構成 AEOS-ARCH-001 Approved Architecture Register 的正式條目；核准後始得透過後續 amendment 納入正式基線。
+本文件目前為 Approved 1.0.0，已納入 AEOS-ARCH-001 Approved Architecture Register，作為 Enterprise AI Agent Architecture 的正式定義載體。
 
 ## 1. Purpose
 
@@ -92,7 +92,7 @@ Control Plane 保有企業層級的 policy、approval、authorization、admissio
 | AEOS-ARCH-012 | Architecture Principles |
 | AEOS-ADR-003 | Control Plane / Agent Execution separation、Harness / Runtime Neutral 與 composable execution 候選決策 |
 
-在 AEOS-ADR-003 與本文件獲 Approved 前，本文件僅為 review candidate。
+AEOS-ADR-003 與本文件已於 EWO-AEOS-0044 closure 中升級為 Approved 1.0.0；本文件為 Enterprise AI Agent Architecture 的正式架構權威。
 
 ## 4. Core Concepts
 
@@ -514,18 +514,14 @@ Architecture Review MUST 至少確認：
 
 ## 26. Approval and Baseline Integration
 
-本文件目前為 **Draft 0.2.0**。
-
-核准前：
-
-- 不得登錄為 AEOS-ARCH-001 Approved Architecture Register 正式條目。
-- 不得據此宣稱任何具名產品、Harness、runtime 或 provider 已獲 AEOS 架構核准。
-- 可作為 EWO-AEOS-0044 Review Package 的候選架構載體。
+本文件目前為 **Approved 1.0.0**。
 
 核准後：
 
-- 應透過獨立 baseline amendment 更新 AEOS-ARCH-001 Architecture Register。
-- 必要時同步 AEOS-ARCH-004／005／006／007／009／010 的 cross-reference，但不得重複定義本文件內容。
+- 登錄為 AEOS-ARCH-001 Approved Architecture Register 正式條目。
+- 作為 Enterprise AI Agent Architecture 的正式定義載體。
+- 不得據此宣稱任何具名產品、Harness、runtime 或 provider 已獲 AEOS 架構核准；本文件核准的是 logical architecture、authority boundary 與 conformance requirements。
+- 必要時可於後續 EWO 同步 AEOS-ARCH-004／005／006／007／009／010 的 cross-reference，但不得重複定義本文件內容。
 
 ## 27. References
 
@@ -544,5 +540,6 @@ Architecture Review MUST 至少確認：
 
 | Version | Date | Change | Author |
 |---|---|---|---|
+| 1.0.0 | 2026-08-27 | 依 EWO-AEOS-0044 Post-Merge Closure Verification：升級為 Approved Architecture，納入 AEOS-ARCH-001 Approved Architecture Register，作為 Enterprise AI Agent Architecture 正式定義載體 | Codex |
 | 0.2.0 | 2026-08-26 | 補入 Agent Harness / Orchestration Boundary、Delegated Execution Control、Composable Harness / Runtime Chain、Harness Neutral 與 chain conformance；不預先固定任何具名 implementation 角色 | ChatGPT |
 | 0.1.0 | 2026-08-26 | 建立 Enterprise AI Agent Architecture Draft：Control Plane / Runtime separation、Runtime Neutral、Execution Contract、Provider / Tool / Model / Memory / Approval / Observability / Failure boundaries | ChatGPT |
