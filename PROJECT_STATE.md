@@ -7,7 +7,7 @@
 |------|----------|
 | Repository | AEOS |
 | Source of Truth | `main` |
-| Baseline HEAD | `26aad75af9fa6e58ea9e30f228d55252cb909c15` |
+| Baseline HEAD | `563430f576c4bf27e56b48e3db4f4851f6a2358c` |
 | Working Branch | 無 |
 | Current Milestone | Enterprise AI Agent Architecture Foundation |
 | Current EWO／Issue | EWO-AEOS-0044 — Enterprise AI Agent Architecture Foundation（Issue #51）— Closed |
