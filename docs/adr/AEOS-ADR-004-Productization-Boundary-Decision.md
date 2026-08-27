@@ -3,8 +3,8 @@ doc-id: AEOS-ADR-004
 doc-name: Productization Boundary Decision
 doc-type: ADR
 repository: AEOS
-version: 0.1.0
-status: Proposed
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-08-27
 updated: 2026-08-27
@@ -24,7 +24,7 @@ related:
 
 ## Executive Summary
 
-本 ADR 提議建立 AEOS 的 Productization Boundary，正式區分 `Company-specific Reference Implementation`、`Reusable Enterprise Capability`、`Platform Core` 與 `Commercial Product / Solution Packaging` 四個邏輯層級。
+本 ADR 建立 AEOS 的 Productization Boundary，正式區分 `Company-specific Reference Implementation`、`Reusable Enterprise Capability`、`Platform Core` 與 `Commercial Product / Solution Packaging` 四個邏輯層級。
 
 決策目的不是把 AEOS 本身強制定義為可銷售 SaaS，而是確保目前以公司內部需求驗證出的能力，可以在不污染 Platform Core、不改寫 Enterprise governance semantics 的前提下，逐步抽離為可重用能力並組裝成對外商業產品。
 
@@ -117,16 +117,19 @@ Internal capability 要從 Company-specific layer 提升為 Reusable Enterprise 
 
 ## 7. Status and Approval
 
-本 ADR 目前為 **Proposed 0.1.0**。
+本 ADR 目前為 **Approved 1.0.0**。
 
-在 Review / Approval 完成前：
+EWO-AEOS-0045 Review Package 已完成合併，本文正式作為 internal reference implementation、reusable capability、Platform Core 與 commercial product packaging 分離之 Architecture Decision。
 
-- 不得視為 Approved Architecture Decision。
-- 不得據此修改 `AEOS-ARCH-001` Approved Architecture Register。
-- 可作為 EWO-AEOS-0045 Review Package 的候選決策載體。
+核准後：
+
+- 可作為後續產品化、capability promotion 與 commercial packaging architecture 的決策權威。
+- AEOS-ARCH-014 依本文建立 Productizable Platform Architecture 的 Approved Architecture 定義。
+- AEOS-ARCH-001 Approved Architecture Register 應登錄 AEOS-ARCH-014。
 
 ## 8. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-08-27 | 依 EWO-AEOS-0045 Post-Merge Closure Verification：將 Productization Boundary Decision 升級為 Approved Architecture Decision | ChatGPT |
 | 0.1.0 | 2026-08-27 | 建立 Productization Boundary、四層 Productization Model、dependency direction 與 capability promotion criteria 候選決策 | ChatGPT |
