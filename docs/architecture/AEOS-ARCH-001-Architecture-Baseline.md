@@ -3,14 +3,17 @@ doc-id: AEOS-ARCH-001
 doc-name: Architecture Baseline
 doc-type: Architecture
 repository: AEOS
-version: 1.3.0
+version: 1.4.0
 status: Approved
 owner: Architecture Owner
 created: 2026-08-05
-updated: 2026-08-07
+updated: 2026-08-27
 related:
   - EWO-AEOS-0001
+  - EWO-AEOS-0044
   - AEOS-ADR-002
+  - AEOS-ADR-003
+  - AEOS-ARCH-013
   - WA-001
 ---
 
@@ -26,13 +29,13 @@ related:
 | 文件名稱 | Architecture Baseline |
 | 型別 | Architecture（Entry Document） |
 | 狀態 | Approved |
-| 版本 | 1.3.0 |
+| 版本 | 1.4.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-05 |
-| 最後更新 | 2026-08-07 |
-| 依據文件 | AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ADR-001（Approved 1.0.0）、AEOS-ARCH-011（Approved 1.0.0）、AEOS-ARCH-012（Approved 1.0.0） |
-| 關聯文件 | EWO-AEOS-0001、AEOS-ADR-001、AEOS-ADR-002、WA-001（歷史來源） |
+| 最後更新 | 2026-08-27 |
+| 依據文件 | AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ADR-003（Approved 1.0.0）、AEOS-ADR-001（Approved 1.0.0）、AEOS-ARCH-011（Approved 1.0.0）、AEOS-ARCH-012（Approved 1.0.0） |
+| 關聯文件 | EWO-AEOS-0001、EWO-AEOS-0044、AEOS-ADR-001、AEOS-ADR-002、AEOS-ADR-003、AEOS-ARCH-013、WA-001（歷史來源） |
 
 ## 1. Purpose
 
@@ -146,6 +149,7 @@ related:
 | AEOS-ARCH-010 | Workspace Architecture | Architecture | AEOS-ARCH-001（Approved）、AEOS-ARCH-004（Approved） | Approved |
 | AEOS-ARCH-011 | Enterprise Meta Architecture | Architecture | AEOS-ARCH-004、AEOS-ARCH-006 | Approved |
 | AEOS-ARCH-012 | Architecture Principles | Architecture | AEOS-ARCH-004 | Approved |
+| AEOS-ARCH-013 | Enterprise AI Agent Architecture | Architecture | AEOS-ADR-003、AEOS-ARCH-001（Approved）、AEOS-ARCH-004（Approved）、AEOS-ARCH-005（Approved）、AEOS-ARCH-006（Approved）、AEOS-ARCH-007（Approved）、AEOS-ARCH-009（Approved）、AEOS-ARCH-010（Approved）、AEOS-ARCH-012（Approved） | Approved |
 
 後續 AEOS 架構文件依 Approved 架構載體建立後，於本 Register 登錄並更新版本。
 
@@ -174,6 +178,7 @@ related:
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.4.0 | 2026-08-27 | 依 EWO-AEOS-0044 Post-Merge Closure Verification：登錄 AEOS-ARCH-013（Enterprise AI Agent Architecture）為 Approved Architecture；補入 AEOS-ADR-003（Approved 1.0.0）作為 Agent Control Plane / Runtime Separation 決策依據 | Codex |
 | 1.3.0 | 2026-08-07 | 依 EWO-AEOS-0040 Wave 1（AEOS-ADR-002 已核准並合併至 main）：執行 Authority Rule Transition——WA-001 分類為歷史來源；§3／§4／§5／§6／§7／§8／§9／§10 之架構權威與對應來源重錨至 Approved 架構載體與 AEOS-ADR-002 §2.2 | Codex |
 | 1.2.0 | 2026-08-06 | 依 EWO-AEOS-0042 同步 Architecture Register：AEOS-ARCH-011（Enterprise Meta Architecture）與 AEOS-ARCH-012（Architecture Principles）狀態更新為 Approved（AR-AEOS-0041-R2／R3 已通過並合併） | Codex |
 | 1.1.0 | 2026-08-06 | 依 EWO-AEOS-0041 同步 Architecture Register：登錄 AEOS-ARCH-011（Enterprise Meta Architecture）與 AEOS-ARCH-012（Architecture Principles）為 Draft；References 新增兩份 Definition 之交叉引用（AR-AEOS-0041-R4） | Codex |
