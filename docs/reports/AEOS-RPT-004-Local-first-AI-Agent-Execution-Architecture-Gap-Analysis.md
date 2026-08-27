@@ -9,19 +9,21 @@ owner: Architecture Owner
 created: 2026-08-27
 updated: 2026-08-27
 related:
+  - EWO-AEOS-0046
   - AEOS-ARCH-001
   - AEOS-ARCH-013
   - AEOS-ARCH-014
   - AEOS-ADR-003
   - AEOS-STD-005
   - AEOS-STD-007
+  - AEOS-SPEC-001
   - YEOS-ENG-STD-008
   - YEELIGHT-AI-CRM-AGENTS
 ---
 
 # AEOS-RPT-004 — Local-first AI Agent Execution Architecture Gap Analysis
 
-> 本報告依 2026-08-27 使用者工作要求，檢查 AEOS、YEOS 與 yeelight-ai-crm `main` 分支之現況，評估 Local-first AI Agent Execution Architecture 的既有覆蓋與差距。本文件為 Draft Report；不取代 AEOS-ARCH-013、AEOS-ADR-003、YEOS ENG-STD-008 或任何已核准 Approval Policy。
+> EWO-AEOS-0046：本報告依 2026-08-27 使用者工作要求，檢查 AEOS、YEOS 與 yeelight-ai-crm `main` 分支之現況，評估 Local-first AI Agent Execution Architecture 的既有覆蓋與差距。本文件為 Draft Report；不取代 AEOS-ARCH-013、AEOS-ADR-003、YEOS ENG-STD-008 或任何已核准 Approval Policy。
 
 ## Executive Summary
 
@@ -29,7 +31,7 @@ AEOS `main` 已具備 Enterprise AI Agent Architecture 的核心治理骨架：A
 
 本次差距不在於缺少 agent architecture，而在於尚未把「Local-first execution」操作化為可審核的 routing tier、entry / exit criteria、cost telemetry、escalation reason 與 cross-repository adoption plan。建議第一階段不重寫既有 YEOS command approval 與 risk policy，而是在 AEOS 中補上 local-first routing 與 cost governance 的候選規格，並由 CRM 作為 reference implementation PoC 的候選場景。
 
-最小下一步為：以本報告完成 baseline 與 gap analysis，接著開立 AEOS architecture amendment / specification EWO，將 Tier 0 到 Tier 4 路由模型加入 AEOS-ARCH-013 或獨立 SPEC，並保持所有具名 runtime、local model、cloud model、harness 與 tool 僅位於 Adapter / Provider / Reference Implementation 邊界。
+最小下一步為：依 EWO-AEOS-0046 建立 `AEOS-SPEC-001`，將 Tier 0 到 Tier 4 路由模型、cost telemetry 與 escalation reason 操作化為 Draft Specification，並保持所有具名 runtime、local model、cloud model、harness 與 tool 僅位於 Adapter / Provider / Reference Implementation 邊界。
 
 ## 文件資訊
 
@@ -45,8 +47,8 @@ AEOS `main` 已具備 Enterprise AI Agent Architecture 的核心治理骨架：A
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-27 |
 | 最後更新 | 2026-08-27 |
-| 依據文件 | AEOS-ARCH-013、AEOS-ADR-003、AEOS-ARCH-014、AEOS-STD-007、YEOS ENG-STD-008、yeelight-ai-crm AGENTS.md / .ai/PROJECT.md |
-| 關聯文件 | AEOS-ARCH-001、AEOS-STD-005、AEOS-STD-007、YEOS ENG-STD-008、yeelight-ai-crm AGENTS.md |
+| 依據文件 | EWO-AEOS-0046、AEOS-ARCH-013、AEOS-ADR-003、AEOS-ARCH-014、AEOS-STD-007、YEOS ENG-STD-008、yeelight-ai-crm AGENTS.md / .ai/PROJECT.md |
+| 關聯文件 | AEOS-ARCH-001、AEOS-STD-005、AEOS-STD-007、AEOS-SPEC-001、YEOS ENG-STD-008、yeelight-ai-crm AGENTS.md |
 
 ## 1. Purpose
 
@@ -177,15 +179,15 @@ A Tier 0 or Tier 1 execution MUST NOT:
 | Order | Repository | Change | Files / Artifacts | Validation |
 |-------|------------|--------|-------------------|------------|
 | 1 | AEOS | Add this Draft gap analysis report | `docs/reports/AEOS-RPT-004-Local-first-AI-Agent-Execution-Architecture-Gap-Analysis.md` | Markdown / metadata review; Architecture Review as RPT candidate assessment |
-| 2 | AEOS | Create architecture amendment or SPEC for Local-first Routing Profile | Prefer extending AEOS-ARCH-013 if approved by Architecture Owner; otherwise add `docs/specifications/` candidate spec | Check consistency with AEOS-ADR-003, AEOS-ARCH-013, AEOS-STD-007 |
-| 3 | AEOS | Define cost / routing telemetry schema | Standard or SPEC depending on governance decision | Verify fields cover tier, tokens, cost, latency, retries, escalation reason, success outcome |
+| 2 | AEOS | Create Draft Specification for Local-first Routing Profile | `docs/specifications/AEOS-SPEC-001-Local-first-AI-Agent-Execution-Routing-Profile.md` | Check consistency with AEOS-ADR-003, AEOS-ARCH-013, AEOS-STD-007 |
+| 3 | AEOS | Decide whether approved content should amend AEOS-ARCH-013 | Architecture amendment or follow-up ADR only if review requires it | Architecture Owner / Repository Owner review |
 | 4 | YEOS | Map ENG-STD-008 command/risk classifications into local-first routing adoption note, without redesign | Existing standards or supplemental engineering note | Confirm no approval downgrade and repository protection still required |
 | 5 | yeelight-ai-crm | Add PoC SPEC for adapter-bound local-first execution | CRM docs/spec; implementation behind config / adapter boundary | CI, no production data/secrets, no production activation |
 | 6 | yeelight-ai-crm | Implement deterministic and local-preprocessing PoC | Tests/scripts under existing repo patterns | Tests prove Tier 0/Tier 1 outputs are verifiable and escalation reasons are recorded |
 
 ### 7.2 First Minimal Implementation
 
-This Draft report is the first minimal implementation artifact. It is intentionally narrow because it crosses architecture governance territory but does not itself approve a new architecture. It provides a reviewable basis for the next EWO / PR.
+This Draft report is the first minimal implementation artifact. It is intentionally narrow because it crosses architecture governance territory but does not itself approve a new architecture. It provides a reviewable basis for `AEOS-SPEC-001` and follow-up Architecture Review.
 
 ### 7.3 ADR Requirement Assessment
 
@@ -195,7 +197,7 @@ A new ADR is likely required only if AEOS chooses one of the following:
 - Add a new Control Plane decision model that materially changes AEOS-ADR-003.
 - Define cost governance as a new enterprise policy authority.
 
-If the next change only adds a compatible routing profile under AEOS-ARCH-013's existing Control Plane routing and budget responsibilities, an Architecture amendment or SPEC may be sufficient.
+If the next change only adds a compatible routing profile under AEOS-ARCH-013's existing Control Plane routing and budget responsibilities, `AEOS-SPEC-001` may be sufficient.
 
 ## 8. Validation
 
@@ -210,17 +212,20 @@ This report was prepared against current `main` branch evidence on 2026-08-27:
 | YEOS command approval redesign avoided | Pass |
 | Production / credential / destructive action avoided | Pass |
 | Report status kept Draft | Pass |
+| EWO-AEOS-0046 traceability added | Pass |
 
 ## 9. References
 
 | 文件 | 型別 | 用途 |
 |------|------|------|
+| EWO-AEOS-0046 — Local-first AI Agent Execution Routing Profile | EWO | Work source and scope |
 | AEOS-ARCH-001 — Architecture Baseline | Architecture | AEOS architecture register and baseline authority |
 | AEOS-ARCH-013 — Enterprise AI Agent Architecture | Architecture | Control Plane / Execution Plane / Runtime Neutrality authority |
 | AEOS-ADR-003 — Agent Control Plane and Runtime Separation Decision | ADR | Approved decision for authority separation |
 | AEOS-ARCH-014 — Productizable Platform Architecture | Architecture | Productization and reference implementation boundary |
 | AEOS-STD-005 — Review Standard | Standard | Draft PR / Architecture Review requirements |
 | AEOS-STD-007 — AI Engineering Context and Token Budget Standard | Standard | Token budget, routing and context governance |
+| AEOS-SPEC-001 — Local-first AI Agent Execution Routing Profile | Specification | Routing profile draft specification |
 | YEOS ENG-STD-008 — AI Agent Command Approval Standard | Standard | Command classification, risk classification and approval policy |
 | yeelight-ai-crm `AGENTS.md` | Repository instruction | Production-first and human-controlled release guardrails |
 | yeelight-ai-crm `.ai/PROJECT.md` | Project context | CRM scope, provider-neutral and adapter boundary guidance |
@@ -229,4 +234,4 @@ This report was prepared against current `main` branch evidence on 2026-08-27:
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
-| 0.1.0 | 2026-08-27 | Initial Draft baseline, coverage matrix, gap analysis, target local-first tiers and implementation plan | Codex |
+| 0.1.0 | 2026-08-27 | Initial Draft baseline, coverage matrix, gap analysis, target local-first tiers and implementation plan; aligned to EWO-AEOS-0046 and AEOS-SPEC-001 | Codex |
