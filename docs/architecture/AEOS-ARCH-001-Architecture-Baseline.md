@@ -188,6 +188,6 @@ related:
 | 1.4.0 | 2026-08-27 | 依 EWO-AEOS-0044 Post-Merge Closure Verification：登錄 AEOS-ARCH-013（Enterprise AI Agent Architecture）為 Approved Architecture；補入 AEOS-ADR-003（Approved 1.0.0）作為 Agent Control Plane / Runtime Separation 決策依據 | Codex |
 | 1.3.0 | 2026-08-07 | 依 EWO-AEOS-0040 Wave 1（AEOS-ADR-002 已核准並合併至 main）：執行 Authority Rule Transition——WA-001 分類為歷史來源；§3／§4／§5／§6／§7／§8／§9／§10 之架構權威與對應來源重錨至 Approved 架構載體與 AEOS-ADR-002 §2.2 | Codex |
 | 1.2.0 | 2026-08-06 | 依 EWO-AEOS-0042 同步 Architecture Register：AEOS-ARCH-011（Enterprise Meta Architecture）與 AEOS-ARCH-012（Architecture Principles）狀態更新為 Approved（AR-AEOS-0041-R2／R3 已通過並合併） | Codex |
-| 1.1.0 | 2026-08-06 | 依 EWO-AEOS-0041 同步 Architecture Register：登錄 AEOS-ARCH-011（Enterprise Meta Architecture）與 AEOS-ARCH-012（Enterprise Meta Architecture）為 Draft；References 新增兩份 Definition 之交叉引用（AR-AEOS-0041-R4） | Codex |
+| 1.1.0 | 2026-08-06 | 依 EWO-AEOS-0041 同步 Architecture Register：登錄 AEOS-ARCH-011（Enterprise Meta Architecture）與 AEOS-ARCH-012（Architecture Principles）為 Draft；References 新增兩份 Definition 之交叉引用（AR-AEOS-0041-R4） | Codex |
 | 1.0.0 | 2026-08-05 | 正式導入 WA-001（Approved v1.0.0）為唯一架構來源；納入已核准架構（Workspace Architecture、Enterprise Meta Architecture、Platform Topology、Capability Architecture、Capability Ownership、Architecture Principles）；確立 Architecture Register；版本升級至 1.0.0 / Approved（AR-AEOS-0001 RC-001） | Codex |
 | 0.1.0 | 2026-08-05 | 初版：導入 WA-001 為唯一架構來源，建立 Architecture Baseline（EWO-AEOS-0001） | Codex |
