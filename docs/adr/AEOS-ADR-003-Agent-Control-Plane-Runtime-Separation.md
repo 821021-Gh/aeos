@@ -3,11 +3,11 @@ doc-id: AEOS-ADR-003
 doc-name: Agent Control Plane and Runtime Separation Decision
 doc-type: ADR
 repository: AEOS
-version: 0.2.0
-status: Proposed
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-08-26
-updated: 2026-08-26
+updated: 2026-08-27
 related:
   - EWO-AEOS-0044
   - AEOS-ARCH-001
@@ -194,17 +194,20 @@ Runtime / Harness-specific parameters MAY 存在於 adapter extension，但 MUST
 
 ## 6. Status and Approval
 
-本 ADR 目前為 **Proposed**。
+本 ADR 目前為 **Approved 1.0.0**。
 
-在 Architecture / ADR Review 完成並獲核准前：
+EWO-AEOS-0044 Review Package 已完成合併，本文作為 Agent Control Plane / Runtime separation、Harness / Runtime Neutral 與 composable execution chain 的 Approved Architecture Decision。
 
-- 不得視為 Approved Architecture Fact。
-- 不得據此修改 AEOS-ARCH-001 Approved Architecture Register。
-- 可作為 EWO-AEOS-0044 Draft implementation 與 review package 的候選決策載體。
+核准後：
+
+- 可作為 AEOS Agent Architecture 後續設計與 implementation governance 的決策權威。
+- AEOS-ARCH-013 依本文建立 Enterprise AI Agent Architecture 的 Approved Architecture 定義。
+- AEOS-ARCH-001 Approved Architecture Register 應登錄 AEOS-ARCH-013。
 
 ## 7. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-08-27 | 依 EWO-AEOS-0044 Post-Merge Closure Verification：將 Agent Control Plane / Runtime Separation Decision 升級為 Approved Architecture Decision，支援 AEOS-ARCH-013 baseline 登錄 | Codex |
 | 0.2.0 | 2026-08-26 | 補入 Agent Harness / Orchestration Boundary、Delegated Execution Control、Composable Harness / Runtime Chain 與 Harness Neutral；避免將任何具名產品預先固定為 supervisor/runtime 角色 | ChatGPT |
 | 0.1.0 | 2026-08-26 | 建立 Agent Control Plane / Runtime logical separation、Runtime Neutral 與 Execution Contract 候選決策 | ChatGPT |
