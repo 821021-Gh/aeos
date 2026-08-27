@@ -3,8 +3,8 @@ doc-id: AEOS-ARCH-014
 doc-name: Productizable Platform Architecture
 doc-type: Architecture
 repository: AEOS
-version: 0.1.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-08-27
 updated: 2026-08-27
@@ -32,7 +32,7 @@ related:
 
 本架構不規定商業模式、定價、SKU、multi-tenant 或 single-tenant 的最終選型；它規範的是在任何產品化路徑下都必須維持的 dependency、contract、configuration、adapter 與 governance invariants。
 
-本文件目前為 Draft 0.1.0，尚未納入 `AEOS-ARCH-001` Approved Architecture Register。
+本文件目前為 Approved 1.0.0，應納入 `AEOS-ARCH-001` Approved Architecture Register，作為 Productizable Platform Architecture 的正式定義載體。
 
 ## 1. Purpose
 
@@ -80,7 +80,7 @@ related:
 | AEOS-ARCH-010 | Workspace / repository execution boundary |
 | AEOS-ARCH-012 | Architecture Principles |
 | AEOS-ARCH-013 | Agent Control Plane / Execution Plane、Runtime / Harness / Provider Neutrality |
-| AEOS-ADR-004 | Productization Boundary 候選決策 |
+| AEOS-ADR-004 | Productization Boundary Approved Decision |
 
 ## 4. Productization Model
 
@@ -264,13 +264,13 @@ Reference implementation 的角色是：
 
 ## 11. Lifecycle
 
-- Draft：候選架構，不得視為 Approved baseline。
-- Review：執行 Architecture / ADR / Governance Review。
-- Approved：經核准後可納入 `AEOS-ARCH-001` Architecture Register。
-- Amendment：後續產品化經驗若改變 boundary，必須透過正式 EWO / Review 修改。
+- 本文件目前為 Approved 1.0.0，作為 Productizable Platform Architecture 的正式架構定義。
+- 後續產品化經驗若改變 boundary，必須透過正式 EWO / Review / Amendment 修改。
+- 任何 reusable capability 或 Platform fact 的具名 admission，仍須依 Catalog / Architecture governance 流程獨立核准。
 
 ## 12. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-08-27 | 依 EWO-AEOS-0045 Post-Merge Closure Verification：升級為 Approved Productizable Platform Architecture | ChatGPT |
 | 0.1.0 | 2026-08-27 | 建立 Productizable Platform Architecture：四層 Productization Model、dependency direction、promotion pipeline、commercialization invariants 與 Agent Architecture mapping | ChatGPT |
