@@ -4,7 +4,7 @@ doc-name: Workspace Architecture
 doc-type: Architecture
 repository: AEOS
 version: 1.2.0
-status: Review
+status: Approved
 owner: Architecture Owner
 created: 2026-08-06
 updated: 2026-08-28
@@ -13,6 +13,7 @@ related:
   - EWO-AEOS-0021
   - EWO-AEOS-0047
   - AR-AEOS-0021-R1
+  - AR-AEOS-0047-R1
   - AEOS-RPT-005
   - AEOS-ADR-002
   - WA-001
@@ -43,14 +44,14 @@ EWO-AEOS-0047 amendment 進一步澄清：ChatGPT Project 或其他協作工具�
 | 文件代號 | AEOS-ARCH-010 |
 | 文件名稱 | Workspace Architecture |
 | 型別 | Architecture（Workspace Architecture） |
-| 狀態 | Review |
+| 狀態 | Approved |
 | 版本 | 1.2.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-28 |
-| 依據文件 | EWO-AEOS-0020、EWO-AEOS-0021、EWO-AEOS-0047、AEOS-RPT-005、AR-AEOS-0021-R1、AEOS-ADR-002、AEOS-ARCH-001、AEOS-ARCH-004～AEOS-ARCH-009 |
-| 關聯文件 | EWO-AEOS-0047、AEOS-RPT-005、AEOS-ARCH-001～AEOS-ARCH-009、AEOS-STD-001～AEOS-STD-007、AEOS-ADR-002、WA-001（歷史來源） |
+| 依據文件 | EWO-AEOS-0020、EWO-AEOS-0021、EWO-AEOS-0047、AEOS-RPT-005、AR-AEOS-0021-R1、AR-AEOS-0047-R1、AEOS-ADR-002、AEOS-ARCH-001、AEOS-ARCH-004～AEOS-ARCH-009 |
+| 關聯文件 | EWO-AEOS-0047、AR-AEOS-0047-R1、AEOS-RPT-005、AEOS-ARCH-001～AEOS-ARCH-009、AEOS-STD-001～AEOS-STD-007、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
@@ -387,7 +388,7 @@ Workspace Architecture 合規檢查至少包含：
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
-| 1.2.0 | 2026-08-28 | EWO-AEOS-0047 amendment（Review）：新增 Formal Enterprise Workspace 與 Operational Workspace／Project／Work Session 的 Authority Boundary；正式化 Repository `main` = SSOT、Workspace Context non-authoritative、Merge + Closure = Knowledge Promotion Point、Archived Session = Historical Working Record；未新增 Workspace Type 或重設既有 Architecture | ChatGPT |
+| 1.2.0 | 2026-08-28 | 依 `AR-AEOS-0047-R1` 完成獨立 Human Architecture Review 並取得 APPROVED；核准 Formal Enterprise Workspace 與 Operational Workspace／Project／Work Session Authority Boundary amendment，正式化 Repository `main` = SSOT、Workspace Context non-authoritative、Merge + Closure = Knowledge Promotion Point、Archived Session = Historical Working Record；未新增 Workspace Type 或重設既有 Architecture | ChatGPT |
 | 1.1.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 2（AEOS-ADR-002 已核准）：執行 Architecture Transition——WA-001 分類為歷史來源（Historical Reference）；Authority 階層（W0）與對應來源重錨至 AEOS-ARCH-001／Approved 架構載體；References 重錨（EWO-AEOS-0040） | Codex |
 | 1.0.0 | 2026-08-06 | Architecture Review 核准並合併；狀態更新為 Approved，成為 AEOS Workspace Architecture 正式定義（EWO-AEOS-0021；AR-AEOS-0021-R1） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：依 WA-001 與 AEOS-ARCH-004 定義 Workspace Identity、Composition、Boundary、Type／Level、Relationship、Ownership、Membership、Lifecycle、Provisioning、Change、Access 與 Compliance（EWO-AEOS-0020） | Codex |
