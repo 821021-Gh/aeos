@@ -1,57 +1,62 @@
 # AEOS Project State
 
-> 更新日期：2026-08-27
-> 用途：提供 Agent 啟動與長對話切換所需的最小狀態；不得取代 EWO、Review、ADR 或正式治理文件。
+> 更新日期：2026-08-28
+> 用途：提供 Agent 啟動、handoff 與長 Work Session 切換所需的最小狀態；不得取代 EWO、Review、ADR、PR 或正式治理文件。
 
 | 項目 | 目前狀態 |
 |------|----------|
 | Repository | AEOS |
 | Source of Truth | `main` |
-| Baseline HEAD | `6984a9820922d8b056f69d2cea1d8d4acbe04d46` |
-| Working Branch | `agent/ewo-aeos-0046-local-first-agent-execution-routing-profile` |
-| Current Milestone | Enterprise Local-first AI Agent Execution Architecture |
-| Current EWO／Issue | EWO-AEOS-0046 — Local-first AI Agent Execution Routing Profile（Issue #59）— Open |
-| Current PR | #60 — Draft Review Package |
+| Baseline HEAD | `11b6bb86cf8b278b8f8f4250ad1f712214b19a59` |
+| Working Branch | 無 |
+| Current Milestone | Workspace Lifecycle Governance — Completed |
+| Current EWO／Issue | EWO-AEOS-0047 — AI Workspace / Project / Work Session Lifecycle Governance（Issue #61）— Closed candidate |
+| Current PR | #62 — Merged；#63 — Merged |
 | Blocker | 無 |
-| Next Action | Review EWO-AEOS-0046 Draft package；確認 AEOS-SPEC-001 是否足以作為 Local-first routing profile，或是否需後續 AEOS-ARCH-013 amendment / ADR |
+| Next Action | 下一個 AEOS 工作必須從最新 `main` 重新載入 baseline；不得以本次 Chat / Closure Snapshot 取代 Repository current state |
 
-## 目前 Draft 交付
+## 本次已完成
 
-- `AEOS-RPT-004 — Local-first AI Agent Execution Architecture Gap Analysis`：Draft 0.1.0。
-- `AEOS-SPEC-001 — Local-first AI Agent Execution Routing Profile`：Draft 0.1.0。
-- EWO-AEOS-0046 已開立為 Issue #59。
-- PR #60 已開立為 Draft Review Package。
-- PR #58 為初始草稿，已由 #60 取代並關閉。
+- PR #62（Gap Analysis / Amendment Plan）已 squash merge；merge commit `da8cf7cfbe8c5ab3fbf02a43285e5f5e1edabafe`。
+- `AEOS-RPT-005 — AI Workspace / Project / Work Session Lifecycle Governance Gap Analysis` 已進入 `main`。
+- `AR-AEOS-0047-R1` 與 `SR-AEOS-0047-R1` 已由獨立 Human Reviewer `yeelightpro` APPROVED。
+- Repository Owner 已完成 final approval。
+- PR #63 已 squash merge；merge commit `11b6bb86cf8b278b8f8f4250ad1f712214b19a59`。
+- 無 unresolved RC / review thread。
 
-## 已完成交付
+## 正式基線
 
-- `AEOS-ADR-004 — Productization Boundary Decision`：Approved 1.0.0。
-- `AEOS-ARCH-014 — Productizable Platform Architecture`：Approved 1.0.0。
-- `AEOS-ARCH-001 — Architecture Baseline`：1.5.0，登錄 AEOS-ARCH-014 為 Approved Architecture。
-- 四層 Productization Model 已成為正式架構基線：Company-specific Reference Implementation、Reusable Enterprise Capability、Platform Core、Commercial Product / Solution Packaging。
-- Platform Core MUST NOT 依賴 company-specific schema、workflow、brand、channel 或 single-customer integration。
-- Internal capability 需經 Evidence → Decoupling → Contract → Adapter / Configuration Isolation → Portability Validation → Architecture Review → Catalog / Baseline Admission，才可提升為 reusable / platform 候選。
-- Internal production system 被定義為 reference implementation，不自動等同 future commercial product。
-- AEOS 保持 Enterprise Architecture / Governance authority，不強制等同單一 SaaS 商品。
+- `AEOS-ARCH-010 — Workspace Architecture`：1.2.0 / Approved。
+  - Formal Enterprise Workspace 與 Operational Workspace / Project / Work Session Authority Boundary 已正式建立。
+  - Repository `main` = System of Record / SSOT。
+  - Operational Workspace / Project = Active Workspace，非 Fact Authority。
+  - Workspace Context 不得凌駕 `main`。
+  - Chat / Agent Session = Ephemeral Work Session。
+  - Merge + Closure = Knowledge Promotion Point。
+  - Archived Work Session = Historical Working Record，非 Fact Authority。
+- `AEOS-STD-007 — AI Engineering Context and Token Budget Standard`：1.1.0 / Approved。
+  - 新 Session 先 Load `main` Baseline，再載入最小必要 Context。
+  - Work Session Lifecycle：Create → Load main Baseline → Execute → Validate → Review → PR → Merge → Closure → Archive。
+  - Active / Archive / Delete、Promotion-before-disposal、Session Owner / Handoff、Session Lineage、Human + AI Agent Session Hygiene 已正式化。
 
-## 已完成基線
+## Closure / Promotion Status
 
-- `AEOS-ADR-003 — Agent Control Plane and Runtime Separation Decision`：Approved 1.0.0。
-- `AEOS-ARCH-013 — Enterprise AI Agent Architecture`：Approved 1.0.0。
-- `AEOS-ADR-004 — Productization Boundary Decision`：Approved 1.0.0。
-- `AEOS-ARCH-014 — Productizable Platform Architecture`：Approved 1.0.0。
-- `AEOS-ARCH-001 — Architecture Baseline`：1.5.0。
-- EWO-AEOS-0044 已 Closed。
-- EWO-AEOS-0045 已 Closed。
-- PR #55 已 Merged，merge commit `3409a16a5138808e27f10f8ceccca7dec26efbf3`。
-- PR #57 已 Merged，merge commit `6984a9820922d8b056f69d2cea1d8d4acbe04d46`。
+- Architecture Decision / Boundary：已 promotion 至 `AEOS-ARCH-010` 1.2.0。
+- Operating Rules：已 promotion 至 `AEOS-STD-007` 1.1.0。
+- Gap Analysis / Amendment Plan：已 promotion 至 `AEOS-RPT-005`。
+- Review / Approval Evidence：已保留於 PR #63、`AR-AEOS-0047-R1`、`SR-AEOS-0047-R1` 與 Repository history。
+- Merge Evidence：PR #62 / #63 與各自 merge commit 已存在於 `main`。
+- Promotion Check：`PROMOTION_COMPLETE`。
 
 ## 最近重要決策與工作原則
 
-- `main` 為唯一事實來源；不得因 repository default branch 或工作分支狀態改變正式基線判斷。
-- Repository 作為工程記憶的權威來源；對話只承載當前意圖、決策與 Delta。
-- Context 預設按需載入，不得以整個 Repository 或完整歷史對話作為啟動 Context。
+- `main` 為唯一 current-state Fact Authority；未合併 Branch、PR、Project Instructions、Closure Snapshot、Chat、Archive 或 Cache 都不得凌駕 `main`。
+- 新 Work Session MUST 重新取得最新 `main` baseline，不依賴大量 Historical Chat 重建狀態。
+- Operational Workspace 應維持少量 Active Working Context；已完成 Session 在 Promotion Check 後應離開 Active Set。
+- 未寫入 Repository 的重要 Decision、Evidence、Review、Approval、Validation 與 Closure 不得因 Archive / Delete 遺失。
+- Chat / Agent Session Lineage 與 Git Branch / PR / Merge History 必須分離。
 - Markdown 與敘述性文件原則上使用繁體中文；必要英文技術內容保留原名。
-- 正式治理內容仍依 AEOS Governance Workflow、EWO、Review、ADR 與 `main` 基線生效。
-- Local-first execution 降低成本與延遲，不降低 command approval、repository protection、authorization、audit 或 human approval boundary。
-- AEOS core MUST remain runtime / harness / provider / model neutral；具名 local LLM、cloud model、runtime、harness 或 provider 只能位於 adapter、provider、reference implementation 或 PoC 邊界。
+
+## Work Session Disposition
+
+EWO-AEOS-0047 已完成 Merge + Closure 的 knowledge promotion。本工作 Session 在本 Closure correction 合併並關閉 Issue #61 後符合 **Archive** 條件；後續若重新討論相同主題，應建立新 Work Session 並先重新讀取最新 `main`，不得把本次歷史 Session 當作 current-state authority。
