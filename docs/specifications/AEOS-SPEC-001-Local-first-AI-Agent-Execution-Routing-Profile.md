@@ -3,11 +3,11 @@ doc-id: AEOS-SPEC-001
 doc-name: Local-first AI Agent Execution Routing Profile
 doc-type: Specification
 repository: AEOS
-version: 0.1.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-08-27
-updated: 2026-08-27
+updated: 2026-08-28
 related:
   - EWO-AEOS-0046
   - AEOS-RPT-004
@@ -18,11 +18,12 @@ related:
   - AEOS-STD-005
   - AEOS-STD-007
   - YEOS-ENG-STD-008
+  - SP-AEOS-0046-R2
 ---
 
 # AEOS-SPEC-001 — Local-first AI Agent Execution Routing Profile
 
-> EWO-AEOS-0046：建立 AEOS Local-first AI Agent Execution Routing Profile。本文件為 Draft Specification；定義 routing profile、tier semantics、entry / exit criteria、escalation reason、telemetry 與 validation requirements。本文件不指定任何具名 local LLM、cloud model、runtime、harness、framework 或 provider。
+> EWO-AEOS-0046：建立 AEOS Local-first AI Agent Execution Routing Profile。本文件已完成 Specification Review（SP-AEOS-0046-R2）並核准為 Approved Specification；定義 routing profile、tier semantics、entry / exit criteria、escalation reason、telemetry 與 validation requirements。本文件不指定任何具名 local LLM、cloud model、runtime、harness、framework 或 provider。
 
 ## Executive Summary
 
@@ -32,6 +33,8 @@ Local-first execution 的目標是優先使用 deterministic rule 與 local AI �
 
 Local-first 是 routing policy，不是 runtime architecture；任何具名 local model、cloud model、agent harness 或 provider 均只能出現在 Adapter / Provider / Reference Implementation / PoC 邊界，不得成為 AEOS core dependency。
 
+SP-AEOS-0046-R2 已完成 Specification Review，Decision 為 APPROVED；Repository Owner final approval 由 PR #60 Review Package 承載。
+
 ## 文件資訊
 
 | 項目 | 內容 |
@@ -39,14 +42,14 @@ Local-first 是 routing policy，不是 runtime architecture；任何具名 loca
 | 文件代號 | AEOS-SPEC-001 |
 | 文件名稱 | Local-first AI Agent Execution Routing Profile |
 | 型別 | Specification |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-27 |
-| 最後更新 | 2026-08-27 |
+| 最後更新 | 2026-08-28 |
 | 依據文件 | EWO-AEOS-0046、AEOS-RPT-004、AEOS-ARCH-013、AEOS-ADR-003、AEOS-ARCH-014、AEOS-STD-007、YEOS ENG-STD-008 |
-| 關聯文件 | AEOS-ARCH-001、AEOS-STD-005、AEOS-RPT-004 |
+| 關聯文件 | AEOS-ARCH-001、AEOS-STD-005、AEOS-RPT-004、SP-AEOS-0046-R2 |
 
 ## 1. Purpose
 
@@ -370,9 +373,11 @@ An implementation repository adopting this profile SHOULD demonstrate:
 | AEOS-STD-007 — AI Engineering Context and Token Budget Standard | Standard | Context, token budget and model routing baseline |
 | AEOS-RPT-004 — Local-first AI Agent Execution Architecture Gap Analysis | Report | Baseline, gap analysis and implementation plan |
 | YEOS ENG-STD-008 — AI Agent Command Approval Standard | External Standard | Command classification, risk classification and approval policy |
+| SP-AEOS-0046-R2 | Review Record | Specification Review APPROVED；PR #60 |
 
 ## 15. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-08-28 | SP-AEOS-0046-R2 APPROVED；依 PR #60 Repository Owner final approval 將規格由 Draft 0.1.0 升級為 Approved 1.0.0；routing semantics 未變更 | ChatGPT |
 | 0.1.0 | 2026-08-27 | Initial Draft local-first routing profile specification for EWO-AEOS-0046 | Codex |
