@@ -144,7 +144,7 @@ Budget 升級只擴大必要來源；MUST NOT 解除 §3 Operating Principles。
 
 Agent MUST 依下列順序建立 Context Pack，並在資訊足夠時停止載入：
 
-1. **Current Repository Baseline**：確認目標 Repository、`main` HEAD／等效版本與目前正式狀態；若無法直接讀取 `main`，MUST 明確標示 baseline 未驗證。
+1. **Current Repository Baseline**：確認目標 Repository、`main` HEAD 與目前正式狀態；若無法直接讀取 `main`，MUST 明確標示 baseline 未驗證。
 2. `PROJECT_STATE.md` 或目前 Closure Snapshot；視為操作快照，不得凌駕步驟 1。
 3. 目前使用者意圖與 EWO／Issue／Spec。
 4. 直接相關的 Approved Standard、Architecture 或 ADR 引用。
@@ -180,7 +180,7 @@ Repository SHOULD 於根目錄維護 `PROJECT_STATE.md`，至少包含：
 | 欄位 | 規則 |
 |------|------|
 | Repository | 固定 Repository 名稱 |
-| Source of Truth | 固定為 `main` 或 Repository 正式定義之等效 protected baseline |
+| Source of Truth | 固定為 `main` |
 | Baseline HEAD | 最近一次已驗證 baseline；新 Session MUST 重新確認，不得盲信舊值 |
 | Branch | 目前工作 Branch；無 Branch 時為 `main` |
 | Current Milestone | 目前 Milestone 或 `—` |
@@ -272,6 +272,7 @@ Create → Load main Baseline → Execute → Validate → Review → PR → Mer
 - Session MAY 在 Execute / Validate / Review 間迭代；但 Repository mutation、protected operation 或 approval 仍受採用端正式 Workflow 控制。
 - Merge 未發生或工作被中止時，Closure MUST 清楚標記 `not merged` / `abandoned` / `blocked`；不得產生虛假的完成狀態。
 - Merge 後 SHOULD 執行 Closure，完成 Promotion Check 與 terminal disposition，再將 Session 移出 Active Set。
+- `Archive` 是正常完成後的預設 terminal disposition；符合 §8.3 Delete 條件且 Promotion Check 通過時，MAY 以 `Delete` 取代 Archive。Delete 不構成跳過 Closure 或 Promotion Check。
 
 ### 8.3 Active, Archive and Delete
 
@@ -313,8 +314,8 @@ Promotion Check 結果 MUST 為下列之一：
 Shared Project／多人／多 Agent 工作 MUST 有單一 accountable **Session Owner**。Session Owner 可以是 Human 或被正式授權的 Agent actor，但：
 
 - Session Owner 負責 current intent、baseline freshness、promotion status、handoff completeness 與 terminal disposition。
-- Session Owner 不因此取得 Architecture Approval、Repository Owner、Merge 或 protected-operation 權限。
-- 同一工作可有多個 contributor session，但 MUST 有一個 accountable owner 或明確 parent session。
+- Session Owner 不因此取得 Architecture Approval、Repository Owner、Merge 或 protected-operation 權限；Human Final Decision 與正式治理 accountability 仍依適用 Governance 規則由 Human 承擔。
+- 同一工作可有多個 contributor / child Session，但它們 MUST 指向同一個 accountable Session Owner；MAY 另外記錄明確 parent session 作為 lineage，parent session 不得取代 Session Owner。
 - Handoff MUST 以最小 Handoff Contract 進行，不得把完整 Chat 當作必要移交物。
 
 Minimum Handoff Contract：
