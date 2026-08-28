@@ -3,15 +3,17 @@ doc-id: AEOS-ARCH-010
 doc-name: Workspace Architecture
 doc-type: Architecture
 repository: AEOS
-version: 1.1.0
-status: Approved
+version: 1.2.0
+status: Review
 owner: Architecture Owner
 created: 2026-08-06
-updated: 2026-08-08
+updated: 2026-08-28
 related:
   - EWO-AEOS-0020
   - EWO-AEOS-0021
+  - EWO-AEOS-0047
   - AR-AEOS-0021-R1
+  - AEOS-RPT-005
   - AEOS-ADR-002
   - WA-001
   - AEOS-ARCH-001
@@ -21,13 +23,18 @@ related:
   - AEOS-ARCH-007
   - AEOS-ARCH-008
   - AEOS-ARCH-009
+  - AEOS-STD-007
 ---
 
 # AEOS-ARCH-010 — Workspace Architecture
 
 ## Executive Summary
 
-本文件依 AEOS-ADR-002、AEOS-ARCH-001 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Workspace Architecture，將 Approved 架構載體既定設計正式轉化為 AEOS 內可治理、可追溯的架構定義，涵蓋 Workspace 的目的、識別、組成、責任邊界、類型與層級，以及與 Platform、Capability、Repository、Dependency、Implementation 的關係。本文件亦定義 Workspace 的 Ownership、Membership、Lifecycle、Provisioning、Change、Access 與治理規則。Workspace 是所有 Platform、Capability、Repository 與治理資產共同形成的整體，不等同 Repository、Platform、Project 或 Runtime Environment。本文件不重新設計既定 Architecture、不建立具名 Workspace Catalog 或實際 Workspace 清單、不建立特定工具配置，也不提前開始 M5 Catalog／Matrix 資產。
+本文件依 AEOS-ADR-002、AEOS-ARCH-001 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Workspace Architecture，將 Approved 架構載體既定設計正式轉化為 AEOS 內可治理、可追溯的架構定義，涵蓋 Workspace 的目的、識別、組成、責任邊界、類型與層級，以及與 Platform、Capability、Repository、Dependency、Implementation 的關係。本文件亦定義 Workspace 的 Ownership、Membership、Lifecycle、Provisioning、Change、Access 與治理規則。Workspace 是所有 Platform、Capability、Repository 與治理資產共同形成的整體，不等同 Repository、Platform、Project 或 Runtime Environment。
+
+EWO-AEOS-0047 amendment 進一步澄清：ChatGPT Project 或其他協作工具中的 Project／Workspace 屬 **Operational Workspace**，Chat／Agent Session 屬 **Ephemeral Work Session**；兩者皆不是本文件所定義之 Formal Enterprise Workspace，也不是 Fact Authority。Repository `main` 保持 System of Record / SSOT，Workspace Context 僅為衍生 Context；Merge + Closure 是 Knowledge Promotion Point，而 Archived Work Session 僅為 Historical Working Record。
+
+本文件不重新設計既定 Architecture、不建立新的 Workspace Type、不建立具名 Workspace Catalog 或實際 Workspace 清單、不建立特定工具配置，也不提前開始 M5 Catalog／Matrix 資產。
 
 ## 文件資訊
 
@@ -36,14 +43,14 @@ related:
 | 文件代號 | AEOS-ARCH-010 |
 | 文件名稱 | Workspace Architecture |
 | 型別 | Architecture（Workspace Architecture） |
-| 狀態 | Approved |
-| 版本 | 1.1.0 |
+| 狀態 | Review |
+| 版本 | 1.2.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
-| 最後更新 | 2026-08-08 |
-| 依據文件 | EWO-AEOS-0020、EWO-AEOS-0021、AR-AEOS-0021-R1、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001（Approved 1.3.0）、AEOS-ARCH-004（Approved 1.1.0）、AEOS-ARCH-005（Approved 1.1.0）、AEOS-ARCH-006（Approved 1.1.0）、AEOS-ARCH-007（Approved 1.1.0）、AEOS-ARCH-008（Approved 1.1.0）、AEOS-ARCH-009（Approved 1.1.0） |
-| 關聯文件 | EWO-AEOS-0021、AR-AEOS-0021-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-ARCH-006、AEOS-ARCH-007、AEOS-ARCH-008、AEOS-ARCH-009、AEOS-STD-001～AEOS-STD-005、AEOS-ADR-002、WA-001（歷史來源） |
+| 最後更新 | 2026-08-28 |
+| 依據文件 | EWO-AEOS-0020、EWO-AEOS-0021、EWO-AEOS-0047、AEOS-RPT-005、AR-AEOS-0021-R1、AEOS-ADR-002、AEOS-ARCH-001、AEOS-ARCH-004～AEOS-ARCH-009 |
+| 關聯文件 | EWO-AEOS-0047、AEOS-RPT-005、AEOS-ARCH-001～AEOS-ARCH-009、AEOS-STD-001～AEOS-STD-007、AEOS-ADR-002、WA-001（歷史來源） |
 
 ## 1. Purpose
 
@@ -55,7 +62,8 @@ related:
 - 定義 Workspace 的目的、識別、組成、責任邊界、類型與層級。
 - 定義 Workspace 與 Platform、Capability、Repository、Dependency、Implementation 的關係。
 - 定義 Workspace Ownership、Membership、Lifecycle、Provisioning、Change、Access 與治理規則。
-- 清楚區分 Workspace 與 Repository、Platform、Project、Runtime Environment。
+- 清楚區分 Formal Enterprise Workspace 與 Repository、Platform、Project、Operational Workspace、Work Session、Runtime Environment。
+- 定義 Repository `main`、Operational Workspace、Workspace Context、Work Session、Knowledge Promotion 與 Historical Working Record 的 Authority Boundary。
 
 ## 2. Scope
 
@@ -68,6 +76,7 @@ related:
 - Workspace 與 Platform、Capability、Repository、Dependency、Implementation 之關係。
 - Workspace Ownership、Membership、Lifecycle、Provisioning、Change 與 Access。
 - Workspace 治理規則與合規要求。
+- Formal Enterprise Workspace 與 tool-level Operational Workspace／Project／Work Session 之 Authority Boundary。
 - Workspace Catalog 之定位（不建立條目）。
 
 ### 2.2 Out of Scope
@@ -75,10 +84,12 @@ related:
 本文件不涵蓋：
 
 - 重新定義或修改既定 Architecture（AEOS-ARCH-001、AEOS-ARCH-004～AEOS-ARCH-009）。
+- 建立新的 Formal Workspace Type、Operational Workspace Catalog、Chat Catalog 或 Session Database。
 - 具名 Workspace Catalog、實際 Workspace 清單或特定工具配置之建立。
-- M5 Catalog／Matrix 資產之提前建立（Platform、Capability、Repository、Dependency、Workspace Catalog 與 Ownership、Dependency Matrix 均屬後續 EWO）。
+- M5 Catalog／Matrix 資產之提前建立。
 - 個別 Platform、Capability、Repository 之內部技術架構、部署拓撲或實作設計。
 - Runtime Topology、Deployment Architecture、Infrastructure Design 或 Source Code Implementation。
+- Chat retention period、產品 UI 操作或特定 vendor 的 archive/delete 功能；操作規則由 AEOS-STD-007 與採用端規範承接。
 
 ## 3. Architecture Authority
 
@@ -97,7 +108,8 @@ Workspace Architecture 適用下列權威順序：
 
 - 下位資產 MUST 符合上位資產，且 MUST NOT 隱性建立新的 Workspace 事實或改寫既定架構。
 - Workspace 與 Platform、Capability、Repository MUST 分離定義：Workspace 是統合整體之邊界，Platform 是承載邊界，Capability 是能力定義，Repository 是治理與交付邊界。
-- 發現 Approved 架構載體未涵蓋的 Workspace 需求時，MUST 先透過正式架構變更處理。
+- Operational Workspace、Project Instructions、Chat、Agent Session、Archive、Cache 或 Closure Snapshot MUST NOT 被提升為 W0～W5 之 Fact Authority。
+- 發現 Approved 架構未涵蓋的 Formal Workspace 需求時，MUST 先透過正式架構變更處理。
 
 ## 4. Workspace Definition
 
@@ -121,8 +133,31 @@ Workspace 是 AI Engineering Workspace 之正式企業架構邊界：所有 Plat
 | Repository | Repository 是版本化治理與交付邊界；Workspace 是所有 Repository 共同形成之整體 |
 | Platform | Platform 是承載一組 Capability 的穩定邊界；Workspace 由多個受治理之 Platform 構成 |
 | Project | Project 是短期交付或專案邊界；Workspace 是持續之企業架構邊界 |
+| Operational Workspace | ChatGPT Project 或其他協作工具中的 Project／Workspace 是工作介面與 Active Context Surface，不是 Formal Enterprise Workspace |
+| Work Session | Chat、Agent Session 或其分支是暫時執行記錄，不是 Workspace、Repository 或 Fact Authority |
 | Runtime Environment | Runtime Environment 是執行時期部署環境；Workspace 是企業架構層級之整體邊界 |
 | Team／Organization | Team 是人員組織；Workspace Membership 可由人員或 Team 承擔，但 Workspace 不等同組織圖 |
+
+### 4.3 Operational Workspace and Work Session Authority Boundary
+
+EWO-AEOS-0047 不建立新的 Formal Workspace Type；以下模型僅澄清工具層協作空間與正式企業架構之權威關係：
+
+| 層級／載體 | 定義 | Authority |
+|------------|------|-----------|
+| Repository `main` | 已合併之程式碼、Approved / Released 文件、治理與可稽核紀錄 | **System of Record / SSOT** |
+| Operational Workspace／Project | Human + AI 協作、任務分流與少量 Active Working Context 的工具層工作空間 | Active Workspace；**非 Fact Authority** |
+| Project Instructions／Approved Reference | 從正式來源整理、引用或核准後放入工具空間的協作脈絡 | Workspace Context；**不得凌駕 `main`** |
+| Chat／Agent Session | 單一工作意圖之執行、推理、操作與回報 Session | Ephemeral Work Session；**非 Fact Authority** |
+| Merge + Closure | 將重要 Decision、Evidence、Review、Approval、Validation 與 Closure 提升至 Repository 的治理檢查點 | Knowledge Promotion Point |
+| Archived Work Session | 已終止 Session 的歷史工作記錄 | Historical Working Record；**非 Fact Authority** |
+
+規則：
+
+- 新 Work Session MUST 先確認目前 Repository `main` baseline，再載入最小必要 Workspace Context；不得以大量 Historical Chat 重建 current state。
+- Workspace Context 為 derived context；當其內容與 `main` 衝突時，MUST 以 `main` 為準並更新／失效該 Context。
+- Chat Branch／Session Lineage 只描述工作 Session 的分支關係；MUST NOT 被視為 Git branch、PR、merge 或 Repository history。
+- 未寫入 Repository 的重要架構決策、核准或 Evidence 不得因 Work Session Archive／Delete 而遺失；Promotion 規則由 AEOS-STD-007 操作化。
+- Operational Workspace SHOULD 維持少量 Active Working Context；MUST NOT 被治理上視為永久保存全部執行過程的 Chat History Database。
 
 ## 5. Workspace Identity Model
 
@@ -168,6 +203,8 @@ Workspace 由下列正式元素構成：
 - Dependency（正式依賴關係，AEOS-ARCH-009）。
 - 治理資產（Architecture、Constitution、Standards、Policies、ADR 等）。
 
+Operational Workspace、Project Instructions、Chat／Agent Session 或 Chat Archive 不屬於 Formal Workspace Composition；它們僅可引用正式組成元素與其當前狀態。
+
 ### 6.3 Boundary Rules
 
 - 每項 Workspace Responsibility MUST 能對應至 Purpose／Mission 與至少一項正式組成元素。
@@ -180,6 +217,8 @@ Workspace 由下列正式元素構成：
 ### 7.1 Types
 
 Approved 架構載體已核准之 Workspace 類型為 **Enterprise Workspace（AI Engineering Workspace）**，為目前唯一已核准類型。其他 Workspace 類型 MUST 先經正式架構變更與 Architecture Review 核准，不得由本文件或下位文件自行建立。
+
+**Operational Workspace 不是新的 Workspace Type。** 它是工具／產品層級之 collaboration construct，因此不需要 Workspace ID、Workspace Catalog Admission 或 WS-1／WS-2／WS-3 身分；但其操作 MUST 遵循 §4.3 的 Authority Boundary。
 
 ### 7.2 Levels
 
@@ -235,6 +274,7 @@ Workspace 依其整合層級分為三個正式層級：
 - Membership MUST 具有正式身分與治理責任；未經核准之成員不具 Workspace 架構權限。
 - Workspace Owner 可委派執行工作，但 MUST NOT 委派最終 Accountability。
 - Ownership 缺失、重疊或無法履行時，Workspace MUST NOT 進入 Active 狀態。
+- Operational Workspace 的 Session Owner／handoff 不改變 Formal Workspace Ownership；其操作責任由 AEOS-STD-007 定義。
 
 ## 10. Workspace Lifecycle
 
@@ -254,6 +294,8 @@ Workspace 依其整合層級分為三個正式層級：
 - Deprecated → Retired：Migration 完成且無未處理責任或依賴。
 
 任何跳過 Deprecated 的 Active → Retired 轉移 MUST 具有緊急理由、影響分析與 Architecture Owner 核准。
+
+Operational Workspace／Work Session 的 Active／Archive／Delete lifecycle 不屬於本節 Formal Workspace Lifecycle；其操作規範由 AEOS-STD-007 定義。
 
 ## 11. Provisioning
 
@@ -284,11 +326,14 @@ Workspace Provisioning 指 Workspace 層級元素（Platform、Repository、治�
 5. 更新 Architecture、Register、Workspace Catalog 與相關 Matrix。
 6. 依重大程度建立或引用 ADR。
 
+Operational Workspace retention、session handoff、archive/delete 等操作規則不構成 Formal Workspace Architecture Change，除非其變更實質改寫 §4.3 Authority Boundary。
+
 ### 12.2 Access Rules
 
 - Workspace 層級架構資產之存取與變更 MUST 依正式 Membership 與 Review 規則執行。
 - 未具備正式身分之成員 MUST NOT 變更 Workspace 層級架構資產。
 - 存取控制之具體實作屬 Production Repositories 與工具配置責任；本文件僅定義治理邊界。
+- Operational Workspace 權限不得被解讀為 Repository merge、Architecture approval 或 Formal Workspace ownership 權限。
 
 ## 13. Compliance
 
@@ -296,17 +341,19 @@ Workspace Architecture 合規檢查至少包含：
 
 | 檢查領域 | 合規要求 |
 |----------|----------|
-| Authority | Workspace 可追溯至 AEOS-ARCH-001 與 Approved 架構載體 |
+| Authority | Workspace 可追溯至 AEOS-ARCH-001 與 Approved 架構載體；Operational Workspace / Session 不被視為 Fact Authority |
 | Identity | 具唯一、穩定且不可重用的 Workspace ID |
 | Composition | 組成元素（Platform、Capability、Repository、Dependency）已識別且可追溯 |
-| Boundary | Purpose、責任、包含與排除範圍明確 |
-| Type／Level | 類型與層級明確，無未經核准之新類型 |
+| Boundary | Purpose、責任、包含與排除範圍明確；Formal / Operational Workspace 邊界明確 |
+| Type／Level | 類型與層級明確，無未經核准之新類型；Operational Workspace 不被誤登錄為新 Type |
 | Relationship | Workspace View 可追溯至全部架構資產 |
 | Ownership | 具有唯一 accountable Workspace Owner，無未解決責任重疊 |
 | Membership | 成員具正式身分與治理責任 |
-| Lifecycle | 狀態、轉移條件、Migration 與替代關係完整 |
+| Lifecycle | Formal Workspace 狀態與 Session disposal lifecycle 不混淆 |
 | Provisioning | 元素建立循對應 Architecture 與治理程序，無繞過 |
 | Change／Access | 變更經 EWO 與 Review；存取依正式 Membership |
+| Context Authority | 新 Session 以 Repository `main` baseline 為 current-state authority，Historical Chat 不凌駕 `main` |
+| Promotion | 重要治理資訊於 Work Session disposal 前提升至 Repository 正式載體 |
 | Catalog Readiness | 未經核准不建立具名 Workspace 條目；Catalog 與 M5 資產待後續 EWO |
 | Asset Consistency | Architecture、Register、Catalog 與 Matrix 狀態一致 |
 | Review Evidence | 變更具備 EWO、Review Decision、Revision History 與 Merge 證據 |
@@ -318,25 +365,29 @@ Workspace Architecture 合規檢查至少包含：
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
 | REF-001 | WA-001 — AI Engineering Workspace Architecture（Approved v1.0.0，外部） | Historical Reference（External） | 歷史來源；不作為正式 Fact Authority（AEOS-ADR-002 §2.1） |
-| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.3.0） | Architecture | 架構基線與 Architecture Register |
-| REF-003 | [AEOS-ARCH-002 — Enterprise Governance Architecture](AEOS-ARCH-002-Enterprise-Governance-Architecture.md)（Approved 1.1.0） | Architecture | Governance 階層與領域 |
-| REF-004 | [AEOS-ARCH-003 — Architecture Decision Record System](AEOS-ARCH-003-Architecture-Decision-Record-System.md)（Approved 1.1.0） | Architecture | 重大架構決策紀錄機制 |
-| REF-005 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.1.0） | Architecture | Workspace Architecture 的上位定位與 MUST |
-| REF-006 | [AEOS-ARCH-005 — Platform Architecture](AEOS-ARCH-005-Platform-Architecture.md)（Approved 1.1.0） | Architecture | Platform 承載與組成關係 |
-| REF-007 | [AEOS-ARCH-006 — Layer Architecture](AEOS-ARCH-006-Layer-Architecture.md)（Approved 1.1.0） | Architecture | 責任分層與依賴方向規則 |
-| REF-008 | [AEOS-ARCH-007 — Capability Architecture](AEOS-ARCH-007-Capability-Architecture.md)（Approved 1.1.0） | Architecture | Capability 定義與關係 |
-| REF-009 | [AEOS-ARCH-008 — Repository Architecture](AEOS-ARCH-008-Repository-Architecture.md)（Approved 1.1.0） | Architecture | Repository 治理與交付邊界 |
-| REF-010 | [AEOS-ARCH-009 — Dependency Architecture](AEOS-ARCH-009-Dependency-Architecture.md)（Approved 1.1.0） | Architecture | 依賴方向與治理規則 |
-| REF-011 | [AEOS-CON-001 — Repository Constitution](../constitution/AEOS-CON-001-Repository-Constitution.md)（Approved v1.0.0） | Constitution | Repository 治理基線與變更管理 |
-| REF-012 | [AEOS-DIA-001 — Documentation Information Architecture](../documentation/AEOS-DIA-001-Documentation-Information-Architecture.md) | Information Architecture | 文件分類、組織與生命週期 |
-| REF-013 | [AEOS-STD-001 — Documentation Format Standard](../standards/AEOS-STD-001-Documentation-Format-Standard.md)、[AEOS-STD-002 — Metadata Standard](../standards/AEOS-STD-002-Metadata-Standard.md)、[AEOS-STD-003 — Cross-reference Standard](../standards/AEOS-STD-003-Cross-reference-Standard.md)、[AEOS-STD-004 — Naming Standard](../standards/AEOS-STD-004-Naming-Standard.md)、[AEOS-STD-005 — Review Standard](../standards/AEOS-STD-005-Review-Standard.md) | Standards | 文件格式、Metadata、Cross-reference、Naming 與 Review 規則 |
-| REF-014 | EWO-AEOS-0020 | EWO | 本文件之工作來源 |
-| REF-015 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
+| REF-002 | [AEOS-ARCH-001 — Architecture Baseline](AEOS-ARCH-001-Architecture-Baseline.md) | Architecture | 架構基線與 Architecture Register |
+| REF-003 | [AEOS-ARCH-002 — Enterprise Governance Architecture](AEOS-ARCH-002-Enterprise-Governance-Architecture.md) | Architecture | Governance 階層與領域 |
+| REF-004 | [AEOS-ARCH-003 — Architecture Decision Record System](AEOS-ARCH-003-Architecture-Decision-Record-System.md) | Architecture | 重大架構決策紀錄機制 |
+| REF-005 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md) | Architecture | Workspace Architecture 的上位定位與 MUST |
+| REF-006 | [AEOS-ARCH-005 — Platform Architecture](AEOS-ARCH-005-Platform-Architecture.md) | Architecture | Platform 承載與組成關係 |
+| REF-007 | [AEOS-ARCH-006 — Layer Architecture](AEOS-ARCH-006-Layer-Architecture.md) | Architecture | 責任分層與依賴方向規則 |
+| REF-008 | [AEOS-ARCH-007 — Capability Architecture](AEOS-ARCH-007-Capability-Architecture.md) | Architecture | Capability 定義與關係 |
+| REF-009 | [AEOS-ARCH-008 — Repository Architecture](AEOS-ARCH-008-Repository-Architecture.md) | Architecture | Repository 治理與交付邊界 |
+| REF-010 | [AEOS-ARCH-009 — Dependency Architecture](AEOS-ARCH-009-Dependency-Architecture.md) | Architecture | 依賴方向與治理規則 |
+| REF-011 | [AEOS-STD-007 — AI Engineering Context and Token Budget Standard](../standards/AEOS-STD-007-AI-Engineering-Context-and-Token-Budget-Standard.md) | Standard | Operational Workspace / Work Session lifecycle 操作規則 |
+| REF-012 | [AEOS-CON-001 — Repository Constitution](../constitution/AEOS-CON-001-Repository-Constitution.md) | Constitution | Repository 治理基線與變更管理 |
+| REF-013 | [AEOS-DIA-001 — Documentation Information Architecture](../documentation/AEOS-DIA-001-Documentation-Information-Architecture.md) | Information Architecture | 文件分類、組織與生命週期 |
+| REF-014 | [AEOS-STD-001 — Documentation Format Standard](../standards/AEOS-STD-001-Documentation-Format-Standard.md)、[AEOS-STD-002 — Metadata Standard](../standards/AEOS-STD-002-Metadata-Standard.md)、[AEOS-STD-003 — Cross-reference Standard](../standards/AEOS-STD-003-Cross-reference-Standard.md)、[AEOS-STD-004 — Naming Standard](../standards/AEOS-STD-004-Naming-Standard.md)、[AEOS-STD-005 — Review Standard](../standards/AEOS-STD-005-Review-Standard.md) | Standards | 文件格式、Metadata、Cross-reference、Naming 與 Review 規則 |
+| REF-015 | EWO-AEOS-0020 | EWO | 本文件之原始工作來源 |
+| REF-016 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
+| REF-017 | EWO-AEOS-0047 — AI Workspace / Project / Work Session Lifecycle Governance | EWO | 本次 Authority Boundary amendment 授權來源 |
+| REF-018 | [AEOS-RPT-005 — AI Workspace / Project / Work Session Lifecycle Governance Gap Analysis](../reports/AEOS-RPT-005-AI-Workspace-Project-Work-Session-Lifecycle-Governance-Gap-Analysis.md) | Report | Gap Analysis 與 Minimum Necessary Change 依據 |
 
 ## 15. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.2.0 | 2026-08-28 | EWO-AEOS-0047 amendment（Review）：新增 Formal Enterprise Workspace 與 Operational Workspace／Project／Work Session 的 Authority Boundary；正式化 Repository `main` = SSOT、Workspace Context non-authoritative、Merge + Closure = Knowledge Promotion Point、Archived Session = Historical Working Record；未新增 Workspace Type 或重設既有 Architecture | ChatGPT |
 | 1.1.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 2（AEOS-ADR-002 已核准）：執行 Architecture Transition——WA-001 分類為歷史來源（Historical Reference）；Authority 階層（W0）與對應來源重錨至 AEOS-ARCH-001／Approved 架構載體；References 重錨（EWO-AEOS-0040） | Codex |
 | 1.0.0 | 2026-08-06 | Architecture Review 核准並合併；狀態更新為 Approved，成為 AEOS Workspace Architecture 正式定義（EWO-AEOS-0021；AR-AEOS-0021-R1） | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：依 WA-001 與 AEOS-ARCH-004 定義 Workspace Identity、Composition、Boundary、Type／Level、Relationship、Ownership、Membership、Lifecycle、Provisioning、Change、Access 與 Compliance（EWO-AEOS-0020） | Codex |
