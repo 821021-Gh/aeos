@@ -4,7 +4,7 @@ doc-name: AI Engineering Context and Token Budget Standard
 doc-type: Standard
 repository: AEOS
 version: 1.1.0
-status: Review
+status: Approved
 owner: Repository Owner
 created: 2026-08-22
 updated: 2026-08-28
@@ -13,6 +13,7 @@ related:
   - EWO-AEOS-0047
   - SR-AEOS-0043-R1
   - SR-AEOS-0043-R2
+  - SR-AEOS-0047-R1
   - AEOS-RPT-005
   - AEOS-ARCH-001
   - AEOS-ARCH-010
@@ -43,14 +44,14 @@ Repository `main` 為 System of Record / SSOT；Project Instructions、Approved 
 | 文件代號 | AEOS-STD-007 |
 | 文件名稱 | AI Engineering Context and Token Budget Standard |
 | 型別 | Standard |
-| 狀態 | Review |
+| 狀態 | Approved |
 | 版本 | 1.1.0 |
 | Repository | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-22 |
 | 最後更新 | 2026-08-28 |
-| 依據文件 | EWO-AEOS-0043、EWO-AEOS-0047、AEOS-RPT-005、AEOS-ARCH-001、AEOS-ARCH-010、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001、AEOS-STD-001 |
-| 關聯文件 | SR-AEOS-0043-R1、SR-AEOS-0043-R2、AEOS-STD-002～AEOS-STD-005 |
+| 依據文件 | EWO-AEOS-0043、EWO-AEOS-0047、SR-AEOS-0047-R1、AEOS-RPT-005、AEOS-ARCH-001、AEOS-ARCH-010、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001、AEOS-STD-001 |
+| 關聯文件 | SR-AEOS-0043-R1、SR-AEOS-0043-R2、SR-AEOS-0047-R1、AEOS-STD-002～AEOS-STD-005 |
 
 ## 1. Purpose
 
@@ -511,7 +512,7 @@ AI Engineering 工作完成前 MUST 驗證：
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
-| 1.1.0 | 2026-08-28 | EWO-AEOS-0047 amendment（Review）：新增 Repository `main` first baseline loading、Operational Workspace / Work Session Authority Hierarchy、Create → Load main → Execute → Validate → Review → PR → Merge → Closure → Archive、Active / Archive / Delete、Promotion-before-disposal、Shared Project ownership / handoff / continuity、Session Lineage 與 Agent Session Hygiene；不建立平行 Standard 或 vendor-specific implementation | ChatGPT |
+| 1.1.0 | 2026-08-28 | 依 `SR-AEOS-0047-R1` 完成獨立 Human Standard Review 並取得 APPROVED；正式核准 Repository `main` first baseline loading、Operational Workspace / Work Session Authority Hierarchy、Create → Load main → Execute → Validate → Review → PR → Merge → Closure → Archive、Active / Archive / Delete、Promotion-before-disposal、Shared Project ownership / handoff / continuity、Session Lineage 與 Agent Session Hygiene；不建立平行 Standard 或 vendor-specific implementation | ChatGPT |
 | 1.0.0 | 2026-08-22 | 依 SR-AEOS-0043-R2 完成 Standard Re-review：R1 全部 RC 已 Resolved，Metadata、格式、引用、命名、內容完整性與 Review Traceability 驗證通過；決策為 APPROVED（EWO-AEOS-0043） | Codex |
 | 0.2.0 | 2026-08-22 | 依 SR-AEOS-0043-R1（REQUEST CHANGES）進入 Review：記錄 PR #49 於 Draft 狀態合併造成的生命週期不一致，補齊 Review Traceability；文件不得在 R2 APPROVED 前升為 Approved 1.0.0（EWO-AEOS-0043） | Codex |
 | 0.1.0 | 2026-08-22 | 初版建立：定義按需載入 Context、Token Budget、Project State／Closure Snapshot、Delta Output、長對話切換、模型分級、Prompt／Semantic Cache、驗證與合規（EWO-AEOS-0043） | Codex |
