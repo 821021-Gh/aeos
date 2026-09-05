@@ -3,8 +3,8 @@ doc-id: AEOS-SPEC-002
 doc-name: Agent Collaboration Model Architecture Spec
 doc-type: Specification
 repository: AEOS
-version: 0.1.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-09-05
 updated: 2026-09-05
@@ -37,8 +37,8 @@ related:
 | 文件代號 | AEOS-SPEC-002 |
 | 文件名稱 | Agent Collaboration Model Architecture Spec |
 | 型別 | Specification |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-09-05 |
@@ -283,6 +283,35 @@ Quality Gate types MAY include：
 
 Quality Gate failure MUST produce failure evidence and an escalation or blocked state。
 
+### 9.1 Gate Result Contract
+
+每一個 Quality Gate MUST return one of the following stable result states：
+
+| State | Meaning | Required Next Action |
+|---|---|---|
+| PASS | Gate requirement satisfied with sufficient evidence | Continue to next gate or completion |
+| NEEDS_WORK | Output is incomplete, invalid or insufficient but repairable within authorized scope | Return to assigned role / sub-task with bounded correction request |
+| HUMAN_APPROVAL | Gate cannot pass without human decision or authority | Escalate to human approval with decision scope and evidence |
+| REJECTED | Output violates policy, scope, evidence or quality requirement and should not be repaired under current request | Stop affected path and record rejection evidence |
+| BLOCKED | Required input, authority, source of truth, dependency, approval or capability is unavailable | Pause affected path and record blocker, owner and unblock condition |
+
+Gate result MUST include gate ID, evaluator role, evidence reference, confidence, reason and next action。
+
+### 9.2 Retry / Return Loop
+
+`NEEDS_WORK` MAY return to a planner、executor、researcher、generator or other authorized role only when the parent Execution Contract still allows correction。
+
+Retry / return loop MUST preserve：
+
+- parent task and sub-task correlation identity;
+- original authorization scope;
+- quality gate failure reason;
+- maximum retry or budget constraint;
+- required evidence for re-evaluation;
+- escalation trigger when repeated correction fails。
+
+Runtime / Harness MAY execute the retry request, but MUST NOT decide that a failed gate has passed unless explicitly authorized by Control Plane policy or assigned verification authority。
+
 ## 10. Evidence / Confidence / Provenance
 
 Every governed collaboration MUST produce enough evidence to allow review of what was decided, executed, verified and escalated。
@@ -311,6 +340,39 @@ Provenance SHOULD distinguish：
 | Decision Provenance | Which policy, role or approval caused a decision |
 | Memory Provenance | What was read, written, retained or discarded |
 | Product Mapping Provenance | Which product-specific mapping was applied |
+
+### 10.1 Collaboration Trace Envelope
+
+Every governed collaboration SHOULD produce a Collaboration Trace Envelope or equivalent audit record。
+
+Minimum Trace Envelope fields SHOULD include：
+
+| Field | Meaning |
+|---|---|
+| `trace_id` | Stable trace identity for the collaboration |
+| `parent_task_id` | Parent task or work order identity |
+| `sub_task_id` | Sub-task identity when applicable |
+| `correlation_id` | Cross-runtime / cross-harness audit correlation identity |
+| `role_archetype_id` | AEOS Role Archetype used |
+| `agent_profile_id` | Logical Agent Profile identity or selection reference |
+| `capability_class` | Capability class exercised |
+| `policy_context_ref` | AEOS policy / governance context reference |
+| `execution_contract_ref` | Execution Contract or delegated contract reference |
+| `source_of_truth_refs` | Approved source references used for verification |
+| `tool_model_memory_summary` | Tool, model, memory and data usage summary |
+| `gate_results` | Quality Gate states using §9.1 |
+| `confidence` | Confidence value and rationale |
+| `provenance_refs` | Source, execution, decision, memory and product mapping provenance |
+| `approval_evidence_ref` | Human/system approval evidence when required |
+| `final_status` | completed / needs_work / escalated / rejected / blocked / cancelled |
+
+Trace Envelope MUST NOT include unnecessary secrets, raw credential material or unapproved sensitive data。
+
+### 10.2 Source of Truth Verification
+
+Independent Verification MUST check claims against approved Source of Truth when such source exists。
+
+If no Source of Truth exists, the verification result MUST state the missing authority and return `BLOCKED`, `HUMAN_APPROVAL` or an explicitly scoped uncertainty outcome according to policy。
 
 ## 11. Information Lifecycle
 
@@ -370,6 +432,7 @@ Runtime / Harness MUST NOT：
 - establish enterprise collaboration governance;
 - override AEOS policy;
 - approve its own high-risk output;
+- decide truth, memory promotion, approval or final gate result unless explicitly assigned that authority by AEOS policy and the Execution Contract;
 - convert product workflow into AEOS authority;
 - treat provider capability as permission。
 
@@ -406,7 +469,10 @@ An adoption or implementation claiming alignment with this spec SHOULD demonstra
 9. Information lifecycle prevents runtime-local memory from becoming authority automatically。
 10. Human approval has scoped decision evidence。
 11. Runtime / Harness executes authorized requests only。
-12. Product repositories provide adoption mapping, not parallel governance。
+12. Runtime / Harness does not decide truth, memory promotion, approval or final gate result unless explicitly authorized。
+13. Gate status and retry / return loop use the stable contract in §9.1 and §9.2。
+14. Collaboration Trace Envelope or equivalent audit record exists。
+15. Product repositories provide adoption mapping, not parallel governance。
 
 ## 16. References
 
@@ -425,4 +491,5 @@ An adoption or implementation claiming alignment with this spec SHOULD demonstra
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-09-05 | 依 #66 post-#67 promotion：在 AEOS-ADR-005 Approved 1.0.0 ownership decision 下，升級為 Approved Specification；補明 Gate Result Contract、Retry / Return Loop、Collaboration Trace Envelope、Source of Truth Verification 與 Runtime 不得決定 truth / memory promotion / approval / final gate result 的 boundary | Codex |
 | 0.1.0 | 2026-09-05 | 建立 Agent Collaboration Model Architecture Spec draft，涵蓋 role archetype、agent profile、capability、skill/tool、policy、task decomposition、separation of duties、independent verification、quality gates、evidence/confidence/provenance、information lifecycle、human approval/escalation 與 runtime-neutral execution boundary | Codex |
