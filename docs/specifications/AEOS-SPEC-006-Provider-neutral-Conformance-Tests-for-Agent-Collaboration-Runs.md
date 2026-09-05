@@ -3,8 +3,8 @@ doc-id: AEOS-SPEC-006
 doc-name: Provider-neutral Conformance Tests for Agent Collaboration Runs
 doc-type: Specification
 repository: AEOS
-version: 0.1.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-09-06
 updated: 2026-09-06
@@ -38,8 +38,8 @@ Runtime、provider、model、harness、tool 或 workflow engine 均為 replaceab
 | 文件代號 | AEOS-SPEC-006 |
 | 文件名稱 | Provider-neutral Conformance Tests for Agent Collaboration Runs |
 | 型別 | Specification |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-09-06 |
@@ -271,7 +271,23 @@ An implementation or adapter claiming conformance SHOULD demonstrate：
 9. Source of Truth validation boundary remains outside runtime evidence。
 10. No real Production action, customer data or secrets are required for conformance。
 
-## 14. References
+## 14. Status and Approval
+
+本規格目前為 **Approved 1.0.0**。
+
+PR #81 已合併至 main，merge commit 為 `d11da71ccae27e68bed6de7875c2bc9671be2f47`。此合併作為 Repository Owner final approval evidence，正式核准本規格為 Provider-neutral Conformance Tests for Agent Collaboration Runs。
+
+本次核准確認以下治理邊界：
+
+- 同一 AEOS collaboration plan 在不同 runtime adapter 下必須維持一致 gate semantics 與 validation semantics。
+- Runtime failure 不可自動降級為 successful validation。
+- Model text output 不可直接改變 quality gate status。
+- Evidence minimization and forbidden-data checks are required。
+- Runtime/provider adapter remains replaceable edge。
+- Unknown schema、version、capability fail closed。
+- 本規格不授權 executable test implementation、production actions、real customer data/secrets 或 YCRM downstream adoption。
+
+## 15. References
 
 | 文件 | 型別 | 用途 |
 |------|------|------|
@@ -284,8 +300,9 @@ An implementation or adapter claiming conformance SHOULD demonstrate：
 | AEOS-SPEC-004 — Runtime Adapter Execution Evidence Contract | Specification | Runtime evidence and forbidden data rules |
 | AEOS-SPEC-005 — Capability / Tool Registry Adapter Contract | Specification | Capability discovery, schema versioning and fail-closed rules |
 
-## 15. Revision History
+## 16. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-09-06 | 依 PR #81 merge evidence（`d11da71ccae27e68bed6de7875c2bc9671be2f47`）升級為 Approved Specification；正式核准 Provider-neutral Conformance Tests for Agent Collaboration Runs，作為 AEOS Agent Collaboration runtime/provider replaceable edge conformance boundary | Codex |
 | 0.1.0 | 2026-09-06 | 建立 Provider-neutral Conformance Tests for Agent Collaboration Runs Draft，定義 fixture requirements、runtime success/failure classification、gate result invariants、validation semantics、evidence minimization、extension envelope checks、fail-closed cases 與 replaceable edge invariant | Codex |
