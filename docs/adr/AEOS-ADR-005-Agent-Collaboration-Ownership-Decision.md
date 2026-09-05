@@ -3,8 +3,8 @@ doc-id: AEOS-ADR-005
 doc-name: Agent Collaboration Ownership Decision
 doc-type: ADR
 repository: AEOS
-version: 0.1.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-09-05
 updated: 2026-09-05
@@ -150,9 +150,17 @@ Rejected。Without a formal decision, downstream adoption and runtime implementa
 
 ## 6. Status and Approval
 
-本 ADR 目前為 **Draft 0.1.0**。
+本 ADR 目前為 **Approved 1.0.0**。
 
-本文件若通過 Review，將作為 AEOS Agent Collaboration ownership 的 Architecture Decision，並作為 AEOS-SPEC-002 的決策依據。
+PR #72 已合併至 `main`，merge commit 為 `03d800b741b663309cd8afa11075beaed30d6e27`。此合併作為 Repository Owner final approval evidence，正式核准本 ADR 為 AEOS Agent Collaboration ownership 的 Architecture Decision。
+
+核准後：
+
+- AEOS owns runtime-neutral Agent Collaboration governance。
+- Product repositories 僅能承接 adoption mapping，不建立平行 multi-agent governance。
+- Agent Control Plane 執行 AEOS policy。
+- Agent Runtime 僅執行已授權 collaboration request / delegated execution contract，並回傳 execution evidence。
+- AEOS-SPEC-002 可依本 ADR 作為 Agent Collaboration Model Architecture Spec 的 Draft 規格載體；其是否升級為 Approved 由後續 Specification Review 或 closure decision 決定。
 
 ## 7. References
 
@@ -169,4 +177,5 @@ Rejected。Without a formal decision, downstream adoption and runtime implementa
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-09-05 | 依 PR #72 merge evidence（03d800b741b663309cd8afa11075beaed30d6e27）升級為 Approved Architecture Decision；正式確認 AEOS owns runtime-neutral Agent Collaboration governance，並確認 Product repositories 僅做 adoption mapping | Codex |
 | 0.1.0 | 2026-09-05 | 建立 Agent Collaboration ownership draft：AEOS owns runtime-neutral Agent Collaboration；Product repositories 僅做 adoption mapping；Runtime 只執行已授權 request 並回傳 evidence | Codex |

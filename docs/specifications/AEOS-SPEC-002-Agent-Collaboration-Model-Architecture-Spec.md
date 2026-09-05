@@ -87,7 +87,7 @@ related:
 
 | Authority | Role |
 |---|---|
-| AEOS-ADR-005 | Agent Collaboration ownership decision |
+| AEOS-ADR-005（Approved 1.0.0） | Agent Collaboration ownership decision |
 | AEOS-ADR-003 | Control Plane / Runtime separation and runtime neutrality |
 | AEOS-ARCH-013 | Enterprise AI Agent Architecture, Execution Contract and evidence boundary |
 | AEOS-ARCH-007 | Capability-first architecture rules |
@@ -96,7 +96,7 @@ related:
 
 Rules：
 
-- AEOS owns Agent Collaboration governance。
+- AEOS owns Agent Collaboration governance（AEOS-ADR-005 Approved 1.0.0）。
 - Agent Control Plane executes AEOS policy。
 - Agent Runtime executes authorized requests only。
 - Product repositories map adoption; they do not redefine governance。
