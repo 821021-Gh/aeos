@@ -3,8 +3,8 @@ doc-id: AEOS-SPEC-005
 doc-name: Capability / Tool Registry Adapter Contract
 doc-type: Specification
 repository: AEOS
-version: 0.1.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-09-06
 updated: 2026-09-06
@@ -35,8 +35,8 @@ Capability discovery 只代表 availability，不代表 authorization。Tool sch
 | 文件代號 | AEOS-SPEC-005 |
 | 文件名稱 | Capability / Tool Registry Adapter Contract |
 | 型別 | Specification |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-09-06 |
@@ -251,7 +251,24 @@ Capability / Tool Registry Adapter adoption SHOULD demonstrate：
 9. Runtime does not decide role, profile or gate result through registry metadata。
 10. No high-risk action is authorized by discovery result alone。
 
-## 12. References
+## 12. Status and Approval
+
+本規格目前為 **Approved 1.0.0**。
+
+PR #79 已合併至 `main`，merge commit 為 `eb2d8591aa0bfb8aa5a3b23bfacc8cd4747e52b0`。此合併作為 Repository Owner final approval evidence，正式核准本規格為 Capability / Tool Registry Adapter Contract。
+
+核准後：
+
+- Capability discovery 只代表 availability，不代表 policy allowed。
+- Policy allow / deny 仍由 AEOS Agent Control Plane 決定。
+- Tool input / output schema 必須維持 provider-neutral 且版本化。
+- Unknown capability、unknown schema、unsupported version 必須 fail closed。
+- Tool execution 必須連到 Agent Collaboration Run trace。
+- Provider-specific metadata 必須放入 extension envelope，不得污染 stable core。
+- #71 可在本規格與 AEOS-SPEC-004 邊界下處理 provider-neutral conformance tests。
+- 本規格不建立 tool marketplace、不授權 high-risk action、不授權 runtime implementation、Production deployment、customer data mutation 或 YCRM downstream adoption。
+
+## 13. References
 
 | 文件 | 型別 | 用途 |
 |------|------|------|
@@ -263,8 +280,9 @@ Capability / Tool Registry Adapter adoption SHOULD demonstrate：
 | AEOS-SPEC-003 — Agent Control Plane Orchestration Extension | Specification | Capability dispatch and runtime execution request boundary |
 | AEOS-SPEC-004 — Runtime Adapter Execution Evidence Contract | Specification | Runtime evidence and extension envelope boundary |
 
-## 13. Revision History
+## 14. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-09-06 | 依 PR #79 merge evidence（eb2d8591aa0bfb8aa5a3b23bfacc8cd4747e52b0）升級為 Approved Specification；正式核准 Capability / Tool Registry Adapter Contract，作為 #71 後續 provider-neutral conformance tests 的 capability / tool registry 邊界依據 | Codex |
 | 0.1.0 | 2026-09-06 | 建立 Capability / Tool Registry Adapter Contract Draft，定義 capability discovery result、tool schema versioning、policy allow/deny separation、fail-closed rules、tool execution trace reference 與 metadata extension envelope | Codex |
