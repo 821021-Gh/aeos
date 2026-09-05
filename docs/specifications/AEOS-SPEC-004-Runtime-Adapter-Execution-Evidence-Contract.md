@@ -3,8 +3,8 @@ doc-id: AEOS-SPEC-004
 doc-name: Runtime Adapter Execution Evidence Contract
 doc-type: Specification
 repository: AEOS
-version: 0.1.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-09-05
 updated: 2026-09-05
@@ -34,8 +34,8 @@ Runtime adapter execution evidence 的目的，是讓 Agent Control Plane、Gate
 | 文件代號 | AEOS-SPEC-004 |
 | 文件名稱 | Runtime Adapter Execution Evidence Contract |
 | 型別 | Specification |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-09-05 |
@@ -249,7 +249,20 @@ Runtime adapter evidence contract adoption SHOULD demonstrate：
 7. Extension metadata cannot override stable core evidence fields。
 8. Evidence links to Collaboration Trace Envelope and Runtime Execution Request trace。
 
-## 13. References
+## 13. Status and Approval
+
+本規格目前為 **Approved 1.0.0**。
+
+PR #77 已合併至 `main`，merge commit 為 `856f694079e59757b98eb4f7249b6100b68db01a`。此合併作為 Repository Owner final approval evidence，正式核准本規格為 Runtime Adapter Execution Evidence Contract。
+
+核准後：
+
+- Runtime adapter execution evidence 可作為 Agent Control Plane、Gate runner、Audit / Observability boundary 與後續 verification 的 provider-neutral execution evidence。
+- Runtime evidence 不得被解讀為 source validation、memory confirmation、learning case publication、human approval、production authorization 或 quality gate pass。
+- #70 / #71 可在本規格邊界下分別處理 capability / tool registry adapter contract 與 provider-neutral conformance tests。
+- 本規格不授權 runtime implementation、Production deployment、customer data mutation 或 YCRM downstream adoption。
+
+## 14. References
 
 | 文件 | 型別 | 用途 |
 |------|------|------|
@@ -260,8 +273,9 @@ Runtime adapter evidence contract adoption SHOULD demonstrate：
 | AEOS-SPEC-002 — Agent Collaboration Model Architecture Spec | Specification | Trace envelope and gate semantics |
 | AEOS-SPEC-003 — Agent Control Plane Orchestration Extension | Specification | Runtime execution request boundary and Gate runner semantics |
 
-## 14. Revision History
+## 15. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-09-05 | 依 PR #77 merge evidence（856f694079e59757b98eb4f7249b6100b68db01a）升級為 Approved Specification；正式核准 Runtime Adapter Execution Evidence Contract，作為 #70 / #71 後續 registry adapter 與 conformance 工作的 runtime evidence 邊界依據 | Codex |
 | 0.1.0 | 2026-09-05 | 建立 Runtime Adapter Execution Evidence Contract Draft，定義 provider-neutral runtime evidence minimum fields、optional cost/token/latency/tool references、forbidden data rules、extension envelope、evidence interpretation rules 與 trace alignment | Codex |
