@@ -3,8 +3,8 @@ doc-id: AEOS-SPEC-003
 doc-name: Agent Control Plane Orchestration Extension
 doc-type: Specification
 repository: AEOS
-version: 0.1.0
-status: Draft
+version: 1.0.0
+status: Approved
 owner: Architecture Owner
 created: 2026-09-05
 updated: 2026-09-05
@@ -32,8 +32,8 @@ related:
 | 文件代號 | AEOS-SPEC-003 |
 | 文件名稱 | Agent Control Plane Orchestration Extension |
 | 型別 | Specification |
-| 狀態 | Draft |
-| 版本 | 0.1.0 |
+| 狀態 | Approved |
+| 版本 | 1.0.0 |
 | Repository | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-09-05 |
@@ -325,7 +325,19 @@ A Control Plane orchestration implementation claiming alignment with this spec S
 9. Runtime success is not interpreted as validation pass。
 10. Product repository mapping does not become Control Plane source of truth。
 
-## 16. References
+## 16. Status and Approval
+
+本規格目前為 **Approved 1.0.0**。
+
+PR #75 已合併至 `main`，merge commit 為 `515f9fb663f2f1d27e66e68165ef34c03e9a3e42`。此合併作為 Repository Owner final approval evidence，正式核准本規格為 Agent Control Plane Orchestration Extension 的 Specification。
+
+核准後：
+
+- Agent Control Plane 可依本規格執行 Agent Collaboration orchestration semantics。
+- #69 / #70 / #71 可在本規格邊界下分別處理 runtime evidence contract、capability / tool registry adapter contract 與 provider-neutral conformance tests。
+- 本規格不授權 runtime implementation、Production deployment、customer data mutation 或 YCRM downstream adoption。
+
+## 17. References
 
 | 文件 | 型別 | 用途 |
 |------|------|------|
@@ -336,8 +348,9 @@ A Control Plane orchestration implementation claiming alignment with this spec S
 | AEOS-SPEC-001 — Local-first AI Agent Execution Routing Profile | Specification | Routing and escalation reference |
 | AEOS-SPEC-002 — Agent Collaboration Model Architecture Spec | Specification | Collaboration model, gate result contract and trace envelope |
 
-## 17. Revision History
+## 18. Revision History
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
+| 1.0.0 | 2026-09-05 | 依 PR #75 merge evidence（515f9fb663f2f1d27e66e68165ef34c03e9a3e42）升級為 Approved Specification；正式核准 Agent Control Plane Orchestration Extension 規格，作為 #69 / #70 / #71 後續 runtime adapter 與 conformance 工作的 Control Plane 邊界依據 | Codex |
 | 0.1.0 | 2026-09-05 | 建立 Agent Control Plane Orchestration Extension Draft，定義 task decomposition、profile resolution、capability dispatch、gate runner、gate decision schema、NEEDS_WORK return loop、human approval escalation、runtime adapter request boundary 與 collaboration trace emission | Codex |
