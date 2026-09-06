@@ -25,7 +25,7 @@ related:
 
 > EWO-AEOS-0008：依 AEOS-ADR-002、AEOS-DIA-001、AEOS-CON-001 與 AEOS-GOV-001 建立 AEOS 之 Documentation Format Standard。本文件定義 AEOS 正式治理文件之格式標準；不是 Markdown 教學，不是 Documentation Architecture。
 
-## Executive Summary
+## 執行摘要
 
 本文件定義 AEOS 正式治理文件之格式標準，涵蓋文件結構、章節規則、必要章節、撰寫規則、表格與合規要求；正式格式適用於 `docs/` 下之正式文件，§6.2 語言規則另適用於 Repository 內 Markdown 與敘述性文件。
 
@@ -38,14 +38,14 @@ related:
 | 型別 | Standard |
 | 狀態 | Approved |
 | 版本 | 1.2.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-22 |
 | 依據文件 | EWO-AEOS-0008、EWO-AEOS-0043、SR-AEOS-0008-R1、SR-AEOS-0043-R1、SR-AEOS-0043-R2、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-GOV-001（Approved 1.3.0）、AEOS-ARCH-001、AEOS-ADR-002（WA-001 Fact Authority Transition） |
 | 關聯文件 | EWO-AEOS-0008、EWO-AEOS-0043、SR-AEOS-0008-R1、SR-AEOS-0043-R1、SR-AEOS-0043-R2、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. Purpose
+## 1. 目的
 
 本文件定義 AEOS 正式治理文件之格式標準，其目的為：
 
@@ -55,9 +55,9 @@ related:
 
 本文件不是 Markdown 教學，也不是 Documentation Architecture；Markdown 語法以 CommonMark 與 GitHub Flavored Markdown 為準，文件體系之結構以 AEOS-DIA-001 為準。
 
-## 2. Scope
+## 2.範圍
 
-### 2.1 In Scope
+### 2.1 在範圍內
 
 本標準涵蓋：
 
@@ -65,7 +65,7 @@ related:
 - 文件格式要求：Document Structure、Section Rules、Mandatory Sections、Writing Rules、Tables、Examples 與 Compliance。
 - Repository 內全部 Markdown 與敘述性文件之語言規則；`docs/` 外檔案僅適用 §6.2，不因此納入其他正式文件格式要求。
 
-### 2.2 Out of Scope
+### 2.2 超出範圍
 
 本標準明確不涵蓋：
 
@@ -75,13 +75,13 @@ related:
 - Governance Roadmap 內容與優先序（由 AEOS-GOV-001 定義）。
 - Repository Foundation 文件（README、CHANGELOG、CONTRIBUTING 等）之正式文件結構與 Metadata；其語言仍適用 §6.2。
 
-## 3. Document Structure
+## 3. 文件結構
 
 每份正式文件 MUST 依下列順序組成：
 
 | 順序 | 組成 | 說明 |
 |------|------|------|
-| 1 | Frontmatter | YAML metadata，位於檔案開頭。 |
+| 1 | Frontmatter | YAML 中繼資料，位於檔案開頭。 |
 | 2 | Title | H1 標題：`# AEOS-<CODE> — <Document Name>`。 |
 | 3 | Executive Summary | 文件摘要，位於 Title 之後、文件資訊之前。 |
 | 4 | File Info Table | 文件資訊表格，位於 Executive Summary 之後。 |
@@ -95,7 +95,7 @@ related:
 - Title 為唯一 H1，MUST 出現且僅出現一次。
 - Body Sections、References 與 Revision History 以 H2 章節呈現。
 
-## 4. Section Rules
+## 4. 章節規則
 
 - Body Sections 以 H2 呈現，編號格式為 `<number>. <Section Name>`（例如 `## 1. Purpose`）。
 - 子章節以 H3 呈現，編號格式為 `<number>.<subnumber> <Section Name>`（例如 `### 4.1 In Scope`）。
@@ -104,13 +104,13 @@ related:
 - 每個章節 MUST 有實際內容；不得存在空章節。
 - 章節內容與章節名稱 MUST 相符；內容不得超出章節宣告之範圍（依 AEOS-CON-001 GP-005）。
 
-## 5. Mandatory Sections
+## 5. 強制部分
 
 每份正式文件 MUST 包含下列章節：
 
 | 章節 | 內容要求 |
 |------|----------|
-| Frontmatter | MUST 包含 doc-id、doc-name、doc-type、repository、version、status、owner、created、updated、related。 |
+| Frontmatter | MUST 包含 doc-id、doc-name、doc-type、儲存庫、version、狀態、擁有者、created、updated、related。 |
 | Executive Summary | 位於 Title 與文件資訊之間；以簡短段落摘要文件之目的與範圍。 |
 | 文件資訊 | 以表格列出文件代號、名稱、型別、狀態、版本、Repository、擁有者、建立日期、最後更新、依據文件、關聯文件。 |
 | References | 列出全部來源與關聯文件（doc-id、型別、用途）；MUST 宣告架構來源（如適用）。 |
@@ -119,20 +119,20 @@ related:
 規則：
 
 - 文件依其型別與 EWO Scope 增加之內容章節，不受本節限制；但 MUST 依 §4 Section Rules 編號。
-- Revision History 之最新版本 MUST 與 frontmatter 之 version／status 一致。
+- Revision History 之最新版本 MUST 與 frontmatter 之 version／狀態一致。
 
-## 6. Writing Rules
+## 6. 寫作規則
 
 - 正式文件以繁體中文撰寫；必要英文保留規則依 §6.2。
 - 規範強度使用 MUST、MUST NOT、SHOULD、SHOULD NOT 表達；不得混用模糊用語（例如「盡量」、「最好」）。
 - 句子 MUST 完整、明確、無歧義；避免行銷用語與冗詞。
 - 使用條列式呈現規則與項目；同一文件內條列格式 MUST 一致。
 - 跨文件引用 MUST 使用 doc-id 與相對路徑，MUST NOT 複製被引用內容（依 AEOS-DIA-001 §7）。
-- 文件 MUST NOT 包含 Placeholder（TBD、TODO、XXX、待補 等）。
+- 文件 MUST NOT 包含 Placeholder（TBD、TODO、XXX、待補等）。
 - 既有知識以引用取代重述（Single Source of Truth，依 AEOS-CON-001 GP-002）。
 - 術語跨文件 MUST 一致；新術語首次使用時 MUST 定義或引用其來源。
 
-### 6.1 Normative Language
+### 6.1 規範語言
 
 | 用語 | 定義 |
 |------|------|
@@ -148,7 +148,7 @@ related:
 - SHALL 不建議使用；一律以 MUST 取代。
 - 模糊用語（例如「盡量」、「最好」）MUST NOT 用於規範性要求。
 
-### 6.2 Language and Narrative Documentation
+### 6.2 語言和敘述文件
 
 - Repository 內 Markdown、README、CHANGELOG、CONTRIBUTING、`AGENTS.md`、狀態快照、操作說明、註解型說明與其他敘述性文件 MUST 使用繁體中文；僅本節列出的必要英文內容 MAY 保留原文。
 - 程式碼、程式識別子、API／SDK 名稱、CLI 命令、檔名、路徑、設定鍵、環境變數、資料格式、錯誤訊息、Log 原文、版本號、doc-id、EWO／Review ID、標準識別碼與外部規範正式名稱 MAY 保留英文。
@@ -157,7 +157,7 @@ related:
 - 新增或修改的敘述內容 MUST 遵循本節；既有英文文件 MAY 於相關 EWO 觸及時逐步轉換，不要求在無關變更中一次全面翻譯。
 - 同一段落若同時包含中英文，中文應承載說明，英文僅保留必要技術內容；MUST NOT 以整段英文取代可清楚表達的繁體中文說明。
 
-## 7. Tables
+## 7. 表格
 
 - 表格 MUST 使用 Markdown 表格語法，且 MUST 包含表頭列。
 - 表頭欄位 MUST 簡潔且與內容一致；同類表格跨文件使用相同欄位名稱。
@@ -166,11 +166,11 @@ related:
 - 表格前 SHOULD 以引導句說明表格用途。
 - 表格寬度以可讀為限；欄位過多時應拆分為多個表格。
 
-## 8. Examples
+## 8. 範例
 
 下列範例展示合規格式；範例內容為正式文件之節錄，僅供格式示範。
 
-### 8.1 Frontmatter
+### 8.1 前線
 
 ```yaml
 ---
@@ -209,7 +209,7 @@ related:
 ### 8.3 編號章節與表格
 
 ```markdown
-## 5. Governance Hierarchy
+## 5.Governance Hierarchy
 
 治理文件與決策依下列階層排序：
 
@@ -240,7 +240,7 @@ related:
 
 # AEOS-STD-002 — Example Standard
 
-## Executive Summary
+## 執行摘要
 
 本文件示範最小合規文件之完整結構，依 AEOS-STD-001 Documentation Format Standard 建立。
 
@@ -253,12 +253,12 @@ related:
 | 型別 | Standard |
 | 狀態 | Draft |
 | 版本 | 0.1.0 |
-| Repository | AEOS |
+|存放庫 | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-06 |
 
-## 1. Purpose
+## 1. 目的
 
 本文件僅作為格式範例，不承載其他內容。
 
@@ -275,7 +275,7 @@ related:
 | 0.1.0 | 2026-08-06 | 初版建立（格式範例） | Codex |
 ```
 
-## 9. Compliance
+## 9. 合規性
 
 - 本標準適用之正式文件 MUST 符合本標準。
 - Review 檢查項目：frontmatter 完整性、Title 唯一性、章節編號、Mandatory Sections、Placeholder 禁止、表格格式、引用形式（依 AEOS-DIA-001 §7）。
@@ -283,19 +283,19 @@ related:
 - 本標準之變更 MUST 經 EWO 與 Review 後合併。
 - 與 AEOS-DIA-001／AEOS-CON-001／AEOS-GOV-001 衝突時，以上位文件為準（依 Governance Hierarchy）。
 
-### 9.1 Compliance Checklist
+### 9.1 合規檢查表
 
 | 檢查項目 | 檢查內容 |
 |----------|----------|
-| Metadata | Frontmatter 完整（doc-id、doc-name、doc-type、repository、version、status、owner、created、updated、related），且與文件資訊一致。 |
+| Metadata | Frontmatter 完整（doc-id、doc-name、doc-type、儲存庫、version、狀態、擁有者、created、updated、related），且與文件資訊一致。 |
 | Mandatory Sections | 包含 Executive Summary、文件資訊、References、Revision History 等必要章節。 |
 | Section Numbering | 章節依序編號、無跳號、無 H4 以上標題。 |
 | References | 引用使用 doc-id 與相對路徑；來源與關聯文件完整宣告。 |
-| Revision History | 最新版本與 frontmatter 之 version／status 一致；變更已記錄。 |
-| No Placeholder | 無 TBD、TODO、XXX、待補 等未完成內容。 |
+| Revision History | 最新版本與 frontmatter 之 version／狀態一致；變更已記錄。 |
+| No Placeholder | 無 TBD、TODO、XXX、待補等未完成內容。 |
 | Language | Markdown 與敘述性內容使用繁體中文；必要英文僅限 §6.2 定義之範圍。 |
 
-## 10. References
+## 10. 參考文獻
 
 | # | 文件 | 型別 | 用途 |
 |---|------|------|------|
@@ -309,7 +309,7 @@ related:
 | REF-008 | SR-AEOS-0043-R1 — Standard Review | Review | §6.2 語言規則與 PR #49 生命週期追溯 Review；決策為 REQUEST CHANGES |
 | REF-009 | SR-AEOS-0043-R2 — Standard Re-review | Review | R1 全部 RC 已 Resolved；§6.2 修訂與追溯性決策為 APPROVED |
 
-## 11. Revision History
+## 11. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|

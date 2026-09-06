@@ -1,14 +1,14 @@
-# Code of Conduct
+# 行為準則
 
-AEOS promotes respectful, professional, and collaborative communication.
+AEOS 促進尊重、專業和協作的溝通。
 
-Expected behaviour:
+預期行為：
 
-- Respect contributors and their work.
-- Review ideas objectively.
-- Prefer evidence over opinion.
-- Keep discussions constructive.
+- 尊重貢獻者及其工作。
+- 客觀地檢視想法。
+- 以證據為優先，而非僅憑意見。
+- 保持討論具有建設性。
 
-Harassment, discrimination, and personal attacks are not acceptable.
+騷擾、歧視和人身攻擊是不可接受的。
 
-Report unacceptable behaviour to the repository maintainers.
+向儲存庫維護者報告不可接受的行為。

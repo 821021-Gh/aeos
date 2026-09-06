@@ -24,7 +24,7 @@ related:
 
 > EWO-AEOS-0030：依 AEOS-STD-006 與 AEOS-ARCH-010 建立 Workspace Catalog，登錄已核准 Workspace 之權威事實。本文件為 AI Engineering Workspace 已核准 Workspace 之唯一登錄來源；不創造架構事實。
 
-## Executive Summary
+## 執行摘要
 
 本文件建立 AEOS Workspace Catalog，依 AEOS-STD-006 之 Catalog Schema、Entry ID、Lifecycle、Traceability 與一致性規則，登錄可追溯至 Approved Architecture 或正式決策之具名 Workspace。本版登錄具名條目為 **1**：WS-001 — AI Engineering Workspace（Enterprise Workspace）。AEOS-ARCH-010 §7.1 明示 WA-001 已核准之 Workspace 類型為 Enterprise Workspace（AI Engineering Workspace），為目前唯一已核准類型；故僅登錄該具名實例。Workspace Entry ID 前綴依 AEOS-STD-006 §6.1 為 `WS`（`WS-###`）。
 
@@ -37,14 +37,14 @@ related:
 | 型別 | Catalog |
 | 狀態 | Approved |
 | 版本 | 1.1.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-08 |
 | 依據文件 | EWO-AEOS-0030、EWO-AEOS-0031、CM-AEOS-0031-R1、AEOS-STD-006（Approved 1.1.0）、AEOS-ARCH-004（Approved 1.1.0）、AEOS-ARCH-010（Approved 1.1.0）、AEOS-ARCH-001（Approved 1.3.0）、AEOS-ADR-002（WA-001 Fact Authority Transition） |
 | 關聯文件 | EWO-AEOS-0031、CM-AEOS-0031-R1、AEOS-ARCH-001、AEOS-ARCH-004、AEOS-ARCH-010、AEOS-STD-001～AEOS-STD-006、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. Purpose
+## 1. 目的
 
 本文件之目的為：
 
@@ -53,9 +53,9 @@ related:
 - 提供 Workspace 身分、Purpose、Boundary、Type／Level、Owner 與生命週期之可稽核紀錄。
 - 為後續 Workspace Composition、Ownership Matrix 與 Dependency Matrix 提供 Workspace Entry 身分依據。
 
-## 2. Scope
+## 2.範圍
 
-### 2.1 In Scope
+### 2.1 在範圍內
 
 本文件涵蓋：
 
@@ -64,7 +64,7 @@ related:
 - Workspace 條目之 Lifecycle、Traceability、Change 與一致性規則。
 - 已核准 Workspace 之登錄事實。
 
-### 2.2 Out of Scope
+### 2.2 超出範圍
 
 本文件不涵蓋：
 
@@ -75,7 +75,7 @@ related:
 - 僅因某個 Repository、資料夾或開發環境實際存在而自動登錄。
 - 個別 Workspace 之內部技術架構、部署拓撲或實作設計。
 
-## 3. Catalog Authority and Compliance
+## 3. 目錄權限與合規性
 
 Workspace Catalog 依下列權威順序運作：
 
@@ -95,7 +95,7 @@ Workspace Catalog 依下列權威順序運作：
 - Workspace Entry ID MUST 使用 `WS-###`（AEOS-STD-006 §6.1），唯一、穩定且不可重用。
 - Workspace Architecture 之正式文件 ID 為 AEOS-ARCH-010（Approved 1.1.0），本文件依其內容運作。
 
-## 4. Entry Schema
+## 4. 入口架構
 
 Workspace Entry MUST 具備下列欄位（依 AEOS-STD-006 §5.1 與 AEOS-ARCH-010 §5）：
 
@@ -105,9 +105,9 @@ Workspace Entry MUST 具備下列欄位（依 AEOS-STD-006 §5.1 與 AEOS-ARCH-0
 | Entry Name | MUST | 正式名稱；命名變更不得改變 Entry ID |
 | Type／Classification | MUST | 依 AEOS-ARCH-010 §7 類型 |
 | Status | MUST | 依 §6 條目 Lifecycle 狀態 |
-| Owner | MUST | accountable Workspace Owner |
+|業主| MUST |負責任的工作區擁有者 |
 | Architecture Reference | MUST | 核准此 Workspace 身分與邊界之 Approved Architecture／ADR |
-| Validated Facts | MUST | Purpose／Mission、Boundary、Composition（AEOS-ARCH-010 §5、§6） |
+|已驗證的事實| MUST |目的/使命、邊界、構成（AEOS-ARCH-010 §5、§6） |
 | Related Entries | MUST | 引用其他 Catalog Entry ID；無合規引用時為空（AEOS-STD-006 §5.1「無則為空」） |
 | Version／Review Date | MUST | 條目版本與最近 Review 日期 |
 | Change Record | MUST | 條目新增、修改、移除之歷程 |
@@ -118,7 +118,7 @@ Workspace Entry MUST 具備下列欄位（依 AEOS-STD-006 §5.1 與 AEOS-ARCH-0
 - Workspace 類型（Enterprise Workspace 等）為抽象分類，不得直接視為具名 Workspace；條目以具名實例登錄。
 - 資料夾、Repository、執行環境或範例，於缺少正式架構或決策依據時 MUST NOT 自動登錄。
 
-## 5. Registered Entries
+## 5. 註冊條目
 
 本版登錄具名 Workspace 條目：**1**。
 
@@ -126,15 +126,15 @@ Workspace Entry MUST 具備下列欄位（依 AEOS-STD-006 §5.1 與 AEOS-ARCH-0
 
 | 欄位 | 內容 |
 |------|------|
-| Entry ID | WS-001 |
-| Entry Name | AI Engineering Workspace |
-| Type／Classification | Enterprise Workspace（AEOS-ARCH-010 §7.1） |
-| Status | Active |
+|條目 ID | WS-001 |
+|參賽作品名稱 | AI Engineering Workspace |
+|類型／分類 |企業工作空間（AEOS-ARCH-010 §7.1） |
+|狀態 | Active |
 | Owner | Workspace Owner（角色，依 AEOS-ARCH-010 §9.1；具名 incumbent 未核准） |
 | Architecture Reference | [AEOS-ARCH-010](../architecture/AEOS-ARCH-010-Workspace-Architecture.md)（Approved 1.1.0）§4.1、§5、§7.1；[AEOS-ARCH-001](../architecture/AEOS-ARCH-001-Architecture-Baseline.md)（Approved 1.3.0）§1；[AEOS-ARCH-004](../architecture/AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.1.0）§4；WA-001（歷史來源） |
 | Validated Facts | 定位：AI Engineering Workspace 之正式企業架構邊界，統合 Platform、Capability、Repository、Dependency 與治理資產（AEOS-ARCH-010 §4.1、§6.2）；Type：Enterprise Workspace（AEOS-ARCH-010 §7.1）；Composition：具名組成元素尚未核准登錄（本 EWO 不推測 Repository Placement／Platform-Capability Mapping） |
 | Related Entries | 無（無合規引用；AEOS-STD-006 §5.1 空值表達） |
-| Version／Review Date | 1.0.0／2026-08-06 |
+|版本／審閱日期 | 1.0.0／2026-08-06 |
 | Change Record | 2026-08-06：新增登錄（EWO-AEOS-0030，Draft） |
 
 ### 5.2 登錄結論與排除說明
@@ -144,7 +144,7 @@ Workspace Entry MUST 具備下列欄位（依 AEOS-STD-006 §5.1 與 AEOS-ARCH-0
 - 不登錄資料夾、Repository、執行環境或開發環境：僅實際存在不構成正式架構或決策依據。
 - 後續具名 Workspace MUST 經正式 Architecture Review／Approved 架構載體內容核准後，依 §7 登錄。
 
-## 6. Document Lifecycle vs Entry Lifecycle
+## 6. 文件生命週期與條目生命週期
 
 本文件明確區分兩種生命週期：
 
@@ -158,21 +158,21 @@ Workspace Entry MUST 具備下列欄位（依 AEOS-STD-006 §5.1 與 AEOS-ARCH-0
 - 文件狀態與條目狀態 MUST 分開管理；文件 Approved 不代表其中條目全部 Active（AEOS-STD-006 §9.3）。
 - 本文件現為 Draft（文件 Lifecycle），不影響已登錄條目之既有事實。
 
-## 7. Traceability and Change Rules
+## 7. 可追溯性與變更規則
 
-### 7.1 Traceability
+### 7.1 可追溯性
 
 - 每個 Workspace Entry MUST 宣告 Architecture Reference；無參考即不得登錄（AEOS-STD-006 §7）。
 - 條目事實與 Architecture 衝突時，以 Architecture 為準並啟動修正。
 
-### 7.2 Change Rules
+### 7.2 變更規則
 
 - 條目新增（Candidate → Active）：MUST 具 Architecture Reference 並經 Review（AEOS-STD-006 §10.2）。
 - 條目修改：變更 Identity、Purpose、Boundary、Type／Level 或 Owner 視為重大變更，MUST 經 Review。
 - 條目移除：MUST 依 Deprecated → Retired 流程執行，不得直接刪除。
 - 本 EWO 不建立或推測 Workspace Ownership、Repository Placement、Platform／Capability Mapping、Dependency 或跨 Workspace Relationship。
 
-## 8. Consistency
+## 8. 一致性
 
 Workspace Catalog MUST 符合 AEOS-STD-006 §11 一致性規則：
 
@@ -181,7 +181,7 @@ Workspace Catalog MUST 符合 AEOS-STD-006 §11 一致性規則：
 - 與 AEOS-ARCH-001 §8 Register 及相關 Architecture 之狀態一致。
 - 變更後 MUST 重新執行格式、Metadata、Cross-reference、Placeholder 與一致性驗證。
 
-## 9. References
+## 9. 參考文獻
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
@@ -193,7 +193,7 @@ Workspace Catalog MUST 符合 AEOS-STD-006 §11 一致性規則：
 | REF-006 | EWO-AEOS-0030 | EWO | 本文件之工作來源 |
 | REF-007 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
-## 10. Revision History
+## 10. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|

@@ -19,7 +19,7 @@ related:
 
 # AEOS-ARCH-004 — AI Enterprise Architecture Overview
 
-## Executive Summary
+## 執行摘要
 
 本文件依 AEOS-ADR-002 建立 AEOS Enterprise Architecture 的總架構入口，將 Platform Architecture、Layer Architecture、Capability Architecture、Repository Architecture、Dependency Architecture 與 Workspace Architecture 統合為單一可追溯架構視圖，並界定後續 Platform Catalog、Capability Catalog、Ownership Matrix 與 Dependency Matrix 的定位與引用關係。本文件不重新設計 Approved 架構載體、不建立實作設計，也不取代各專項架構文件。
 
@@ -32,14 +32,14 @@ related:
 | 型別 | Architecture（Enterprise Architecture Entry Document） |
 | 狀態 | Approved |
 | 版本 | 1.1.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-08 |
 | 依據文件 | EWO-AEOS-Architecture-0001、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001（Approved 1.3.0） |
 | 關聯文件 | AEOS-ARCH-002、AEOS-ARCH-003、AEOS-DIA-001、AEOS-CON-001、AEOS-STD-001～AEOS-STD-005、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. Purpose
+## 1. 目的
 
 本文件作為 AEOS Enterprise Architecture 的總架構入口，其目的為：
 
@@ -49,9 +49,9 @@ related:
 - 維持 Architecture Baseline、專項架構與治理資產之間的可追溯性。
 - 確保後續架構演進不重複定義、不形成平行架構來源，也不超出 Approved 架構載體已核准範圍。
 
-## 2. Scope
+## 2.範圍
 
-### 2.1 In Scope
+### 2.1 在範圍內
 
 本文件涵蓋下列 Enterprise Architecture 領域：
 
@@ -64,7 +64,7 @@ related:
 - Platform Catalog、Capability Catalog、Ownership Matrix 與 Dependency Matrix 在整體架構中的定位。
 - 上述領域之間的關係、引用方向與治理邊界。
 
-### 2.2 Out of Scope
+### 2.2 超出範圍
 
 本文件明確不涵蓋：
 
@@ -75,7 +75,7 @@ related:
 - 專項架構文件應承載的完整規則、模型與生命週期。
 - Standards、Policies、Specifications 或 ADR 的內容定義。
 
-## 3. Architecture Authority
+## 3. 架構權威
 
 AEOS Enterprise Architecture 依下列權威順序建立：
 
@@ -94,7 +94,7 @@ AEOS Enterprise Architecture 依下列權威順序建立：
 - 下位架構資產 MUST NOT 覆蓋或改寫 AEOS-ARCH-001／Approved 架構載體已建立之架構權威。
 - 發現架構缺口或衝突時，MUST 透過正式 EWO、Review 與 ADR 流程處理，不得在 Catalog、Matrix 或 Repository 文件中隱性建立新架構。
 
-## 4. Enterprise Architecture Vision
+## 4. Enterprise Architecture 願景
 
 AEOS 將 AI Engineering Workspace 視為由平台、架構層、能力、Repository、依賴與 Workspace 組成的整體企業工程系統。Enterprise Architecture 的責任不是實作個別系統，而是建立跨 Repository 的共同結構、責任邊界、依賴規則與治理語言，使各 Repository 能在一致的架構基線下獨立演進。
 
@@ -107,7 +107,7 @@ AEOS 將 AI Engineering Workspace 視為由平台、架構層、能力、Reposit
 - **Dependency Explicit**：跨層、跨平台、跨能力與跨 Repository 的依賴 MUST 被識別與管理。
 - **Workspace Integrated**：各 Repository 共同構成單一 AI Engineering Workspace，而非彼此孤立的專案集合。
 
-## 5. Enterprise Architecture Model
+## 5. Enterprise Architecture 模型
 
 AEOS Enterprise Architecture 由六個相互關聯的正式架構領域構成：
 
@@ -116,13 +116,13 @@ AEOS Enterprise Architecture 由六個相互關聯的正式架構領域構成：
 | Platform Architecture | Workspace 由哪些平台構成？ | 定義 Platform 邊界、角色、互動與治理關係 | Platform Architecture、Platform Catalog |
 | Layer Architecture | 架構責任如何分層？ | 定義各層責任、允許關係與跨層約束 | Layer Model、Layer Rules |
 | Capability Architecture | Workspace 必須具備哪些能力？ | 定義 Capability、組合、關係與演進邊界 | Capability Architecture、Capability Catalog |
-| Repository Architecture | 架構如何落實於 Repository？ | 定義 Repository 類型、責任、邊界與映射 | Repository Architecture、Repository Mapping |
+| Repository Architecture | 架構如何落實於 Repository？ | 定義 Repository 類型、責任、邊界與對應 | Repository Architecture、Repository Mapping |
 | Dependency Architecture | 架構元素如何依賴？ | 定義依賴方向、類型、約束與治理方式 | Dependency Architecture、Dependency Matrix |
 | Workspace Architecture | 所有元素如何形成整體？ | 定義 Workspace 邊界、組成、協作與整合關係 | Workspace Architecture、Workspace View |
 
 六個領域共同構成完整架構，不得被視為六套彼此獨立的架構。任何專項架構文件 MUST 說明其與其他領域的輸入、輸出及依賴關係。
 
-## 6. Architecture Domains
+## 6. 架構領域
 
 ### 6.1 Platform Architecture
 
@@ -132,7 +132,7 @@ Platform Architecture MUST：
 
 - 以 AEOS-ARCH-005 之 Platform Topology 為來源。
 - 定義 Platform Identity、Boundary、Responsibility 與 Relationship。
-- 將 Platform 與 Capability、Repository、Dependency 及 Ownership 建立可追溯映射。
+- 將 Platform 與 Capability、Repository、Dependency 及 Ownership 建立可追溯對應。
 - 以 Platform Catalog 作為已核准 Platform 實體之登錄來源。
 
 ### 6.2 Layer Architecture
@@ -148,7 +148,7 @@ Layer Architecture MUST：
 
 ### 6.3 Capability Architecture
 
-Capability Architecture 定義 AI Engineering Workspace 所需能力、能力群組及能力之間的關係，並將能力與承載 Platform、責任 Owner 及實現 Repository 建立連結。
+Capability Architecture 定義 AI Engineering Workspace 所需能力、能力群組及能力之間的關係，並將能力與承載 Platform、責任 Owner 及實作 Repository 建立連結。
 
 Capability Architecture MUST：
 
@@ -159,7 +159,7 @@ Capability Architecture MUST：
 
 ### 6.4 Repository Architecture
 
-Repository Architecture 定義 Repository 在 Enterprise Architecture 中的角色、責任邊界及與 Platform／Capability 的映射，使每個 Repository 具有明確的架構身分。
+Repository Architecture 定義 Repository 在 Enterprise Architecture 中的角色、責任邊界及與 Platform／Capability 的對應，使每個 Repository 具有明確的架構身分。
 
 Repository Architecture MUST：
 
@@ -190,17 +190,17 @@ Workspace Architecture MUST：
 - 統合 Platform、Capability、Repository 與 Dependency View。
 - 作為跨 Repository 協作、Workspace 演進與整體一致性檢查的架構依據。
 
-## 7. Architecture Relationship Model
+## 7. 架構關係模型
 
 各架構領域之主要關係如下：
 
 | 來源 | 關係 | 目標 | 治理意義 |
 |------|------|------|----------|
 | Workspace Architecture | 組成 | Platform Architecture | Workspace 由受治理的 Platform 構成 |
-| Layer Architecture | 約束 | 全部架構領域 | 所有元素依共同分層規則配置責任與依賴 |
+| Layer Architecture | 約束 | 全部架構領域 | 所有元素依共同分層規則設定責任與依賴 |
 | Platform Architecture | 承載 | Capability Architecture | Platform 提供 Capability 的組織與運作邊界 |
 | Capability Architecture | 分配責任至 | Ownership Matrix | 每項 Capability 具有明確責任歸屬 |
-| Repository Architecture | 實現／治理 | Platform 與 Capability | Repository 承載架構資產或實作責任 |
+| Repository Architecture | 實作／治理 | Platform 與 Capability | Repository 承載架構資產或實作責任 |
 | Dependency Architecture | 連結並約束 | Platform、Layer、Capability、Repository | 依賴必須明確、可驗證且方向合規 |
 | Catalog／Matrix | 登錄 | 已核准架構元素與關係 | 提供可查詢、可追溯的架構事實 |
 
@@ -212,7 +212,7 @@ Workspace Architecture MUST：
 - Dependency MUST 由 Dependency Architecture 定義，並由 Dependency Matrix 記錄；不得只存在於非正式敘述或實作中。
 - Workspace View MUST 能追溯至 Platform、Capability、Repository、Ownership 與 Dependency 的正式資產。
 
-## 8. Architecture Assets
+## 8. 架構資產
 
 後續架構資產分為 Architecture、Catalog 與 Matrix 三類：
 
@@ -221,17 +221,17 @@ Workspace Architecture MUST：
 | Architecture | Platform Architecture | Platform 邊界、角色與關係之正式定義 | AEOS-ARCH-004 |
 | Architecture | Layer Architecture | 架構責任分層與依賴方向之正式定義 | AEOS-ARCH-004 |
 | Architecture | Capability Architecture | Capability 結構、關係與治理之正式定義 | AEOS-ARCH-004 |
-| Architecture | Repository Architecture | Repository 身分、責任與映射之正式定義 | AEOS-ARCH-004 |
+| Architecture | Repository Architecture | Repository 身分、責任與對應之正式定義 | AEOS-ARCH-004 |
 | Architecture | Dependency Architecture | 跨架構元素依賴模型之正式定義 | AEOS-ARCH-004 |
 | Architecture | Workspace Architecture | Workspace 組成與整合關係之正式定義 | AEOS-ARCH-004 |
 | Catalog | Platform Catalog | 已核准 Platform 的權威清單 | Platform Architecture、AEOS-ARCH-004 |
 | Catalog | Capability Catalog | 已核准 Capability 的權威清單 | Capability Architecture、AEOS-ARCH-004 |
-| Matrix | Ownership Matrix | Platform、Capability、Repository 與 Owner 的責任映射 | Capability Architecture、Repository Architecture |
-| Matrix | Dependency Matrix | 架構元素之已核准依賴映射 | Dependency Architecture、AEOS-ARCH-004 |
+| Matrix | Ownership Matrix | Platform、Capability、Repository 與 Owner 的責任對應 | Capability Architecture、Repository Architecture |
+| Matrix | Dependency Matrix | 架構元素之已核准依賴對應 | Dependency Architecture、AEOS-ARCH-004 |
 
 Catalog 與 Matrix 只登錄由正式 Architecture 核准的事實，MUST NOT 在未經 Architecture Review 的情況下創造新 Platform、Capability、Ownership 或 Dependency。
 
-## 9. Ownership and Governance
+## 9. 所有權與治理
 
 | 角色 | 核心責任 |
 |------|----------|
@@ -248,14 +248,14 @@ Catalog 與 Matrix 只登錄由正式 Architecture 核准的事實，MUST NOT �
 - 架構文件格式、Metadata、引用、命名與 Review MUST 分別遵循 AEOS-STD-001～AEOS-STD-005。
 - Architecture、Catalog 與 Matrix 之狀態 MUST 保持一致；不得引用未核准或已失效之架構事實作為正式依據。
 
-## 10. Architecture Evolution
+## 10. 架構演變
 
 AEOS Enterprise Architecture 採增量演進：
 
 1. 由本文件建立整體架構入口與領域關係。
 2. 依 EWO 逐一建立專項 Architecture。
 3. 專項 Architecture 核准後建立對應 Catalog 與 Matrix。
-4. Repository 依正式架構完成映射與合規檢查。
+4. Repository 依正式架構完成對應與合規檢查。
 5. 透過 Dependency Matrix 執行變更影響分析。
 6. 重大變更以 ADR 記錄，並同步更新受影響之 Architecture、Catalog 與 Matrix。
 
@@ -266,7 +266,7 @@ AEOS Enterprise Architecture 採增量演進：
 - 架構變更 MUST 評估 Platform、Capability、Repository、Ownership、Dependency 與 Workspace 的連鎖影響。
 - 已被取代之架構資產 MUST 依文件生命週期保留歷史與替代關係。
 
-## 11. Compliance
+## 11. 合規性
 
 本文件及其下位架構資產 MUST 符合下列要求：
 
@@ -283,7 +283,7 @@ AEOS Enterprise Architecture 採增量演進：
 
 不符合本文件之專項 Architecture、Catalog、Matrix 或 Repository Architecture MUST NOT 被視為 AEOS 正式架構資產。
 
-## 12. References
+## 12. 參考文獻
 
 | # | 文件 | 型別 | 用途 |
 |---|------|------|------|
@@ -301,7 +301,7 @@ AEOS Enterprise Architecture 採增量演進：
 | REF-012 | EWO-AEOS-Architecture-0001 — AI Enterprise Architecture Overview | EWO | 本文件之工作來源 |
 | REF-013 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
-## 13. Revision History
+## 13. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|

@@ -18,7 +18,7 @@ related:
 
 # AEOS-ARCH-005 — Platform Architecture
 
-## Executive Summary
+## 執行摘要
 
 本文件依 AEOS-ADR-002 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Platform Architecture，定義 Platform 的身分、邊界、責任、分類、關係、擁有權、生命週期及治理規則。Platform 是承載一組連貫 Capability 並協調多個 Repository 的穩定企業架構邊界，不等同於單一 Repository、產品、服務、部署環境或技術元件。本文件建立後續 Platform Catalog 的權威結構，但不在未經核准的情況下新增具名 Platform 條目。
 
@@ -31,14 +31,14 @@ related:
 | 型別 | Architecture（Platform Architecture） |
 | 狀態 | Approved |
 | 版本 | 1.1.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-08 |
 | 依據文件 | EWO-AEOS-Architecture-0002、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-004（Approved 1.1.0） |
 | 關聯文件 | AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-STD-001～AEOS-STD-005、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. Purpose
+## 1. 目的
 
 本文件之目的為：
 
@@ -48,9 +48,9 @@ related:
 - 建立 Platform Catalog 的結構、准入條件與維護規則。
 - 支援 Platform 的建立、變更、取代與退役，同時維持 Workspace 整體一致性。
 
-## 2. Scope
+## 2.範圍
 
-### 2.1 In Scope
+### 2.1 在範圍內
 
 本文件涵蓋：
 
@@ -62,7 +62,7 @@ related:
 - Platform Catalog 的權威角色與最小資料模型。
 - Platform 生命週期、變更控制與合規要求。
 
-### 2.2 Out of Scope
+### 2.2 超出範圍
 
 本文件不涵蓋：
 
@@ -73,7 +73,7 @@ related:
 - Product、Service、Application、Infrastructure 或 Runtime Component 的詳細分類。
 - Platform Roadmap、預算、組織編制或交付排程。
 
-## 3. Architecture Authority
+## 3. 架構權威
 
 Platform Architecture 適用下列權威順序：
 
@@ -93,9 +93,9 @@ Platform Architecture 適用下列權威順序：
 - Platform 內部設計不得擴張其 Enterprise Boundary 或覆寫其他 Platform 的 Authority。
 - 發現 Approved 架構載體未涵蓋的 Platform 需求時，MUST 先透過正式架構變更處理。
 
-## 4. Platform Definition
+## 4. 平台定義
 
-### 4.1 Formal Definition
+### 4.1 正式定義
 
 Platform 是 AI Engineering Workspace 內具備持續身分、明確企業責任與治理權威的穩定架構邊界。Platform 承載一組具共同結果與治理需求的 Capability，協調一個或多個 Repository，並透過受治理的 Interface 與 Dependency 與其他 Platform 協作。
 
@@ -108,7 +108,7 @@ Platform 是 AI Engineering Workspace 內具備持續身分、明確企業責任
 - 與 Repository、Dependency 及其他 Platform 的關係可被登錄與追溯。
 - 生命週期由 Enterprise Architecture 管理，而非隨單一實作任意建立或移除。
 
-### 4.2 Platform Is Not
+### 4.2 平台不是
 
 | 架構元素 | 與 Platform 的區別 |
 |----------|--------------------|
@@ -119,7 +119,7 @@ Platform 是 AI Engineering Workspace 內具備持續身分、明確企業責任
 | Infrastructure | Infrastructure 提供運算、儲存或網路資源；只有符合 Platform 判定條件時才具有 Platform 身分 |
 | Team／Organization | Team 是人員組織；Platform Ownership 可由 Team 承擔，但 Platform 不等同組織圖 |
 
-## 5. Platform Identity Model
+## 5. 平台識別模型
 
 每個 Platform MUST 具備下列權威屬性：
 
@@ -141,9 +141,9 @@ Platform 是 AI Engineering Workspace 內具備持續身分、明確企業責任
 
 Platform ID、Mission 或 Boundary 的實質變更 MUST 經 Architecture Review；不得只修改 Catalog 條目完成架構變更。
 
-## 6. Platform Boundary and Responsibility
+## 6. 平台邊界與責任
 
-### 6.1 Boundary Dimensions
+### 6.1 邊界尺寸
 
 Platform Boundary MUST 同時從下列面向定義：
 
@@ -157,16 +157,16 @@ Platform Boundary MUST 同時從下列面向定義：
 | Dependency Boundary | Platform 可接受、提供或禁止哪些依賴？ |
 | Information Boundary | 哪些架構資訊由 Platform 擁有、提供或僅引用？ |
 
-### 6.2 Boundary Rules
+### 6.2 邊界規則
 
 - 每項 Platform Responsibility MUST 能對應至 Mission 與至少一項 Capability。
 - 同一責任不得由多個 Platform 在無 Ownership 決議的情況下同時宣稱最終 Authority。
 - Platform MAY 委派實作責任，但 MUST 保留其架構責任與可追溯性。
 - Repository 位於 Platform Boundary 內，不代表其全部內容皆由 Platform 擁有；實際責任以 Repository Architecture 與 Mapping 為準。
-- Shared Capability MUST 具有單一 accountable Owner，並明確記錄其他 Platform 的使用或協作關係。
+- Shared Capability MUST 具有單一負責 Owner，並明確記錄其他 Platform 的使用或協作關係。
 - Platform MUST NOT 直接管理超出其 Boundary 的 Repository、Capability 或架構決策。
 
-## 7. Platform Classification
+## 7. 平台分類
 
 Platform 分類用於描述其主要企業責任，不代表技術堆疊或組織層級。
 
@@ -185,29 +185,29 @@ Platform 分類用於描述其主要企業責任，不代表技術堆疊或組�
 - 分類不得單憑 Repository 名稱、部署方式、供應商產品或組織單位決定。
 - 無法清楚分類通常代表 Boundary 尚未完成，MUST 在登錄前解決。
 
-## 8. Platform Relationship Model
+## 8. 平台關係模型
 
-### 8.1 Relationship Types
+### 8.1 關係類型
 
 | 關係 | 語意 | 要求 |
 |------|------|------|
 | Governs | 一個 Platform 對另一 Platform 的特定治理面向具有正式權威 | MUST 限定治理範圍，不得推定全面控制 |
 | Enables | 一個 Platform 提供另一 Platform 所需的能力或基礎 | MUST 對應正式 Capability 與 Interface |
 | Consumes | 一個 Platform 使用另一 Platform 提供的能力 | MUST 記錄 Dependency 與責任邊界 |
-| Collaborates With | 多個 Platform 共同完成結果，但維持各自 Authority | MUST 明確指定各方責任與 accountable Owner |
+| Collaborates With | 多個 Platform 共同完成結果，但維持各自 Authority | MUST 明確指定各方責任與負責 Owner |
 | Constrains | 一個 Platform 透過企業規則限制另一 Platform 的允許行為 | MUST 具有上位 Architecture 或 Policy 依據 |
 | Supersedes | 新 Platform 正式取代既有 Platform 的責任 | MUST 具有 Migration、替代關係與退役計畫 |
 
-### 8.2 Relationship Rules
+### 8.2 關係規則
 
 - Platform Relationship MUST 有方向、類型、Owner、依據與生命週期狀態。
-- `Enables` 不等同 `Governs`；能力提供者不得由技術依賴推定治理權威。
+- `Enables` 不等同 `Governs`；能力供應商不得由技術依賴推定治理權威。
 - `Consumes` 不轉移 Capability Ownership 或 Platform Accountability。
 - `Collaborates With` 不得用來掩蓋責任重疊。
 - 跨 Platform 的實際 Dependency MUST 登錄於 Dependency Matrix。
 - 循環治理關係 MUST NOT 被允許；循環技術或服務依賴必須由 Dependency Architecture 明確評估。
 
-## 9. Platform Interfaces
+## 9. 平台介面
 
 Platform Interface 是 Platform 對外提供或接受 Capability、資訊、治理要求或協作責任的正式邊界。
 
@@ -216,7 +216,7 @@ Platform Interface 是 Platform 對外提供或接受 Capability、資訊、治�
 - Interface ID 與名稱。
 - Provider Platform 與 Consumer Platform。
 - 支援的 Capability 或治理目的。
-- Interface Owner。
+- 介面所有者。
 - 輸入、輸出與責任界線。
 - 適用 Contract、Policy、Specification 或 ADR。
 - 相依性、版本與生命週期狀態。
@@ -228,9 +228,9 @@ Platform Interface 是 Platform 對外提供或接受 Capability、資訊、治�
 - Interface 變更 MUST 評估所有 Consumer Platform、Repository 與 Capability 的影響。
 - Breaking Change MUST 具有版本策略、Migration Path 與核准紀錄。
 
-## 10. Platform Ownership
+## 10. 平台所有權
 
-### 10.1 Roles
+### 10.1 角色
 
 | 角色 | 責任 |
 |------|------|
@@ -241,21 +241,21 @@ Platform Interface 是 Platform 對外提供或接受 Capability、資訊、治�
 | Dependency Owner | 維護跨 Platform Dependency 的必要性、風險與相容性 |
 | Review Owner | 依 AEOS-STD-005 確認 Platform Architecture 變更已完成正式 Review |
 
-### 10.2 Accountability Rules
+### 10.2 問責規則
 
-- 每個 Active Platform MUST 有且只有一個 accountable Platform Owner 角色。
+- 每個 Active Platform MUST 有且只有一個負責 Platform Owner 角色。
 - Platform Owner 可委派執行工作，但 MUST NOT 委派最終 Accountability。
 - Platform Owner 與 Repository Owner 不必為同一角色；兩者責任 MUST 分別記錄。
-- 跨 Platform Capability MUST 在 Ownership Matrix 中明確區分 accountable、responsible、consulted 與 informed 關係。
+- 跨 Platform Capability MUST 在 Ownership Matrix 中明確區分負責、responsible、consulted 與 informed 關係。
 - Ownership 缺失、重疊或無法履行時，Platform MUST NOT 進入 Active 狀態。
 
 ## 11. Platform Catalog
 
-### 11.1 Catalog Authority
+### 11.1 目錄權限
 
 Platform Catalog 是 AI Engineering Workspace 已核准 Platform 的權威登錄來源。Catalog 記錄架構事實，不創造架構事實；Platform 的身分與邊界必須先由 Architecture 或 ADR 核准。
 
-### 11.2 Minimum Record
+### 11.2 最低記錄
 
 每個 Catalog 條目 MUST 至少包含：
 
@@ -264,7 +264,7 @@ Platform Catalog 是 AI Engineering Workspace 已核准 Platform 的權威登錄
 | Platform ID／Name | 唯一識別碼與正式名稱 |
 | Mission／Classification | 存在目的與主要分類 |
 | Boundary／Authority | 責任範圍與決策權威摘要 |
-| Owner | accountable Platform Owner |
+|業主|負責任的平台所有者|
 | Capability References | 已核准 Capability 引用 |
 | Repository References | 支援 Repository 引用 |
 | Interface／Dependency References | 對外介面與依賴引用 |
@@ -272,7 +272,7 @@ Platform Catalog 是 AI Engineering Workspace 已核准 Platform 的權威登錄
 | Architecture Reference | 核准此條目的 Architecture／ADR |
 | Version／Review Date | 條目版本與最近審查日期 |
 
-### 11.3 Catalog Rules
+### 11.3 目錄規則
 
 - Platform Catalog MUST NOT 登錄缺少 Architecture Reference 的 Platform。
 - Catalog 變更 MUST 與相關 Architecture、Capability Catalog、Ownership Matrix 及 Dependency Matrix 保持一致。
@@ -280,7 +280,7 @@ Platform Catalog 是 AI Engineering Workspace 已核准 Platform 的權威登錄
 - Catalog MUST 保留 Deprecated 與 Retired Platform 的歷史及替代關係。
 - Catalog 條目與 Platform Architecture 衝突時，以正式 Architecture 為準並啟動修正。
 
-## 12. Platform Lifecycle
+## 12. 平台生命週期
 
 | 狀態 | 定義 | 必要條件 |
 |------|------|----------|
@@ -299,7 +299,7 @@ Platform Catalog 是 AI Engineering Workspace 已核准 Platform 的權威登錄
 
 任何跳過 Deprecated 的 Active → Retired 轉移 MUST 具有緊急理由、影響分析與 Architecture Owner 核准。
 
-## 13. Change and Evolution
+## 13. 變遷與演變
 
 下列變更屬於 Architecture Change，MUST 經 EWO 與 Architecture Review：
 
@@ -318,7 +318,7 @@ Platform Catalog 是 AI Engineering Workspace 已核准 Platform 的權威登錄
 5. 更新 Architecture、Catalog 與相關 Matrix。
 6. 依重大程度建立或引用 ADR。
 
-## 14. Compliance
+## 14. 合規性
 
 Platform Architecture 合規檢查至少包含：
 
@@ -330,7 +330,7 @@ Platform Architecture 合規檢查至少包含：
 | Classification | 具有單一 Primary Classification 且判定依據成立 |
 | Capability | 每項 Platform Responsibility 可追溯至正式 Capability |
 | Repository | 支援 Repository 與角色已識別，但未將 Repository 等同 Platform |
-| Ownership | 具有唯一 accountable Platform Owner，無未解決責任重疊 |
+| Ownership | 具有唯一負責 Platform Owner，無未解決責任重疊 |
 | Interface | 跨 Platform 互動具有正式 Interface 與 Owner |
 | Dependency | 依賴方向、類型、風險與 Owner 可追溯 |
 | Lifecycle | 狀態、轉移條件、Migration 與替代關係完整 |
@@ -338,7 +338,7 @@ Platform Architecture 合規檢查至少包含：
 
 不符合項目 MUST 在進入 Active 狀態或核准重大變更前完成修正；不得以 Catalog 註記取代架構修正。
 
-## 15. References
+## 15. 參考文獻
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
@@ -351,7 +351,7 @@ Platform Architecture 合規檢查至少包含：
 | REF-007 | EWO-AEOS-Architecture-0002 | EWO | 本文件之工作來源 |
 | REF-008 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
-## 16. Revision History
+## 16. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|

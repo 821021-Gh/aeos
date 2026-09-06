@@ -29,7 +29,7 @@ related:
 
 > EWO-AEOS-0011：依 AEOS-ADR-002、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001、AEOS-STD-001、AEOS-STD-002 與 AEOS-STD-003 建立 AEOS 之 Naming Standard。本文件為 AEOS Repository 所有正式治理資產之唯一 Naming 規範；不是 Metadata Standard，不是 Cross-reference Standard，不是 Documentation Information Architecture。
 
-## Executive Summary
+## 執行摘要
 
 本文件定義 AEOS 正式治理資產之 Naming 標準，涵蓋 Naming Model、Naming Categories、Naming Rules、Identifier Rules、Validation Rules、Naming Lifecycle 與 Compliance；為所有文件、目錄、EWO、ADR、Standards、Policies、Catalog、Specifications、Capabilities、Review、Branch、Commit、Pull Request 等命名之唯一標準來源（Single Source of Truth）。
 
@@ -42,14 +42,14 @@ related:
 | 型別 | Standard |
 | 狀態 | Approved |
 | 版本 | 1.3.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-08 |
 | 依據文件 | EWO-AEOS-0011、AEOS-STD-001（Approved v1.1.0）、AEOS-STD-002（Approved v1.1.0）、AEOS-STD-003（Approved v1.1.0）、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-GOV-001（Approved v1.2.0）、AEOS-ARCH-001、AEOS-ADR-002（WA-001 Fact Authority Transition） |
 | 關聯文件 | EWO-AEOS-0011、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001、AEOS-STD-001、AEOS-STD-002、AEOS-STD-003、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. Purpose
+## 1. 目的
 
 本文件定義 AEOS 正式治理資產之 Naming 標準，其目的為：
 
@@ -59,9 +59,9 @@ related:
 
 本文件不是 Metadata Standard（Metadata 由 AEOS-STD-002 定義），不是 Cross-reference Standard（引用形式由 AEOS-STD-003 定義），不是 Documentation Information Architecture（Taxonomy、目錄與生命週期由 AEOS-DIA-001 定義）；本文件僅定義命名之形式、規則與維護方式。
 
-## 2. Scope
+## 2.範圍
 
-### 2.1 In Scope
+### 2.1 在範圍內
 
 本標準涵蓋：
 
@@ -69,7 +69,7 @@ related:
 - Naming Model、Naming Categories、Naming Rules、Identifier Rules、Validation Rules、Naming Lifecycle 與 Compliance。
 - 正式識別子（doc-id、EWO ID、ADR 編號、Review ID）之格式與唯一性。
 
-### 2.2 Out of Scope
+### 2.2 超出範圍
 
 本標準明確不涵蓋：
 
@@ -80,7 +80,7 @@ related:
 - Repository 治理原則與變更管理（由 AEOS-CON-001 定義）。
 - Workspace 其他 Repository 之命名細則（由其自身治理文件定義）。
 
-## 3. Naming Model
+## 3. 命名模型
 
 - Naming 為正式治理資產之身分宣告；每個資產依其類別（§4）由「前綴 + 識別子 + 序列」組成名稱。
 - 名稱由五個組成要素定義：類別、前綴、識別子、序列、格式（Case Style 與 Separator）。
@@ -96,7 +96,7 @@ related:
 - 名稱一經發布即穩定；識別子 MUST NOT 變更（依 AEOS-DIA-001 EP-002）。
 - 全部名稱與識別子 MUST 全 Repository 唯一（依 §5 R-008、§7 V-002）。
 
-### 3.1 Naming Hierarchy
+### 3.1 命名層次結構
 
 命名依治理階層自上而下分層（依 AEOS-ARCH-002 §5 Governance Hierarchy）：
 
@@ -113,7 +113,7 @@ related:
 - Enterprise Naming 之來源（AEOS-ARCH-001）為最高命名權威（依 AEOS-ARCH-002 §5 H0）；AEOS 命名 MUST NOT 與其衝突。
 - 上層命名變更時，下層命名 MUST 於同一或後續 EWO 對應更新。
 
-## 4. Naming Categories
+## 4. 命名類別
 
 Naming Categories 為命名之正式分類；資產 MUST 依其類別套用對應命名規則。
 
@@ -124,81 +124,81 @@ Naming Categories 為命名之正式分類；資產 MUST 依其類別套用對�
 | NC-03 | doc-id Naming | 正式文件之 doc-id | `AEOS-<TYPE>-<###>` |
 | NC-04 | Directory Naming | `docs/` 下目錄 | `<分類目錄>`（依 AEOS-DIA-001 §5） |
 | NC-05 | File Naming | 正式文件檔案 | `<doc-id>-<Kebab-Case-Name>.md` |
-| NC-06 | Branch Naming | Git Branch | `agent/ewo-aeos-<####>-<kebab-slug>` |
-| NC-07 | Commit Naming | Git Commit Message | `<type>(<scope>): <subject> (<EWO-AEOS-####>)` |
-| NC-08 | Pull Request Naming | PR Title | `EWO-AEOS-<####> <Document Name>` |
-| NC-09 | EWO Naming | Engineering Work Order | `EWO-AEOS-<####>` |
+| NC-06 |分行命名| Git 分行 | `agent/ewo-aeos-<####>-<kebab-slug>` |
+| NC-07 |提交命名 | Git 提交訊息 | `<type>(<scope>): <subject> (<EWO-AEOS-####>)` |
+| NC-08 | Pull Request 命名 |PR 標題 | `EWO-AEOS-<####> <Document Name>` |
+| NC-09 | EWO 命名 | Engineering Work Order | `EWO-AEOS-<####>` |
 | NC-10 | ADR Naming | ADR 文件 | `AEOS-ADR-<###>`（依 AEOS-ARCH-003 §4） |
 | NC-11 | Review Naming | Review ID 與 RC | `<ReviewType>-AEOS-<####>-R<##>`／`RC-<###>` |
 | NC-12 | Catalog Naming | Catalog／Index 文件 | `AEOS-IDX-<###>` |
 
-### 4.1 NC-01 — Repository Naming
+### 4.1 NC-01 — 儲存庫命名
 
 - Repository 名稱 MUST 為 `AEOS`；正式名稱為 AI Enterprise Operating System（依 AEOS-CON-001 §2）。
 - Repository 名稱 MUST NOT 變更；變更視為 Repository 身分變更，需依 AEOS-CON-001 §10 程序。
 
-### 4.2 NC-02 — Document Naming
+### 4.2 NC-02 — 文件命名
 
 - 正式文件之 doc-name MUST 使用 Kebab-Case 英文名稱（例如 `Architecture Baseline`、`Cross-reference Standard`）。
 - doc-name MUST 與 doc-id 對應（依 AEOS-STD-002 MF-02）；變更視為重大變更，需 EWO。
 
-### 4.3 NC-03 — doc-id Naming
+### 4.3 NC-03 — doc-id 命名
 
 - doc-id MUST 符合 `AEOS-<TYPE>-<###>` 格式（依 AEOS-STD-002 MF-01）；TYPE 依 AEOS-DIA-001 §3 Taxonomy。
 - doc-id MUST 全 Repository 唯一且穩定；一經發布 MUST NOT 變更。
 
-### 4.4 NC-04 — Directory Naming
+### 4.4 NC-04 — 目錄命名
 
 - `docs/` 下目錄 MUST 依 AEOS-DIA-001 §5 Directory Organization 命名：`architecture`、`adr`、`documentation`、`specifications`、`constitution`、`policies`、`standards`、`governance`、`capability`、`references`、`indexes`、`templates`。
 - 目錄名稱 MUST 為小寫；MUST NOT 建立空目錄或 Placeholder 目錄。
 - 新增目錄 MUST 先擴充 AEOS-DIA-001 Taxonomy 與 Directory Organization（經 EWO 與 Review）。
 
-### 4.5 NC-05 — File Naming
+### 4.5 NC-05 — 檔案命名
 
 - 正式文件檔案 MUST 命名為 `<doc-id>-<Kebab-Case-Name>.md`（例如 `AEOS-STD-004-Naming-Standard.md`）。
 - 檔案 MUST 置於其 doc-id 對應之目錄（依 AEOS-DIA-001 §5）。
 - 檔案移動或更名 MUST 依 AEOS-STD-003 §7.4 Redirect Rule 同步更新全部引用。
 
-### 4.6 NC-06 — Branch Naming
+### 4.6 NC-06 — 分支命名
 
 - EWO 實作 Branch MUST 命名為 `agent/ewo-aeos-<####>-<kebab-slug>`（例如 `agent/ewo-aeos-0011-naming-standard`）。
 - Branch 名稱 MUST 僅使用小寫字母、數字、連字號與斜線；MUST NOT 包含空格、底線或其他符號。
 - 非 EWO 之維護 Branch 由 Repository Owner 核准後建立，並記錄於 PR 描述。
 
-### 4.7 NC-07 — Commit Naming
+### 4.7 NC-07 — 提交命名
 
 - Commit Message MUST 使用 Conventional Commits 格式：`<type>(<scope>): <subject> (<EWO-AEOS-<####>>)`。
-- type MUST 為 `docs`、`chore`、`feat`、`fix`、`refactor` 等 Conventional Commits 類型；scope 為變更範圍（如 `standards`、`architecture`、`governance`、`constitution`、`documentation`、`adr`）。
+- 類型 MUST 為 `docs`、`chore`、`feat`、`fix`、`refactor` 等 Conventional Commits 類型；範圍為變更範圍（如 `standards`、`architecture`、`governance`、`constitution`、`documentation`、`adr`）。
 - EWO 相關 Commit MUST 於 subject 結尾宣告來源 `EWO-AEOS-<####>`。
 
-### 4.8 NC-08 — Pull Request Naming
+### 4.8 NC-08 — Pull Request 命名
 
 - PR Title MUST 命名為 `EWO-AEOS-<####> <Document Name>`（例如 `EWO-AEOS-0011 Naming Standard`）。
 - PR Title MUST 對應其 EWO 標題；MUST NOT 使用與 EWO 無關之標題。
 
-### 4.9 NC-09 — EWO Naming
+### 4.9 NC-09 — EWO 命名
 
 - EWO ID MUST 命名為 `EWO-AEOS-<####>`（四位流水號，例如 `EWO-AEOS-0011`）。
 - EWO ID MUST 全 Repository 唯一；一經發布 MUST NOT 變更或重用。
 
-### 4.10 NC-10 — ADR Naming
+### 4.10 NC-10 — ADR 命名
 
 - ADR doc-id MUST 命名為 `AEOS-ADR-<###>`；檔案命名為 `AEOS-ADR-###-<Kebab-Case-Name>.md`（依 AEOS-ARCH-003 §4）。
 - ADR 編號由 ADR Register 管理；編號一經發布即穩定，MUST NOT 重用（依 AEOS-ARCH-003 §4）。
 
-### 4.11 NC-11 — Review Naming
+### 4.11 NC-11 — 審查命名
 
 - Review ID MUST 命名為 `<ReviewType>-AEOS-<####>-R<##>`（例如 `SR-AEOS-0011-R1`）；ReviewType 依 §6 Review ID。
 - Review 修正項目（Review Correction）MUST 編號為 `RC-<###>`（例如 `RC-001`）。
 - Review ID MUST 全 Repository 唯一；一經核發 MUST NOT 變更。
 
-### 4.12 NC-12 — Catalog Naming
+### 4.12 NC-12 — 目錄命名
 
 - Catalog／Index 文件 doc-id MUST 命名為 `AEOS-IDX-<###>`（依 AEOS-DIA-001 §3 IDX 類別）；檔案命名為 `AEOS-IDX-###-<Kebab-Case-Name>.md`。
 - Catalog 適用範圍：Architecture Catalog（依 AEOS-ARCH-001 §8 Register）、Governance Catalog（依 AEOS-GOV-001 §6）、Capability Catalog（依後續 Capability 文件）。
 - Catalog 項目 MUST 使用目標資產之正式 doc-id 登錄（依 AEOS-STD-003 §4.9），MUST NOT 另立代號。
 
-## 5. Naming Rules
+## 5. 命名規則
 
 本節定義命名之正式規則；所有正式資產之命名 MUST 符合下列規則。
 
@@ -213,55 +213,55 @@ Naming Categories 為命名之正式分類；資產 MUST 依其類別套用對�
 | R-007 | Reserved Words | 保留字不得挪用 |
 | R-008 | Uniqueness | 識別子全 Repository 唯一 |
 
-### 5.1 R-001 — Prefix
+### 5.1 R-001 — 前綴
 
 - 每個類別 MUST 使用其固定前綴：`AEOS-`（文件）、`EWO-`（工作單）、`WA-`（外部架構來源）、ReviewType（Review）。
 - 前綴 MUST NOT 混用或替換；前綴一經發布即穩定。
 - 外部來源（如 `WA-001`）MUST NOT 被賦予 AEOS 前綴（依 AEOS-STD-003 §4.8）。
 
-### 5.2 R-002 — Identifier
+### 5.2 R-002 — 識別符
 
 - 識別子為名稱之身分主體，由 TYPE 與流水號組成（如 `ARCH-001`、`EWO-0011`）。
 - 識別子 MUST 依 §6 Identifier Rules 定義之格式；MUST NOT 自創格式。
 - 識別子 MUST 一經發布即穩定（依 AEOS-DIA-001 EP-002）。
 
-### 5.3 R-003 — Sequence
+### 5.3 R-003 — 序列
 
 - 流水號 MUST 依序遞增取得；MUST NOT 重用已發布之號碼。
 - 流水號 MUST 零填充至固定位數：文件 `###`（三位）、EWO `####`（四位）、Review `R<##>`（二位）。
 - 流水號之分配由對應 Register 或 EWO 管理（如 ADR 依 AEOS-ARCH-003 §4）。
 
-### 5.4 R-004 — Version
+### 5.4 R-004 — 版本
 
 - 版本 MUST 使用 SemVer `MAJOR.MINOR.PATCH`（依 AEOS-STD-002 MF-05）。
 - 狀態與版本 MUST 對應：Draft 為 `0.x.0`；首次核准升版至 `1.0.0`（依 AEOS-STD-002 §8）。
 - 版本命名 MUST NOT 使用 `v` 前綴或其他格式（外部來源版本除外，如 `WA-001 v1.0.0`）。
 
-### 5.5 R-005 — Case Style
+### 5.5 R-005 — 錶殼樣式
 
 - 正式文件名稱與檔案名稱 MUST 使用 Kebab-Case（小寫、單字以連字號分隔）。
 - doc-id、EWO ID、Review ID、TYPE 與前綴 MUST 使用大寫（Upper Case）。
 - MUST NOT 混用 Snake_Case、camelCase 或空格作為正式識別子格式。
 
-### 5.6 R-006 — Separator
+### 5.6 R-006 — 分隔符
 
 - 正式名稱 MUST 以連字號 `-` 分隔單字與識別子組成。
 - `/` 僅用於 Branch 路徑與目錄路徑。
 - 正式識別子 MUST NOT 包含空格、底線 `_`、點 `.` 或其他符號。
 
-### 5.7 R-007 — Reserved Words
+### 5.7 R-007 — 保留字
 
 - 保留字 MUST NOT 用於其定義用途以外之命名：`AEOS`、`EWO`、`WA`、Taxonomy TYPE（`ARCH`、`DIA`、`SPEC`、`CON`、`GOV`、`CAP`、`ADR`、`POL`、`STD`、`REF`、`IDX`、`TPL`、`CAT`、`MAT`、`RPT`）、ReviewType（`AR`、`CR`、`DR`、`GR`、`SR`、`CM`、`RT`）、`R`、`RC`。
 - 保留前綴 MUST NOT 被其他類別佔用或仿冒。
 - 既有資產使用保留字作為名稱主體時，MUST 依本標準重新命名（經 EWO 與 Review）。
 
-### 5.8 R-008 — Uniqueness
+### 5.8 R-008 — 獨特性
 
 - doc-id、EWO ID、ADR 編號、Review ID MUST 全 Repository 唯一。
 - 重複命名 MUST 拒絕（依 §7 V-002）；不得以相似名稱規避唯一性。
 - 被 Deprecated 或 Archived 之識別子 MUST 保留且 MUST NOT 重用。
 
-## 6. Identifier Rules
+## 6. 識別符規則
 
 本節定義正式識別子之格式；識別子 MUST 依下列規則命名。
 
@@ -276,8 +276,8 @@ Naming Categories 為命名之正式分類；資產 MUST 依其類別套用對�
 | IR-07 | AEOS-CAP-### | Capability 文件 doc-id | AEOS-CAP-001 |
 | IR-08 | AEOS-ADR-### | ADR 文件 doc-id（依 AEOS-ARCH-003 §4） | AEOS-ADR-001 |
 | IR-09 | EWO-AEOS-#### | Engineering Work Order ID | EWO-AEOS-0011 |
-| IR-10 | Review ID | `<ReviewType>-AEOS-<####>-R<##>` | SR-AEOS-0011-R1 |
-| IR-11 | PR Title | `EWO-AEOS-<####> <Document Name>` | EWO-AEOS-0011 Naming Standard |
+| IR-10 |審查 ID | `<ReviewType>-AEOS-<####>-R<##>` | SR-AEOS-0011-R1 |
+| IR-11 |PR 標題 | `EWO-AEOS-<####> <Document Name>` | EWO-AEOS-0011 Naming Standard |
 | IR-12 | AEOS-CAT-### | Catalog 文件 doc-id（依 AEOS-STD-006） | AEOS-CAT-001 |
 | IR-13 | AEOS-MAT-### | Matrix 文件 doc-id（依 AEOS-STD-006） | AEOS-MAT-001 |
 | IR-14 | AEOS-RPT-### | Report 文件 doc-id | AEOS-RPT-001 |
@@ -289,42 +289,42 @@ Naming Categories 為命名之正式分類；資產 MUST 依其類別套用對�
 - doc-id MUST 與檔案名稱及 frontmatter 一致（依 AEOS-STD-003 §6.1 C-002、C-003）。
 - 各 TYPE 之流水號 MUST 獨立編號；不同 TYPE 不共用流水號序列。
 
-### 6.2 IR-09 — EWO-AEOS-####
+### 6.2 IR-09 — EWO-AEOS-#####
 
 - EWO ID MUST 使用四位流水號：`EWO-AEOS-<####>`。
 - EWO ID 依發行順序遞增；一經發布 MUST NOT 變更或重用。
 - 正式文件 frontmatter 之 related MUST 宣告來源 EWO（依 AEOS-STD-002 MF-10）。
 
-### 6.3 IR-10 — Review ID
+### 6.3 IR-10 — 審查 ID
 
 - Review ID MUST 符合 `<ReviewType>-AEOS-<####>-R<##>`。
 - ReviewType MUST 為下列固定值之一：
 
 | ReviewType | 含義 |
 |------------|------|
-| AR | Architecture Review |
-| CR | Constitution Review |
-| DR | Documentation Review |
-| GR | Governance Review |
-| SR | Standard Review |
-| CM | Catalog／Matrix Review |
-| RT | Report Review |
+| AR | 架構審查 |
+| CR |憲法審查|
+| DR | 文件審查 |
+| GR |治理回顧|
+| SR |標準審查|
+| CM |目錄/矩陣審查 |
+| RT | 報告審查 |
 
 - `R<##>` 為 Review 序號（例如 R1、R2）；同一 EWO 之 Review 序號 MUST 依序遞增。
 - Review 修正項目 MUST 編號為 `RC-<###>`，並於 PR 描述與 Revision History 宣告。
 
-### 6.4 IR-11 — PR Title
+### 6.4 IR-11 — PR 標題
 
 - PR Title MUST 命名為 `EWO-AEOS-<####> <Document Name>`。
 - PR Title MUST 與 EWO 標題對應；Draft PR 與正式 PR 使用相同命名規則。
 
-### 6.5 Identifier Reservation
+### 6.5 識別符保留
 
 | 機制 | 定義 | 規則 |
 |------|------|------|
 | Reserved Prefix | 保留前綴（`AEOS-`、`EWO-`、`WA-`、ReviewType 等） | MUST 依 §5 R-007 使用；MUST NOT 被其他類別佔用 |
 | Reserved Identifier | 已保留但尚未發布之識別子（如固定值 `AEOS`、`WA-001`、規劃中流水號） | MUST NOT 分配給其他資產（依 §8 Reserved） |
-| Retired Identifier | 已停用並永久保留之識別子（Deprecated／Superseded） | 保留歷史；MUST NOT 重新使用或重新配置 |
+| Retired Identifier | 已停用並永久保留之識別子（Deprecated／Superseded） | 保留歷史；MUST NOT 重新使用或重新設定 |
 
 規定：
 
@@ -332,7 +332,7 @@ Naming Categories 為命名之正式分類；資產 MUST 依其類別套用對�
 - 識別子之保留與釋出 MUST 記錄於對應 Register（如 ADR Register 依 AEOS-ARCH-003 §4）或 EWO。
 - MUST NOT 以重用已發布識別子之方式修正命名錯誤（依 §7 V-002）。
 
-## 7. Validation Rules
+## 7. 驗證規則
 
 本節定義命名有效性之驗證規則；驗證 MUST 於 Review 時執行（依 AEOS-CON-001 GP-009）。
 
@@ -350,7 +350,7 @@ Naming Categories 為命名之正式分類；資產 MUST 依其類別套用對�
 - 驗證以 §7.1 Naming Consistency Validation 與 §9.1 Naming Compliance Checklist 為執行依據；Review Owner MUST 於 Review 時執行驗證。
 - 自動化驗證工具 MAY 用於輔助；其結果 MUST 以 §9.1 Checklist 人工確認。
 
-### 7.1 Naming Consistency Validation
+### 7.1 命名一致性驗證
 
 Naming Consistency Validation 驗證命名與資產身分、Metadata、引用及 EWO 之一致性：
 
@@ -367,7 +367,7 @@ Naming Consistency Validation 驗證命名與資產身分、Metadata、引用及
 - Naming Consistency Validation MUST 於 Review 時執行，並併入 §9.1 Checklist。
 - 不一致之命名 MUST 記為不合規，依 §7 修正後始可合併。
 
-## 8. Naming Lifecycle
+## 8. 命名生命週期
 
 命名狀態隨資產之生命週期（依 AEOS-DIA-001 §8）演進；本節定義命名本身之狀態。
 
@@ -376,17 +376,17 @@ Naming Consistency Validation 驗證命名與資產身分、Metadata、引用及
 | Proposed | 提案中之命名（EWO 範圍內），尚未發布 | MUST 於 EWO 中宣告；可於 Review 前調整 |
 | Active | 已發布且使用中之命名（合併至 main 或已核發） | MUST 保持唯一、穩定且符合本標準 |
 | Deprecated | 已被取代或停用之命名 | 保留歷史；MUST NOT 重用；不得再建立新引用（依 AEOS-STD-003 §8） |
-| Superseded | 已由新識別子正式取代之命名 | 保留歷史；MUST NOT 重新配置；取代關係 MUST 依 AEOS-STD-002 OF-01／OF-02 宣告（supersedes／superseded-by） |
+| Superseded | 已由新識別子正式取代之命名 | 保留歷史；MUST NOT 重新設定；取代關係 MUST 依 AEOS-STD-002 OF-01／OF-02 宣告（supersedes／superseded-by） |
 | Reserved | 保留或固定之命名（如 `AEOS`、`WA-001`、保留前綴） | MUST NOT 被分配給其他資產 |
 
 規則：
 
 - 命名狀態轉換順序 MUST 為 Proposed → Active → Deprecated → Superseded → Reserved。
-- Superseded Identifier 保留歷史，不得重新配置。
+- Superseded Identifier 保留歷史，不得重新設定。
 - 命名狀態變更 MUST 記錄於對應文件之 Revision History（如適用）。
 - 命名生命週期與文件生命週期（AEOS-DIA-001 §8）一致；本文件不重述文件生命週期。
 
-## 9. Compliance
+## 9. 合規性
 
 - 本標準適用之正式資產 MUST 符合本標準（依 AEOS-CON-001 §11）。
 - 不合規之命名 MUST NOT 合併至 main（依 AEOS-CON-001 GP-009）。
@@ -394,7 +394,7 @@ Naming Consistency Validation 驗證命名與資產身分、Metadata、引用及
 - 與 AEOS-DIA-001／AEOS-CON-001／AEOS-ARCH-002 衝突時，以上位文件為準（依 Governance Hierarchy，AEOS-ARCH-002 §5）。
 - 本標準 MUST NOT 重新定義 Metadata（AEOS-STD-002）、Cross-reference（AEOS-STD-003）、Documentation Format（AEOS-STD-001）或 Documentation Information Architecture（AEOS-DIA-001）之規則。
 
-### 9.1 Naming Compliance Checklist
+### 9.1 命名合規性檢查表
 
 | 檢查項目 | 檢查內容 |
 |----------|----------|
@@ -407,7 +407,7 @@ Naming Consistency Validation 驗證命名與資產身分、Metadata、引用及
 | Uniqueness | 識別子全 Repository 唯一；Deprecated／Archived 識別子未重用 |
 | Metadata 一致 | doc-id 與 doc-name、檔案名稱、frontmatter、文件資訊一致（依 AEOS-STD-002 V-010） |
 
-### 9.2 Naming Integrity Checklist
+### 9.2 命名完整性檢查表
 
 | 檢查項目 | 檢查內容 |
 |----------|----------|
@@ -418,7 +418,7 @@ Naming Consistency Validation 驗證命名與資產身分、Metadata、引用及
 | 無 Reused Identifier | 已 Released 之識別子未被重新使用（依 §6.5） |
 | 無 Broken Naming Chain | 上層命名與下層命名一致，無中斷（依 §3.1） |
 
-## 10. References
+## 10. 參考文獻
 
 | # | 文件 | 型別 | 用途 |
 |---|------|------|------|
@@ -437,12 +437,12 @@ Naming Consistency Validation 驗證命名與資產身分、Metadata、引用及
 
 本標準（AEOS-STD-004）為 AEOS 唯一 Naming 標準來源（Single Source of Truth）；其他文件 MUST NOT 定義相異之命名規則。
 
-## 11. Revision History
+## 11. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
 | 1.3.0 | 2026-08-08 | 依 EWO-AEOS-0040 Wave 3（AEOS-ADR-002 已核准）：執行 Governance Authority Transition——WA-001 分類為歷史來源（Historical Reference）；Enterprise Naming 權威來源與 References 重錨至 AEOS-ARCH-001／Approved 架構載體（EWO-AEOS-0040） | Codex |
 | 1.2.0 | 2026-08-06 | 依 EWO-AEOS-0033 新增 Report 文件 doc-id（IR-14 AEOS-RPT-###）；保留字新增 RPT、RT；§6.1 TYPE 清單新增 RPT；ReviewType 新增 RT（Report Review）（SR-AEOS-0033-R2） | Codex |
 | 1.1.0 | 2026-08-06 | 依 EWO-AEOS-0022 新增 CAT／MAT 文件型別與 doc-id（IR-12、IR-13）；保留字新增 CAT／MAT／CM；§6.3 ReviewType 新增 CM（Catalog／Matrix Review） | Codex |
-| 1.0.0 | 2026-08-06 | 依 Standard Review（SR-AEOS-0011-R1）修正：狀態升版至 Approved 1.0.0；Naming Model 新增 Naming Hierarchy（Enterprise／Repository／Document／Identifier Naming；Naming MUST 自上而下保持一致）；Identifier Rules 新增 Identifier Reservation（Reserved Prefix／Reserved Identifier／Retired Identifier；Identifier 一經 Released 不得重新使用）；Validation Rules 新增 Naming Consistency Validation（C-001～C-005）；Naming Lifecycle 新增 Superseded（Proposed → Active → Deprecated → Superseded → Reserved；Superseded Identifier 保留歷史，不得重新配置）；Compliance 新增 Naming Integrity Checklist | Codex |
+| 1.0.0 | 2026-08-06 | 依 Standard Review（SR-AEOS-0011-R1）修正：狀態升版至 Approved 1.0.0；Naming Model 新增 Naming Hierarchy（Enterprise／Repository／Document／Identifier Naming；Naming MUST 自上而下保持一致）；Identifier Rules 新增 Identifier Reservation（Reserved Prefix／Reserved Identifier／Retired Identifier；Identifier 一經 Released 不得重新使用）；Validation Rules 新增 Naming Consistency Validation（C-001～C-005）；Naming Lifecycle 新增 Superseded（Proposed → Active → Deprecated → Superseded → Reserved；Superseded Identifier 保留歷史，不得重新設定）；Compliance 新增 Naming Integrity Checklist | Codex |
 | 0.1.0 | 2026-08-06 | 初版建立：定義 Naming Model、Naming Categories、Naming Rules、Identifier Rules、Validation Rules、Naming Lifecycle 與 Compliance（EWO-AEOS-0011） | Codex |

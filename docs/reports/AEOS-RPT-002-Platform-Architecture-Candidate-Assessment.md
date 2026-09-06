@@ -34,9 +34,9 @@ related:
 
 > EWO-AEOS-0038：依 Approved Fact Authority 識別可供後續登錄至 AEOS-CAT-001 之 Platform Entry 候選，完成來源證據、Scope、Boundary、Responsibilities、Exclusions、重疊分析及 Architecture Review 判定。本文件為 Report（RPT）型別，用途分類為 Architecture Candidate Assessment；僅承載候選分析、審查證據與 Review Outcome 摘要，不取代正式 AR Review Record。
 
-## Executive Summary
+## 執行摘要
 
-本報告依現行 Approved Architecture 完成 Platform Architecture Candidate Assessment。結論：**現行 Approved Fact Authority 未核准任何具名 Platform，亦無法由多份 Approved 來源直接綜合出具名 Platform 候選**。評估對象包括：PC-001（AI Engineering Workspace，以 Platform 評估）——Rejected（錯誤分類，Approved 架構定義其為 Enterprise Workspace）；PC-002（AEOS，以 Platform 評估）——Rejected（錯誤分類，Approved 架構定義其為 Enterprise Root Repository）；PC-003（WA-001 Platform Topology 具名 Platform）——Deferred（WA-001 內容未於 AEOS 內發布，缺少必要 Fact Authority）。無候選獲得 Approved 或 Approved with Conditions；本 EWO 不修改 AEOS-CAT-001、不配置正式 Platform Entry ID。
+本報告依現行 Approved Architecture 完成 Platform Architecture Candidate Assessment。結論：**現行 Approved Fact Authority 未核准任何具名 Platform，亦無法由多份 Approved 來源直接綜合出具名 Platform 候選**。評估對象包括：PC-001（AI Engineering Workspace，以 Platform 評估）——Rejected（錯誤分類，Approved 架構定義其為 Enterprise Workspace）；PC-002（AEOS，以 Platform 評估）——Rejected（錯誤分類，Approved 架構定義其為 Enterprise Root Repository）；PC-003（WA-001 Platform Topology 具名 Platform）——Deferred（WA-001 內容未於 AEOS 內發布，缺少必要 Fact Authority）。無候選獲得 Approved 或 Approved with Conditions；本 EWO 不修改 AEOS-CAT-001、不設定正式 Platform Entry ID。
 
 ## 文件資訊
 
@@ -48,14 +48,14 @@ related:
 | 用途分類 | Architecture Candidate Assessment（依 AEOS-DIA-001 §3 RPT 規則） |
 | 狀態 | Draft |
 | 版本 | 0.2.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-08 |
 | 依據文件 | EWO-AEOS-0038、AEOS-STD-006（Approved 1.1.0）、AEOS-CAT-001（Approved 1.1.0）、AEOS-RPT-001（Approved 1.1.0）、AEOS-ARCH-001、AEOS-ARCH-004～010（Approved 1.1.0）、AEOS-DIA-001（3.2.0）、AEOS-STD-004（1.2.0）、AEOS-STD-005（1.3.0）、AEOS-ARCH-003、WA-001（Approved v1.0.0，外部來源） |
 | 關聯文件 | AEOS-ARCH-001～010、AEOS-CAT-001、AEOS-RPT-001、AEOS-DIA-001、AEOS-STD-001～006、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. Purpose
+## 1. 目的
 
 本報告之目的為：
 
@@ -64,24 +64,24 @@ related:
 - 記錄 WA-001 之權威可用性與限制。
 - 提供後續獨立 Catalog Registration EWO 可直接引用之審查結論（與對應 AR Review Record 共同構成登錄依據）。
 
-## 2. Scope
+## 2.範圍
 
-### 2.1 In Scope
+### 2.1 在範圍內
 
 - 自 Approved Architecture 擷取或由多份 Approved 來源直接綜合之 Platform 候選識別。
 - 候選之 Scope、Boundary、Responsibilities、Exclusions、來源證據與重疊分析。
-- Architecture Review Outcome（Approved／Approved with Conditions／Rejected／Deferred）。
+- 架構評審結果（Approved／Approved 有條件／Rejected／延期）。
 - ADR Requirement Assessment 與 Catalog Registration Readiness。
 
-### 2.2 Out of Scope
+### 2.2 超出範圍
 
-- 修改 AEOS-CAT-001 或配置正式 Platform Entry ID。
+- 修改 AEOS-CAT-001 或設定正式 Platform Entry ID。
 - 新增或變更 Enterprise Architecture；建立 ADR 或任何 Matrix。
 - 新增、修改或核准 Capability Entry；新增 Owner incumbent。
 - 新增或推測 Ownership、Dependency、Mapping、Placement 或其他跨實體關係。
 - 自 Repository 名稱、現行實作、工具或供應商清單、產品名稱、未核准規劃或非正式討論反向推測候選。
 
-## 3. Governing Sources
+## 3. 管理來源
 
 本報告之 Approved Fact Authority：
 
@@ -98,22 +98,22 @@ related:
 | AEOS-RPT-001 — Readiness Assessment | Approved 1.0.0 | 承接之 Readiness 判定與建議執行順序 |
 | AEOS-DIA-001／STD-004／STD-005 | 3.1.0／1.2.0／1.3.0 | Architecture Candidate Assessment 型別、識別與 AR Review 路徑 |
 
-## 4. Assessment Method
+## 4.評估方法
 
 - 候選僅能自 Approved Fact Authority 擷取，或由多份 Approved 來源直接綜合。
 - Source Classification 區分：**Explicit Approved Fact**（Approved 來源明載）／**Direct Synthesis from Approved Facts**（多份 Approved 來源直接綜合）／**Unsupported Inference**（缺乏 Fact Authority 之推測）。
 - Unsupported Inference 不得獲得 Approved 或 Approved with Conditions。
 - Architecture Review Outcome 僅使用：Approved、Approved with Conditions、Rejected、Deferred。
-- 候選使用明確標示為非正式之 Candidate ID（PC-###）；不配置 AEOS-CAT-001 之正式 Platform Entry ID。
+- 候選使用明確標示為非正式之 Candidate ID（PC-###）；不設定 AEOS-CAT-001 之正式 Platform Entry ID。
 - 本報告之 Review 路徑：Architecture Review（AR，AEOS-STD-005 §4）；PR 為正式 AR Review Record 載體；本報告僅記錄 Review ID 與結果摘要。
 
-## 5. Current Platform Catalog Baseline
+## 5. 目前 Platform Catalog 基線
 
 - AEOS-CAT-001 — Platform Catalog：**Approved 1.0.0**。
 - 現行 Platform Entry 數量：**0**。
-- 本文件不改變 AEOS-CAT-001 之狀態；未配置任何正式 Platform Entry ID。
+- 本文件不改變 AEOS-CAT-001 之狀態；未設定任何正式 Platform Entry ID。
 
-## 6. Candidate Summary
+## 6. 候選項目摘要
 
 | Candidate ID（非正式） | Candidate Name | Source Classification | AR Outcome |
 |-----------------------|----------------|----------------------|------------|
@@ -123,7 +123,7 @@ related:
 
 註：未納入任何 Unsupported Inference 候選（例：YEOS 僅被引用為 Engineering Workflow 來源，未於 AEOS Approved Architecture 中具正式身分，不構成候選）。
 
-## 7. Candidate Assessments
+## 7. 候選項目評估
 
 ### 7.1 PC-001 — AI Engineering Workspace（以 Platform 評估）
 
@@ -137,14 +137,14 @@ related:
 | Boundary | 依 AEOS-ARCH-010 §4、§6 為 Workspace 企業架構邊界 |
 | Responsibilities | 統合 Platform、Capability、Repository、Dependency 與治理資產之整體邊界（AEOS-ARCH-010 §4.1） |
 | Exclusions | 不屬 Platform 承載／治理邊界（AEOS-ARCH-005 §4.2、AEOS-ARCH-010 §7.1） |
-| Supporting Approved Sources | AEOS-ARCH-010 §7.1；AEOS-ARCH-005 §4.2；AEOS-ARCH-004 §4 |
+|支援 Approved 來源| AEOS-ARCH-010 §7.1；AEOS-ARCH-005 §4.2；AEOS-ARCH-004 §4 |
 | Source Classification | Explicit Approved Fact（來源明載其為 Enterprise Workspace 類型） |
 | Relationship to Workspace | 即 WS-001 所登錄之 AI Engineering Workspace 實體 |
 | Relationship to Repository | AEOS 為其 Enterprise Root Repository（AEOS-ARCH-001 §1，已核准事實） |
-| 與 AEOS-STD-006 Platform Entry 符合性 | 不符合——Approved Architecture 未核准其為 Platform；無支持 Platform Entry 之 Architecture Reference |
+| 與 AEOS-STD-006 Platform Entry 符合性 | 不符合——Approved Architecture 未核准其為 Platform；無支援 Platform Entry 之 Architecture Reference |
 | 重疊／重複／合併／拆分分析 | 與 Workspace Catalog WS-001 同實體；若登錄為 Platform 將造成身分重複 |
 | 缺失資訊與條件 | 無（分類判定明確） |
-| AR Outcome | **Rejected** |
+| AR 結果 | **Rejected** |
 | Review Rationale | 錯誤分類：AEOS-ARCH-010 §7.1 明載其為 Enterprise Workspace（唯一已核准 Workspace 類型）；AEOS-ARCH-005 §4.2 明示 Workspace 與 Platform 為不同架構元素；登錄為 Platform 將與既有架構衝突並與 WS-001 重複 |
 
 ### 7.2 PC-002 — AEOS（以 Platform 評估）
@@ -159,14 +159,14 @@ related:
 | Boundary | 依 AEOS-CON-001 §2、AEOS-ARCH-001 §1 為 Enterprise Root Repository |
 | Responsibilities | 承載 Workspace 層級之企業架構、治理與共同控制資產（AEOS-ARCH-008 §7） |
 | Exclusions | 不屬 Platform（AEOS-ARCH-005 §4.2：Repository ≠ Platform） |
-| Supporting Approved Sources | AEOS-ARCH-001 §1；AEOS-CON-001 §2；AEOS-ARCH-008 §7；AEOS-ARCH-005 §4.2 |
-| Source Classification | Explicit Approved Fact |
+|支援 Approved 來源| AEOS-ARCH-001 §1；AEOS-CON-001 §2；AEOS-ARCH-008 §7；AEOS-ARCH-005 §4.2 |
+|來源分類|明確的 Approved 事實|
 | Relationship to Workspace | AI Engineering Workspace 之 Enterprise Root Repository（AEOS-ARCH-001 §1） |
 | Relationship to Repository | 即 REP-001 所登錄之 AEOS 實體 |
 | 與 AEOS-STD-006 Platform Entry 符合性 | 不符合——Approved Architecture 未核准其為 Platform |
 | 重疊／重複／合併／拆分分析 | 與 Repository Catalog REP-001 同實體；若登錄為 Platform 將造成身分重複 |
 | 缺失資訊與條件 | 無（分類判定明確） |
-| AR Outcome | **Rejected** |
+| AR 結果 | **Rejected** |
 | Review Rationale | 錯誤分類：AEOS-ARCH-001 §1 與 AEOS-CON-001 §2 明載其為 Enterprise Root Repository；AEOS-ARCH-005 §4.2 明示 Repository 與 Platform 為不同架構元素；與 REP-001 重複 |
 
 ### 7.3 PC-003 — WA-001 Platform Topology 具名 Platform（名稱待正式發布）
@@ -188,22 +188,22 @@ related:
 | 與 AEOS-STD-006 Platform Entry 符合性 | 無法判定（缺少必要事實） |
 | 重疊／重複／合併／拆分分析 | 無實體可比較（來源未發布） |
 | 缺失資訊與條件 | 缺少具名 Platform、邊界、責任之必要 Fact Authority；前置條件：WA-001 內容於 AEOS 內正式發布並經 Architecture Review 核准（可能需 ADR） |
-| AR Outcome | **Deferred** |
+| AR 結果 | **延長** |
 | Review Rationale | 缺少必要 Fact Authority；依要求不得補寫推測內容；WA-001 內容發布為前置條件 |
 
-## 8. Conflict and Overlap Analysis
+## 8. 衝突與重疊分析
 
 - **PC-001 與 WS-001**：同實體重疊——PC-001 Rejected 以避免 Workspace／Platform 身分重複。
 - **PC-002 與 REP-001**：同實體重疊——PC-002 Rejected 以避免 Repository／Platform 身分重複。
 - **PC-003**：無實體可比較（WA-001 內容未發布）。
 - **來源衝突**：現行 Approved 來源間無 Platform 分層、命名、邊界、責任或數量之衝突；WA-001 內容未於 AEOS 內發布，無從比較。若 WA-001 發布後與 AEOS 架構存在上述衝突，相關候選將依要求 Deferred 並回報治理處置；本 EWO 不自行選邊或重寫架構。
 
-## 9. Architecture Review Results
+## 9. 架構審查結果
 
 - Review ID：**AR-AEOS-0038-R1**（Architecture Review，依 AEOS-STD-005 §4、AEOS-STD-004 §6.3）。
 - Review Record：本 PR 為正式 AR Review Record 載體；本報告僅記錄結果摘要，不取代 Review Record。
 
-| Candidate | AR Outcome |
+|候選項目 | AR 結果 |
 |-----------|------------|
 | PC-001 | Rejected（錯誤分類；與 WS-001 重複） |
 | PC-002 | Rejected（錯誤分類；與 REP-001 重複） |
@@ -211,12 +211,12 @@ related:
 
 結果：**無候選獲得 Approved 或 Approved with Conditions**。
 
-## 10. ADR Requirement Assessment
+## 10. ADR 需求評估
 
 - 本 EWO 無 Approved 候選，故現階段無需為候選核准建立 ADR。
 - 若後續 PC-003 所屬候選經核准且其核准構成新增或變更 Enterprise Architecture（例如正式導入 WA-001 Platform Topology 內容），MUST 依 AEOS-ARCH-003 判斷是否另行建立 ADR；本 EWO 不建立 ADR，RPT 與 AR 不得取代必要之 ADR。
 
-## 11. Catalog Registration Readiness
+## 11. 目錄註冊準備
 
 | 候選 | 可否進入後續 Catalog Registration EWO | 必要條件 |
 |------|--------------------------------------|----------|
@@ -226,20 +226,20 @@ related:
 
 後續 Catalog 登錄 MUST 同時引用：① Approved AEOS-RPT-002；② 本次對應之 AR Review Record（本 PR）。
 
-## 12. Fact Authority and Traceability
+## 12. Fact Authority 和可追溯性
 
 - 每項候選之判定均可回溯至 §3 Governing Sources 所列之 Approved Fact Authority。
 - Source Classification 已區分 Explicit Approved Fact／Direct Synthesis from Approved Facts／Unsupported Inference；本報告未採納任何 Unsupported Inference。
 - 未從 Repository 名稱、現行實作、工具或供應商清單、產品名稱、未核准規劃或非正式討論反向推測候選。
 - 本報告不登錄任何未經核准之事實；候選 ID（PC-###）明確標示為非正式。
 
-## 13. Limitations
+## 13. 限制
 
 - **WA-001 可用性**：WA-001 於 AEOS Approved 文件中被引用為唯一架構來源（Approved v1.0.0），但其內容（含 Platform Topology 之具名 Platform）**未於 AEOS Repository 內發布或可解析**；故本報告無法以 WA-001 單獨作為核准依據，僅記錄其可用性與限制。
 - 若 Approved Architecture 未明載具名 Platform，本報告不為填滿 Catalog 而創造名稱或邊界。
 - 本報告為候選評估（Draft 0.1.0）；正式核准需經 AR 通過並合併後依 Lifecycle 生效。
 
-## 14. References
+## 14. 參考文獻
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
@@ -248,7 +248,7 @@ related:
 | REF-003 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](../architecture/AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.1.0） | Architecture | Platform 領域定位與關係模型 |
 | REF-004 | [AEOS-ARCH-005 — Platform Architecture](../architecture/AEOS-ARCH-005-Platform-Architecture.md)（Approved 1.1.0） | Architecture | Platform 定義、身分、邊界、分類與 Catalog 規則 |
 | REF-005 | AEOS-ARCH-006～010（Approved 1.1.0） | Architecture | Layer、Capability、Repository、Dependency、Workspace 定義與區別 |
-| REF-006 | [AEOS-ARCH-003 — Architecture Decision Record System](../architecture/AEOS-ARCH-003-Architecture-Decision-Record-System.md)（Approved 1.1.0） | Architecture | ADR Requirement Assessment |
+| REF-006 | [AEOS-ARCH-003 — Architecture Decision Record System](../architecture/AEOS-ARCH-003-Architecture-Decision-Record-System.md)（Approved 1.1.0） |架構| ADR 需求評估 |
 | REF-007 | [AEOS-CAT-001 — Platform Catalog](../catalogs/AEOS-CAT-001-Platform-Catalog.md)（Approved 1.1.0） | Catalog | 現行登錄基線 |
 | REF-008 | [AEOS-STD-006 — Enterprise Architecture Catalog and Matrix Standard](../standards/AEOS-STD-006-Enterprise-Architecture-Catalog-and-Matrix-Standard.md)（Approved 1.1.0） | Standard | Platform Entry Schema 與登錄規則 |
 | REF-009 | [AEOS-RPT-001 — M5 Catalog／Matrix Readiness Assessment](../reports/AEOS-RPT-001-M5-Catalog-Matrix-Readiness-Assessment.md)（Approved 1.1.0） | Report | 承接之 Readiness 判定 |
@@ -257,7 +257,7 @@ related:
 | REF-012 | [AEOS-STD-005 — Review Standard](../standards/AEOS-STD-005-Review-Standard.md)（1.4.0） | Standard | AR Review 路徑與 Review Record 規則 |
 | REF-013 | EWO-AEOS-0038 | EWO | 本文件之工作來源 |
 
-## 15. Revision History
+## 15. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|

@@ -24,7 +24,7 @@ related:
 
 # AEOS-ARCH-009 — Dependency Architecture
 
-## Executive Summary
+## 執行摘要
 
 本文件依 AEOS-ADR-002 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Dependency Architecture，定義 Dependency 的識別、類型、方向、邊界、來源與目標，涵蓋 Platform、Layer、Capability、Repository 與 Implementation 之間的依賴關係，並定義依賴強度、Ownership、Lifecycle、變更影響、循環依賴與違規治理規則。Dependency 是正式架構關係而非僅為技術套件連結；依賴方向以「上位約束、下位依賴」為原則，禁止未核准的反向控制與跨層繞過。本文件不重新設計既定 Architecture、不建立具名 Dependency Matrix 或實際依賴清單、不建立實作設計，也不開始 Workspace Architecture。
 
@@ -37,14 +37,14 @@ related:
 | 型別 | Architecture（Dependency Architecture） |
 | 狀態 | Approved |
 | 版本 | 1.1.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-08 |
 | 依據文件 | EWO-AEOS-0018、EWO-AEOS-0019、AR-AEOS-0019-R1、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001（Approved 1.3.0）、AEOS-ARCH-004（Approved 1.1.0）、AEOS-ARCH-005（Approved 1.1.0）、AEOS-ARCH-006（Approved 1.1.0）、AEOS-ARCH-007（Approved 1.1.0）、AEOS-ARCH-008（Approved 1.1.0） |
 | 關聯文件 | EWO-AEOS-0019、AR-AEOS-0019-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-ARCH-006、AEOS-ARCH-007、AEOS-ARCH-008、AEOS-STD-001～AEOS-STD-005、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. Purpose
+## 1. 目的
 
 本文件之目的為：
 
@@ -56,9 +56,9 @@ related:
 - 維持「上位約束、下位依賴」原則，禁止未核准的反向控制與跨層繞過（AEOS-ARCH-006 §5.2、§5.3）。
 - 為 Dependency Matrix 提供正式架構依據，支援影響分析與演進決策（AEOS-ARCH-004 §6.5、§7）。
 
-## 2. Scope
+## 2.範圍
 
-### 2.1 In Scope
+### 2.1 在範圍內
 
 本文件涵蓋：
 
@@ -69,7 +69,7 @@ related:
 - 循環依賴與違規治理規則。
 - Dependency Matrix 之定位（不建立條目）。
 
-### 2.2 Out of Scope
+### 2.2 超出範圍
 
 本文件不涵蓋：
 
@@ -79,7 +79,7 @@ related:
 - 個別 Repository、Platform、Capability 之內部技術依賴或實作設計。
 - Runtime Topology、Deployment Architecture、Infrastructure Design 或 Source Code Implementation。
 
-## 3. Architecture Authority
+## 3. 架構權威
 
 Dependency Architecture 適用下列權威順序：
 
@@ -98,9 +98,9 @@ Dependency Architecture 適用下列權威順序：
 - Dependency 必須明確、可驗證且方向合規（AEOS-ARCH-004 §7）；不得只存在於非正式敘述或實作中。
 - 發現 Approved 架構載體未涵蓋的 Dependency 需求時，MUST 先透過正式架構變更處理。
 
-## 4. Dependency Definition
+## 4. 依賴關係定義
 
-### 4.1 Formal Definition
+### 4.1 正式定義
 
 Dependency 是架構元素之間具備方向、類型、強度與治理邊界的正式依賴關係。Dependency 描述一個架構元素（Source）對另一個架構元素（Target）的正式依賴，涵蓋 Platform、Layer、Capability、Repository、Implementation 等架構元素。
 
@@ -113,17 +113,17 @@ Dependency 是架構元素之間具備方向、類型、強度與治理邊界的
 - 可追溯至既有 Architecture 或經核准之架構決策。
 - 生命週期由 Enterprise Architecture 管理，而非隨單一實作任意建立或移除。
 
-### 4.2 Dependency Is Not
+### 4.2 依賴不是
 
 | 架構元素 | 與 Dependency 的區別 |
 |----------|----------------------|
 | 技術套件連結 | 技術套件連結是實作細節；Dependency 是正式架構關係 |
-| 資料流／訊息流 | 資料或訊息流是執行時期行為；Dependency 是架構依賴關係 |
+| 資料流／訊息流 | 資料或訊息流是執行環境行為；Dependency 是架構依賴關係 |
 | Capability Relationship | Capability 關係描述能力組合；Dependency 描述依賴方向與強度 |
 | Repository 引用 | Repository 引用是文件層級關聯；Dependency 是具治理邊界的正式依賴 |
 | Implementation 耦合 | 實作耦合屬 L6 範圍；Dependency 跨越架構元素並受治理 |
 
-## 5. Dependency Identity Model
+## 5. 依賴身分模型
 
 每個 Dependency MUST 具備下列權威屬性：
 
@@ -143,7 +143,7 @@ Dependency 是架構元素之間具備方向、類型、強度與治理邊界的
 
 Dependency ID、Direction、Type 或 Strength 的實質變更 MUST 經 Architecture Review；不得只修改 Matrix 條目完成架構變更。
 
-## 6. Dependency Types
+## 6. 依賴型別類型
 
 Dependency 依其治理意義分為下列類型（AEOS-ARCH-004 §6.5）：
 
@@ -163,9 +163,9 @@ Dependency 依其治理意義分為下列類型（AEOS-ARCH-004 §6.5）：
 - 類型判定 MUST 以架構關係之治理意義為依據，MUST NOT 單憑技術實作決定。
 - 一項依賴同時具備多種治理意義時，MUST 以 Primary Type 為主並記錄次要特性，不得以多重類型模糊治理邊界。
 
-## 7. Dependency Direction and Boundary
+## 7. 依賴方向與邊界
 
-### 7.1 Direction Principle
+### 7.1 方向原則
 
 依賴方向以「上位約束、下位依賴」為原則（AEOS-ARCH-006 §5.2）：
 
@@ -173,7 +173,7 @@ Dependency 依其治理意義分為下列類型（AEOS-ARCH-004 §6.5）：
 - 下位 Layer 對上位 Layer 之引用僅限追溯，MUST NOT 改寫或覆寫上位內容。
 - 下位 Layer MUST NOT 反向控制上位 Layer，亦不得跨層繞過上位治理（AEOS-ARCH-006 §5.3）。
 
-### 7.2 Direction Rules
+### 7.2 方向規則
 
 | 依賴方向 | 允許性 | 說明 |
 |----------|--------|------|
@@ -183,13 +183,13 @@ Dependency 依其治理意義分為下列類型（AEOS-ARCH-004 §6.5）：
 | 同層架構元素之間 | 受限 | 依其領域關係（AEOS-ARCH-004 §7）互動，MUST 有明確方向、類型與依據 |
 | 跨層跳級依賴 | 受限 | 跳級依賴 MUST 有上位文件依據，否則視為繞過治理 |
 
-### 7.3 Boundary Rules
+### 7.3 邊界規則
 
 - 每項 Dependency MUST 明確宣告 Source、Target 與 Boundary，不得以模糊敘述取代架構定義。
 - Dependency MUST NOT 擴張 Source 或 Target 之既有 Authority。
 - 依賴目標超出 Source 之治理邊界時，MUST 先完成 Boundary 決議，不得隱性建立新依賴。
 
-## 8. Dependency Across Architecture Domains
+## 8. 跨架構域的依賴
 
 Dependency Architecture 涵蓋 Platform、Layer、Capability、Repository 與 Implementation 之間的依賴關係：
 
@@ -198,7 +198,7 @@ Dependency Architecture 涵蓋 Platform、Layer、Capability、Repository 與 Im
 | Layer Architecture | 約束 | Platform、Capability、Repository、Implementation | 上位約束下位 |
 | Platform Architecture | 承載 | Capability | Platform → Capability |
 | Capability Architecture | 分配責任至 | Ownership Matrix | Capability → Ownership |
-| Repository Architecture | 實現／治理 | Platform 與 Capability | Repository → Platform／Capability |
+| Repository Architecture | 實作／治理 | Platform 與 Capability | Repository → Platform／Capability |
 | Implementation | 落實 | Repository | Implementation → Repository |
 | Dependency Architecture | 連結並約束 | Platform、Layer、Capability、Repository | 依 §7 方向規則 |
 
@@ -208,9 +208,9 @@ Dependency Architecture 涵蓋 Platform、Layer、Capability、Repository 與 Im
 - 跨域依賴 MUST 符合 §7.2 方向規則；未核准之反向控制與跨層繞過一律禁止。
 - 跨域依賴之變更 MUST 依 §12 執行變更影響分析。
 
-## 9. Dependency Strength
+## 9. 依賴性強度
 
-### 9.1 Strength Definition
+### 9.1 強度定義
 
 依賴強度描述依賴對 Source 或 Target 之治理與運作影響程度，用於風險分級與變更影響評估。
 
@@ -220,15 +220,15 @@ Dependency Architecture 涵蓋 Platform、Layer、Capability、Repository 與 Im
 | Controlled | Target 為 Source 之受控依賴，可由替代方案替換 | 變更 MUST 評估相容性與替代路徑 |
 | Optional | Target 為 Source 之可選依賴 | 變更影響有限，仍需登錄與追溯 |
 
-### 9.2 Strength Rules
+### 9.2 強度規則
 
 - 每個 Dependency MUST 指定單一 Strength。
 - Strength 判定 MUST 以治理與運作影響為依據，MUST NOT 單憑技術耦合強度決定。
 - Strength 變更視為 Architecture Change（§12），MUST 經 EWO 與 Architecture Review。
 
-## 10. Dependency Ownership
+## 10. 依賴項所有權
 
-### 10.1 Roles
+### 10.1 角色
 
 | 角色 | 責任 |
 |------|------|
@@ -238,14 +238,14 @@ Dependency Architecture 涵蓋 Platform、Layer、Capability、Repository 與 Im
 | Target Owner | 維護依賴目標元素之邊界與相容性 |
 | Review Owner | 依 AEOS-STD-005 確認 Dependency 變更已完成正式 Review |
 
-### 10.2 Accountability Rules
+### 10.2 問責規則
 
-- 每個 Active Dependency MUST 有且只有一個 accountable Dependency Owner 角色。
+- 每個 Active Dependency MUST 有且只有一個負責 Dependency Owner 角色。
 - Dependency Owner 可委派執行工作，但 MUST NOT 委派最終 Accountability。
 - Source Owner 與 Target Owner 之責任 MUST 分別記錄；跨域依賴之協調責任歸 Dependency Owner。
 - Ownership 缺失或責任重疊時，Dependency MUST NOT 進入 Active 狀態。
 
-## 11. Dependency Lifecycle
+## 11. 依賴生命週期
 
 | 狀態 | 定義 | 必要條件 |
 |------|------|----------|
@@ -264,9 +264,9 @@ Dependency Architecture 涵蓋 Platform、Layer、Capability、Repository 與 Im
 
 任何跳過 Deprecated 的 Active → Retired 轉移 MUST 具有緊急理由、影響分析與 Architecture Owner 核准。
 
-## 12. Change Impact and Circular Dependency
+## 12. 變更影響與循環依賴
 
-### 12.1 Change Impact Analysis
+### 12.1 變更影響分析
 
 下列變更 MUST 執行依賴影響分析並經 EWO 與 Architecture Review：
 
@@ -281,13 +281,13 @@ Dependency Architecture 涵蓋 Platform、Layer、Capability、Repository 與 Im
 3. 更新 Dependency Matrix 與相關 Architecture、Catalog。
 4. 依重大程度建立或引用 ADR。
 
-### 12.2 Circular Dependency
+### 12.2 迴圈依賴
 
 - 循環治理關係 MUST NOT 被允許（AEOS-ARCH-006 §5.3、AEOS-ARCH-007 §8.2、AEOS-ARCH-008 §8.2）。
 - 循環技術或服務依賴 MUST 由本文件明確評估；未經核准不得建立。
 - 發現循環依賴時，MUST 先完成方向或邊界調整（或取得 Architecture Owner 核准），不得以 Matrix 註記取代架構修正。
 
-## 13. Violation Governance
+## 13. 違規治理
 
 下列行為屬於依賴違規，MUST 依 AEOS-CON-001 變更管理與 AEOS-STD-005 Review 流程處理：
 
@@ -304,7 +304,7 @@ Dependency Architecture 涵蓋 Platform、Layer、Capability、Repository 與 Im
 3. 更新 Dependency Matrix 與相關架構資產。
 4. 未完成修正前，MUST NOT 以違規依賴作為正式架構依據。
 
-## 14. Compliance
+## 14. 合規性
 
 Dependency Architecture 合規檢查至少包含：
 
@@ -316,7 +316,7 @@ Dependency Architecture 合規檢查至少包含：
 | Direction | 符合「上位約束、下位依賴」原則，無未核准反向控制或跨層繞過 |
 | Source／Target | Source 與 Target 明確且可追溯 |
 | Strength | 具有單一 Strength 且判定依據成立 |
-| Ownership | 具有唯一 accountable Dependency Owner |
+| Ownership | 具有唯一負責 Dependency Owner |
 | Lifecycle | 狀態、轉移條件、Migration 與替代關係完整 |
 | Change Impact | 重大變更完成影響分析並更新 Matrix |
 | Circular Dependency | 無未核准循環依賴 |
@@ -326,7 +326,7 @@ Dependency Architecture 合規檢查至少包含：
 
 不符合本文件之專項 Architecture、Catalog、Matrix 或 Repository Architecture MUST NOT 被視為 AEOS 正式架構資產。
 
-## 15. References
+## 15. 參考文獻
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
@@ -345,7 +345,7 @@ Dependency Architecture 合規檢查至少包含：
 | REF-013 | EWO-AEOS-0018 | EWO | 本文件之工作來源 |
 | REF-014 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
-## 16. Revision History
+## 16. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|

@@ -1,10 +1,10 @@
-# Contributing
+# 貢獻
 
-## Engineering Workflow
+## 工程工作流程
 
-AEOS adopts the YEOS Engineering Workflow as its engineering delivery process.
+AEOS 採用 YEOS 工程工作流程作為其工程交付流程。
 
-## Commit Convention
+## 提交約定
 
 - feat:
 - fix:
@@ -13,4 +13,4 @@ AEOS adopts the YEOS Engineering Workflow as its engineering delivery process.
 - test:
 - chore:
 
-Every functional change must include documentation updates when applicable.
+每個功能變更都必須包括適用的文件更新。

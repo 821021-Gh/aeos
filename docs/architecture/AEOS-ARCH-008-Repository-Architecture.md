@@ -23,9 +23,9 @@ related:
 
 # AEOS-ARCH-008 — Repository Architecture
 
-## Executive Summary
+## 執行摘要
 
-本文件依 AEOS-ADR-002 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Repository Architecture，定義 Repository 的識別、責任邊界、類型、角色、與 Platform／Capability 的關係、Ownership、Dependency、Lifecycle、Change 與治理規則。Repository 是版本化治理與交付邊界：一個 Platform 可由一個或多個 Repository 支援，Repository 實現 Capability 並承載架構資產或實作責任，但 Repository 不等同 Platform、Capability 或 Implementation。本文件不重新設計既定 Architecture、不建立具名 Repository Catalog 或實際 Repository 清單、不建立實作設計，也不開始 Dependency Architecture。
+本文件依 AEOS-ADR-002 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Repository Architecture，定義 Repository 的識別、責任邊界、類型、角色、與 Platform／Capability 的關係、Ownership、Dependency、Lifecycle、Change 與治理規則。Repository 是版本化治理與交付邊界：一個 Platform 可由一個或多個 Repository 支援，Repository 實作 Capability 並承載架構資產或實作責任，但 Repository 不等同 Platform、Capability 或 Implementation。本文件不重新設計既定 Architecture、不建立具名 Repository Catalog 或實際 Repository 清單、不建立實作設計，也不開始 Dependency Architecture。
 
 ## 文件資訊
 
@@ -36,14 +36,14 @@ related:
 | 型別 | Architecture（Repository Architecture） |
 | 狀態 | Approved |
 | 版本 | 1.1.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-08 |
 | 依據文件 | EWO-AEOS-0016、EWO-AEOS-0017、AR-AEOS-0017-R1、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001（Approved 1.3.0）、AEOS-ARCH-004（Approved 1.1.0）、AEOS-ARCH-005（Approved 1.1.0）、AEOS-ARCH-006（Approved 1.1.0）、AEOS-ARCH-007（Approved 1.1.0） |
 | 關聯文件 | EWO-AEOS-0017、AR-AEOS-0017-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-ARCH-006、AEOS-ARCH-007、AEOS-STD-001～AEOS-STD-005、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. Purpose
+## 1. 目的
 
 本文件之目的為：
 
@@ -54,9 +54,9 @@ related:
 - 清楚區分 Repository、Platform、Capability 與 Implementation，維持版本化治理邊界、能力責任、平台承載邊界與實作責任的分離。
 - 為後續 Repository Catalog 與 Repository Mapping 提供正式架構依據（AEOS-ARCH-004 §8）。
 
-## 2. Scope
+## 2.範圍
 
-### 2.1 In Scope
+### 2.1 在範圍內
 
 本文件涵蓋：
 
@@ -68,7 +68,7 @@ related:
 - Repository 生命週期、變更控制與合規要求。
 - Repository Catalog 與 Repository Mapping 之定位（不建立條目）。
 
-### 2.2 Out of Scope
+### 2.2 超出範圍
 
 本文件不涵蓋：
 
@@ -79,7 +79,7 @@ related:
 - 個別 Repository 之內部技術架構、部署拓撲或實作設計。
 - Runtime Topology、Deployment Architecture、Infrastructure Design 或 Source Code Implementation。
 
-## 3. Architecture Authority
+## 3. 架構權威
 
 Repository Architecture 適用下列權威順序：
 
@@ -88,7 +88,7 @@ Repository Architecture 適用下列權威順序：
 | R0 | AEOS-ARCH-001 | 最高架構權威 |
 | R1 | AEOS-ARCH-001 | 架構 Entry Document 與 Architecture Register |
 | R2 | AEOS-ARCH-004 | 定義 Repository Architecture 在 Enterprise Architecture 中的定位與 MUST |
-| R3 | AEOS-ARCH-005、AEOS-ARCH-006、AEOS-ARCH-007 | 定義 Platform 承載、L5 Repository 層級與 Capability 實現關係 |
+| R3 | AEOS-ARCH-005、AEOS-ARCH-006、AEOS-ARCH-007 | 定義 Platform 承載、L5 Repository 層級與 Capability 實作關係 |
 | R4 | AEOS-ARCH-008（本文件） | 定義 Repository 模型、類型、邊界與治理規則 |
 | R5 | Repository Catalog、Repository Mapping、Repository 層級文件 | 登錄已核准 Repository 事實並落實 |
 
@@ -98,9 +98,9 @@ Repository Architecture 適用下列權威順序：
 - Repository 與 Platform、Capability MUST 分離定義：Platform 是承載與治理邊界，Capability 是可提供之能力，Repository 是版本化治理與交付邊界（AEOS-ARCH-004 §7、AEOS-ARCH-005 §4.2）。
 - 發現 Approved 架構載體未涵蓋的 Repository 需求時，MUST 先透過正式架構變更處理。
 
-## 4. Repository Definition
+## 4. 儲存庫定義
 
-### 4.1 Formal Definition
+### 4.1 正式定義
 
 Repository 是 AI Engineering Workspace 內具備持續身分、明確責任與治理權威的版本化治理與交付邊界。Repository 承載架構資產或實作責任，支援一個或多個 Platform 與 Capability，並透過受治理的依賴與其他 Repository 協作。
 
@@ -113,18 +113,18 @@ Repository 是 AI Engineering Workspace 內具備持續身分、明確責任與�
 - 其版本、變更與交付由 Repository 治理管理，而非隨實作任意建立或移除。
 - 與 Platform、Capability、Dependency 及其他 Repository 之關係可被登錄與追溯。
 
-### 4.2 Repository Is Not
+### 4.2 儲存庫不是
 
 | 架構元素 | 與 Repository 的區別 |
 |----------|----------------------|
 | Platform | Platform 是承載一組 Capability 的穩定企業架構邊界；一個 Platform 可由一個或多個 Repository 支援，但 Repository 不等同 Platform |
-| Capability | Capability 描述 Workspace 能提供什麼；Repository 實現 Capability，但 Repository 不等同 Capability |
+| Capability | Capability 描述 Workspace 能提供什麼；Repository 實作 Capability，但 Repository 不等同 Capability |
 | Implementation | Implementation 是實作、工具與部署細節（L6）；Repository 是版本化治理與交付邊界（L5），包含但不等同其實作內容 |
 | Product | Product 面向特定使用者或市場結果；Repository 是治理與交付邊界 |
 | Service／Application | Service 或 Application 是可部署或可使用的實作單位；Repository 是較高階的治理邊界 |
 | Team／Organization | Team 是人員組織；Repository Ownership 可由 Team 承擔，但 Repository 不等同組織圖 |
 
-## 5. Repository Identity Model
+## 5. 儲存庫身分模型
 
 每個 Repository MUST 具備下列權威屬性：
 
@@ -144,9 +144,9 @@ Repository 是 AI Engineering Workspace 內具備持續身分、明確責任與�
 
 Repository ID、Type、Boundary 或 Authority 的實質變更 MUST 經 Architecture Review；不得只修改 Catalog 條目完成架構變更。
 
-## 6. Repository Boundary and Responsibility
+## 6. 儲存庫邊界與職責
 
-### 6.1 Boundary Dimensions
+### 6.1 邊界尺寸
 
 Repository Boundary MUST 同時從下列面向定義：
 
@@ -159,7 +159,7 @@ Repository Boundary MUST 同時從下列面向定義：
 | Dependency Boundary | Repository 可接受、提供或禁止哪些依賴？ |
 | Information Boundary | 哪些架構資訊由 Repository 擁有、提供或僅引用？ |
 
-### 6.2 Boundary Rules
+### 6.2 邊界規則
 
 - 每項 Repository Responsibility MUST 能對應至 Mission 與至少一項正式架構資產或 Capability。
 - 同一責任不得由多個 Repository 在無 Ownership 決議的情況下同時宣稱最終 Authority。
@@ -167,7 +167,7 @@ Repository Boundary MUST 同時從下列面向定義：
 - Repository 位於 Platform Boundary 內，不代表其全部內容皆由 Platform 擁有；實際責任以 Repository Architecture 與 Mapping 為準（AEOS-ARCH-005 §6.2）。
 - Repository MUST NOT 直接管理超出其 Boundary 的 Platform、Capability 或架構決策。
 
-## 7. Repository Types and Roles
+## 7. 儲存庫類型與角色
 
 Repository 依其治理責任分為下列類型（AEOS-ARCH-004 §6.4）：
 
@@ -185,36 +185,36 @@ Repository 依其治理責任分為下列類型（AEOS-ARCH-004 §6.4）：
 - 類型變更視為 Architecture Change（§12），MUST 經 EWO 與 Architecture Review。
 - Repository 之角色與責任 MUST 可追溯至其類型與所屬 Platform、支援 Capability。
 
-## 8. Repository Relationship Model
+## 8. 儲存庫關係模型
 
-### 8.1 Relationship Types
+### 8.1 關係類型
 
 | 關係 | 語意 | 要求 |
 |------|------|------|
 | Belongs To | Repository 屬於某 Platform，支援其邊界與交付 | MUST 對應已核准 Platform |
-| Supports | Repository 支援某 Capability，承擔實現或治理角色 | MUST 對應已核准 Capability |
+| Supports | Repository 支援某 Capability，承擔實作或治理角色 | MUST 對應已核准 Capability |
 | Implements | Repository 落實上位架構規則或實作責任 | MUST 符合上位邊界，不擴張 Authority |
 | Consumes | Repository 使用其他 Repository 或資源提供之能力 | MUST 記錄 Dependency 與責任邊界 |
-| Collaborates With | 多個 Repository 共同完成結果，但維持各自 Authority | MUST 明確指定各方責任與 accountable Owner |
+| Collaborates With | 多個 Repository 共同完成結果，但維持各自 Authority | MUST 明確指定各方責任與負責 Owner |
 | Governs | 一個 Repository 對另一 Repository 之特定治理面向具有正式權威 | MUST 限定治理範圍，不得推定全面控制 |
 | Supersedes | 新 Repository 正式取代既有 Repository 之責任 | MUST 具有 Migration、替代關係與退役計畫 |
 
-### 8.2 Relationship Rules
+### 8.2 關係規則
 
 - Repository Relationship MUST 有方向、類型、Owner、依據與生命週期狀態。
 - `Belongs To` 不轉移 Platform Ownership；Repository 仍保有自身治理責任。
-- `Supports` 不取代 Capability Ownership；Repository 實現能力但不等同能力定義。
+- `Supports` 不取代 Capability Ownership；Repository 實作能力但不等同能力定義。
 - `Consumes` 不轉移 Repository Accountability。
 - 跨 Repository 之實際 Dependency MUST 登錄於 Dependency Matrix。
 - 循環治理關係 MUST NOT 被允許；循環技術或服務依賴必須由 Dependency Architecture 明確評估。
 
-## 9. Repository Dependency
+## 9. 儲存庫依賴
 
-### 9.1 Dependency Definition
+### 9.1 依賴關係定義
 
 Repository Dependency 是 Repository 之間、或 Repository 與 Platform／Capability／Layer 之間之正式依賴關係。依賴 MUST 以架構資產或交付責任為基礎描述，不以特定實作或技術套件取代。
 
-### 9.2 Dependency Rules
+### 9.2 依賴規則
 
 - 每項 Repository Dependency MUST 有方向、類型、Owner、依據與生命週期狀態。
 - Dependency MUST 由 Dependency Architecture 定義並登錄於 Dependency Matrix；不得只存在於非正式敘述或實作中（AEOS-ARCH-004 §7）。
@@ -222,9 +222,9 @@ Repository Dependency 是 Repository 之間、或 Repository 與 Platform／Capa
 - 新增、移除或變更重大 Dependency MUST 經 Architecture Change（§12）。
 - 循環依賴 MUST 由 Dependency Architecture 明確評估，未經核准不得建立。
 
-## 10. Repository Ownership
+## 10. 儲存庫所有權
 
-### 10.1 Roles
+### 10.1 角色
 
 | 角色 | 責任 |
 |------|------|
@@ -235,15 +235,15 @@ Repository Dependency 是 Repository 之間、或 Repository 與 Platform／Capa
 | Dependency Owner | 維護跨 Repository Dependency 之必要性、風險與相容性 |
 | Review Owner | 依 AEOS-STD-005 確認 Repository 變更已完成正式 Review |
 
-### 10.2 Accountability Rules
+### 10.2 問責規則
 
-- 每個 Active Repository MUST 有且只有一個 accountable Repository Owner 角色。
+- 每個 Active Repository MUST 有且只有一個負責 Repository Owner 角色。
 - Repository Owner 可委派執行工作，但 MUST NOT 委派最終 Accountability。
 - Repository Owner 與 Platform Owner 不必為同一角色；兩者責任 MUST 分別記錄（AEOS-ARCH-005 §10.2）。
-- 跨 Repository 之 Capability 或架構資產 MUST 在 Ownership Matrix 中明確區分 accountable、responsible、consulted 與 informed 關係。
+- 跨 Repository 之 Capability 或架構資產 MUST 在 Ownership Matrix 中明確區分負責、responsible、consulted 與 informed 關係。
 - Ownership 缺失、重疊或無法履行時，Repository MUST NOT 進入 Active 狀態。
 
-## 11. Repository Lifecycle
+## 11. 儲存庫生命週期
 
 | 狀態 | 定義 | 必要條件 |
 |------|------|----------|
@@ -262,7 +262,7 @@ Repository Dependency 是 Repository 之間、或 Repository 與 Platform／Capa
 
 任何跳過 Deprecated 的 Active → Retired 轉移 MUST 具有緊急理由、影響分析與 Architecture Owner 核准。
 
-## 12. Change and Evolution
+## 12. 變遷與演變
 
 下列變更屬於 Architecture Change，MUST 經 EWO 與 Architecture Review：
 
@@ -283,7 +283,7 @@ Repository Dependency 是 Repository 之間、或 Repository 與 Platform／Capa
 
 Repository Catalog 之建立屬後續獨立架構資產，MUST 於本文件核准後另循 EWO 與 Architecture Review 建立；本文件不建立任何具名 Repository 條目。
 
-## 13. Compliance
+## 13. 合規性
 
 Repository Architecture 合規檢查至少包含：
 
@@ -294,7 +294,7 @@ Repository Architecture 合規檢查至少包含：
 | Boundary | Mission、責任、Authority、包含與排除範圍明確 |
 | Type | 具有單一 Primary Type 且判定依據成立 |
 | Platform／Capability | 所屬 Platform 與支援 Capability 已識別，且未將 Repository 等同 Platform 或 Capability |
-| Ownership | 具有唯一 accountable Repository Owner，無未解決責任重疊 |
+| Ownership | 具有唯一負責 Repository Owner，無未解決責任重疊 |
 | Dependency | 依賴方向、類型、風險與 Owner 可追溯，符合 Layer Architecture 分層規則 |
 | Lifecycle | 狀態、轉移條件、Migration 與替代關係完整 |
 | Catalog Readiness | 未經核准不建立具名 Repository 條目；Catalog 待本文件核准後另立 |
@@ -303,7 +303,7 @@ Repository Architecture 合規檢查至少包含：
 
 不符合本文件之專項 Architecture、Catalog、Matrix 或 Repository Architecture MUST NOT 被視為 AEOS 正式架構資產。
 
-## 14. References
+## 14. 參考文獻
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
@@ -314,14 +314,14 @@ Repository Architecture 合規檢查至少包含：
 | REF-005 | [AEOS-ARCH-004 — AI Enterprise Architecture Overview](AEOS-ARCH-004-AI-Enterprise-Architecture-Overview.md)（Approved 1.1.0） | Architecture | Repository Architecture 的上位定位與 MUST |
 | REF-006 | [AEOS-ARCH-005 — Platform Architecture](AEOS-ARCH-005-Platform-Architecture.md)（Approved 1.1.0） | Architecture | Platform 承載與 Repository 邊界關係 |
 | REF-007 | [AEOS-ARCH-006 — Layer Architecture](AEOS-ARCH-006-Layer-Architecture.md)（Approved 1.1.0） | Architecture | L5 Repository 層級與依賴方向規則 |
-| REF-008 | [AEOS-ARCH-007 — Capability Architecture](AEOS-ARCH-007-Capability-Architecture.md)（Approved 1.1.0） | Architecture | Capability 實現與 Repository 角色 |
+| REF-008 | [AEOS-ARCH-007 — Capability Architecture](AEOS-ARCH-007-Capability-Architecture.md)（Approved 1.1.0） | Architecture | Capability 實作與 Repository 角色 |
 | REF-009 | [AEOS-CON-001 — Repository Constitution](../constitution/AEOS-CON-001-Repository-Constitution.md)（Approved v1.0.0） | Constitution | Repository 治理基線與變更管理 |
 | REF-010 | [AEOS-DIA-001 — Documentation Information Architecture](../documentation/AEOS-DIA-001-Documentation-Information-Architecture.md) | Information Architecture | 文件分類、組織與生命週期 |
 | REF-011 | [AEOS-STD-001 — Documentation Format Standard](../standards/AEOS-STD-001-Documentation-Format-Standard.md)、[AEOS-STD-002 — Metadata Standard](../standards/AEOS-STD-002-Metadata-Standard.md)、[AEOS-STD-003 — Cross-reference Standard](../standards/AEOS-STD-003-Cross-reference-Standard.md)、[AEOS-STD-004 — Naming Standard](../standards/AEOS-STD-004-Naming-Standard.md)、[AEOS-STD-005 — Review Standard](../standards/AEOS-STD-005-Review-Standard.md) | Standards | 文件格式、Metadata、Cross-reference、Naming 與 Review 規則 |
 | REF-012 | EWO-AEOS-0016 | EWO | 本文件之工作來源 |
 | REF-013 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
-## 15. Revision History
+## 15. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|

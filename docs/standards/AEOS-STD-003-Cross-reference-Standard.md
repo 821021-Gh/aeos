@@ -26,7 +26,7 @@ related:
 
 > EWO-AEOS-0010：依 AEOS-ADR-002、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001、AEOS-STD-001 與 AEOS-STD-002 建立 AEOS 之 Cross-reference Standard。本文件為 AEOS Repository 所有正式治理文件之唯一 Cross-reference 規範；不是 Documentation Architecture，不是 Metadata Standard，不是 Naming Standard。
 
-## Executive Summary
+## 執行摘要
 
 本文件定義 AEOS 正式治理文件之 Cross-reference 標準，涵蓋 Cross-reference Model、Reference Types、Reference Rules、Reference Validation、Broken Reference Management、Cross-reference Lifecycle 與 Compliance；為所有正式文件之唯一 Cross-reference 規範（Single Source of Truth）。
 
@@ -39,14 +39,14 @@ related:
 | 型別 | Standard |
 | 狀態 | Approved |
 | 版本 | 1.1.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-07 |
 | 依據文件 | EWO-AEOS-0010、AEOS-STD-001（Approved v1.0.0）、AEOS-STD-002（Approved v1.0.0）、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-GOV-001（Approved v1.0.0）、AEOS-ARCH-001、AEOS-ADR-002（WA-001 Fact Authority Transition） |
 | 關聯文件 | EWO-AEOS-0010、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001、AEOS-STD-001、AEOS-STD-002、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. Purpose
+## 1. 目的
 
 本文件定義 AEOS 正式治理文件之 Cross-reference 標準，其目的為：
 
@@ -56,9 +56,9 @@ related:
 
 本文件不是 Documentation Architecture（文件體系結構由 AEOS-DIA-001 定義），不是 Metadata Standard（Metadata 由 AEOS-STD-002 定義），不是 Naming Standard（命名規則依 AEOS-DIA-001 §3）；本文件僅定義 Cross-reference 之形式、規則與維護方式。
 
-## 2. Scope
+## 2.範圍
 
-### 2.1 In Scope
+### 2.1 在範圍內
 
 本標準涵蓋：
 
@@ -66,7 +66,7 @@ related:
 - Cross-reference Model、Reference Types、Reference Rules、Reference Validation、Broken Reference Management、Cross-reference Lifecycle 與 Compliance。
 - 對外部來源（如 WA-001，歷史參考）之引用規範。
 
-### 2.2 Out of Scope
+### 2.2 超出範圍
 
 本標準明確不涵蓋：
 
@@ -76,7 +76,7 @@ related:
 - Repository 治理原則與變更管理（由 AEOS-CON-001 定義）。
 - Naming Standard 之內容（由後續 EWO 建立；目前命名規則依 AEOS-DIA-001 §3）。
 
-## 3. Cross-reference Model
+## 3.交叉引用模型
 
 - Cross-reference 為「來源文件 → 目標文件」之正式關聯；每份正式文件以 References 章節宣告其直接引用。
 - Reference 由五個組成要素定義：來源文件、目標 doc-id、目標相對路徑、Reference Type、用途。
@@ -90,9 +90,9 @@ related:
 | 用途 | 引用之原因與角色 | References 章節 MUST 以簡短文字說明用途 |
 
 - 全部文件與其引用形成引用圖（Reference Graph）；引用圖 MUST 為有向無環圖（依 §5 R-006）。
-- 正文引用（inline reference）與 References 章節宣告 MUST 一致（依 §6 V-003）。
+- 正文引用（inline 參考）與 References 章節宣告 MUST 一致（依 §6 V-003）。
 
-### 3.1 Reference Direction Model
+### 3.1 參考方向模型
 
 引用方向依來源文件與目標文件於 Governance Hierarchy（依 AEOS-ARCH-002 §5）之相對位置定義：
 
@@ -109,7 +109,7 @@ related:
 - Lateral Reference 不建立權威依賴；仍 MUST 遵守 §5 R-006。
 - Cross-reference MUST 維持單向依賴，不得形成循環依賴；引用圖 MUST 為有向無環圖（依 §5 R-006）。
 
-## 4. Reference Types
+## 4. 引用型
 
 Reference Type 為引用之正式分類。下列九種型別為 AEOS 引用之基礎分類；引用 MUST 依目標文件之型別宣告對應 Reference Type。
 
@@ -125,56 +125,56 @@ Reference Type 為引用之正式分類。下列九種型別為 AEOS 引用之�
 | External Reference | Repository 外部來源（含歷史來源，如 WA-001） | 外部來源／歷史來源宣告 |
 | Catalog Reference | Catalog 文件（Architecture／Governance／Capability Catalog） | 目錄登錄與索引關聯 |
 
-### 4.1 Architecture Reference
+### 4.1 架構參考
 
 - 定義：指向 Architecture 文件（ARCH）或 Approved 架構來源（AEOS-ARCH-001／對應架構載體）之引用。
 - 規則：
   - 架構相關文件 MUST 於 References 宣告其架構來源（AEOS-ARCH-001／Approved 架構載體；依 AEOS-DIA-001 DP-003）。
   - 架構內容 MUST 引用權威來源（Approved 架構載體／AEOS-ARCH-001），MUST NOT 重述或重新定義（依 AEOS-ARCH-001 §7）；WA-001 僅可作為歷史來源引用（AEOS-ADR-002 §2.1）。
 
-### 4.2 Governance Reference
+### 4.2 治理參考
 
 - 定義：指向 Governance 文件（GOV）與治理結構文件（AEOS-ARCH-002）之引用。
 - 規則：
   - 治理相關內容 MUST 引用治理權威文件（AEOS-CON-001、AEOS-ARCH-002、AEOS-GOV-001），MUST NOT 重述其內容（依 AEOS-ARCH-002 §3）。
   - 優先序或 Roadmap 相關宣告 MUST 引用 AEOS-GOV-001。
 
-### 4.3 Standard Reference
+### 4.3 標準參考
 
 - 定義：指向 Standard 文件（STD）之引用，用於宣告標準遵循。
 - 規則：
   - 正式文件 MUST 宣告其遵循之標準（至少 AEOS-STD-001、AEOS-STD-002；本標準適用時含 AEOS-STD-003）。
   - 引用標準之特定章節時，格式為 `doc-id §N`（例如 `AEOS-STD-001 §3`）。
 
-### 4.4 Policy Reference
+### 4.4 政策參考
 
 - 定義：指向 Policy 文件（POL）之引用，用於宣告政策遵循。
 - 規則：
   - 引用政策 MUST 指向已存在之 POL 文件；MUST NOT 引用尚未建立之政策（依 §6 V-001）。
   - 政策內容以 POL 文件為準，MUST NOT 於其他文件重述（依 AEOS-CON-001 GP-002）。
 
-### 4.5 Specification Reference
+### 4.5 規格參考
 
 - 定義：指向 Specification 文件（SPEC）之引用，用於宣告規格遵循（Specification Driven，依 AEOS-CON-001 GP-003）。
 - 規則：
   - 規格相關內容 MUST 引用 SPEC 權威文件。
   - 規格變更時，引用方 MUST 於同一或後續 EWO 同步更新引用（依 AEOS-ARCH-002 §5）。
 
-### 4.6 ADR Reference
+### 4.6 ADR 參考
 
 - 定義：指向 Architecture Decision Record（ADR）之引用，用於追溯架構決策之背景、決策與影響（依 AEOS-ARCH-003）。
 - 規則：
   - ADR 引用 MUST 使用 ADR 之 doc-id（格式 `AEOS-ADR-###`，依 AEOS-ARCH-003 §4）。
   - 宣告決策狀態時，MUST 依 AEOS-STD-002 OF-03 與 AEOS-ARCH-003 之值域，MUST NOT 自行定義。
 
-### 4.7 EWO Reference
+### 4.7 EWO 參考
 
 - 定義：指向 Engineering Work Order（EWO-AEOS-####）之引用，用於宣告文件之工作來源與變更依據。
 - 規則：
   - 正式文件 frontmatter 之 related MUST 包含來源 EWO（依 AEOS-STD-002 MF-10）。
   - EWO 引用 MUST 使用完整代號 `EWO-AEOS-<####>`（例如 `EWO-AEOS-0010`）。
 
-### 4.8 External Reference
+### 4.8 外部參考
 
 - 定義：指向 Repository 外部來源之引用；外部歷史來源（如 WA-001）僅作為歷史參考，不作為正式 Fact Authority（AEOS-ADR-002 §2.1）。
 - 規則：
@@ -182,15 +182,15 @@ Reference Type 為引用之正式分類。下列九種型別為 AEOS 引用之�
   - 外部來源（如 WA-001）不納入 AEOS Taxonomy 與 doc-id 編號，MUST NOT 被賦予 AEOS 文件之 doc-id。
   - 外部歷史來源（如 WA-001）之引用 MUST 標示為歷史參考，MUST NOT 作為正式架構權威依據（依 AEOS-ADR-002 §2.1）。
 
-### 4.9 Catalog Reference
+### 4.9 目錄參考
 
 - 定義：指向 Catalog／Index 文件之引用，用於目錄登錄與索引關聯；適用於 Architecture Catalog、Governance Catalog、Capability Catalog。
 - 規則：
   - Architecture Catalog 依 AEOS-ARCH-001 §8 Architecture Register 建立；Governance Catalog 依 AEOS-GOV-001 §6 Planned Catalogs；Capability Catalog 依後續 Capability 文件建立。
   - 文件登錄於 Catalog MUST 使用正式 doc-id，MUST NOT 以內容複製取代登錄。
-  - Catalog 項目之 status／version MUST 與目標文件 frontmatter 一致；變更時 MUST 依 §7 同步更新。
+  - Catalog 項目之狀態／version MUST 與目標文件 frontmatter 一致；變更時 MUST 依 §7 同步更新。
 
-## 5. Reference Rules
+## 5.參考規則
 
 本節定義 Cross-reference 之正式規則；引用 MUST 符合下列規則。
 
@@ -230,7 +230,7 @@ Reference Type 為引用之正式分類。下列九種型別為 AEOS 引用之�
 - 需要內容時，以引用取代；必要之摘要或對照 MUST 以自身語言撰寫，並於 References 宣告來源。
 - Review 發現內容複製時，MUST 依 §7 修正後始可合併。
 
-### 5.5 R-005 — Reference Chain
+### 5.5 R-005 — 參考鏈
 
 - 引用鏈為「來源 → 目標 → 目標之引用」之可追溯路徑。
 - 引用鏈 MUST 可回溯至權威來源（架構內容至 AEOS-ARCH-001／Approved 架構載體；治理內容至 AEOS-CON-001／AEOS-ARCH-002 等）。
@@ -250,7 +250,7 @@ Reference Type 為引用之正式分類。下列九種型別為 AEOS 引用之�
 - 外部來源失效或版本變更時，引用方 MUST 依 §7 Broken Reference Management 處理。
 - 外部來源 MUST NOT 被賦予 AEOS 文件之 doc-id（依 §4.8）。
 
-## 6. Reference Validation
+## 6. 參考驗證
 
 本節定義引用有效性之驗證規則；驗證 MUST 於 Review 時執行（依 §7.3、AEOS-CON-001 GP-009）。
 
@@ -267,7 +267,7 @@ Reference Type 為引用之正式分類。下列九種型別為 AEOS 引用之�
 - 驗證以 §6.1 Reference Consistency Validation 與 §9.1 Compliance Checklist 為執行依據；Review Owner MUST 於 Review 時執行驗證。
 - 自動化驗證工具 MAY 用於輔助；其結果 MUST 以 §9.1 Checklist 人工確認。
 
-### 6.1 Reference Consistency Validation
+### 6.1 參考一致性驗證
 
 Reference Consistency Validation 驗證引用宣告與文件身分、檔名、Metadata 及型別之一致性：
 
@@ -283,28 +283,28 @@ Reference Consistency Validation 驗證引用宣告與文件身分、檔名、Me
 - Reference Consistency Validation MUST 於 Review 時執行，並併入 §9.1 Checklist。
 - 不一致之引用 MUST 記為不合規，依 §7 修正後始可合併。
 
-## 7. Broken Reference Management
+## 7. 損壞的參考管理
 
-### 7.1 Detection
+### 7.1 偵測
 
 - 失效引用（Broken Reference）為無法通過 §6 Validation 之引用，包含：doc-id 不存在、路徑無效、引用不一致與循環引用。
 - 發現時機：文件建立、內容變更、目標文件移動／更名／刪除、Review 時。
 - 發現方式：Review 檢查（§9.1 Checklist）；自動化驗證（如適用）。
 - 任何失效引用 MUST 於發現時記錄，並列入同一 EWO 或 RC 之修正範圍。
 
-### 7.2 Resolution
+### 7.2 分辨率
 
 - 失效引用 MUST 於同一 EWO 或 RC 修正（依 AEOS-DIA-001 §7 失效處理）。
 - 修正方式：更新相對路徑、更新 doc-id、改引用取代文件、或移除失效引用；目標文件 Deprecated／Archived 時，依 §8 處理。
 - MUST NOT 以 Placeholder 或模糊描述暫代（依 AEOS-STD-001 §6）。
 
-### 7.3 Review Requirement
+### 7.3 審查要求
 
 - 引用修正 MUST 經 Review 核准後始可合併至 main（依 AEOS-CON-001 GP-009）。
 - PR MUST 於描述中明確宣告其變更之引用；Review Owner MUST 依 §6 驗證。
 - 未通過 §6 Validation 之 PR MUST NOT 合併至 main。
 
-### 7.4 Reference Recovery
+### 7.4 參考恢復
 
 Reference Recovery 定義引用失效或目標文件演進時之恢復機制，避免 Reference Chain 中斷：
 
@@ -320,7 +320,7 @@ Reference Recovery 定義引用失效或目標文件演進時之恢復機制，�
 - 恢復完成後 MUST 依 §6 重新驗證，並依 §7.3 Review Requirement 核准。
 - 未完成恢復之引用 MUST NOT 合併至 main。
 
-## 8. Cross-reference Lifecycle
+## 8. 交叉引用生命週期
 
 引用狀態隨目標文件之文件狀態（依 AEOS-DIA-001 §8）演進：
 
@@ -335,7 +335,7 @@ Reference Recovery 定義引用失效或目標文件演進時之恢復機制，�
 - 目標文件狀態變更時，引用方 MUST 檢查其引用狀態，並依上表處理。
 - 引用狀態之變更 MUST 記錄於引用方文件之 Revision History（如適用）。
 
-## 9. Compliance
+## 9. 合規性
 
 - 本標準適用之正式文件 MUST 符合本標準（依 AEOS-CON-001 §11）。
 - 不合規之文件 MUST NOT 合併至 main（依 AEOS-CON-001 GP-009）。
@@ -343,7 +343,7 @@ Reference Recovery 定義引用失效或目標文件演進時之恢復機制，�
 - 與 AEOS-DIA-001／AEOS-CON-001／AEOS-ARCH-002 衝突時，以上位文件為準（依 Governance Hierarchy，AEOS-ARCH-002 §5）。
 - 本標準 MUST NOT 重新定義 Metadata（AEOS-STD-002）、Documentation Format（AEOS-STD-001）或 Documentation Information Architecture（AEOS-DIA-001）之規則。
 
-### 9.1 Cross-reference Compliance Checklist
+### 9.1 交叉引用合規檢查表
 
 | 檢查項目 | 檢查內容 |
 |----------|----------|
@@ -356,7 +356,7 @@ Reference Recovery 定義引用失效或目標文件演進時之恢復機制，�
 | 外部引用 | 外部來源完整宣告（名稱、代號、型別、狀態、版本、用途、日期） |
 | 標準唯一性 | 未重新定義 Metadata／Documentation Format／Documentation IA 規則 |
 
-### 9.2 Reference Integrity Checklist
+### 9.2 參考完整性檢查表
 
 | 檢查項目 | 檢查內容 |
 |----------|----------|
@@ -366,7 +366,7 @@ Reference Recovery 定義引用失效或目標文件演進時之恢復機制，�
 | 無 Missing Target | 全部引用目標存在（依 §6 V-001） |
 | 無 Broken Relative Path | 全部相對路徑可解析至實際檔案（依 §6 V-002） |
 
-## 10. References
+## 10. 參考文獻
 
 | # | 文件 | 型別 | 用途 |
 |---|------|------|------|
@@ -384,7 +384,7 @@ Reference Recovery 定義引用失效或目標文件演進時之恢復機制，�
 
 本標準（AEOS-STD-003）為 AEOS 唯一 Cross-reference 標準來源（Single Source of Truth）；其他文件 MUST NOT 定義相異之 Cross-reference 規則。
 
-## 11. Revision History
+## 11. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|

@@ -22,9 +22,9 @@ related:
 
 # AEOS-ARCH-007 — Capability Architecture
 
-## Executive Summary
+## 執行摘要
 
-本文件依 AEOS-ADR-002 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Capability Architecture，定義 Capability 的識別、邊界、分類、關係、Ownership、Dependency、Lifecycle 與治理規則。Capability 以能力責任與企業結果描述，不以特定實作取代能力定義；Platform 提供 Capability 的組織與運作邊界，Repository 實現 Capability，Ownership Matrix 記錄責任歸屬。本文件不重新設計 Approved 架構載體、不建立具名 Capability Catalog、不建立實作設計，也不取代任何專項架構或治理文件。
+本文件依 AEOS-ADR-002 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Capability Architecture，定義 Capability 的識別、邊界、分類、關係、Ownership、Dependency、Lifecycle 與治理規則。Capability 以能力責任與企業結果描述，不以特定實作取代能力定義；Platform 提供 Capability 的組織與運作邊界，Repository 實作 Capability，Ownership Matrix 記錄責任歸屬。本文件不重新設計 Approved 架構載體、不建立具名 Capability Catalog、不建立實作設計，也不取代任何專項架構或治理文件。
 
 ## 文件資訊
 
@@ -35,14 +35,14 @@ related:
 | 型別 | Architecture（Capability Architecture） |
 | 狀態 | Approved |
 | 版本 | 1.1.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-08 |
 | 依據文件 | EWO-AEOS-0014、EWO-AEOS-0015、AR-AEOS-0015-R1、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001（Approved 1.3.0）、AEOS-ARCH-004（Approved 1.1.0）、AEOS-ARCH-005（Approved 1.1.0）、AEOS-ARCH-006（Approved 1.1.0） |
 | 關聯文件 | EWO-AEOS-0015、AR-AEOS-0015-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-ARCH-006、AEOS-STD-001～AEOS-STD-005、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. Purpose
+## 1. 目的
 
 本文件之目的為：
 
@@ -52,9 +52,9 @@ related:
 - 定義 Capability 的識別、分類、Ownership 與治理規則，使每項 Capability 具有明確責任歸屬（AEOS-ARCH-004 §7）。
 - 為後續 Capability Catalog 與 Ownership Matrix 提供正式架構依據（AEOS-ARCH-004 §6.3、§8）。
 
-## 2. Scope
+## 2.範圍
 
-### 2.1 In Scope
+### 2.1 在範圍內
 
 本文件涵蓋：
 
@@ -66,7 +66,7 @@ related:
 - Capability 生命週期、變更控制與合規要求。
 - Capability Catalog 與 Ownership Matrix 之定位（不建立條目）。
 
-### 2.2 Out of Scope
+### 2.2 超出範圍
 
 本文件不涵蓋：
 
@@ -77,7 +77,7 @@ related:
 - Runtime Topology、Deployment Architecture、Infrastructure Design 或 Source Code Implementation。
 - Capability Management Framework 之操作化（屬 AEOS-GOV-001 §7 Planned Frameworks，後續 EWO）。
 
-## 3. Architecture Authority
+## 3. 架構權威
 
 Capability Architecture 適用下列權威順序：
 
@@ -96,9 +96,9 @@ Capability Architecture 適用下列權威順序：
 - Capability 與 Platform 必須分離定義：Platform 是承載與治理邊界，Capability 是可提供之能力（AEOS-ARCH-004 §7）。
 - 發現 Approved 架構載體未涵蓋的 Capability 需求時，MUST 先透過正式架構變更處理。
 
-## 4. Capability Definition
+## 4. 能力定義
 
-### 4.1 Formal Definition
+### 4.1 正式定義
 
 Capability 是 AI Engineering Workspace 具備之能力，以能力責任與企業結果描述，不預先指定如何實作。Capability 描述 Workspace 能提供什麼；Platform 描述能力由何種穩定邊界承載與治理（AEOS-ARCH-005 §4.2）。
 
@@ -111,18 +111,18 @@ Capability 是 AI Engineering Workspace 具備之能力，以能力責任與企�
 - 與 Platform、Repository、Ownership 及 Dependency 之關係可被登錄與追溯。
 - 生命週期由 Enterprise Architecture 管理，而非隨單一實作任意建立或移除。
 
-### 4.2 Capability Is Not
+### 4.2 能力不是
 
 | 架構元素 | 與 Capability 的區別 |
 |----------|----------------------|
 | Platform | Platform 是承載一組 Capability 的穩定企業架構邊界；Capability 描述能力本身 |
-| Repository | Repository 是版本化治理與交付邊界；Repository 實現 Capability，但不等同 Capability |
+| Repository | Repository 是版本化治理與交付邊界；Repository 實作 Capability，但不等同 Capability |
 | Product | Product 面向特定使用者或市場結果；Capability 描述 Workspace 能提供什麼 |
 | Service／Application | Service 或 Application 是可部署或可使用的實作單位；Capability 是能力責任 |
 | 技術元件／功能 | 特定功能或元件是實作細節；Capability 不以實作取代能力定義 |
 | Team／Organization | Team 是人員組織；Capability Ownership 可由 Team 承擔，但 Capability 不等同組織圖 |
 
-## 5. Capability Identity Model
+## 5. 能力辨識模型
 
 每個 Capability MUST 具備下列權威屬性：
 
@@ -133,18 +133,18 @@ Capability 是 AI Engineering Workspace 具備之能力，以能力責任與企�
 | Outcome | MUST | 能力預期達成之企業結果 |
 | Classification | MUST | 依 §7 指定之 Capability 分類 |
 | Boundary | MUST | Capability 包含與排除的責任範圍 |
-| Owner | MUST | 對 Capability 完整性與演進負責的 accountable Owner |
+| Owner | MUST | 對 Capability 完整性與演進負責的負責 Owner |
 | Platform Reference | MUST | 承載此 Capability 之已核准 Platform 引用 |
-| Repository References | MUST | 實現此 Capability 之 Repository 引用；可為一個或多個 |
+| Repository References | MUST | 實作此 Capability 之 Repository 引用；可為一個或多個 |
 | Dependencies | MUST | 依 Dependency Architecture 管理之正式依賴引用 |
 | Lifecycle Status | MUST | Candidate、Active、Deprecated 或 Retired |
 | Architecture Reference | MUST | 核准 Capability 身分與邊界的 Architecture／ADR |
 
 Capability ID、Outcome 或 Boundary 的實質變更 MUST 經 Architecture Review；不得只修改 Catalog 條目完成架構變更。
 
-## 6. Capability Boundary and Responsibility
+## 6. 能力界線與職責
 
-### 6.1 Boundary Dimensions
+### 6.1 邊界尺寸
 
 Capability Boundary MUST 同時從下列面向定義：
 
@@ -154,23 +154,23 @@ Capability Boundary MUST 同時從下列面向定義：
 | Responsibility Boundary | Capability 對哪些責任負責？ |
 | Capability Boundary | 哪些子能力或能力群組屬於本 Capability，哪些明確不屬於它？ |
 | Platform Boundary | 由哪些 Platform 承載，哪些明確不屬於承載範圍？ |
-| Repository Boundary | 哪些 Repository 實現此 Capability，各自承擔何種角色？ |
+| Repository Boundary | 哪些 Repository 實作此 Capability，各自承擔何種角色？ |
 | Dependency Boundary | Capability 可接受、提供或禁止哪些依賴？ |
 | Information Boundary | 哪些架構資訊由 Capability 擁有、提供或僅引用？ |
 
-### 6.2 Boundary Rules
+### 6.2 邊界規則
 
 - 每項 Capability Responsibility MUST 能對應至 Outcome 與至少一項可驗證之企業結果。
 - 同一責任不得由多個 Capability 在無 Ownership 決議的情況下同時宣稱最終 Authority。
-- Capability MAY 委派實現責任，但 MUST 保留其能力責任與可追溯性。
-- Shared Capability MUST 具有單一 accountable Owner，並明確記錄其他 Platform 的使用或協作關係（AEOS-ARCH-005 §6.2）。
+- Capability MAY 委派實作責任，但 MUST 保留其能力責任與可追溯性。
+- Shared Capability MUST 具有單一負責 Owner，並明確記錄其他 Platform 的使用或協作關係（AEOS-ARCH-005 §6.2）。
 - Capability MUST NOT 直接管理超出其 Boundary 的 Platform、Repository 或架構決策。
 
-## 7. Capability Classification
+## 7. 能力分類
 
 Capability 分類用於建立治理、比較與演進決策之共用語言；分類不決定技術堆疊或組織層級。
 
-### 7.1 Classification Dimensions
+### 7.1 分類維度
 
 每個 Capability 依下列維度分類：
 
@@ -180,43 +180,43 @@ Capability 分類用於建立治理、比較與演進決策之共用語言；分
 | 架構歸屬 | Capability 於 Enterprise Architecture 之歸屬 | AEOS-ARCH-004 §5（Platform、Layer、Capability、Repository、Dependency、Workspace） |
 | 責任層級 | Capability 對應之架構責任層級 | AEOS-ARCH-006 §4.2（L1 Governance～L6 Implementation） |
 
-### 7.2 Classification Rules
+### 7.2 分類規則
 
 - 每個 Capability MUST 指定單一 Primary Classification。
 - 分類判定 MUST 以能力責任與企業結果為依據，MUST NOT 單憑 Repository 名稱、部署方式、供應商產品或組織單位決定。
 - 具名分類類別 MUST 可追溯至 AEOS-ARCH-001／Approved 架構載體或經 Architecture Review 核准；本文件不建立具名類別清單。
 - 無法清楚分類通常代表 Boundary 尚未完成，MUST 在登錄前解決。
 
-## 8. Capability Relationship Model
+## 8.能力關係模型
 
-### 8.1 Relationship Types
+### 8.1 關係類型
 
 | 關係 | 語意 | 要求 |
 |------|------|------|
 | Carries | Platform 承載 Capability，提供組織與運作邊界 | MUST 對應正式 Platform 與 Interface |
 | Composes | Capability 由子能力或能力群組組成 | MUST 明確組合邊界與組成責任 |
-| Supports | Repository 實現或支援 Capability | MUST 記錄 Repository 角色與責任 |
+| Supports | Repository 實作或支援 Capability | MUST 記錄 Repository 角色與責任 |
 | Enables | 一個 Capability 提供另一 Capability 所需之能力或基礎 | MUST 對應正式 Outcome 與 Dependency |
 | Consumes | 一個 Capability 使用另一 Capability 提供之能力 | MUST 記錄 Dependency 與責任邊界 |
 | Governs | 一個 Capability 對另一 Capability 之特定治理面向具有正式權威 | MUST 限定治理範圍，不得推定全面控制 |
 | Supersedes | 新 Capability 正式取代既有 Capability 之責任 | MUST 具有替代關係、Migration 與退役計畫 |
 
-### 8.2 Relationship Rules
+### 8.2 關係規則
 
 - Capability Relationship MUST 有方向、類型、Owner、依據與生命週期狀態。
 - `Carries` 不等同 `Governs`；Platform 承載能力不得由技術依賴推定治理權威。
 - `Consumes` 不轉移 Capability Ownership 或 Platform Accountability。
-- `Composes` 不得用來掩蓋責任重疊或繞過單一 accountable Owner。
+- `Composes` 不得用來掩蓋責任重疊或繞過單一負責 Owner。
 - 跨 Capability 之實際 Dependency MUST 登錄於 Dependency Matrix。
 - 循環治理關係 MUST NOT 被允許；循環技術或服務依賴必須由 Dependency Architecture 明確評估。
 
-## 9. Capability Dependency
+## 9. 能力依賴
 
-### 9.1 Dependency Definition
+### 9.1 依賴關係定義
 
 Capability Dependency 是 Capability 之間、或 Capability 與 Platform／Repository／Layer 之間之正式依賴關係。依賴 MUST 以能力責任與企業結果為基礎描述，不以特定實作或技術套件取代。
 
-### 9.2 Dependency Rules
+### 9.2 依賴規則
 
 - 每項 Capability Dependency MUST 有方向、類型、Owner、依據與生命週期狀態。
 - Dependency MUST 由 Dependency Architecture 定義並登錄於 Dependency Matrix；不得只存在於非正式敘述或實作中（AEOS-ARCH-004 §7）。
@@ -224,27 +224,27 @@ Capability Dependency 是 Capability 之間、或 Capability 與 Platform／Repo
 - 新增、移除或變更重大 Dependency MUST 經 Architecture Change（§12）。
 - 循環依賴 MUST 由 Dependency Architecture 明確評估，未經核准不得建立。
 
-## 10. Capability Ownership
+## 10. 能力所有權
 
-### 10.1 Roles
+### 10.1 角色
 
 | 角色 | 責任 |
 |------|------|
 | Architecture Owner | 維護 Capability 與 Enterprise Architecture 一致性、裁決邊界衝突及核准重大變更 |
 | Capability Owner | 對 Capability Outcome、Boundary、依賴與生命週期負最終責任 |
 | Platform Owner | 維護承載 Platform 之邊界與 Platform Catalog 條目一致性 |
-| Repository Owner | 確保實現 Repository 符合 Capability 與 Enterprise Architecture |
+| Repository Owner | 確保實作 Repository 符合 Capability 與 Enterprise Architecture |
 | Dependency Owner | 維護跨 Capability Dependency 之必要性、風險與相容性 |
 | Review Owner | 依 AEOS-STD-005 確認 Capability 變更已完成正式 Review |
 
-### 10.2 Accountability Rules
+### 10.2 問責規則
 
-- 每個 Active Capability MUST 有且只有一個 accountable Capability Owner 角色。
+- 每個 Active Capability MUST 有且只有一個負責 Capability Owner 角色。
 - Capability Owner 可委派執行工作，但 MUST NOT 委派最終 Accountability。
-- 跨 Platform 或跨 Repository 之 Capability MUST 在 Ownership Matrix 中明確區分 accountable、responsible、consulted 與 informed 關係。
+- 跨 Platform 或跨 Repository 之 Capability MUST 在 Ownership Matrix 中明確區分負責、responsible、consulted 與 informed 關係。
 - Ownership 缺失、重疊或無法履行時，Capability MUST NOT 進入 Active 狀態。
 
-## 11. Capability Lifecycle
+## 11. 能力生命週期
 
 | 狀態 | 定義 | 必要條件 |
 |------|------|----------|
@@ -263,7 +263,7 @@ Capability Dependency 是 Capability 之間、或 Capability 與 Platform／Repo
 
 任何跳過 Deprecated 的 Active → Retired 轉移 MUST 具有緊急理由、影響分析與 Architecture Owner 核准。
 
-## 12. Change and Evolution
+## 12. 變遷與演變
 
 下列變更屬於 Architecture Change，MUST 經 EWO 與 Architecture Review：
 
@@ -284,7 +284,7 @@ Capability Dependency 是 Capability 之間、或 Capability 與 Platform／Repo
 
 Capability Catalog 之建立屬後續獨立架構資產，MUST 於本文件核准後另循 EWO 與 Architecture Review 建立。
 
-## 13. Compliance
+## 13. 合規性
 
 Capability Architecture 合規檢查至少包含：
 
@@ -296,7 +296,7 @@ Capability Architecture 合規檢查至少包含：
 | Boundary | Outcome、責任、包含與排除範圍明確 |
 | Classification | 具有單一 Primary Classification 且判定依據成立 |
 | Relationship | 與 Platform、Repository、Dependency 之關係具有方向、類型與依據 |
-| Ownership | 具有唯一 accountable Capability Owner，無未解決責任重疊 |
+| Ownership | 具有唯一負責 Capability Owner，無未解決責任重疊 |
 | Dependency | 依賴方向、類型、風險與 Owner 可追溯，符合 Layer Architecture 分層規則 |
 | Lifecycle | 狀態、轉移條件、Migration 與替代關係完整 |
 | Catalog Readiness | 未經核准不建立具名 Capability 條目；Catalog 待本文件核准後另立 |
@@ -305,7 +305,7 @@ Capability Architecture 合規檢查至少包含：
 
 不符合本文件之專項 Architecture、Catalog、Matrix 或 Repository Architecture MUST NOT 被視為 AEOS 正式架構資產。
 
-## 14. References
+## 14. 參考文獻
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
@@ -322,7 +322,7 @@ Capability Architecture 合規檢查至少包含：
 | REF-011 | EWO-AEOS-0014 | EWO | 本文件之工作來源 |
 | REF-012 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
-## 15. Revision History
+## 15. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|

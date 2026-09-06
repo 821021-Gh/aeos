@@ -15,10 +15,10 @@ Context 與 Token Budget 的完整規則見 [`AEOS-STD-007`](docs/standards/AEOS
 
 正常情況使用 Delta Output，只回報：
 
-- Files Changed
-- Validation
-- Risk
-- Next Action
+- 文件已更改
+- 驗證
+- 風險
+- 下一步行動
 
 只有在 Blocker、驗證失敗、重大架構／安全決策或使用者要求時，才展開完整分析。
 
