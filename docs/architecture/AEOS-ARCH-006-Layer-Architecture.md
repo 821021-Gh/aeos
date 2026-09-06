@@ -21,7 +21,7 @@ related:
 
 # AEOS-ARCH-006 — Layer Architecture
 
-## Executive Summary
+## 執行摘要
 
 本文件依 AEOS-ADR-002 與 AEOS-ARCH-004 建立 AI Engineering Workspace 的正式 Layer Architecture，定義企業架構責任的分層模型、每一層的責任與禁止承載內容、相鄰層與跨層依賴的允許方向，以及防止下位層繞過上位治理或反向控制上位架構的規則。Layer Architecture 是全部架構領域的共同分層基準，使治理、平台、能力、Repository 與實作責任保持清楚邊界，並為 Repository Architecture 與 Dependency Architecture 提供統一的分層與依賴方向依據。本文件不重新設計 Approved 架構載體、不建立實作設計，也不取代任何專項架構或治理文件。
 
@@ -34,14 +34,14 @@ related:
 | 型別 | Architecture（Layer Architecture） |
 | 狀態 | Approved |
 | 版本 | 1.1.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-08 |
 | 依據文件 | EWO-AEOS-Architecture-0003、EWO-AEOS-0013、AR-AEOS-0013-R1、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001（Approved 1.3.0）、AEOS-ARCH-002（Approved 1.1.0）、AEOS-ARCH-004（Approved 1.1.0） |
 | 關聯文件 | EWO-AEOS-0013、AR-AEOS-0013-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-ARCH-004、AEOS-ARCH-005、AEOS-STD-001～AEOS-STD-005、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. Purpose
+## 1. 目的
 
 本文件之目的為：
 
@@ -52,9 +52,9 @@ related:
 - 防止下位層繞過上位治理或反向控制上位架構（AEOS-ARCH-004 §6.2）。
 - 為 Repository Architecture 與 Dependency Architecture 提供共同分層基準（AEOS-ARCH-004 §6.2）。
 
-## 2. Scope
+## 2.範圍
 
-### 2.1 In Scope
+### 2.1 在範圍內
 
 本文件涵蓋：
 
@@ -64,7 +64,7 @@ related:
 - Layer 與 Governance、Platform、Capability、Repository、Dependency、Workspace 之關係與治理意義。
 - Layer 之擁有權、變更控制與合規要求。
 
-### 2.2 Out of Scope
+### 2.2 超出範圍
 
 本文件不涵蓋：
 
@@ -74,7 +74,7 @@ related:
 - Catalog、Matrix 之實際條目。
 - Runtime Topology、Deployment Architecture、Infrastructure Design 或 Source Code Implementation。
 
-## 3. Architecture Authority
+## 3. 架構權威
 
 Layer Architecture 適用下列權威順序：
 
@@ -93,9 +93,9 @@ Layer Architecture 適用下列權威順序：
 - Layer Architecture 與 Governance Layers（AEOS-ARCH-002 §3）互補：前者定義架構責任分層，後者定義治理權威分層；兩者不得互相取代。
 - 發現 Approved 架構載體未涵蓋的 Layer 需求時，MUST 先透過正式架構變更處理。
 
-## 4. Layer Model
+## 4. 層模型
 
-### 4.1 Formal Definition
+### 4.1 正式定義
 
 Layer 是企業架構中具備明確責任、邊界與依賴方向的穩定架構分層。每一 Layer 定義一組架構責任與禁止承載之內容，並以允許之依賴方向與其他 Layer 連結。Layer 不是組織單位、不是技術堆疊層級、也不是部署邊界。
 
@@ -107,7 +107,7 @@ Layer 是企業架構中具備明確責任、邊界與依賴方向的穩定架�
 - 其規則可被 Platform、Capability、Repository、Dependency 與 Workspace 架構追溯與遵循。
 - 變更受 Enterprise Architecture 管理，而非隨單一實作任意增刪。
 
-### 4.2 Layer Structure
+### 4.2 層結構
 
 企業架構責任分為六個正式層級：
 
@@ -117,7 +117,7 @@ Layer 是企業架構中具備明確責任、邊界與依賴方向的穩定架�
 | L2 | Enterprise Architecture | 定義 Workspace 層級之架構結構、領域邊界與 Register | 不得重新設計 Approved 架構載體、不得建立平行架構來源 |
 | L3 | Platform | 定義 Platform 身分、邊界、分類、關係與生命週期 | 不得將 Repository、Capability、Product 或 Service 等同 Platform |
 | L4 | Capability | 定義能力之責任、組合、關係與擁有權 | 不得以特定實作或 Repository 取代能力定義 |
-| L5 | Repository | 定義 Repository 身分、類型、責任與映射 | 不得繞過上位治理或擴張架構 Authority |
+| L5 | Repository | 定義 Repository 身分、類型、責任與對應 | 不得繞過上位治理或擴張架構 Authority |
 | L6 | Implementation | 落實實作、工具與部署（屬 Production Repositories 責任） | 不得反向控制上位層或建立未經核准之架構事實 |
 
 規則：
@@ -126,7 +126,7 @@ Layer 是企業架構中具備明確責任、邊界與依賴方向的穩定架�
 - L1～L5 之權威內容由 AEOS 正式文件承載；L6 之實作責任保留於 Production Repositories（AEOS-ARCH-004 §3.3.2）。
 - Layer 之禁止承載內容 MUST NOT 以任何形式落入下位文件或實作。
 
-### 4.3 Layer Is Not
+### 4.3 層不是
 
 | 架構元素 | 與 Layer 的區別 |
 |----------|----------------|
@@ -136,16 +136,16 @@ Layer 是企業架構中具備明確責任、邊界與依賴方向的穩定架�
 | Repository | Repository 是版本化治理與交付邊界（L5）；Layer 是責任分層 |
 | 技術堆疊（OS／Middleware／Application） | 技術分層描述實作部署（L6 範圍）；本 Layer Model 描述企業架構責任 |
 
-## 5. Layer Rules
+## 5. 圖層規則
 
-### 5.1 Responsibility Rules
+### 5.1 責任規則
 
 - 每一 Layer 之責任 MUST 有明確邊界，且 MUST 對應至 AEOS-ARCH-004 §6 之架構領域或 AEOS-ARCH-002 §3 之治理層級。
 - Layer MUST NOT 承載其 Forbidden Content（§4.2）。
 - 下位 Layer 之內容 MUST 可追溯至上位 Layer；上位 Layer 之規則不得被下位 Layer 重述、改寫或取代。
 - 任一 Layer 之責任不明確時，MUST 於登錄或交付前解決，不得以模糊敘述取代架構定義。
 
-### 5.2 Dependency Direction Rules
+### 5.2 依賴方向規則
 
 依賴方向以「上位約束、下位依賴」為原則：
 
@@ -157,16 +157,16 @@ Layer 是企業架構中具備明確責任、邊界與依賴方向的穩定架�
 | 同層元素之間 | 受限 | 同層元素依其領域關係（AEOS-ARCH-004 §7）互動，MUST 有明確方向、類型與依據 |
 | 跨層跳級依賴 | 受限 | 跳級依賴 MUST 有上位文件依據，否則視為繞過治理 |
 
-### 5.3 Bypass and Reverse-Control Prevention
+### 5.3 旁路和反向控制預防
 
 - 下位 Layer MUST NOT 繞過上位治理（例如直接修改 Register、Catalog 或已核准架構事實以取代 Architecture Review）。
 - 下位 Layer MUST NOT 反向控制上位 Layer（例如以實作決策覆寫架構邊界、以 Repository 政策取代 Enterprise Architecture）。
 - 循環治理關係 MUST NOT 被允許；循環技術或服務依賴必須由 Dependency Architecture 明確評估。
 - 發現繞過或反向控制情事時，MUST 依 AEOS-CON-001 變更管理與 AEOS-STD-005 Review 流程處理。
 
-## 6. Cross-Layer Relationships
+## 6. 跨層關係
 
-### 6.1 Relationship Types
+### 6.1 關係類型
 
 | 關係 | 語意 | 要求 |
 |------|------|------|
@@ -177,7 +177,7 @@ Layer 是企業架構中具備明確責任、邊界與依賴方向的穩定架�
 | Traces To | 下位 Layer 引用上位 Layer 之權威內容 | MUST 保持引用有效且不重述 |
 | Governs | 一 Layer 對另一 Layer 之特定治理面向具有正式權威 | MUST 限定治理範圍，不得推定全面控制 |
 
-### 6.2 Relationship Rules
+### 6.2 關係規則
 
 - 每一 Layer Relationship MUST 有方向、類型、依據與生命週期狀態。
 - `Traces To` 不構成控制權；引用上位內容不授予下位 Layer 修改權。
@@ -185,9 +185,9 @@ Layer 是企業架構中具備明確責任、邊界與依賴方向的穩定架�
 - 跨 Layer 之實際依賴 MUST 由 Dependency Architecture 定義並登錄於 Dependency Matrix。
 - Layer Architecture 約束全部架構領域（AEOS-ARCH-004 §7）：Platform、Capability、Repository、Dependency 與 Workspace 架構 MUST 宣告其 Layer 歸屬與依賴方向。
 
-## 7. Ownership and Governance
+## 7. 所有權與治理
 
-### 7.1 Roles
+### 7.1 角色
 
 | 角色 | 責任 |
 |------|------|
@@ -195,13 +195,13 @@ Layer 是企業架構中具備明確責任、邊界與依賴方向的穩定架�
 | Review Owner | 依 AEOS-STD-005 確認 Layer Architecture 變更已完成正式 Review |
 | 各 Layer 權威文件 Owner | 維護該 Layer 之責任定義、邊界與禁止內容 |
 
-### 7.2 Accountability Rules
+### 7.2 問責規則
 
-- 每一 Layer MUST 有且只有一個 accountable Owner（以其權威文件之 owner 為準）。
+- 每一 Layer MUST 有且只有一個負責 Owner（以其權威文件之擁有者為準）。
 - Layer 之新增、合併、拆分或移除視為 Enterprise Architecture 重大變更。
 - 重大變更 MUST 依 AEOS-ARCH-003 建立或引用 ADR（如適用），並同步更新受影響之 Architecture、Catalog 與 Matrix。
 
-## 8. Change and Evolution
+## 8. 變化與演變
 
 下列變更屬於 Architecture Change，MUST 經 EWO 與 Architecture Review：
 
@@ -218,7 +218,7 @@ Layer 是企業架構中具備明確責任、邊界與依賴方向的穩定架�
 4. 定義 Migration、Rollback、版本與生命週期策略。
 5. 更新本文件、Architecture Register 與相關 Matrix。
 
-## 9. Compliance
+## 9. 合規性
 
 Layer Architecture 合規檢查至少包含：
 
@@ -229,13 +229,13 @@ Layer Architecture 合規檢查至少包含：
 | Dependency Direction | 依賴方向符合「上位約束、下位依賴」原則，無反向控制 |
 | Bypass Prevention | 無繞過上位治理之變更路徑 |
 | Coverage | Platform、Capability、Repository、Dependency、Workspace 均宣告 Layer 歸屬 |
-| Ownership | 每一 Layer 具有單一 accountable Owner |
+| Ownership | 每一 Layer 具有單一負責 Owner |
 | Asset Consistency | Architecture、Register、Catalog 與 Matrix 狀態一致 |
 | Review Evidence | 變更具備 EWO、Review Decision、Revision History 與 Merge 證據 |
 
 不符合本文件之專項 Architecture、Catalog、Matrix 或 Repository Architecture MUST NOT 被視為 AEOS 正式架構資產。
 
-## 10. References
+## 10. 參考文獻
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
@@ -251,7 +251,7 @@ Layer Architecture 合規檢查至少包含：
 | REF-010 | EWO-AEOS-Architecture-0003 | EWO | 本文件之工作來源 |
 | REF-011 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
-## 11. Revision History
+## 11. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|

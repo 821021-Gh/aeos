@@ -35,9 +35,9 @@ related:
 
 > EWO-AEOS-0022：依 Chief Architect 裁定，建立 Catalog（CAT）與 Matrix（MAT）之正式文件型別、統一 Schema、Entry ID／Relationship ID 命名框架、Lifecycle、Review、Approval、Change、Traceability 與一致性規則。本文件為 AEOS 所有 Catalog 與 Matrix 之唯一規範（Single Source of Truth）；不是 Catalog 內容，不是 Matrix 內容，不是 Documentation Format。
 
-## Executive Summary
+## 執行摘要
 
-本文件定義 AEOS Enterprise Architecture Catalog 與 Matrix 之標準，涵蓋文件型別（CAT／MAT）、目錄歸屬、統一 Schema、Entry ID 與 Relationship ID 命名框架、Traceability、Lifecycle、Review、Approval、Change 與一致性規則。Catalog 與 Matrix 只登錄可追溯至 Approved Architecture 或正式決策之事實，禁止自行創造新的 Platform、Capability、Repository、Workspace、Ownership 或 Dependency。本文件不建立任何 Catalog 或 Matrix，不登錄任何具名條目，也不定義工具配置。
+本文件定義 AEOS Enterprise Architecture Catalog 與 Matrix 之標準，涵蓋文件型別（CAT／MAT）、目錄歸屬、統一 Schema、Entry ID 與 Relationship ID 命名框架、Traceability、Lifecycle、Review、Approval、Change 與一致性規則。Catalog 與 Matrix 只登錄可追溯至 Approved Architecture 或正式決策之事實，禁止自行創造新的 Platform、Capability、Repository、Workspace、Ownership 或 Dependency。本文件不建立任何 Catalog 或 Matrix，不登錄任何具名條目，也不定義工具設定。
 
 ## 文件資訊
 
@@ -48,14 +48,14 @@ related:
 | 型別 | Standard |
 | 狀態 | Approved |
 | 版本 | 1.1.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-08 |
 | 依據文件 | EWO-AEOS-0022、EWO-AEOS-0023、SR-AEOS-0023-R1、AEOS-DIA-001、AEOS-STD-001～AEOS-STD-005、AEOS-ARCH-001、AEOS-ARCH-004～AEOS-ARCH-010、AEOS-GOV-001、AEOS-ADR-002（WA-001 Fact Authority Transition） |
 | 關聯文件 | EWO-AEOS-0023、SR-AEOS-0023-R1、AEOS-ARCH-001～AEOS-ARCH-010、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001、AEOS-STD-001～AEOS-STD-005、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. Purpose
+## 1. 目的
 
 本文件之目的為：
 
@@ -65,9 +65,9 @@ related:
 - 使 Matrix 引用正式 Catalog Entry，不以無法解析之自由文字作為架構元素身分。
 - 解決 M5 — Enterprise Architecture Catalogs 與 AEOS-GOV-001 既有里程碑命名之歧義（對應 AEOS-GOV-001 §2.1）。
 
-## 2. Scope
+## 2.範圍
 
-### 2.1 In Scope
+### 2.1 在範圍內
 
 本標準涵蓋：
 
@@ -79,19 +79,19 @@ related:
 - 文件與條目之 Lifecycle、Review、Approval 與 Change 規則。
 - 一致性規則與合規檢查。
 
-### 2.2 Out of Scope
+### 2.2 超出範圍
 
 本標準明確不涵蓋：
 
 - 建立任何 Catalog 或 Matrix 文件（Platform、Capability、Repository、Workspace Catalog 與 Ownership、Dependency Matrix 均屬後續 EWO）。
 - 登錄任何具名 Catalog Entry 或關係條目。
 - 各 Catalog 之專屬欄位設計（專屬擴充 MUST 依 §5.2 經本標準核准）。
-- 工具配置、Runtime Topology、Deployment Architecture 或 Source Code Implementation。
+- 工具設定、Runtime Topology、Deployment Architecture 或 Source Code Implementation。
 - Catalog 內容之重新設計或既定 Architecture 之改寫。
 
-## 3. Catalog and Matrix Model
+## 3.目錄與矩陣模型
 
-### 3.1 Definitions
+### 3.1 定義
 
 | 資產 | 定義 |
 |------|------|
@@ -101,36 +101,36 @@ related:
 | Relationship | Matrix 內登錄之單一已核准關係。 |
 | Fact Authority | 可登錄事實之唯一來源：Approved Architecture 或正式決策（ADR／Review Decision）。 |
 
-### 3.2 Fact Authority Principle
+### 3.2 Fact Authority 原則
 
 - Catalog 與 Matrix 只登錄可追溯至 Fact Authority 之事實（AEOS-ARCH-004 §8）。
 - Catalog 與 Matrix MUST NOT 自行創造新的 Platform、Capability、Repository、Workspace、Ownership 或 Dependency。
 - 條目事實與 Architecture 衝突時，以 Architecture 為準並啟動修正；不得以 Catalog 註記取代架構修正。
 
-### 3.3 Catalog vs Index
+### 3.3 目錄與索引
 
 - Catalog（CAT）為正式且獨立之文件型別，MUST NOT 沿用 Index（IDX）型別（Chief Architect 裁定）。
 - Index（IDX）僅承載不登錄具名條目之總覽清單（如 Document Index）；登錄具名架構或治理實體之目錄一律使用 CAT 型別。
 
-## 4. Document Types and Directory Placement
+## 4. 文件類型與目錄放置
 
-### 4.1 Document Types
+### 4.1 文件類型
 
 | 型別 | 用途 | 目錄 | doc-id 格式 |
 |------|------|------|-------------|
 | CAT | Catalog（登錄已核准架構或治理實體） | `docs/catalogs/` | `AEOS-CAT-###` |
 | MAT | Matrix（登錄已核准關係） | `docs/matrices/` | `AEOS-MAT-###` |
 
-### 4.2 Rules
+### 4.2 規則
 
 - CAT 與 MAT 為相互獨立之型別；一項資產 MUST NOT 同時以 CAT 與 MAT 承載。
 - Catalog／Matrix 文件 MUST 置於其對應目錄；目錄僅在實際文件需求存在時建立（AEOS-DIA-001 §5）。
 - doc-id 流水號 MUST 各型別獨立編號（AEOS-STD-004 §6.1）。
 - CAT／MAT 之 Schema 由本標準統一定義，MUST NOT 在各 Catalog 重複設計。
 
-## 5. Unified Catalog Schema
+## 5. 統一目錄架構
 
-### 5.1 Mandatory Entry Fields
+### 5.1 必填欄位
 
 每個 Catalog Entry MUST 具備下列欄位：
 
@@ -140,19 +140,19 @@ related:
 | Entry Name | MUST | 正式名稱；命名變更不得改變 Entry ID |
 | Type／Classification | MUST | 依對應 Architecture 之類型或分類 |
 | Status | MUST | 依 §9.2 條目 Lifecycle 狀態 |
-| Owner | MUST | 對條目完整性與演進負責之 accountable Owner |
+| Owner | MUST | 對條目完整性與演進負責之負責 Owner |
 | Architecture Reference | MUST | 核准此條目之 Approved Architecture／ADR |
 | Validated Facts | MUST | 可追溯之事實欄位（依對應 Architecture 定義） |
 | Related Entries | MUST | 引用其他 Catalog Entry ID；無則為空 |
 | Version／Review Date | MUST | 條目版本與最近 Review 日期 |
 | Change Record | MUST | 條目新增、修改、移除之歷程 |
 
-### 5.2 Extension Rules
+### 5.2 擴充規則
 
 - 各 Catalog MAY 增加專屬欄位，但 MUST 經本標準之 Amendment 或於該 Catalog 之 EWO 中經 Review 核准，且不得與本節 Mandatory Fields 衝突。
 - 專屬欄位 MUST NOT 取代統一 Schema；統一欄位之定義以本標準為唯一權威。
 
-### 5.3 Matrix Record Fields
+### 5.3 矩陣記錄欄位
 
 每個 Matrix Relationship MUST 具備下列欄位：
 
@@ -164,35 +164,35 @@ related:
 | Source Entry Reference | MUST | 正式 Catalog Entry ID |
 | Target Entry Reference | MUST | 正式 Catalog Entry ID |
 | Strength／RACI | MUST（依類型） | Dependency Strength 或 Ownership RACI |
-| Owner | MUST | 對關係負責之 accountable Owner |
+| Owner | MUST | 對關係負責之負責 Owner |
 | Status | MUST | 依 §9.2 條目 Lifecycle 狀態 |
 | Architecture Reference | MUST | 核准此關係之 Approved Architecture／ADR |
 | Version／Review Date | MUST | 條目版本與最近 Review 日期 |
 | Change Record | MUST | 關係新增、修改、移除之歷程 |
 
-## 6. Entry ID and Relationship ID Naming Framework
+## 6. 條目 ID 與關係 ID 命名框架
 
-### 6.1 Entry ID Framework
+### 6.1 條目 ID 框架
 
 Catalog Entry ID MUST 依下列框架命名（格式範例，非實際條目）：
 
 | Catalog | Entry 類型 | 前綴 | 格式 |
 |---------|-----------|------|------|
-| Platform Catalog | Platform | `PLT` | `PLT-###` |
-| Capability Catalog | Capability | `CPB` | `CPB-###` |
-| Repository Catalog | Repository | `REP` | `REP-###` |
-| Workspace Catalog | Workspace | `WS` | `WS-###` |
+| Platform Catalog |平台| `PLT` | `PLT-###` |
+| Capability Catalog |能力| `CPB` | `CPB-###` |
+| Repository Catalog |儲存庫 | `REP` | `REP-###` |
+| Workspace Catalog |工作空間 | `WS` | `WS-###` |
 
-### 6.2 Relationship ID Framework
+### 6.2 關係 ID 框架
 
 Matrix Relationship ID MUST 依下列框架命名（格式範例，非實際條目）：
 
 | Matrix | 關係類型 | 前綴 | 格式 |
 |--------|----------|------|------|
-| Ownership Matrix | Ownership | `OWN` | `OWN-###` |
-| Dependency Matrix | Dependency | `DEP` | `DEP-###` |
+|所有權矩陣|所有權| `OWN` | `OWN-###` |
+|依賴矩陣|依賴| `DEP` | `DEP-###` |
 
-### 6.3 ID Rules
+### 6.3 ID 規則
 
 - Entry ID 與 Relationship ID MUST 全 Workspace 唯一。
 - Entry ID／Relationship ID 一經發布 MUST NOT 變更或重用；Retired 後永久保留（AEOS-STD-004 §6.5）。
@@ -200,15 +200,15 @@ Matrix Relationship ID MUST 依下列框架命名（格式範例，非實際條�
 - 前綴 MUST 依本節表格使用；MUST NOT 被其他類別佔用或仿冒。
 - 新類型之 Entry／Relationship ID 框架 MUST 經本標準之 Amendment，不得由各 Catalog／Matrix 自行定義。
 
-## 7. Traceability and Fact Authority
+## 7. 追溯性與 Fact Authority
 
-### 7.1 Traceability Requirements
+### 7.1 可追溯性要求
 
 - 每個 Catalog Entry 與 Matrix Relationship MUST 宣告 Architecture Reference（Approved Architecture 或 ADR／Review Decision）。
 - 無 Architecture Reference 之條目 MUST NOT 登錄。
 - 條目之 Validated Facts 與 Related Entries MUST 可追溯至既有已核准事實。
 
-### 7.2 Forbidden Facts
+### 7.2 禁止的事實
 
 Catalog 與 Matrix MUST NOT 自行創造下列事實：
 
@@ -218,16 +218,16 @@ Catalog 與 Matrix MUST NOT 自行創造下列事實：
 
 發現未經核准事實時，MUST 依 AEOS-ARCH-009 §13 Violation Governance 與 AEOS-CON-001 變更管理處理。
 
-## 8. Matrix Reference Rules
+## 8. 矩陣參考規則
 
 - Matrix MUST 以正式 Catalog Entry ID 引用架構元素身分。
 - Matrix MUST NOT 使用無法解析之自由文字作為架構元素身分。
 - 引用之 Entry MUST 存在於對應 Catalog；引用 Retired Entry MUST 明確標註歷史用途。
 - 無法解析之引用視為一致性違規（§11）。
 
-## 9. Lifecycle
+## 9. 生命週期
 
-### 9.1 Document Lifecycle
+### 9.1 文件生命週期
 
 Catalog／Matrix 文件之狀態依下列規則：
 
@@ -238,7 +238,7 @@ Catalog／Matrix 文件之狀態依下列規則：
 | Deprecated | 文件已由新文件取代；保留既有引用，不得再新增內容。 |
 | Retired | 文件停止承擔正式責任；保留歷史。 |
 
-### 9.2 Entry Lifecycle
+### 9.2 條目生命週期
 
 Catalog Entry 與 Matrix Relationship 之狀態依下列規則：
 
@@ -249,20 +249,20 @@ Catalog Entry 與 Matrix Relationship 之狀態依下列規則：
 | Deprecated | 仍受支援但不得承接新的策略性責任。 |
 | Retired | 已停止承擔正式責任；ID 永久保留。 |
 
-### 9.3 Lifecycle Rules
+### 9.3 生命週期規則
 
 - 每次狀態變更 MUST 更新 Change Record、Version 與 Review Date。
 - Deprecated 條目 MUST 保留歷史與替代關係；Retired 條目 MUST NOT 被重新啟用或重用 ID。
 - 文件狀態與條目狀態 MUST 分開管理；文件 Approved 不代表其中條目全部 Active。
 
-## 10. Review, Approval and Change
+## 10. 審查、核准與變更
 
-### 10.1 Document Review
+### 10.1 文件審查
 
 - Catalog／Matrix 文件合併至 main 前 MUST 經 Review（AEOS-STD-005 §3）。
 - 文件 Review 使用 Catalog／Matrix Review（Review ID 前綴 `CM`，依 AEOS-STD-005 §4、AEOS-STD-004 §6.3）。
 
-### 10.2 Entry Change Review
+### 10.2 條目更改審查
 
 下列變更 MUST 經 EWO 與 Review：
 
@@ -271,18 +271,18 @@ Catalog Entry 與 Matrix Relationship 之狀態依下列規則：
 - 條目移除：MUST 依 Deprecated → Retired 流程執行，不得直接刪除。
 - 無 Architecture Reference 之任何新增或修改 MUST NOT 登錄。
 
-### 10.3 Relationship Change Review
+### 10.3 關係變更審查
 
 - 新增、修改或移除 Ownership／Dependency 關係 MUST 經 Review。
 - Dependency 關係變更 MUST 依 AEOS-ARCH-009 §12 執行變更影響分析。
 - 未核准之循環依賴 MUST NOT 登錄（AEOS-ARCH-009 §12.2）。
 
-### 10.4 Approval
+### 10.4 核准
 
 - 最終核准由 Repository Owner 執行（Human Final Decision，AEOS-STD-005 §3）。
 - 文件升版至 Approved 依 AEOS-STD-005 Review Workflow 執行。
 
-## 11. Consistency Rules
+## 11. 一致性規則
 
 Catalog 與 Matrix MUST 符合下列一致性規則：
 
@@ -293,7 +293,7 @@ Catalog 與 Matrix MUST 符合下列一致性規則：
 - 與 AEOS-ARCH-001 §8 Register 及相關 Architecture 之狀態一致。
 - 變更後 MUST 重新執行一致性驗證（格式、Metadata、Cross-reference、Placeholder）。
 
-## 12. Compliance
+## 12. 合規性
 
 Catalog／Matrix 合規檢查至少包含：
 
@@ -311,7 +311,7 @@ Catalog／Matrix 合規檢查至少包含：
 
 不符合本標準之 Catalog 或 Matrix MUST NOT 被視為 AEOS 正式架構資產。
 
-## 13. References
+## 13. 參考文獻
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
@@ -330,7 +330,7 @@ Catalog／Matrix 合規檢查至少包含：
 | REF-013 | EWO-AEOS-0022 | EWO | 本文件之工作來源 |
 | REF-014 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
-## 14. Revision History
+## 14. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|

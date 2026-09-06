@@ -19,13 +19,13 @@ related:
 
 # AEOS-SPEC-004 — Runtime Adapter Execution Evidence Contract
 
-## Executive Summary
+## 執行摘要
 
-本規格定義 Agent Runtime adapter 在完成 AEOS execution request 後必須回傳的 provider-neutral execution evidence contract。
+本規格定義 Agent Runtime 轉接器在完成 AEOS 執行要求後必須回傳的 provider-neutral 執行證據契約。
 
-Runtime adapter execution evidence 的目的，是讓 Agent Control Plane、Gate runner、Audit / Observability boundary 與後續 verification 能判斷 runtime 做了什麼、用了哪些受授權能力、結果狀態為何、是否有錯誤、成本與 latency 為何，以及是否符合 evidence minimization。它不是 source validation、memory confirmation、learning case publication、human approval、production authorization 或 quality gate pass。
+Runtime 轉接器執行證據的目的，是讓 Agent Control Plane、Gate 執行器、Audit / Observability 邊界與後續驗證能判斷執行環境做了什麼、用了哪些受授權能力、結果狀態為何、是否有錯誤、成本與延遲為何，以及是否符合證據最小化。它不是來源驗證、記憶體 confirmation、learning 案例 publication、human 核准、正式環境授權或品質關卡 pass。
 
-本文件不選定任何 runtime、harness、provider、model、tool platform、workflow engine 或 product repository；不實作 adapter；不定義 CRM domain capability；不授權 Production action。
+本文件不選定任何執行環境、Harness、供應商、模型、工具平台、工作流程引擎或產品儲存庫；不實作轉接器；不定義 CRM 領域能力；不授權 Production action。
 
 ## 文件資訊
 
@@ -36,246 +36,246 @@ Runtime adapter execution evidence 的目的，是讓 Agent Control Plane、Gate
 | 型別 | Specification |
 | 狀態 | Approved |
 | 版本 | 1.0.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-09-05 |
 | 最後更新 | 2026-09-05 |
 | 依據文件 | AEOS Issue #69、AEOS-ADR-005、AEOS-ADR-003、AEOS-ARCH-013、AEOS-SPEC-003 |
 | 關聯文件 | AEOS-SPEC-002、AEOS-SPEC-003 |
 
-## 1. Purpose
+## 1. 目的
 
 本規格目的為：
 
-- 定義 Runtime adapter execution request / response boundary。
-- 定義 provider-neutral execution evidence minimum fields。
-- 定義 cost、token、latency、tool reference 等 optional evidence fields。
-- 定義 forbidden data rules。
-- 定義 provider / model / runtime metadata extension envelope。
-- 防止 runtime success 被 Control Plane 或 Gate runner 誤解為 validation pass、authority decision 或 approval result。
+- 定義 Runtime 轉接器執行要求 / response 邊界。
+- 定義 provider-neutral 執行證據 minimum fields。
+- 定義 cost、token、延遲、工具參考等 optional 證據 fields。
+- 定義 forbidden 資料規則。
+- 定義供應商 / 模型 / 執行環境中繼資料擴充封裝。
+- 防止執行環境成功被 Control Plane 或 Gate 執行器誤解為驗證 pass、權限決策或核准結果。
 
-## 2. Scope
+## 2.範圍
 
-### 2.1 In Scope
+### 2.1 在範圍內
 
-- Runtime adapter execution response boundary。
-- Execution evidence minimum fields。
-- Runtime、adapter、capability、provider/model、execution identity。
-- Start / end time、duration、outcome、error class。
-- Optional cost、token、latency、tool reference。
-- Forbidden data rules。
-- Provider/model/runtime metadata extension envelope。
-- Runtime evidence interpretation rules。
+- Runtime 轉接器執行回應邊界。
+- 執行證據最小欄位。
+- 執行環境、轉接器、能力、供應商/模型、執行身分。
+- 開始/結束時間、持續時間、結果、錯誤類別。
+- 可選成本、Token、延遲、工具參考。
+- 禁止資料規則。
+- 供應商/模型/執行環境元資料擴展信封。
+- 執行環境證據解釋規則。
 
-### 2.2 Out of Scope
+### 2.2 超出範圍
 
-- Runtime adapter implementation。
-- API endpoint、SDK、database schema 或 telemetry pipeline implementation。
-- Source authority、quality gate result、memory promotion、learning case publication、human approval 或 production authorization。
-- CRM domain capability。
-- Any named runtime、provider、model、workflow engine、tool platform、vector database or product selection。
+- Runtime 轉接器實作。
+- API endpoint、SDK、資料庫結構描述或遙測資料 pipeline 實作。
+- Source 權限、品質關卡結果、記憶體提升、learning 案例 publication、human 核准或正式環境授權。
+- CRM 領域能力。
+- 任何命名的執行環境、供應商、模型、工作流程引擎、工具平台、向量資料庫或產品選擇。
 
-## 3. Governing Authority
+## 3. 管理機構
 
-| Authority | Role |
+|權威|角色 |
 |---|---|
-| AEOS-ADR-005 | AEOS owns runtime-neutral Agent Collaboration governance |
-| AEOS-ADR-003 | Control Plane / Runtime separation and runtime neutrality |
-| AEOS-ARCH-013 | Execution Contract, runtime boundary and evidence boundary |
-| AEOS-SPEC-002 | Collaboration trace envelope and quality gate semantics |
-| AEOS-SPEC-003 | Runtime adapter execution request boundary and Gate runner interpretation |
+| AEOS-ADR-005 | AEOS 擁有 runtime-neutral Agent Collaboration 治理 |
+| AEOS-ADR-003 | Control Plane / 執行環境分離與執行環境中立 |
+| AEOS-ARCH-013 | Execution Contract，執行環境邊界與證據邊界 |
+| AEOS-SPEC-002 |協作追蹤信封與品質關卡語意 |
+| AEOS-SPEC-003 | Runtime 轉接器執行請求邊界與 Gate 執行器解釋 |
 
-Rules：
+規則：
 
-- Runtime executes authorized request only。
-- Runtime adapter evidence reports execution facts, not governance decisions。
-- Runtime failure MUST NOT be interpreted as validation pass。
-- Runtime success MUST NOT be interpreted as source validation success, memory confirmation, case publication, human approval or production authorization。
+- 執行環境僅執行授權的請求。
+- Runtime 轉接器證據報告執行事實，而不是治理決策。
+- 執行環境失敗 MUST NOT 被解釋為驗證通過。
+- 執行環境成功 MUST NOT 被解釋為事實來源驗證成功、記憶體確認、案例發布、人員核准或正式環境授權。
 
-## 4. Runtime Adapter Boundary
+## 4. Runtime Adapter 邊界
 
-Runtime adapter is a provider-neutral boundary between AEOS Control Plane execution request and concrete runtime / harness / provider implementation。
+Runtime 轉接器是 AEOS Control Plane 執行請求與具體執行環境/工具/供應商實作之間的 provider-neutral 邊界。
 
-Runtime adapter MAY translate request fields into provider-specific calls, but MUST preserve AEOS Execution Contract semantics and MUST NOT expand authority。
+Runtime 轉接器 MAY 將要求欄位轉換為供應商特定的呼叫，但 MUST 保留 AEOS Execution Contract 語意，且 MUST NOT 擴大權限。
 
-Runtime adapter response MUST be treated as execution evidence。It may feed Gate runner and verification, but it is not a gate decision by itself。
+Runtime 轉接器回應 MUST 被視為執行證據。它可以提供給 Gate 執行器和驗證，但它本身並不是 Gate 決策。
 
-## 5. Execution Evidence Minimum Fields
+## 5. 執行證據最小欄位
 
-Every runtime adapter response MUST include the following minimum fields or equivalent structured evidence：
+每個執行環境轉接器回應 MUST 包含以下最小欄位或等效結構化證據：
 
-| Field | Requirement |
+|領域|要求 |
 |---|---|
-| `evidence_id` | Stable evidence record identity |
-| `execution_id` | Execution identity from the authorized request |
-| `execution_request_id` | Runtime adapter request identity |
-| `trace_id` | Collaboration Trace Envelope identity |
-| `runtime_id` | Runtime or harness implementation identity / class |
-| `adapter_id` | Adapter identity |
-| `adapter_version` | Adapter contract / implementation version |
-| `capability_id` | Capability or capability class executed |
-| `provider_id` | Provider identity or provider class when available |
-| `model_id` | Model identity or model capability class when applicable |
-| `started_at` | Execution start timestamp |
-| `ended_at` | Execution end timestamp |
-| `outcome` | completed / failed / cancelled / timed_out / rejected / unsupported |
-| `error_class` | Stable error class when outcome is not completed |
-| `evidence_summary` | Minimal execution summary suitable for audit |
+| `evidence_id` |穩定證據記錄身分|
+| `execution_id` |來自授權請求的執行身分 |
+| `execution_request_id` | Runtime 轉接器請求身分 |
+| `trace_id` |協作 Trace Envelope 身分 |
+| `runtime_id` |執行環境或Harness 實作識別/類別 |
+| `adapter_id` |轉接器身分|
+| `adapter_version` |轉接器合約/實作版本 |
+| `capability_id` |執行的能力或能力類別 |
+| `provider_id` |供應商身分或供應商類別（如果可用）|
+| `model_id` |模型識別或模型能力等級（如果適用）|
+| `started_at` |執行開始時間戳|
+| `ended_at` |執行結束時間戳記 |
+| `outcome` | 已完成 / failed / cancelled / timed_out / 已拒絕 / unsupported |
+| `error_class` | outcome 不為已完成時的穩定錯誤類別 |
+| `evidence_summary` |適合稽核的最小執行摘要 |
 
-If a field is not applicable, the response MUST state not-applicable rather than omit governance-relevant meaning。
+如果某個欄位不適用，則回應 MUST 表示不適用，而不是省略與治理相關的含義。
 
-## 6. Optional Evidence Fields
+## 6. 可選證據欄位
 
-When available and policy permits, runtime adapter response SHOULD include：
+在可用且政策允許的情況下，執行環境轉接器回應 SHOULD 包括：
 
-| Field | Meaning |
+|領域|意義|
 |---|---|
-| `duration_ms` | Runtime execution duration |
-| `latency_ms` | Observed provider / model / tool latency |
-| `token_input` | Input token count or estimate |
-| `token_output` | Output token count or estimate |
-| `token_total` | Total token count or estimate |
-| `cost_estimate` | Provider/runtime cost estimate |
-| `cost_actual` | Actual cost when known |
-| `tool_references` | Tool invocation references, not raw secret or full payload |
-| `artifact_refs` | Output artifact references |
-| `retry_count` | Runtime-level retry count |
-| `cancellation_seen` | Whether cancellation / revocation was received |
-| `provider_request_ref` | Provider-specific request reference if safe to retain |
+| `duration_ms` |執行環境執行持續時間 |
+| `latency_ms` |觀察到的供應商/模型/工具延遲 |
+| `token_input` |輸入 Token計數或估計 |
+| `token_output` |輸出 Token計數或估計 |
+| `token_total` |Token 總數或估計 |
+| `cost_estimate` |供應商/執行環境成本估算 |
+| `cost_actual` |已知的實際成本 |
+| `tool_references` |工具呼叫參考，不是原始秘密或完整有效負載 |
+| `artifact_refs` |輸出產出物參考|
+| `retry_count` |執行環境級重試計數 |
+| `cancellation_seen` |是否收到取消/撤銷 |
+| `provider_request_ref` |特定於供應商的請求參考（如果可以安全保留）|
 
-Optional fields MUST follow forbidden data rules in §8。
+可選欄位 MUST 遵循§8 中的禁止資料規則。
 
-## 7. Outcome and Error Semantics
+## 7. 結果與錯誤語意
 
-Runtime adapter outcome describes execution status only。
+Runtime 轉接器結果僅描述執行狀態。
 
-| Outcome | Meaning |
+|結果|意義|
 |---|---|
-| completed | Runtime completed requested execution within authorized scope |
-| failed | Runtime attempted execution but failed |
-| cancelled | Execution stopped due to cancellation / revocation |
-| timed_out | Execution exceeded time constraint |
-| rejected | Runtime rejected request due to policy, authorization, validation or local guardrail |
-| unsupported | Runtime cannot support contract version, capability, tool, schema or required evidence |
+| 已完成 | 執行環境在授權範圍內完成要求的執行 |
+| failed | 執行環境已嘗試執行，但執行失敗 |
+| cancelled | 因取消／撤銷而停止執行 |
+| timed_out | 執行超出時間限制 |
+| 已拒絕 | 執行環境因政策、授權、驗證或本機防護規則而拒絕要求 |
+| unsupported | 執行環境不支援契約版本、能力、工具、結構描述或必要證據 |
 
-Error class SHOULD be stable and provider-neutral, including：
+錯誤類別 SHOULD 維持穩定且 provider-neutral，包括：
 
-| Error Class | Meaning |
+|錯誤類別 |意義|
 |---|---|
-| `contract_invalid` | Request contract missing or invalid |
-| `contract_unsupported` | Contract version or mandatory semantic unsupported |
-| `capability_unsupported` | Requested capability unavailable |
-| `tool_unauthorized` | Tool scope not authorized or not expressible |
-| `model_unavailable` | Model capability unavailable |
-| `provider_error` | Provider failed or returned unavailable |
-| `timeout` | Execution exceeded time limit |
-| `cancelled` | Cancellation / revocation applied |
-| `forbidden_data_detected` | Response would violate forbidden data rules |
-| `evidence_incomplete` | Required evidence cannot be produced |
+| `contract_invalid` |請求合約缺失或無效 |
+| `contract_unsupported` |合約版本或強制語意不受支援 |
+| `capability_unsupported` |請求的功能不可用 |
+| `tool_unauthorized` |工具範圍未經授權或無法表達 |
+| `model_unavailable` |模型能力不可用 |
+| `provider_error` |供應商失敗或回傳不可用 |
+| `timeout` |執行超出時間限制 |
+| `cancelled` |已申請取消/撤銷 |
+| `forbidden_data_detected` |回應將違反禁止資料規則 |
+| `evidence_incomplete` |無法出示所需證據 |
 
-Runtime `completed` outcome MUST NOT be treated as quality gate `PASS` without Gate runner evaluation。
+執行環境`completed`結果 MUST NOT 被視為品質關卡`PASS`，無需 Gate 執行器評估。
 
-## 8. Forbidden Data Rules
+## 8. 禁止資料規則
 
-Runtime adapter evidence MUST NOT include：
+Runtime 轉接器證據 MUST NOT 包括：
 
-- secrets、API keys、tokens、passwords or raw credential material;
-- complete prompt or hidden/system instruction content unless policy explicitly allows retention;
-- chain-of-thought or private reasoning trace;
-- unapproved raw customer content;
-- unnecessary sensitive business data;
-- raw tool payloads containing protected data when a safe reference is sufficient;
-- provider-specific debug dumps that bypass evidence minimization;
-- data outside the authorized Execution Contract scope。
+- 秘密、API 金鑰、Token、密碼或原始憑證資料；
+- 完整的提示或隱藏/系統說明內容，除非政策明確允許保留；
+- 思考鍊或私人推理痕跡；
+- 未經核准的原始客戶內容；
+- 不必要的敏感業務資料；
+- 當安全參考足夠時，包含受保護資料的原始工具有效負載；
+- 繞過證據最小化的特定於供應商的除錯轉儲；
+- 授權 Execution Contract 範圍以外的資料。
 
-Evidence SHOULD use references, summaries, redaction markers, hashes or artifact IDs when full content is not required for audit。
+當稽核不需要完整內容時，證據 SHOULD 使用參考文獻、摘要、編輯標記、雜湊或產出物 ID。
 
-If required evidence cannot be produced without forbidden data, runtime adapter MUST return `rejected` or `failed` with `forbidden_data_detected` / `evidence_incomplete` rather than leaking the data。
+若無法在不包含禁止資料的情況下產生必要證據，Runtime 轉接器 MUST 回傳 `rejected` 或 `failed`，並附上 `forbidden_data_detected`／`evidence_incomplete`，不得洩漏該資料。
 
-## 9. Metadata Extension Envelope
+## 9. 元資料擴充封套
 
-Provider、model、runtime or tool-specific metadata MAY be included only inside an extension envelope。
+供應商、模型、執行環境或特定於工具的元資料 MAY 僅包含在擴展信封內。
 
-Extension envelope SHOULD include：
+擴展信封 SHOULD 包括：
 
-| Field | Meaning |
+|領域|意義|
 |---|---|
-| `extension_namespace` | Provider/runtime/tool namespace |
-| `extension_version` | Extension schema version |
-| `metadata_class` | runtime / provider / model / tool / diagnostic |
-| `metadata` | Provider-specific metadata after minimization |
-| `redaction_applied` | Whether sensitive fields were removed |
+| `extension_namespace` |供應商/執行環境/工具命名空間 |
+| `extension_version` |擴充架構版本 |
+| `metadata_class` |執行環境/供應商/模型/工具/診斷|
+| `metadata` |最小化後供應商特定的元資料 |
+| `redaction_applied` |敏感欄位是否被刪除 |
 
-Extension metadata MUST NOT override stable core fields。If extension metadata conflicts with core evidence, core evidence and Control Plane policy prevail, and the conflict SHOULD be escalated。
+擴充元資料 MUST NOT 覆蓋穩定的核心欄位。若擴充元資料與核心證據衝突，則以核心證據與 Control Plane 政策為準，衝突 SHOULD 升級。
 
-## 10. Evidence Interpretation Rules
+## 10. 證據解釋規則
 
-Control Plane and Gate runner MUST interpret runtime evidence under these rules：
+Control Plane 和 Gate 執行器 MUST 根據以下規則解釋執行環境證據：
 
-- Runtime success is execution success only。
-- Runtime failure is not validation pass。
-- Runtime response MUST NOT be treated as source authority。
-- Runtime response MUST NOT confirm memory promotion。
-- Runtime response MUST NOT publish learning case or authoritative knowledge。
-- Runtime response MUST NOT satisfy human approval unless it references valid approval evidence from an authorized approval authority。
-- Runtime response MUST NOT authorize production deployment, destructive action or customer data mutation。
-- Missing mandatory evidence SHOULD cause Gate runner to return `NEEDS_WORK`, `HUMAN_APPROVAL`, `REJECTED` or `BLOCKED` according to AEOS-SPEC-002 / AEOS-SPEC-003 policy。
+- 執行環境成功只是執行成功。
+- 執行環境失敗不是驗證通過。
+- 執行環境回應 MUST NOT 被視為來源權限。
+- 執行環境回應 MUST NOT 確認記憶體提升。
+- 執行環境回應 MUST NOT 發布學習案例或權威知識。
+- 執行環境回應 MUST NOT 滿足人員核准，除非它引用來自授權核准機構的有效核准證據。
+- 執行環境回應 MUST NOT 授權正式環境部署、破壞性操作或客戶資料突變。
+- 缺少強制證據 SHOULD 導致 Gate 執行器根據 AEOS-SPEC-002 / AEOS-SPEC-003 政策退回`NEEDS_WORK`、`HUMAN_APPROVAL`、`REJECTED`或`BLOCKED`。
 
-## 11. Trace Alignment
+## 11. 走線對齊
 
-Runtime adapter evidence MUST be linkable to AEOS-SPEC-002 Collaboration Trace Envelope and AEOS-SPEC-003 Runtime Execution Request trace。
+Runtime 轉接器證據 MUST 可連結到 AEOS-SPEC-002 協作追蹤信封和 AEOS-SPEC-003 執行環境執行請求追蹤。
 
-Minimum trace linkage：
+最小追蹤連動：
 
-| Trace Field | Requirement |
+|追蹤欄位|要求 |
 |---|---|
-| `trace_id` | MUST match Collaboration Trace Envelope |
-| `execution_request_id` | MUST match Runtime Execution Request |
-| `execution_id` | MUST preserve Execution Contract identity |
-| `capability_id` | MUST map to authorized capability |
-| `tool_references` | MUST connect tool execution to run trace when applicable |
-| `artifact_refs` | SHOULD identify output artifacts without leaking forbidden data |
+| `trace_id` | MUST 匹配協作追蹤信封 |
+| `execution_request_id` | MUST 匹配執行環境執行請求 |
+| `execution_id` | MUST 保留 Execution Contract 身分 |
+| `capability_id` | MUST 對應到授權能力 |
+| `tool_references` | MUST 在適用時連接工具執行以運行追蹤 |
+| `artifact_refs` | SHOULD 識別輸出產出物而不洩漏禁止資料 |
 
-## 12. Conformance Checklist
+## 12. 一致性檢查表
 
-Runtime adapter evidence contract adoption SHOULD demonstrate：
+採用 Runtime 轉接器執行證據契約時，SHOULD 證明：
 
-1. Evidence includes runtime id、adapter version、capability id、provider/model id、execution id、start/end time、outcome and error class。
-2. Evidence includes cost、token、latency and tool reference when applicable and permitted。
-3. Evidence excludes secrets、complete prompt、chain-of-thought and unapproved raw customer content。
-4. Runtime does not return authority decision、memory confirmation、learning case publication or human approval result。
-5. Runtime failure cannot be interpreted as validation pass。
-6. Provider-specific metadata stays inside extension envelope。
-7. Extension metadata cannot override stable core evidence fields。
-8. Evidence links to Collaboration Trace Envelope and Runtime Execution Request trace。
+1. 證據包括執行環境 id、轉接器版本、能力 id、供應商/模型 id、執行 id、開始/結束時間、結果和錯誤類別。
+2. 證據包括成本、Token、延遲以及適用和允許的工具參考。
+3. 證據排除秘密、完整提示、思維鍊和未經核准的原始客戶內容。
+4.執行環境不回傳權威決策、記憶確認、學習案例發布或人工核准結果。
+5. 執行環境失敗不能解釋為驗證通過。
+6. 特定於供應商的元資料保留在擴充封套內。
+7. 擴充元資料不能覆蓋穩定的核心證據欄位。
+8. 證據連結到協作追蹤信封和執行環境執行請求追蹤。
 
-## 13. Status and Approval
+## 13. 狀態與核准
 
 本規格目前為 **Approved 1.0.0**。
 
-PR #77 已合併至 `main`，merge commit 為 `856f694079e59757b98eb4f7249b6100b68db01a`。此合併作為 Repository Owner final approval evidence，正式核准本規格為 Runtime Adapter Execution Evidence Contract。
+PR #77 已合併至 `main`，merge commit 為 `856f694079e59757b98eb4f7249b6100b68db01a`。此合併作為 Repository Owner 最終核准證據，正式核准本規格為 Runtime Adapter Execution Evidence Contract。
 
 核准後：
 
-- Runtime adapter execution evidence 可作為 Agent Control Plane、Gate runner、Audit / Observability boundary 與後續 verification 的 provider-neutral execution evidence。
-- Runtime evidence 不得被解讀為 source validation、memory confirmation、learning case publication、human approval、production authorization 或 quality gate pass。
-- #70 / #71 可在本規格邊界下分別處理 capability / tool registry adapter contract 與 provider-neutral conformance tests。
-- 本規格不授權 runtime implementation、Production deployment、customer data mutation 或 YCRM downstream adoption。
+- Runtime 轉接器執行證據可作為 Agent Control Plane、Gate 執行器、Audit / Observability 邊界與後續驗證的 provider-neutral 執行證據。
+- Runtime 證據不得被解讀為來源驗證、記憶體 confirmation、learning 案例 publication、human 核准、正式環境授權或品質關卡 pass。
+- #70 / #71 可在本規格邊界下分別處理能力 / 工具登錄表轉接器契約與 provider-neutral 符合性 tests。
+- 本規格不授權執行環境實作、Production 部署、客戶資料 mutation 或 YCRM 下游採用。
 
-## 14. References
+## 14. 參考文獻
 
 | 文件 | 型別 | 用途 |
 |------|------|------|
 | AEOS Issue #69 | GitHub Issue | Runtime Adapter Execution Evidence Contract 工作來源 |
-| AEOS-ADR-005 — Agent Collaboration Ownership Decision | ADR | AEOS owns Agent Collaboration governance |
-| AEOS-ADR-003 — Agent Control Plane and Runtime Separation Decision | ADR | Control Plane / Runtime boundary |
-| AEOS-ARCH-013 — Enterprise AI Agent Architecture | Architecture | Execution Contract and Runtime responsibility |
-| AEOS-SPEC-002 — Agent Collaboration Model Architecture Spec | Specification | Trace envelope and gate semantics |
-| AEOS-SPEC-003 — Agent Control Plane Orchestration Extension | Specification | Runtime execution request boundary and Gate runner semantics |
+| AEOS-ADR-005 — Agent Collaboration Ownership Decision | ADR | AEOS 擁有 Agent Collaboration 治理 |
+| AEOS-ADR-003 — Agent Control Plane and Runtime Separation Decision | ADR | Control Plane / 執行環境邊界 |
+| AEOS-ARCH-013 — Enterprise AI Agent Architecture |架構| Execution Contract 與執行環境責任 |
+| AEOS-SPEC-002 — Agent Collaboration Model Architecture Spec |規格|追蹤封裝與門語意 |
+| AEOS-SPEC-003 — Agent Control Plane Orchestration Extension |規格|執行環境執行請求邊界和 Gate 執行器語意 |
 
-## 15. Revision History
+## 15. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
-| 1.0.0 | 2026-09-05 | 依 PR #77 merge evidence（856f694079e59757b98eb4f7249b6100b68db01a）升級為 Approved Specification；正式核准 Runtime Adapter Execution Evidence Contract，作為 #70 / #71 後續 registry adapter 與 conformance 工作的 runtime evidence 邊界依據 | Codex |
-| 0.1.0 | 2026-09-05 | 建立 Runtime Adapter Execution Evidence Contract Draft，定義 provider-neutral runtime evidence minimum fields、optional cost/token/latency/tool references、forbidden data rules、extension envelope、evidence interpretation rules 與 trace alignment | Codex |
+| 1.0.0 | 2026-09-05 | 依 PR #77 merge 證據（856f694079e59757b98eb4f7249b6100b68db01a）升級為 Approved Specification；正式核准 Runtime Adapter Execution Evidence Contract，作為 #70 / #71 後續登錄表轉接器與符合性工作的執行環境證據邊界依據 | Codex |
+| 0.1.0 | 2026-09-05 | 建立 Runtime Adapter Execution Evidence Contract Draft，定義 provider-neutral 執行環境證據 minimum fields、optional cost/token/延遲/工具參考、forbidden 資料規則、擴充封裝、證據 interpretation 規則與 trace alignment | Codex |

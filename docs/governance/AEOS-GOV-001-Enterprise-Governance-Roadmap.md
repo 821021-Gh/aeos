@@ -38,14 +38,14 @@ related:
 | 型別 | Governance |
 | 狀態 | Approved |
 | 版本 | 1.3.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-22 |
 | 依據文件 | EWO-AEOS-0007、EWO-AEOS-0043、GR-AEOS-0007-R1、GR-AEOS-0043-R1、GR-AEOS-0043-R2、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001（Approved v1.0.0）、AEOS-DIA-001 |
 | 關聯文件 | EWO-AEOS-0007、EWO-AEOS-0043、GR-AEOS-0007-R1、GR-AEOS-0043-R1、GR-AEOS-0043-R2、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001、AEOS-DIA-001、AEOS-STD-007、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. Current Foundation
+## 1. 目前基礎
 
 本 Roadmap 以下列已完成之治理基線為起點；本文件不重新定義其內容：
 
@@ -55,12 +55,12 @@ related:
 | AEOS-ARCH-001 — Architecture Baseline | Architecture | Approved | 架構 Entry Document 與 Register |
 | AEOS-DIA-001 — Documentation Information Architecture | Information Architecture | Approved | 文件分類、生命週期與引用 |
 | AEOS-ARCH-002 — Enterprise Governance Architecture | Architecture | Approved | 治理結構（Layers、Domains、Hierarchy） |
-| AEOS-ARCH-003 — Architecture Decision Record System | Architecture | Approved | ADR Framework（Decision Governance） |
+| AEOS-ARCH-003 — Architecture Decision Record System |架構| Approved | ADR 框架（決策治理） |
 | Repository Foundation（README、CHANGELOG 等） | Foundation | Released | Repository 入口與基礎 |
 
 規則：已完成文件之內容以各文件為準；Roadmap 僅引用，不重述、不重新定義。
 
-## 2. Governance Milestones
+## 2. 治理里程碑
 
 | Milestone | 目標 | 涵蓋 | 狀態 |
 |-----------|------|------|------|
@@ -72,7 +72,7 @@ related:
 
 Current Phase：AEOS 目前位於 M2 — Governance Architecture（已完成）；下一階段為 M3 — Governance Content（待執行）。
 
-### 2.1 Milestone Naming Alignment
+### 2.1 里程碑命名對齊
 
 本 Roadmap 之 M1～M5 為治理里程碑命名；架構 EWO 系列使用獨立里程碑標籤（M4 — Enterprise Architecture Foundation、M5 — Enterprise Architecture Catalogs）。兩套命名互不取代：
 
@@ -88,7 +88,7 @@ Current Phase：AEOS 目前位於 M2 — Governance Architecture（已完成）�
 - 本 Roadmap 之里程碑以本文件為準；架構系列里程碑以對應 EWO／PR 為準。
 - M5 — Enterprise Architecture Catalogs 對應本 Roadmap §6 Planned Catalogs 之架構資產子集，其統一 Schema 依 AEOS-STD-006。
 
-## 3. Planned Domains
+## 3. 規劃域名
 
 依 AEOS-ARCH-002 §4 Governance Domains，尚未具備正式內容之領域：
 
@@ -99,7 +99,7 @@ Current Phase：AEOS 目前位於 M2 — Governance Architecture（已完成）�
 
 Architecture Governance、Documentation Governance、Repository Governance 與 Decision Governance 已分別由 AEOS-ARCH-001／AEOS-DIA-001／AEOS-CON-001／AEOS-ARCH-003 建立，不列入 Planned。
 
-## 4. Planned Standards
+## 4. 計畫標準
 
 | Standard | 目的 | 優先序 |
 |----------|------|--------|
@@ -112,7 +112,7 @@ Architecture Governance、Documentation Governance、Repository Governance 與 D
 
 規則：Standards 以 AEOS-DIA-001 為上位依據，將既有文件規則操作化；不重新定義已完成文件。
 
-## 5. Planned Policies
+## 5. 計劃政策
 
 | Policy | 目的 | 優先序 |
 |--------|------|--------|
@@ -123,7 +123,7 @@ Architecture Governance、Documentation Governance、Repository Governance 與 D
 
 規則：Policies 以 AEOS-CON-001 與 AEOS-ARCH-002 為上位依據；不重述 Constitution 內容。
 
-## 6. Planned Catalogs
+## 6. 計劃目錄
 
 | Catalog | 目的 | 優先序 |
 |---------|------|--------|
@@ -132,7 +132,7 @@ Architecture Governance、Documentation Governance、Repository Governance 與 D
 | Document Index | 全部正式文件之總覽索引 | P2 |
 | Governance Catalog | 管理 Standards、Policies、Frameworks、Reviews 之索引 | P2 |
 
-## 7. Planned Frameworks
+## 7. 計劃框架
 
 | Framework | 目的 | 優先序 |
 |-----------|------|--------|
@@ -140,7 +140,7 @@ Architecture Governance、Documentation Governance、Repository Governance 與 D
 | Capability Management Framework | 定義 Capability 管理之操作框架（依 Approved 架構載體） | P3 |
 | Platform Governance Framework | 定義 Platform 治理之操作框架（依 Approved 架構載體） | P3 |
 
-## 8. Dependencies
+## 8. 依賴關係
 
 | # | 依賴 | 影響 | 狀態 |
 |---|------|------|------|
@@ -155,7 +155,7 @@ Architecture Governance、Documentation Governance、Repository Governance 與 D
 
 規則：Planned 項目之 EWO MUST 宣告其 Dependencies；依賴未完成前，不啟動依賴者。已完成項目 MUST 建立於已完成之正式 Review 並已 Merge（DEP-008）。
 
-## 9. Priority
+## 9. 優先權
 
 | 優先序 | 涵蓋 | 原則 |
 |--------|------|------|
@@ -169,7 +169,7 @@ Architecture Governance、Documentation Governance、Repository Governance 與 D
 - 依 EWO 一次一件執行；高優先未完成前，不展開低優先項目。
 - 優先序調整 MUST 經本 Roadmap 之變更程序（§10）。
 
-## 10. Evolution Strategy
+## 10.演化策略
 
 - 本 Roadmap 為後續 EWO Planning 之正式依據；新治理需求 MUST 先納入 Roadmap，或依既有 Roadmap 項目規劃 EWO。
 - 本 Roadmap 之更新（新增／調整 Milestone、優先序或 Planned 項目）MUST 經 EWO 與 Review（依 AEOS-CON-001 §10）。
@@ -178,7 +178,7 @@ Architecture Governance、Documentation Governance、Repository Governance 與 D
 - 本 Roadmap SHOULD 於每個已完成之 Milestone 後進行 Review。
 - 每次變更 MUST 更新 References 與 Revision History。
 
-## 11. References
+## 11. 參考文獻
 
 | # | 文件 | 型別 | 用途 |
 |---|------|------|------|
@@ -195,7 +195,7 @@ Architecture Governance、Documentation Governance、Repository Governance 與 D
 | REF-011 | GR-AEOS-0043-R1 — Governance Review | Review | Roadmap 修訂與 PR #49 生命週期追溯 Review；決策為 REQUEST CHANGES |
 | REF-012 | GR-AEOS-0043-R2 — Governance Re-review | Review | R1 全部 RC 已 Resolved；決策為 APPROVED |
 
-## 12. Revision History
+## 12. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|

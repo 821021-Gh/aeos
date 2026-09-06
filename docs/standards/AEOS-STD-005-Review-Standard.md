@@ -31,7 +31,7 @@ related:
 
 > EWO-AEOS-0012：依 AEOS-ADR-002、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001、AEOS-STD-001、AEOS-STD-002、AEOS-STD-003 與 AEOS-STD-004 建立 AEOS 之 Review Standard。本文件為 AEOS Repository 所有正式治理資產之唯一 Review 規範；不是 Documentation Format，不是 Metadata，不是 Cross-reference，不是 Naming。
 
-## Executive Summary
+## 執行摘要
 
 本文件定義 AEOS 正式治理資產之 Review 標準，涵蓋 Review Model、Review Types、Review Workflow、Review Rules、Review Decision Model、Review Validation 與 Compliance；為所有 Architecture、Constitution、Governance、Standards、Policies、Catalog、Specifications、Capabilities、ADR、EWO 等文件之唯一 Review 規範（Single Source of Truth）。
 
@@ -44,14 +44,14 @@ related:
 | 型別 | Standard |
 | 狀態 | Approved |
 | 版本 | 1.4.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-08 |
 | 依據文件 | EWO-AEOS-0012、AEOS-STD-001（Approved 1.1.0）、AEOS-STD-002（Approved 1.1.0）、AEOS-STD-003（Approved 1.1.0）、AEOS-STD-004（Approved 1.3.0）、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-GOV-001（Approved 1.2.0）、AEOS-ARCH-001、AEOS-ADR-002（WA-001 Fact Authority Transition） |
 | 關聯文件 | EWO-AEOS-0012、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-ARCH-003、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001、AEOS-STD-001、AEOS-STD-002、AEOS-STD-003、AEOS-STD-004、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. Purpose
+## 1. 目的
 
 本文件定義 AEOS 正式治理資產之 Review 標準，其目的為：
 
@@ -61,9 +61,9 @@ related:
 
 本文件不是 Documentation Format（文件格式由 AEOS-STD-001 定義），不是 Metadata（Metadata 由 AEOS-STD-002 定義），不是 Cross-reference（引用形式由 AEOS-STD-003 定義），不是 Naming（命名規則由 AEOS-STD-004 定義）；本文件僅定義 Review 之型別、流程、規則與決策。
 
-## 2. Scope
+## 2.範圍
 
-### 2.1 In Scope
+### 2.1 在範圍內
 
 本標準涵蓋：
 
@@ -71,7 +71,7 @@ related:
 - Review Model、Review Types、Review Workflow、Review Rules、Review Decision Model、Review Validation 與 Compliance。
 - Review ID 與 Review Comment（RC）之格式與追溯。
 
-### 2.2 Out of Scope
+### 2.2 超出範圍
 
 本標準明確不涵蓋：
 
@@ -83,7 +83,7 @@ related:
 - Repository 治理原則與變更管理（由 AEOS-CON-001 定義）。
 - YEOS Engineering Workflow 之重述或取代（依 AEOS-CON-001 §4.2）。
 
-## 3. Review Model
+## 3. 審查模型
 
 - Review 為正式治理資產合併至 main 前之強制 Gate（依 AEOS-CON-001 GP-009 Governance by Review）。
 - Review 由三個組成要素定義：Review Subject、Review Owner、Review Decision。
@@ -98,7 +98,7 @@ related:
 - Review 鏈 MUST 可追溯：EWO → 文件 → Draft PR → Review ID → RC → Revision（Commit）→ Decision（依 §6 R-003）。
 - Review 不改變文件內容之權威來源；審查僅依上位文件與標準驗證合規（依 AEOS-ARCH-002 §5）。
 
-### 3.1 Review Hierarchy
+### 3.1 審查層次結構
 
 Review 依 Governance Hierarchy（依 AEOS-ARCH-002 §5）自上而下分層：
 
@@ -115,7 +115,7 @@ Review 依 Governance Hierarchy（依 AEOS-ARCH-002 §5）自上而下分層：
 - 衝突時以上位文件與上位決策為準（依 AEOS-ARCH-002 §5）。
 - 本節層級與 §4 Review Types 對應：Repository Review 層級由 RR 執行；Document Review 層級由 AR、SR、PR、SP、AD、CA、GR 等依文件型別執行。
 
-## 4. Review Types
+## 4. 審查類型
 
 Review Type 為 Review 之正式分類；Review MUST 依 Review Subject 之型別宣告對應 Review Type。
 
@@ -144,7 +144,7 @@ Review Type 為 Review 之正式分類；Review MUST 依 Review Subject 之型�
 - Catalog 登錄之 Traceability 必須包含 Approved Architecture Candidate Assessment RPT 與對應之 AR Review Record。
 - 若候選核准會新增或變更既有 Enterprise Architecture，仍須依 AEOS-ARCH-003 判斷是否另行建立 ADR；RPT 與 AR 不得取代必要之 ADR。
 
-## 5. Review Workflow
+## 5. 審查工作流程
 
 Review Workflow 為正式 Review 之執行流程；下列步驟 MUST 依序執行。
 
@@ -166,7 +166,7 @@ Review Workflow 為正式 Review 之執行流程；下列步驟 MUST 依序執�
 - 每個步驟 MUST 可追溯至前一階段之輸入（依 §6 R-003）。
 - 重大 Review（Architecture、Governance、Standard、Policy）無法達成 APPROVED 時，MUST 依 §5.1 啟動 Review Escalation。
 
-### 5.1 Review Escalation
+### 5.1 審查升級
 
 Review Escalation 適用於 Architecture、Governance、Standard、Policy 等重大 Review。
 
@@ -181,7 +181,7 @@ Review Escalation 適用於 Architecture、Governance、Standard、Policy 等重
 - 重大 Review 無法達成 APPROVED 時，MUST 啟動 Escalation；Escalation MUST NOT 跳過既有 Review 紀錄。
 - Escalation 之 Decision MUST 依 §7 記錄，並納入 Review Traceability（依 §6 R-003）。
 
-## 6. Review Rules
+## 6. 審查規則
 
 本節定義 Review 之正式規則；Review MUST 符合下列規則。
 
@@ -195,7 +195,7 @@ Review Escalation 適用於 Architecture、Governance、Standard、Policy 等重
 | R-006 | Re-review Rule | 修正後 MUST 重新審查 |
 | R-007 | Close Rule | Merge／Reject／Supersede 後 MUST Close |
 
-### 6.1 R-001 — Review ID
+### 6.1 R-001 — 審查 ID
 
 - Review ID MUST 符合 `<ReviewType>-AEOS-<####>-R<##>`（依 AEOS-STD-004 §6.3 IR-10）。
 - ReviewType MUST 依 §4 Review Types；`<####>` 為來源 EWO 之四位流水號；`R<##>` 為 Review 序號。
@@ -208,39 +208,39 @@ Review Escalation 適用於 Architecture、Governance、Standard、Policy 等重
 - RC MUST 對應具體之檔案、章節或變更；MUST 可執行、可驗證。
 - RC 狀態 MUST 追蹤至 Resolved（已修正）或 Rejected（說明理由）；未解決之 RC MUST 阻止 Approval（依 §5 規則）。
 
-### 6.3 R-003 — Review Traceability
+### 6.3 R-003 — 審查可追溯性
 
 - Review 鏈 MUST 可追溯：EWO → 文件 → Draft PR → Review ID → RC → Revision（Commit）→ Decision。
 - 文件 frontmatter 之 related MUST 包含來源 EWO；Review 通過後 MUST 包含 Review ID（依 AEOS-STD-002 MF-10）。
 - Revision History MUST 記錄 Review ID 與變更摘要（依 AEOS-STD-001 §5）。
 - PR 描述 MUST 宣告 EWO、Review ID（如適用）與 RC 對照。
 
-### 6.4 R-004 — Approval Rule
+### 6.4 R-004 — 核准規則
 
 - 正式文件合併至 main 前 MUST 取得 Review Owner 之 APPROVED 決策（依 AEOS-CON-001 GP-009）。
 - Review Owner MUST 與作者為不同角色；Draft PR MUST NOT 被核准合併。
 - Approval MUST 以 PR Review 或 PR Comment 記錄，並宣告 Review ID。
 
-### 6.5 R-005 — Merge Rule
+### 6.5 R-005 — 合併規則
 
 - 僅在 APPROVED 且全部 RC 已 Resolved 時，PR 始可 Merge（依 §7 APPROVED）。
 - Merge 方式依 Repository 設定（Squash Merge）；Merge 後文件狀態依 AEOS-DIA-001 §8 進入 Released。
 - Merge 後 MUST 更新 EWO／PR 狀態並記錄 Merge Commit。
 
-### 6.6 R-006 — Re-review Rule
+### 6.6 R-006 — 重新審查規則
 
 - 任一 RC 修正後，MUST 進行 Re-review（依 §5 步驟 5）。
 - REQUEST CHANGES 後之修正 MUST 經 Re-review；Re-review 以同一 Review ID 之新 R 序號（`R<##>`）記錄。
 - Re-review MUST 驗證全部 RC 之 Resolved 狀態與 §8 Review Validation。
 
-### 6.7 R-007 — Close Rule
+### 6.7 R-007 — 關閉規則
 
 - APPROVED 且 Merge 完成後，PR MUST Close（自動或手動）。
 - REJECTED／SUPERSEDED 之 PR MUST Close 且 MUST NOT Merge。
 - Close 之 PR MUST 保留完整 Review 紀錄（Review ID、RC、Decision）；MUST NOT 刪除。
 - EWO 於 PR Close 後視為結束；新需求 MUST 以新 EWO 定義。
 
-## 7. Review Decision Model
+## 7. 檢視決策模型
 
 Review Decision 為 Review 之正式結果；決策 MUST 由 Review Owner 宣告並記錄。
 
@@ -257,14 +257,14 @@ Review Decision 為 Review 之正式結果；決策 MUST 由 Review Owner 宣告
 - 決策變更（如 REQUEST CHANGES → APPROVED）MUST 經 Re-review 並以新 R 序號記錄。
 - REJECTED 或 SUPERSEDED 之資產 MUST NOT 以相同 PR 重新提交。
 
-### 7.1 Decision Finality
+### 7.1 決策最終性
 
 - APPROVED 為正式核准：代表 Review 通過，資產可合併（依 §6 R-005）；未經新 Review 不得撤回。
 - REJECTED 保留歷史：被拒絕之資產與 Review 紀錄 MUST 保留；重新提交 MUST 以新 EWO 定義。
 - SUPERSEDED 必須引用新 Decision：宣告 SUPERSEDED 時 MUST 於同一 PR 引用取代之新 Decision（Review ID、ADR 或取代文件），並依 AEOS-STD-002 OF-01／OF-02 宣告取代關係。
 - REQUEST CHANGES 必須全部 RC 完成後才能重新 Review：全部 RC 達 Resolved 前，MUST NOT 進入 Re-review／Approval（依 §5 規則、§6 R-006）。
 
-## 8. Review Validation
+## 8. 審查驗證
 
 本節定義 Review 有效性之驗證規則；驗證 MUST 於 Review（§5 步驟 2）與 Merge（§5 步驟 7）前執行。
 
@@ -281,7 +281,7 @@ Review Decision 為 Review 之正式結果；決策 MUST 由 Review Owner 宣告
 - 驗證以 §8.1 Review Consistency Validation 與 §9.1 Review Compliance Checklist 為執行依據；Review Owner MUST 於 Review 時執行驗證。
 - 自動化驗證工具 MAY 用於輔助；其結果 MUST 以 §9.1 Checklist 人工確認。
 
-### 8.1 Review Consistency Validation
+### 8.1 檢查一致性驗證
 
 Review Consistency Validation 驗證 Review 記錄與資產身分、決策及 PR 狀態之一致性：
 
@@ -298,7 +298,7 @@ Review Consistency Validation 驗證 Review 記錄與資產身分、決策及 PR
 - Review Consistency Validation MUST 於 Review 與 Merge 前執行，並併入 §9.1 Checklist。
 - 不一致之 Review 記錄 MUST 記為不合規，修正後始可合併。
 
-## 9. Compliance
+## 9. 合規性
 
 - 本標準適用之正式治理資產 MUST 符合本標準（依 AEOS-CON-001 §11）。
 - 不合規之資產 MUST NOT 合併至 main（依 AEOS-CON-001 GP-009）。
@@ -306,7 +306,7 @@ Review Consistency Validation 驗證 Review 記錄與資產身分、決策及 PR
 - 與 AEOS-DIA-001／AEOS-CON-001／AEOS-ARCH-002 衝突時，以上位文件為準（依 Governance Hierarchy，AEOS-ARCH-002 §5）。
 - 本標準 MUST NOT 重新定義 Metadata（AEOS-STD-002）、Naming（AEOS-STD-004）、Cross-reference（AEOS-STD-003）或 Documentation Format（AEOS-STD-001）之規則。
 
-### 9.1 Review Compliance Checklist
+### 9.1 審查合規檢查表
 
 | 檢查項目 | 檢查內容 |
 |----------|----------|
@@ -319,7 +319,7 @@ Review Consistency Validation 驗證 Review 記錄與資產身分、決策及 PR
 | Decision 宣告 | 決策記錄於 PR，無 PR 外認定 |
 | Close | Merge／Reject／Supersede 後 PR 已 Close；紀錄保留 |
 
-### 9.2 Review Integrity Checklist
+### 9.2 審查完整性檢查表
 
 | 檢查項目 | 檢查內容 |
 |----------|----------|
@@ -329,7 +329,7 @@ Review Consistency Validation 驗證 Review 記錄與資產身分、決策及 PR
 | 無 Invalid Decision | Decision 為 §7 四種之一且宣告於 PR（依 §7） |
 | 無 Missing Traceability | EWO → Review → RC → Commit → Decision 可追溯（依 §6 R-003） |
 
-## 10. References
+## 10. 參考文獻
 
 | # | 文件 | 型別 | 用途 |
 |---|------|------|------|
@@ -349,7 +349,7 @@ Review Consistency Validation 驗證 Review 記錄與資產身分、決策及 PR
 
 本標準（AEOS-STD-005）為 AEOS 唯一 Review 標準來源（Single Source of Truth）；其他文件 MUST NOT 定義相異之 Review 規則。
 
-## 11. Revision History
+## 11. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|

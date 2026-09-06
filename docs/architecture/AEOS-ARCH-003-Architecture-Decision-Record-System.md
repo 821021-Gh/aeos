@@ -32,14 +32,14 @@ related:
 | 型別 | Architecture |
 | 狀態 | Approved |
 | 版本 | 1.1.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-08 |
 | 依據文件 | EWO-AEOS-0006、AR-AEOS-0006-R1、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-ARCH-002 |
 | 關聯文件 | EWO-AEOS-0006、AR-AEOS-0006-R1、AEOS-ARCH-001、AEOS-ARCH-002、AEOS-DIA-001、AEOS-CON-001、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. ADR Architecture
+## 1. ADR 架構
 
 ADR System 為 Enterprise Governance 之 Decision Governance 領域（依 AEOS-ARCH-002 §4）所定義之正式決策記錄系統，其架構為：
 
@@ -50,7 +50,7 @@ ADR System 為 Enterprise Governance 之 Decision Governance 領域（依 AEOS-A
 
 ADR 記錄架構決策之背景、決策、理由與影響（依 AEOS-DIA-001 §3 ADR 類別定義）；本文件不記錄任何具體決策。
 
-## 2. ADR Taxonomy
+## 2. ADR 分類
 
 ADR 依決策類型分類；類型決定 ADR 之審查重點與關聯文件：
 
@@ -68,7 +68,7 @@ ADR 依決策類型分類；類型決定 ADR 之審查重點與關聯文件：
 - 一個 ADR MUST 僅記錄一個決策；多個決策以多份 ADR 分別記錄。
 - Taxonomy 之擴充僅更新本文件；不因 Taxonomy 變更而建立 ADR 文件。實際 ADR 由後續 EWO 依 §5 ADR Template 建立。
 
-## 3. ADR Lifecycle
+## 3. ADR 生命週期
 
 ADR 依下列流程演進，文件狀態依 AEOS-DIA-001 §8 管理：
 
@@ -87,20 +87,20 @@ ADR 依下列流程演進，文件狀態依 AEOS-DIA-001 §8 管理：
 - 每一階段 MUST 可追溯至前一階段之輸入（EWO、Review 或 ADR）。
 - ADR 之狀態變更 MUST 更新 ADR Register 與 Revision History。
 
-## 4. ADR Numbering
+## 4. ADR 編號
 
 - 編號格式：`ADR-<###>`（例如 `ADR-001`）；doc-id 格式為 `AEOS-ADR-###`（依 AEOS-DIA-001 命名規則）。
 - 檔案命名：`AEOS-ADR-###-Kebab-Case-Name.md`，置於 `docs/adr/`。
 - 編號由 ADR Register 管理；編號一經發布即穩定，MUST NOT 重用。
 - 新 ADR MUST 依序取得下一個可用編號；被取代或封存之 ADR 保留原編號。
 
-## 5. ADR Template
+## 5. ADR 模板
 
 每份 ADR MUST 依下列 Template 建立：
 
 | 區段 | 內容 |
 |------|------|
-| Frontmatter | doc-id（AEOS-ADR-###）、doc-name、doc-type（ADR）、repository（AEOS）、version、status、decision-status、decision-owner、decision-date、owner、created、updated、related、supersedes。 |
+|前緣 |文件 ID（AEOS-ADR-###）、文件名稱、文件類型（ADR）、儲存庫（AEOS）、版本、狀態、決策狀態、決策擁有者、決策日期、擁有者、建立、更新、相關、取代。 |
 | 1. Title | ADR 標題：`AEOS-ADR-### — <決策名稱>`。 |
 | 2. Context | 決策背景、問題與驅動因素。 |
 | 3. Decision | 已核准之決策內容與理由。 |
@@ -114,22 +114,22 @@ ADR 依下列流程演進，文件狀態依 AEOS-DIA-001 §8 管理：
 - Template 之變更視為本文件之變更，需經 EWO 與 Review。
 - 實際 ADR 由後續 EWO 依本 Template 建立，不屬於本文件範圍。
 
-## 6. ADR Governance
+## 6. ADR 治理
 
 - ADR 之建立與變更 MUST 依 YEOS Engineering Workflow 以 EWO 提出，經正式 Review 後合併（依 AEOS-CON-001 GP-003／GP-009）。
-- 每份 ADR MUST 於 frontmatter 宣告 owner；Document Owner 負責維護，Architecture Owner 負責架構相關 ADR 之內容審查。
+- 每份 ADR MUST 於 frontmatter 宣告擁有者；Document Owner 負責維護，Architecture Owner 負責架構相關 ADR 之內容審查。
 - ADR MUST NOT 重述既有文件內容；以 References 引用取代複製。
 - ADR MUST NOT 變更 AEOS-ARCH-001／Approved 架構載體已核准之架構內容；決策與架構衝突時，先修訂架構來源，再以 ADR 記錄決策。
 - ADR 核准依 Governance Hierarchy（AEOS-ARCH-002 §5）與 Review 流程；核准結果記錄於 Review Records。
 
-### 6.1 Supersede Rules
+### 6.1 取代規則
 
 - 新 ADR 以 `supersedes` 宣告取代之舊 ADR；舊 ADR 以 `superseded-by` 標記被取代關係。
 - 舊 ADR MUST NOT 修改已核准之 Decision；決策變更以新 ADR 記錄，舊 ADR 僅更新狀態與 `superseded-by`。
 - 被取代之 ADR 狀態轉為 Superseded（依 §8 ADR Status Model），並保留完整歷史內容。
 - `supersedes`／`superseded-by` 關係 MUST 記錄於 ADR frontmatter 與 ADR Register。
 
-## 7. ADR Cross-reference
+## 7. ADR 交叉引用
 
 | 關係 | 引用方式 | 用途 |
 |------|----------|------|
@@ -145,7 +145,7 @@ ADR 依下列流程演進，文件狀態依 AEOS-DIA-001 §8 管理：
 - 跨文件引用 MUST 使用 doc-id 與相對路徑，MUST NOT 複製被引用內容（依 AEOS-DIA-001 §7）。
 - 被引用文件移動或變更時，ADR 須於同一或後續 EWO 更新引用，不得保留失效引用。
 
-## 8. ADR Status Model
+## 8. ADR 狀態模型
 
 | 狀態 | 定義 | 對應 DIA 文件狀態 |
 |------|------|-------------------|
@@ -162,7 +162,7 @@ ADR 依下列流程演進，文件狀態依 AEOS-DIA-001 §8 管理：
 - 狀態轉換 MUST 依 §3 ADR Lifecycle 進行，並更新 ADR Register 與 Revision History。
 - Rejected ADR 保留原編號與歷史內容；編號 MUST NOT 重用（依 §4 ADR Numbering）。
 
-## 9. References
+## 9. 參考文獻
 
 | # | 文件 | 型別 | 用途 |
 |---|------|------|------|
@@ -174,7 +174,7 @@ ADR 依下列流程演進，文件狀態依 AEOS-DIA-001 §8 管理：
 | REF-006 | EWO-AEOS-0006 — Architecture Decision Record System | EWO | 本文件之工作來源 |
 | REF-007 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
-## 10. Revision History
+## 10. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|

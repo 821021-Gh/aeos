@@ -1,5 +1,5 @@
-# Supported Versions
+# 支援的版本
 
-| Version | Status |
-|---------|--------|
+| 版本 | 狀態 |
+|------|------|
 | 1.0.x | Active |

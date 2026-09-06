@@ -31,14 +31,14 @@ related:
 | 型別 | Architecture |
 | 狀態 | Approved |
 | 版本 | 1.1.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-07 |
 | 依據文件 | EWO-AEOS-0005、AR-AEOS-0005-R1、AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0） |
 | 關聯文件 | EWO-AEOS-0005、AR-AEOS-0005-R1、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. Governance Vision
+## 1. 治理願景
 
 本文件定義 AEOS 之 Enterprise Governance Architecture，其願景為：
 
@@ -48,9 +48,9 @@ related:
 
 本文件定義治理「如何組織」，不定義治理「內容」；政策、標準、規格與決策由下位文件承載。
 
-## 2. Governance Scope
+## 2. 治理範圍
 
-### 2.1 In Scope
+### 2.1 在範圍內
 
 本文件涵蓋：
 
@@ -58,7 +58,7 @@ related:
 - 治理標的之界定：Enterprise Architecture 維護、Platform Governance、Capability Management 與 Repository Governance 之架構關係。
 - 治理文件體系之定位：治理架構與 AEOS-DIA-001 文件體系之關係。
 
-### 2.2 Out of Scope
+### 2.2 超出範圍
 
 本文件明確不涵蓋：
 
@@ -67,7 +67,7 @@ related:
 - Repository Governance 細則（Repository 身分、角色職責、變更規則；由 AEOS-CON-001 承載）。
 - Approved 架構載體（AEOS-ARCH-001～012）已定義之架構內容之重述或修改；WA-001 為歷史來源，不作為正式架構權威（AEOS-ADR-002 §2.1）。
 
-## 3. Governance Layers
+## 3. 治理層
 
 Enterprise Governance 分為四個層級：
 
@@ -84,7 +84,7 @@ Enterprise Governance 分為四個層級：
 - 下層文件引用上層文件，不重述上層內容。
 - 治理內容（L3）之變更不改變治理架構（L2）；治理架構之變更需經 EWO 與 Review。
 
-## 4. Governance Domains
+## 4. 治理領域
 
 Enterprise Governance 分為下列治理領域：
 
@@ -103,7 +103,7 @@ Enterprise Governance 分為下列治理領域：
 - 領域間之關係依 §6 Governance Relationships 定義。
 - 新增治理領域視為本文件之重大變更，需經 EWO 與 Review。
 
-## 5. Governance Hierarchy
+## 5.Governance Hierarchy
 
 治理文件與決策依下列階層排序：
 
@@ -126,7 +126,7 @@ Enterprise Governance 分為下列治理領域：
 
 註：WA-001（外部歷史來源）不作為正式架構權威（AEOS-ADR-002 §2.1）；歷史層級內容保留於 Revision History。
 
-## 6. Governance Relationships
+## 6. 治理關係
 
 | 來源 | 關係 | 目標 | 用途 |
 |------|------|------|------|
@@ -143,7 +143,7 @@ Enterprise Governance 分為下列治理領域：
 - 治理關係以引用建立，MUST NOT 以內容複製建立。
 - 每一治理文件 MUST 於 References 宣告其上位文件與來源 EWO。
 
-## 7. Governance Principles
+## 7. 治理原則
 
 | # | 原則 | 說明 |
 |---|------|------|
@@ -155,11 +155,11 @@ Enterprise Governance 分為下列治理領域：
 | GA-006 | Traceable Decision | 治理決策可追溯至 EWO、來源文件與 Review。 |
 | GA-007 | Incremental Evolution | 治理架構以 EWO 為單位增量演進，不做未經定義之全面變更。 |
 | GA-008 | Backward Compatible Evolution | 治理架構演進保持向後相容；重大修訂需明確核准。 |
-| GA-009 | Governance by Evidence | 治理決策 SHOULD 由可追溯之證據、已核准來源或正式 Review 結果支持。 |
+| GA-009 | Governance by Evidence | 治理決策 SHOULD 由可追溯之證據、已核准來源或正式 Review 結果支援。 |
 
 Repository 層級之治理原則以 AEOS-CON-001 為準；本文件不重述。
 
-## 8. Governance Ownership
+## 8. 治理所有權
 
 | 治理資產 | Owner 角色 | 權威來源 |
 |----------|------------|----------|
@@ -172,9 +172,9 @@ Repository 層級之治理原則以 AEOS-CON-001 為準；本文件不重述。
 規則：
 
 - Owner 角色之職責以 AEOS-DIA-001／AEOS-CON-001 為準；本文件不重述。
-- 每份治理文件 MUST 於 frontmatter 宣告 owner。
+- 每份治理文件 MUST 於 frontmatter 宣告擁有者。
 
-## 9. Governance Lifecycle
+## 9. 治理生命週期
 
 治理資產依下列生命週期演進：
 
@@ -194,7 +194,7 @@ Repository 層級之治理原則以 AEOS-CON-001 為準；本文件不重述。
 - 治理決策（Review 結果與 RC）記錄於 ADR 或 Review 紀錄。
 - 生命週期之每一階段 MUST 可追溯至前一階段之輸入。
 
-## 10. Governance Evolution
+## 10.治理演變
 
 - 治理架構之演進以 EWO 為單位，經 Review 後合併（依 AEOS-CON-001 §10）。
 - 新增治理領域、層級或階層視為本文件之重大變更，需明確 Review。
@@ -202,7 +202,7 @@ Repository 層級之治理原則以 AEOS-CON-001 為準；本文件不重述。
 - 演進保持向後相容（GA-008）：既有 doc-id、路徑與引用不因演進失效。
 - 每次變更 MUST 更新 References 與 Revision History。
 
-## 11. References
+## 11. 參考文獻
 
 | # | 文件 | 型別 | 用途 |
 |---|------|------|------|
@@ -213,7 +213,7 @@ Repository 層級之治理原則以 AEOS-CON-001 為準；本文件不重述。
 | REF-005 | EWO-AEOS-0005 — Enterprise Governance Architecture | EWO | 本文件之工作來源 |
 | REF-006 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
-## 12. Revision History
+## 12. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|

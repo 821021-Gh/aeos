@@ -31,11 +31,11 @@ related:
 
 > EWO-AEOS-0043 建立 AEOS AI Engineering Context 與 Token Budget 規範；EWO-AEOS-0047 在不建立平行標準的前提下，補充 Operational Workspace / Work Session Lifecycle、Authority Loading、Active / Archive / Delete、Promotion-before-disposal、Shared Handoff 與 Agent Session Hygiene。本標準不取代既有 Governance Workflow、文件標準、Review、Git Workflow、Command Approval 或安全控制。
 
-## Executive Summary
+## 執行摘要
 
-本標準採用「Repository 為工程記憶與 current-state authority、Operational Workspace 承載少量 Active Context、Work Session 承載當前意圖與執行」的工作模型，定義 AI Engineering 工作的 Context Budget、載入順序、狀態快照、輸出格式、Work Session Lifecycle、模型路由與 Cache 邊界。
+本標準採用「Repository 為工程記憶與目前狀態權限、Operational Workspace 承載少量 Active Context、Work Session 承載目前意圖與執行」的工作模型，定義 AI Engineering 工作的 Context Budget、載入順序、狀態快照、輸出格式、Work Session Lifecycle、模型路由與 Cache 邊界。
 
-Repository `main` 為 System of Record / SSOT；Project Instructions、Approved Reference、Closure Snapshot 與其他 Workspace Context 都是 derived context，不得凌駕 `main`。Chat／Agent Session 是 Ephemeral Work Session；Merge + Closure 是 Knowledge Promotion Point；Archived Session 是 Historical Working Record，非 Fact Authority。目的在降低重複 Context 與無效輸出、避免 Project 退化為永久 Chat History Database，同時保留可追溯性、品質、安全與既有 AEOS / YEOS Governance Workflow。
+Repository `main` 為 System of Record / SSOT；Project Instructions、Approved Reference、Closure Snapshot 與其他 Workspace Context 都是 derived 上下文，不得凌駕 `main`。Chat／Agent Session 是 Ephemeral Work Session；Merge + Closure 是 Knowledge Promotion Point；Archived Session 是 Historical Working Record，非 Fact Authority。目的在降低重複 Context 與無效輸出、避免 Project 退化為永久 Chat History Database，同時保留可追溯性、品質、安全與既有 AEOS / YEOS Governance Workflow。
 
 ## 文件資訊
 
@@ -46,32 +46,32 @@ Repository `main` 為 System of Record / SSOT；Project Instructions、Approved 
 | 型別 | Standard |
 | 狀態 | Approved |
 | 版本 | 1.1.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-22 |
 | 最後更新 | 2026-08-28 |
 | 依據文件 | EWO-AEOS-0043、EWO-AEOS-0047、SR-AEOS-0047-R1、AEOS-RPT-005、AEOS-ARCH-001、AEOS-ARCH-010、AEOS-CON-001、AEOS-DIA-001、AEOS-GOV-001、AEOS-STD-001 |
 | 關聯文件 | SR-AEOS-0043-R1、SR-AEOS-0043-R2、SR-AEOS-0047-R1、AEOS-STD-002～AEOS-STD-005 |
 
-## 1. Purpose
+## 1. 目的
 
 本標準之目的為：
 
 - 建立可量測、可調整且與模型供應商無關的 Context 與 Token Budget。
 - 以按需載入取代全 Repository／全對話載入，減少重複閱讀與傳輸。
-- 以 Repository `main` 為每個新 Work Session 的 current-state authority。
+- 以 Repository `main` 為每個新 Work Session 的目前狀態權限。
 - 以 `PROJECT_STATE.md` 與 Closure Snapshot 保存最小可恢復狀態，但不把 Snapshot 升為 Fact Authority。
-- 建立 Operational Workspace / Work Session 的 Active、Archive、Delete 與 knowledge promotion 操作規則。
-- 建立 Shared Project / Human + AI Agent 的 session ownership、handoff、context continuity 與 lineage 規則。
+- 建立 Operational Workspace / Work Session 的 Active、Archive、Delete 與 knowledge 提升操作規則。
+- 建立 Shared Project / Human + AI Agent 的工作階段歸屬、交接、上下文延續性與沿革規則。
 - 以 Delta Output 降低重複說明，同時保留 Files Changed、Validation、Risk 與 Next Action。
 - 依任務複雜度與風險進行模型分級，不降低安全、Review 或 Governance 要求。
 - 定義 Prompt Cache 與 Semantic Cache 的適用範圍、隔離、失效與禁止事項。
 
-本標準不是模型採購政策、價格表、Prompt 內容庫、Repository 安全政策、Chat storage implementation 或 YEOS Engineering Workflow 的替代品。
+本標準不是模型採購政策、價格表、Prompt 內容庫、Repository 安全政策、Chat storage 實作或 YEOS Engineering Workflow 的替代品。
 
-## 2. Scope
+## 2.範圍
 
-### 2.1 In Scope
+### 2.1 在範圍內
 
 本標準適用於：
 
@@ -79,9 +79,9 @@ Repository `main` 為 System of Record / SSOT；Project Instructions、Approved 
 - 被其他 Repository 透過自身治理正式採用之 AEOS AI Engineering 工作。
 - Context 組裝、Token Budget、狀態保存、輸出、Work Session 切換、模型路由與 Cache。
 - Operational Workspace / Project 的 Active Working Context 管理。
-- Work Session lifecycle、disposition、promotion、handoff、ownership、lineage 與 agent-session hygiene。
+- Work Session 生命週期、處置、提升、交接、歸屬、沿革與 agent-session hygiene。
 
-### 2.2 Out of Scope
+### 2.2 超出範圍
 
 本標準不涵蓋：
 
@@ -89,34 +89,34 @@ Repository `main` 為 System of Record / SSOT；Project Instructions、Approved 
 - Command Classification、Risk Classification、Repository Protection 或 Human Approval Boundary；若採用 YEOS，仍依 ENG-STD-008。
 - Metadata、Naming、Cross-reference 與 Markdown 結構；分別由 AEOS-STD-001～AEOS-STD-004 定義。
 - 模型供應商、特定型號、即時價格或合約承諾。
-- ChatGPT、特定 Project vendor、Agent runtime、harness、memory backend、vector store 或 Chat Storage implementation。
+- ChatGPT、特定 Project 供應商、Agent 執行環境、Harness、記憶體 backend、vector store 或 Chat Storage 實作。
 - 將 Project、Chat、Archive、Cache 或 Snapshot 視為正式 Fact Authority、Review Evidence 或最終決策紀錄。
 
-## 3. Operating Principles
+## 3. 工作原則
 
 | # | 原則 | 規則 |
 |---|------|------|
-| CP-001 | Repository as Memory | Repository `main` 的正式內容為工程記憶與 current-state authority；對話 MUST NOT 成為唯一事實來源。 |
+| CP-001 | Repository as Memory | Repository `main` 的正式內容為工程記憶與目前狀態權限；對話 MUST NOT 成為唯一事實來源。 |
 | CP-002 | Intent before Context | Agent MUST 先確認目前意圖與交付範圍，再組裝 Context。 |
 | CP-003 | Least Context | 初始 Context MUST 僅包含完成目前步驟所需的最少資料。 |
 | CP-004 | Progressive Expansion | 只有符合 §5.2 之擴大條件時，才增加 Context。 |
 | CP-005 | Delta by Default | 正常輸出 MUST 使用 §7 Delta Output，不重述既有背景。 |
 | CP-006 | Governance Preserved | Token 最佳化 MUST NOT 省略安全檢查、驗證、Review、Approval 或追溯性。 |
 | CP-007 | Cache is Non-authoritative | Cache 僅為效能輔助；正式判斷 MUST 回到目前 Repository 事實驗證。 |
-| CP-008 | Main before Historical Context | 新 Session MUST 先取得目前 `main` baseline，再載入 Closure Snapshot、Project Context 或 Historical Chat。 |
-| CP-009 | Promotion before Disposal | Work Session Archive／Delete 前 MUST 確認重要 Decision、Evidence、Review、Approval、Validation 與 Closure 已提升至 Repository 正式載體。 |
+| CP-008 | Main before Historical Context | 新 Session MUST 先取得目前 `main` 基準，再載入 Closure Snapshot、Project Context 或 Historical Chat。 |
+| CP-009 | Promotion before Disposal | Work Session Archive／Delete 前 MUST 確認重要 Decision、Evidence、Review、Approval、Validation 與 Closure 已提升到 Repository 正式載體。 |
 | CP-010 | Minimal Active Workspace | Project／Operational Workspace SHOULD 僅保留完成目前工作所需的少量 Active Working Context，不作為永久 Chat History Database。 |
 
-## 4. Context and Token Budget Model
+## 4. 上下文和 Token Budget 模型
 
-### 4.1 Budget Profiles
+### 4.1 預算概況
 
 每項工作 MUST 先選擇最小可行 Profile。Token 數為單次模型呼叫之初始輸入上限；若模型有效 Context Window 的 35% 更低，取較低者。
 
 | Profile | 初始輸入上限 | 適用工作 | 典型內容 |
 |---------|--------------|----------|----------|
-| S | 8,000 tokens | 搜尋、分類、格式轉換、單檔修正、狀態回報 | Main baseline、Project State、單一任務、1～3 份相關檔案 |
-| M | 24,000 tokens | 一般實作、測試、Review、跨少量模組修改 | Main baseline、EWO／Spec、3～10 份程式碼、直接相關測試 |
+| S | 8,000 tokens | 搜尋、分類、格式轉換、單檔修正、狀態回報 | Main 基準、Project State、單一任務、1～3 份相關檔案 |
+| M | 24,000 tokens | 一般實作、測試、Review、跨少量模組修改 | Main 基準、EWO／Spec、3～10 份程式碼、直接相關測試 |
 | L | 64,000 tokens | Architecture、Security、重大 Blocker、跨 Repository 決策 | 經篩選的正式來源、決策紀錄、必要證據與驗證結果 |
 
 規則：
@@ -127,7 +127,7 @@ Repository `main` 為 System of Record / SSOT；Project Instructions、Approved 
 - Agent MUST NOT 因 Context Window 足夠而預設載入整個 Repository、全部 ADR、全部 Standards、完整 Git 歷史或完整對話。
 - 無法精確取得 token 數時，MAY 以檔案數、行數與工具回傳大小估算，並優先縮小搜尋範圍。
 
-### 4.2 Budget Escalation
+### 4.2 預算升級
 
 從 S 升級至 M 或 L 前，Agent MUST 記錄至少一項理由：
 
@@ -139,25 +139,25 @@ Repository `main` 為 System of Record / SSOT；Project Instructions、Approved 
 
 Budget 升級只擴大必要來源；MUST NOT 解除 §3 Operating Principles。
 
-## 5. On-demand Context Loading
+## 5. 按需上下文載入
 
-### 5.1 Loading Order
+### 5.1 載入順序
 
 Agent MUST 依下列順序建立 Context Pack，並在資訊足夠時停止載入：
 
-1. **Current Repository Baseline**：確認目標 Repository、`main` HEAD 與目前正式狀態；若無法直接讀取 `main`，MUST 明確標示 baseline 未驗證。
+1. **Current Repository Baseline**：確認目標 Repository、`main` HEAD 與目前正式狀態；若無法直接讀取 `main`，MUST 明確標示基準未驗證。
 2. `PROJECT_STATE.md` 或目前 Closure Snapshot；視為操作快照，不得凌駕步驟 1。
 3. 目前使用者意圖與 EWO／Issue／Spec。
 4. 直接相關的 Approved Standard、Architecture 或 ADR 引用。
 5. 直接受影響的程式碼、設定與測試。
 6. 驗證輸出、差異與必要的最近歷史。
-7. 只有在前述資訊不足時，才讀取 Historical Chat／Archived Session 的必要片段作為背景或 evidence locator。
+7. 只有在前述資訊不足時，才讀取 Historical Chat／Archived Session 的必要片段作為背景或證據 locator。
 
 Agent SHOULD 先以 Repository 搜尋定位文件，再讀取命中的必要段落或檔案；不得先讀取全部內容後再篩選。
 
 Historical Chat 與 Workspace Context 若與目前 `main` 衝突，MUST 立即失效該衝突 Context，並以 `main` 重新組裝 Context Pack。
 
-### 5.2 Expansion Triggers
+### 5.2 擴充觸發器
 
 只有發生下列情況時，MAY 擴大 Context：
 
@@ -168,13 +168,13 @@ Historical Chat 與 Workspace Context 若與目前 `main` 衝突，MUST 立即�
 | 驗證失敗 | 失敗路徑、相關實作、Fixture、Log 與最近差異 |
 | 安全／隱私風險 | 適用安全基線、資料分類、威脅與控制證據 |
 | 跨 Repository 變更 | 各 Repository 的正式契約與最小狀態快照 |
-| Handoff 不完整 | 前一 Session 的 promoted refs、Closure Snapshot 與必要 lineage metadata；不得直接搬移完整 Chat |
+| Handoff 不完整 | 前一 Session 的 promoted refs、Closure Snapshot 與必要沿革中繼資料；不得直接搬移完整 Chat |
 
 擴大前 SHOULD 先使用搜尋、符號定位、Diff 或測試失敗訊息縮小範圍。
 
-## 6. Project State and Closure Snapshot
+## 6. 專案狀態與關閉快照
 
-### 6.1 PROJECT_STATE Contract
+### 6.1 PROJECT_STATE 合約
 
 Repository SHOULD 於根目錄維護 `PROJECT_STATE.md`，至少包含：
 
@@ -182,7 +182,7 @@ Repository SHOULD 於根目錄維護 `PROJECT_STATE.md`，至少包含：
 |------|------|
 | Repository | 固定 Repository 名稱 |
 | Source of Truth | 固定為 `main` |
-| Baseline HEAD | 最近一次已驗證 baseline；新 Session MUST 重新確認，不得盲信舊值 |
+| Baseline HEAD | 最近一次已驗證基準；新 Session MUST 重新確認，不得盲信舊值 |
 | Branch | 目前工作 Branch；無 Branch 時為 `main` |
 | Current Milestone | 目前 Milestone 或 `—` |
 | Current EWO／Issue | 唯一工作識別碼與名稱 |
@@ -198,11 +198,11 @@ Repository SHOULD 於根目錄維護 `PROJECT_STATE.md`，至少包含：
 - MUST NOT 記錄 Secret、Credential、Token、PII、完整 Log 或未遮罩的客戶資料。
 - EWO、Branch、PR、Blocker 或 Next Action 變更時 SHOULD 同步更新。
 - 已完成的詳細歷史 MUST 移回正式文件、PR、EWO 或 Git History，不得累積於本檔案。
-- 新 Session 讀取 `PROJECT_STATE.md` 後 MUST 以目前 `main` 驗證其 Baseline HEAD、Current EWO／PR 與關鍵狀態；不一致時以 Repository current state 為準。
+- 新 Session 讀取 `PROJECT_STATE.md` 後 MUST 以目前 `main` 驗證其 Baseline HEAD、Current EWO／PR 與關鍵狀態；不一致時以 Repository 目前狀態為準。
 
-### 6.2 Closure Snapshot
+### 6.2 關閉快照
 
-結束 EWO、Milestone、handoff 或長 Work Session 前，Agent SHOULD 產生可供新 Session 啟動的 Closure Snapshot，格式如下：
+結束 EWO、Milestone、交接或長 Work Session 前，Agent SHOULD 產生可供新 Session 啟動的 Closure Snapshot，格式如下：
 
 ```text
 Repository: <name>
@@ -219,9 +219,9 @@ Validation: <latest result>
 Lineage: <parent session reference if needed>
 ```
 
-Snapshot SHOULD 控制在 500 tokens 內；詳細證據以連結或識別碼引用，不複製全文。Snapshot 是 handoff aid，不是 Fact Authority；新 Session 仍 MUST 先驗證目前 `main`。
+Snapshot SHOULD 控制在 500 tokens 內；詳細證據以連結或識別碼引用，不複製全文。Snapshot 是交接 aid，不是 Fact Authority；新 Session 仍 MUST 先驗證目前 `main`。
 
-## 7. Delta Output
+## 7. 增量輸出
 
 正常交付回報 MUST 僅包含下列區塊：
 
@@ -241,9 +241,9 @@ Snapshot SHOULD 控制在 500 tokens 內；詳細證據以連結或識別碼引�
 
 Delta Output MUST NOT 省略失敗、風險、未驗證項目或 Scope 偏差。
 
-## 8. Operational Workspace and Work Session Lifecycle
+## 8. Operational Workspace 和 Work Session 生命週期
 
-### 8.1 Authority Hierarchy
+### 8.1 權限層次結構
 
 Work Session 操作 MUST 遵循 AEOS-ARCH-010 所定義之 Authority Boundary：
 
@@ -258,9 +258,9 @@ Archived Work Session = Historical Working Record（非 Fact Authority）
 
 Workspace Context、Closure Snapshot、Cache 或 Historical Chat 不得取代 Repository `main`；若來源衝突，MUST 以目前 `main` 為準。
 
-### 8.2 Work Session Lifecycle
+### 8.2 Work Session 生命週期
 
-標準 lifecycle overlay 為：
+標準生命週期 overlay 為：
 
 ```text
 Create → Load main Baseline → Execute → Validate → Review → PR → Merge → Closure → Archive
@@ -268,58 +268,58 @@ Create → Load main Baseline → Execute → Validate → Review → PR → Mer
 
 規則：
 
-- 此 lifecycle 描述 **Work Session**，不是重新定義 EWO、Git、PR、Review、Approval 或 Release Workflow。
+- 此生命週期描述 **Work Session**，不是重新定義 EWO、Git、PR、Review、Approval 或 Release Workflow。
 - `Load main Baseline` MUST 在 Historical Chat 載入之前完成。
-- Session MAY 在 Execute / Validate / Review 間迭代；但 Repository mutation、protected operation 或 approval 仍受採用端正式 Workflow 控制。
+- Session MAY 在 Execute / Validate / Review 間迭代；但 Repository mutation、protected 操作或核准仍受採用端正式 Workflow 控制。
 - Merge 未發生或工作被中止時，Closure MUST 清楚標記 `not merged` / `abandoned` / `blocked`；不得產生虛假的完成狀態。
-- Merge 後 SHOULD 執行 Closure，完成 Promotion Check 與 terminal disposition，再將 Session 移出 Active Set。
-- `Archive` 是正常完成後的預設 terminal disposition；符合 §8.3 Delete 條件且 Promotion Check 通過時，MAY 以 `Delete` 取代 Archive。Delete 不構成跳過 Closure 或 Promotion Check。
+- Merge 後 SHOULD 執行 Closure，完成 Promotion Check 與 terminal 處置，再將 Session 移出 Active Set。
+- `Archive` 是正常完成後的預設 terminal 處置；符合 §8.3 Delete 條件且 Promotion Check 通過時，MAY 以 `Delete` 取代 Archive。Delete 不構成跳過 Closure 或 Promotion Check。
 
-### 8.3 Active, Archive and Delete
+### 8.3 Active，存檔並刪除
 
 | Disposition | 適用條件 | 要求 |
 |-------------|----------|------|
-| Active | 有未完成之 Current EWO／Issue／PR、明確 Blocker、待 Review／Approval，或短期內需要同一工作意圖繼續執行 | MUST 有 Session Owner、fresh baseline、單一 Next Action；SHOULD 保持少量 Active Session |
-| Archive | 工作已 Merge + Closure、handoff 已完成、長 Session 已由新 Session 接手，或需保留 troubleshooting / decision provenance | MUST 完成 Promotion Check；Archive 後僅為 Historical Working Record |
-| Delete | 重複 Session、誤開／空白 Session、無治理價值的臨時嘗試、已被正式 Evidence 完整取代且無 retention 必要的 troubleshooting Session | MUST 先完成 Promotion Check；若存在未 promotion 的重要資訊，MUST NOT Delete |
+| Active | 有未完成之 Current EWO／Issue／PR、明確 Blocker、待 Review／Approval，或短期內需要同一工作意圖繼續執行 | MUST 有 Session Owner、fresh 基準、單一 Next Action；SHOULD 保持少量 Active Session |
+| Archive | 工作已 Merge + Closure、交接已完成、長 Session 已由新 Session 接手，或需保留疑難排解 / 決策來源 | MUST 完成 Promotion Check；Archive 後僅為 Historical Working Record |
+| Delete | 重複 Session、誤開／空白 Session、無治理價值的臨時嘗試、已被正式 Evidence 完整取代且無保留必要的疑難排解 Session | MUST 先完成 Promotion Check；若存在未提升的重要資訊，MUST NOT Delete |
 
-Additional rules：
+附加規則：
 
 - Merge / Closure 後，原 Work Session SHOULD Archive；只有存在明確尚未完成的 follow-up 且仍為同一工作意圖時 MAY 暫留 Active。
-- troubleshooting Session 若包含 root cause、reproduction、security finding、正式選擇依據或唯一 Evidence，必須先 promotion，再 Archive／Delete。
-- Delete 是資訊處置，不得用來隱藏失敗、Review finding、Approval history、security evidence 或 process deviation。
-- 工具不支援 Archive／Delete 時，SHOULD 以命名、標籤、Project 分區或等效方法建立 terminal disposition，避免仍被視為 Active Context。
+- 疑難排解 Session 若包含 root cause、reproduction、security finding、正式選擇依據或唯一 Evidence，必須先提升，再 Archive／Delete。
+- Delete 是資訊處置，不得用來隱藏失敗、Review finding、Approval 歷史、security 證據或流程 deviation。
+- 工具不支援 Archive／Delete 時，SHOULD 以命名、標籤、Project 分區或等效方法建立 terminal 處置，避免仍被視為 Active Context。
 
-### 8.4 Promotion-before-disposal Check
+### 8.4 處置前提升檢查
 
-Work Session 從 Active 離開前 MUST 檢查以下資訊是否需要提升至 Repository：
+Work Session 從 Active 離開前 MUST 檢查以下資訊是否需要提升到 Repository：
 
 | 類別 | Promotion Target 例示 |
 |------|-----------------------|
-| Architecture / Design Decision | Architecture、ADR、Specification、Approved Report |
+|架構/設計決策|架構、ADR、規格、Approved 報告 |
 | Engineering Decision | EWO、Spec、PR、正式文件或 code/tests |
-| Evidence | PR / Issue evidence、test result、review artifact、audit record、必要 log reference |
-| Review Finding / Resolution | Review artifact、PR review thread、RC / disposition record |
-| Approval / Exception | PR / Issue / governance record；不得只留在 Chat |
-| Validation | CI、test report、PR check、closure record |
-| Closure / Handoff | `PROJECT_STATE.md`、Completion Report、Closure Snapshot references |
+| Evidence | PR / Issue 證據、test 結果、審查產出物、稽核 record、必要 log 參考 |
+|審查結果/解決方案 |審查神器、PR 審查線索、RC/處置記錄 |
+| Approval / Exception | PR / Issue / 治理 record；不得只留在 Chat |
+|驗證 | CI、檢測報告、PR 檢查、結案紀錄 |
+|關閉/移交| `PROJECT_STATE.md`、竣工報告、竣工快照參考 |
 
 Promotion Check 結果 MUST 為下列之一：
 
-- `PROMOTION_COMPLETE`：需要保留的資訊均已存在 Repository 或正式 external evidence reference。
+- `PROMOTION_COMPLETE`：需要保留的資訊均已存在 Repository 或正式 external 證據參考。
 - `NO_PROMOTION_REQUIRED`：Session 僅含可丟棄的暫時過程，且不存在唯一決策／Evidence。
-- `BLOCKED`：尚有重要資訊未 promotion；MUST 保持 Active 或先完成 promotion，不得 Archive／Delete。
+- `BLOCKED`：尚有重要資訊未提升；MUST 保持 Active 或先完成提升，不得 Archive／Delete。
 
-### 8.5 Shared Project Ownership and Handoff
+### 8.5 共享專案所有權和移交
 
-Shared Project／多人／多 Agent 工作 MUST 有單一 accountable **Session Owner**。Session Owner 可以是 Human 或被正式授權的 Agent actor，但：
+Shared Project／多人／多 Agent 工作 MUST 有單一負責 **Session Owner**。Session Owner 可以是 Human 或被正式授權的 Agent actor，但：
 
-- Session Owner 負責 current intent、baseline freshness、promotion status、handoff completeness 與 terminal disposition。
+- Session Owner 負責目前意圖、基準 freshness、提升狀態、交接 completeness 與 terminal 處置。
 - Session Owner 不因此取得 Architecture Approval、Repository Owner、Merge 或 protected-operation 權限；Human Final Decision 與正式治理 accountability 仍依適用 Governance 規則由 Human 承擔。
-- 同一工作可有多個 contributor / child Session，但它們 MUST 指向同一個 accountable Session Owner；MAY 另外記錄明確 parent session 作為 lineage，parent session 不得取代 Session Owner。
+- 同一工作可有多個 contributor / child Session，但它們 MUST 指向同一個負責 Session Owner；MAY 另外記錄明確父項工作階段作為沿革，父項工作階段不得取代 Session Owner。
 - Handoff MUST 以最小 Handoff Contract 進行，不得把完整 Chat 當作必要移交物。
 
-Minimum Handoff Contract：
+最低交接合約：
 
 ```text
 Repository / main baseline
@@ -334,28 +334,28 @@ Single Next Action
 Parent / child session lineage（若有）
 ```
 
-接手 Session MUST 重新驗證 `main` 與 PR／Branch 狀態；不得假設 handoff snapshot 仍為最新。
+接手 Session MUST 重新驗證 `main` 與 PR／Branch 狀態；不得假設交接 snapshot 仍為最新。
 
-### 8.6 Session Branch and Git Branch Separation
+### 8.6 會話分支和 Git 分支分離
 
-- Chat branch、forked conversation、child agent session 或 parallel reasoning path 統稱 **Session Lineage**。
-- Session Lineage MAY 記錄 parent session、fork reason、owner 與 disposition，用於 context continuity。
-- Session Lineage MUST NOT 被解讀為 Git branch、Commit lineage、PR relationship 或 merge history。
+- Chat 分支、forked conversation、child 代理工作階段或 parallel 推理 path 統稱 **Session Lineage**。
+- Session Lineage MAY 記錄父項工作階段、fork 原因、擁有者與處置，用於上下文延續性。
+- Session Lineage MUST NOT 被解讀為 Git 分支、Commit 沿革、PR relationship 或 merge 歷史。
 - Git Branch / PR / Merge Authority 仍由 Repository 與 YEOS Git Workflow（若採用）定義。
-- 多個 Session 對同一 Git branch 工作時，MUST 以 Repository branch / commit state 為衝突裁決依據，而不是以哪個 Chat 較新為準。
+- 多個 Session 對同一 Git 分支工作時，MUST 以 Repository 分支 / commit 狀態為衝突裁決依據，而不是以哪個 Chat 較新為準。
 
-### 8.7 Human + AI Agent Session Hygiene
+### 8.7 人員 + AI 代理會話衛生
 
 為避免 Operational Workspace 退化為無法治理的 Chat History Database：
 
-- 每個 agent execution / work session SHOULD 具有 `session_id`、`task/evidence ref`、`repository`、`baseline`、`owner/actor`、`status`、`promotion_status` 與 `terminal_disposition`。
+- 每個代理執行 / work 工作階段 SHOULD 具有 `session_id`、`task/evidence ref`、`repository`、`baseline`、`owner/actor`、`status`、`promotion_status` 與 `terminal_disposition`。
 - Agent SHOULD 優先建立新的 bounded Session，而不是無限延長一個全域 Chat。
-- 大量平行 Session SHOULD 以 EWO／Issue／PR 或 task identity 分組，不以自然語言 Chat title 作唯一識別。
-- Project Active Set SHOULD 只包含當前 milestone / workstream 必需 Session、待 Review／Approval Session 與未解除 Blocker Session。
-- 已 terminal 的 Agent Session MUST 在 promotion 完成後從 Active Set 移除或等效隔離。
-- Historical Session MAY 用於 provenance、root-cause research 或 audit，但 MUST NOT 自動注入新 Session 的 Context。
+- 大量平行 Session SHOULD 以 EWO／Issue／PR 或任務身分分組，不以自然語言 Chat title 作唯一識別。
+- Project Active Set SHOULD 只包含目前 milestone / workstream 必需 Session、待 Review／Approval Session 與未解除 Blocker Session。
+- 已 terminal 的 Agent Session MUST 在提升完成後從 Active Set 移除或等效隔離。
+- Historical Session MAY 用於來源、root-cause research 或稽核，但 MUST NOT 自動注入新 Session 的 Context。
 
-### 8.8 Conversation Switch Triggers
+### 8.8 對話切換觸發器
 
 符合任一條件時 SHOULD 建立 Closure Snapshot 並切換至新 Work Session：
 
@@ -364,11 +364,11 @@ Parent / child session lineage（若有）
 - 可估算的 Context 使用量已超過有效 Context Window 的 50%。
 - Agent 開始重複載入相同背景、遺漏已知決策或需要反覆摘要才能繼續。
 - 工作從一般實作升級為 Architecture、Security 或跨 Repository 決策。
-- Session ownership 發生 handoff，且新 owner 需要乾淨、可驗證的 Context Pack。
+- Session 歸屬發生交接，且新擁有者需要乾淨、可驗證的 Context Pack。
 
-新 Session MUST 依 §5.1 先載入目前 `main` baseline，再使用 Closure Snapshot 與 `PROJECT_STATE.md`；MUST NOT 預設搬移完整聊天記錄。正式決策 MUST 先寫入 Repository 的適當權威文件，才能只靠 Snapshot 引用。
+新 Session MUST 依 §5.1 先載入目前 `main` 基準，再使用 Closure Snapshot 與 `PROJECT_STATE.md`；MUST NOT 預設搬移完整聊天記錄。正式決策 MUST 先寫入 Repository 的適當權威文件，才能只靠 Snapshot 引用。
 
-## 9. Model Tiering
+## 9. 模型分層
 
 模型路由 MUST 以能力與風險分級，不綁定供應商或型號：
 
@@ -385,7 +385,7 @@ Parent / child session lineage（若有）
 - 模型降級 MUST NOT 降低驗證、Security、Privacy、Review 或 Approval 要求。
 - T1／T2 產出的摘要與推論，供 T3 或人員決策使用前 MUST 回到目前來源驗證。
 
-## 10. Prompt Cache and Semantic Cache
+## 10. Prompt Cache 和 Semantic Cache
 
 ### 10.1 Prompt Cache
 
@@ -394,9 +394,9 @@ Prompt Cache SHOULD 用於穩定且重複的 Prompt Prefix，例如固定 Govern
 規則：
 
 - 穩定內容 SHOULD 位於 Prompt 前段；當次 EWO、使用者輸入、Diff 與動態資料置於後段。
-- Cache Key MUST 至少區分 Repository、Prompt Template Version、模型／能力級別、語言、權限範圍與穩定來源版本或內容雜湊。
+- Cache Key MUST 至少區分 Repository、Prompt Template Version、模型／能力層級、語言、權限範圍與穩定來源版本或內容雜湊。
 - 任一穩定來源、權限、模型行為或 Prompt Template 變更時 MUST 使舊 Cache 失效。
-- Prompt Cache 命中 MUST NOT 跳過目前 EWO、Repository State、fresh `main` baseline 或安全邊界驗證。
+- Prompt Cache 命中 MUST NOT 跳過目前 EWO、Repository State、fresh `main` 基準或安全邊界驗證。
 
 ### 10.2 Semantic Cache
 
@@ -409,7 +409,7 @@ Semantic Cache MUST NOT 直接重用於：
 - 目前 Repository 狀態、Branch、PR、Issue、Dependency Version 或其他易變事實。
 - 會改變外部狀態、產生不可逆影響或涉及個人化權限的操作。
 
-### 10.3 Security, Isolation and Invalidation
+### 10.3 安全、隔離與失效
 
 - Secret、Credential、Access Token、未遮罩 PII、客戶內容與受限制資料 MUST NOT 寫入共享 Cache。
 - Cache MUST 依 Repository、Tenant、使用者權限與資料分類隔離；不得跨越授權邊界命中。
@@ -417,12 +417,12 @@ Semantic Cache MUST NOT 直接重用於：
 - 來源變更、權限撤銷、資料分類升級、Security Incident 或驗證不一致時 MUST 立即失效。
 - Cache Miss、失效或不確定時 MUST 回到目前來源重新計算；不得猜測或使用過期結果。
 
-## 11. Prompt Construction Rules
+## 11. 提示建置規則
 
 每次工作 Prompt SHOULD 只包含：
 
 1. 目前意圖與完成條件。
-2. 已驗證的 Repository `main` baseline reference。
+2. 已驗證的 Repository `main` 基準參考。
 3. `PROJECT_STATE.md` 的必要欄位。
 4. 目前 EWO／Spec 與直接相關來源。
 5. 預期輸出格式與驗證要求。
@@ -431,15 +431,15 @@ Prompt MUST 以引用取代重述既有 Governance 規範。Agent 不得在每�
 
 Historical Chat SHOULD NOT 作為固定 Prompt Prefix；需要使用時 MUST 先驗證其引用仍與 `main` 一致。
 
-## 12. Governance and Exceptions
+## 12. 治理與例外情況
 
 - 本標準不改變 AEOS-ARCH-010 Formal Workspace、AEOS-CON-001、AEOS-DIA-001、AEOS-STD-001～AEOS-STD-005 或 YEOS Engineering Workflow 之權威與責任。
 - Context／Token 最佳化造成來源不足、驗證不完整或安全不確定時，Agent MUST 停止最佳化並擴大必要 Context。
 - 偏離 Budget Profile、Cache 禁止規則或 Session Lifecycle 時，MUST 於 Risk / Review Evidence 記錄理由、範圍、資料分類、補償控制與解除條件。
-- Session Archive／Delete 不得用於規避 retention、legal hold、security evidence、Review、Approval 或 audit requirements；若採用端另有更嚴格保存規則，以較嚴格規則為準。
+- Session Archive／Delete 不得用於規避保留、legal hold、security 證據、Review、Approval 或稽核要求；若採用端另有更嚴格保存規則，以較嚴格規則為準。
 - 任何例外 MUST NOT 跳過人員 Review、Approval、Branch Protection 或正式決策程序。
 
-## 13. Validation
+## 13. 驗證
 
 AI Engineering 工作完成前 MUST 驗證：
 
@@ -455,19 +455,19 @@ AI Engineering 工作完成前 MUST 驗證：
 | V-008 | Cache Safety | Cache Key、隔離、TTL、失效與禁止資料符合 §10 |
 | V-009 | Language | Markdown 與敘述內容符合 AEOS-STD-001 §6.2 |
 | V-010 | Promotion | Archive／Delete 前為 `PROMOTION_COMPLETE` 或 `NO_PROMOTION_REQUIRED`；不得為 `BLOCKED` |
-| V-011 | Disposition | Terminal Session 已明確 Archive／Delete／equivalent isolation，不持續污染 Active Set |
-| V-012 | Shared Ownership | Shared Project / multi-agent session 具有 accountable Session Owner 與可驗證 handoff |
-| V-013 | Lineage Separation | Session Lineage 未被當作 Git branch / PR / merge authority |
+| V-011 | Disposition | Terminal Session 已明確 Archive／Delete／equivalent 隔離，不持續污染 Active Set |
+| V-012 | Shared Ownership | Shared Project / 多代理工作階段具有負責 Session Owner 與可驗證交接 |
+| V-013 | Lineage Separation | Session Lineage 未被當作 Git 分支 / PR / merge 權限 |
 
-## 14. Compliance
+## 14. 合規性
 
 - 本標準生效後，適用之 AI Engineering 工作 MUST 符合 §3～§13。
-- 不得以節省 token、方便接續或保留 Chat 歷史為由省略 fresh baseline、必要 Context、驗證、風險揭露或 Governance 步驟。
+- 不得以節省 token、方便接續或保留 Chat 歷史為由省略 fresh 基準、必要 Context、驗證、風險揭露或 Governance 步驟。
 - Review Owner SHOULD 以 §13 作為 Standard Review 與後續落地檢查依據。
 - 本標準之變更 MUST 經 EWO 與 Standard Review；核准與合併依 AEOS-STD-005。
 - 與上位文件衝突時，以 AEOS Governance Hierarchy 及 AEOS-ARCH-010 Authority Boundary 為準。
 
-### 14.1 Compliance Checklist
+### 14.1 合規檢查表
 
 | 檢查項目 | 檢查內容 |
 |----------|----------|
@@ -476,17 +476,17 @@ AI Engineering 工作完成前 MUST 驗證：
 | Budget | Profile、預留比例與升級理由符合 §4 |
 | State | `PROJECT_STATE.md` 精簡、最新且不含敏感資料 |
 | Output | 採用 Delta Output，且未隱藏失敗或風險 |
-| Session | 達切換條件時已建立 Closure Snapshot；Lifecycle 與 terminal disposition 清楚 |
+| Session | 達切換條件時已建立 Closure Snapshot；Lifecycle 與 terminal 處置清楚 |
 | Promotion | 重要 Decision、Evidence、Review、Approval、Validation、Closure 不只存在於 Chat |
-| Shared Project | 有 accountable Session Owner、Handoff Contract 與 context continuity |
+| Shared Project | 有負責 Session Owner、Handoff Contract 與上下文延續性 |
 | Active Set | Operational Workspace 僅維持少量 Active Working Context |
-| Lineage | Chat / Agent Session Lineage 與 Git branch authority 分離 |
+| Lineage | Chat / Agent Session Lineage 與 Git 分支權限分離 |
 | Model | 使用最低安全 Tier，風險升高時已升級 |
 | Cache | 僅快取允許內容，具隔離、TTL 與失效控制 |
 | Language | 遵循 AEOS-STD-001 §6.2 的繁體中文原則 |
 | Governance | 未省略 EWO、Review、Approval、Branch Protection 或安全控制 |
 
-## 15. References
+## 15. 參考文獻
 
 | # | 文件 | 型別 | 用途 |
 |---|------|------|------|
@@ -503,16 +503,16 @@ AI Engineering 工作完成前 MUST 驗證：
 | REF-011 | EWO-AEOS-0043 — AI Engineering Context and Token Budget Standard | EWO | 本文件之原始工作來源 |
 | REF-012 | SR-AEOS-0043-R1 — Standard Review | Review | 原始 Standard Review；決策為 REQUEST CHANGES |
 | REF-013 | SR-AEOS-0043-R2 — Standard Re-review | Review | 原始 R1 全部 RC Resolved；決策為 APPROVED |
-| REF-014 | EWO-AEOS-0047 — AI Workspace / Project / Work Session Lifecycle Governance | EWO | 本次 lifecycle amendment 授權來源 |
+| REF-014 | EWO-AEOS-0047 — AI Workspace / Project / Work Session Lifecycle Governance | EWO | 本次生命週期修訂授權來源 |
 | REF-015 | [AEOS-RPT-005 — AI Workspace / Project / Work Session Lifecycle Governance Gap Analysis](../reports/AEOS-RPT-005-AI-Workspace-Project-Work-Session-Lifecycle-Governance-Gap-Analysis.md) | Report | Gap Analysis、Authority Boundary 與 Minimum Necessary Change 依據 |
 
 本標準（AEOS-STD-007）為 AEOS AI Engineering Context、Token Budget 與 Operational Work Session Lifecycle 規範之唯一來源；其他文件 SHOULD 以引用取代重述。
 
-## 16. Revision History
+## 16. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
-| 1.1.0 | 2026-08-28 | 依 `SR-AEOS-0047-R1` 完成獨立 Human Standard Review 並取得 APPROVED；正式核准 Repository `main` first baseline loading、Operational Workspace / Work Session Authority Hierarchy、Create → Load main → Execute → Validate → Review → PR → Merge → Closure → Archive、Active / Archive / Delete、Promotion-before-disposal、Shared Project ownership / handoff / continuity、Session Lineage 與 Agent Session Hygiene；不建立平行 Standard 或 vendor-specific implementation | ChatGPT |
+| 1.1.0 | 2026-08-28 | 依 `SR-AEOS-0047-R1` 完成獨立 Human Standard Review 並取得 APPROVED；正式核准 Repository `main` first 基準 loading、Operational Workspace / Work Session Authority Hierarchy、Create → Load main → Execute → Validate → Review → PR → Merge → Closure → Archive、Active / Archive / Delete、Promotion-before-disposal、Shared Project 歸屬 / 交接 / 延續性、Session Lineage 與 Agent Session Hygiene；不建立平行 Standard 或 vendor-specific 實作 | ChatGPT |
 | 1.0.0 | 2026-08-22 | 依 SR-AEOS-0043-R2 完成 Standard Re-review：R1 全部 RC 已 Resolved，Metadata、格式、引用、命名、內容完整性與 Review Traceability 驗證通過；決策為 APPROVED（EWO-AEOS-0043） | Codex |
 | 0.2.0 | 2026-08-22 | 依 SR-AEOS-0043-R1（REQUEST CHANGES）進入 Review：記錄 PR #49 於 Draft 狀態合併造成的生命週期不一致，補齊 Review Traceability；文件不得在 R2 APPROVED 前升為 Approved 1.0.0（EWO-AEOS-0043） | Codex |
 | 0.1.0 | 2026-08-22 | 初版建立：定義按需載入 Context、Token Budget、Project State／Closure Snapshot、Delta Output、長對話切換、模型分級、Prompt／Semantic Cache、驗證與合規（EWO-AEOS-0043） | Codex |

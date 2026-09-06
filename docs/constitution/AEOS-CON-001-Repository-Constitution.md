@@ -29,14 +29,14 @@ related:
 | 型別 | Constitution |
 | 狀態 | Approved |
 | 版本 | 1.0.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-06 |
 | 依據文件 | EWO-AEOS-0004、CR-AEOS-0004-R1、AEOS-ARCH-001、AEOS-DIA-001、WA-001（Approved v1.0.0） |
 | 關聯文件 | EWO-AEOS-0004、CR-AEOS-0004-R1、AEOS-ARCH-001、AEOS-DIA-001、WA-001 |
 
-## 1. Purpose
+## 1. 目的
 
 本文件為 AEOS（AI Enterprise Operating System）之 Repository Constitution，其目的為：
 
@@ -45,7 +45,7 @@ related:
 - 界定 Repository Governance 與 Enterprise Architecture 之界線：本文件治理「Repository 如何運作與演進」，不重新設計架構，不重複描述 WA-001 或 AEOS-ARCH-001。
 - 提供 Repository 層級之文件錨點，使 EWO → 正式文件 → Review → Release 之演進可追溯。
 
-## 2. Repository Identity
+## 2. 儲存庫識別
 
 - 名稱：AEOS（AI Enterprise Operating System）。
 - 定位：AI Engineering Workspace 之 Enterprise Root Repository（依 AEOS-ARCH-001 定義）。
@@ -59,17 +59,17 @@ related:
 
 Repository Identity 一經建立即穩定；任何身分變更須依 §10 Change Management 之正式程序進行。
 
-## 3. Mission
+## 3. 使命
 
 AEOS 之使命為：
 
 - 作為 AI Engineering Workspace 之企業層級權威 Repository，維護已核准之架構基線與企業層級治理文件。
 - 提供 Enterprise Architecture、Platform Governance 與 Capability Management 文件之正式入口與單一參考點。
-- 確保 Repository 內容在身分、責任、變更與合規上有一致之治理，支持 Workspace 之長期演進。
+- 確保 Repository 內容在身分、責任、變更與合規上有一致之治理，支援 Workspace 之長期演進。
 
-## 4. Repository Scope
+## 4. 儲存庫範圍
 
-### 4.1 In Scope
+### 4.1 在範圍內
 
 本 Constitution 涵蓋：
 
@@ -78,21 +78,21 @@ AEOS 之使命為：
 - Repository Governance：Repository 之身分、使命、所有權、變更管理與合規。
 - 工程流程採用宣告：AEOS 採用 YEOS Engineering Workflow（見 CONTRIBUTING.md）。
 
-### 4.2 Out of Scope
+### 4.2 超出範圍
 
 本 Constitution 明確不涵蓋：
 
-- Business Capability Definition。
-- Product Implementation。
-- Technical Architecture Design。
-- Source Code Implementation。
-- Runtime Operations。
+- 業務能力定義。
+- 產品實施。
+- 技術架構設計。
+- 原始碼實作。
+- 執行環境操作。
 - Enterprise Architecture 內容：以 WA-001 為唯一架構來源，AEOS-ARCH-001 為架構 Entry Document；本文件不重新設計、不新增、不重述架構內容。
 - Workspace 其他 Repository 之內容與治理細則。
 - YEOS Engineering Workflow 之重述或取代。
 - 文件資訊架構之細則（由 AEOS-DIA-001 定義）。
 
-## 5. Repository Responsibilities
+## 5. 儲存庫職責
 
 AEOS Repository 之責任為：
 
@@ -103,7 +103,7 @@ AEOS Repository 之責任為：
 - 交付 Production Ready、無 Placeholder 之正式文件。
 - 執行 Repository 層級之身分、所有權、變更與合規治理。
 
-## 6. Governance Principles
+## 6. 治理原則
 
 | # | 原則 | 說明 |
 |---|------|------|
@@ -119,7 +119,7 @@ AEOS Repository 之責任為：
 
 文件體系層級之設計原則與細則依 AEOS-DIA-001；本文件不重述。
 
-## 7. Relationship with WA-001
+## 7. 與 WA-001 的關係
 
 - WA-001（AI Engineering Workspace Architecture，Approved v1.0.0）為 AI Engineering Workspace 之唯一架構來源，經 AEOS-ARCH-001 正式導入 AEOS。
 - 本文件治理 Repository，不治理架構；架構內容之權威來源為 WA-001，Entry Document 為 AEOS-ARCH-001。
@@ -131,7 +131,7 @@ AEOS Repository 之責任為：
 - 架構相關文件 MUST 依 AEOS-ARCH-001 宣告其架構來源。
 - Repository Governance 與架構內容衝突時，架構內容以 WA-001／AEOS-ARCH-001 為準；本文件僅治理 Repository。
 
-## 8. Relationship with Workspace Repositories
+## 8. 與工作區儲存庫的關係
 
 - AEOS 為 AI Engineering Workspace 之 Enterprise Root Repository；Workspace 內其他 Repository 以產品、平台或領域 Repository 形式存在。
 
@@ -142,7 +142,7 @@ AEOS Repository 之責任為：
 - Repository 間之正式關係以各 Repository 之正式文件宣告，不以內容複製建立。
 - 其他 Workspace Repository 之治理由其自身 Repository Governance 文件定義；本文件僅治理 AEOS。
 
-## 9. Repository Ownership
+## 9. 儲存庫所有權
 
 | 角色 | 擁有範圍 | 職責 |
 |------|----------|------|
@@ -156,27 +156,27 @@ AEOS Repository 之責任為：
 
 - Repository Owner 為本文件之擁有者與最終核准者。
 - 文件層級之 Ownership Model 細則以 AEOS-DIA-001 為準；本文件不重述。
-- 每份正式文件 MUST 於 frontmatter 宣告 owner。
+- 每份正式文件 MUST 於 frontmatter 宣告擁有者。
 
-## 10. Change Management
+## 10. 變更管理
 
 - 本文件之任何變更 MUST 依 YEOS Engineering Workflow 以 EWO 定義範圍，經 Review 後由 Repository Owner 核准。
 - 正式文件合併至 main 前 MUST 通過 Review。
 - 版本依 SemVer 管理：Review 修正更新 minor，重大變更（身分、使命、Scope、治理原則、所有權）更新 major。
 - 每次變更 MUST 更新 §13 Revision History。
-- Constitution 變更 SHOULD 保留向後相容性（Backward Compatibility），除非重大治理修訂（major governance revision）已明確核准。
+- Constitution 變更 SHOULD 保留向後相容性（Backward Compatibility），除非重大治理修訂（major 治理 revision）已明確核准。
 - 本文件之變更 MUST NOT 改變 WA-001／AEOS-ARCH-001 之架構內容；架構變更循架構治理程序。
 - 文件狀態與生命週期依 AEOS-DIA-001 管理。
 
-## 11. Compliance
+## 11. 合規性
 
 - 本文件為 Repository Governance 之正式基線；Repository 內容 MUST 符合本文件。
-- 新增正式文件 MUST：依 AEOS-DIA-001 選擇分類與目錄、宣告唯一 doc-id／owner／status，並於 References 宣告架構來源（如適用）。
+- 新增正式文件 MUST：依 AEOS-DIA-001 選擇分類與目錄、宣告唯一 doc-id／擁有者／狀態，並於 References 宣告架構來源（如適用）。
 - 任何文件 MUST NOT 重新定義 WA-001／AEOS-ARCH-001 之架構內容，MUST NOT 以內容複製取代引用。
 - Repository 操作（Branch、Commit、PR、Review）遵循 YEOS Engineering Workflow 與 CONTRIBUTING.md。
 - 不合規處理：由 Review Owner 於 Review 指出，以 EWO 修正後再行合併。
 
-## 12. References
+## 12. 參考文獻
 
 | # | 文件 | 型別 | 用途 |
 |---|------|------|------|
@@ -187,7 +187,7 @@ AEOS Repository 之責任為：
 | REF-005 | EWO-AEOS-0004 — Repository Constitution | EWO | 本文件之工作來源 |
 | REF-006 | README.md | Repository Entry Document | AEOS Repository 入口文件 |
 
-## 13. Revision History
+## 13. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|

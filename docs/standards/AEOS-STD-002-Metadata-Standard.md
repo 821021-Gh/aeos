@@ -24,7 +24,7 @@ related:
 
 > EWO-AEOS-0009：依 AEOS-ADR-002、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001 與 AEOS-STD-001 建立 AEOS 之 Metadata Standard。本文件為所有正式文件之唯一 Metadata 規範；不是 Frontmatter Template，不是 Documentation Format。
 
-## Executive Summary
+## 執行摘要
 
 本文件定義 AEOS 正式治理文件之 Metadata 標準，涵蓋 Metadata Model、Mandatory Fields、Optional Fields、Field Definitions、Validation Rules、Lifecycle 與 Compliance；為所有正式文件之唯一 Metadata 規範（Single Source of Truth）。
 
@@ -37,14 +37,14 @@ related:
 | 型別 | Standard |
 | 狀態 | Approved |
 | 版本 | 1.1.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Repository Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-08 |
 | 依據文件 | EWO-AEOS-0009、SR-AEOS-0009-R1、AEOS-STD-001（Approved v1.1.0）、AEOS-DIA-001、AEOS-CON-001（Approved v1.0.0）、AEOS-GOV-001（Approved v1.2.0）、AEOS-ARCH-001、AEOS-ADR-002（WA-001 Fact Authority Transition） |
 | 關聯文件 | EWO-AEOS-0009、SR-AEOS-0009-R1、AEOS-STD-001、AEOS-ARCH-001、AEOS-DIA-001、AEOS-CON-001、AEOS-GOV-001、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. Purpose
+## 1. 目的
 
 本文件定義 AEOS 正式治理文件之 Metadata 標準，其目的為：
 
@@ -54,16 +54,16 @@ related:
 
 本文件不是 Frontmatter Template，也不是 Documentation Format；文件格式以 AEOS-STD-001 為準，文件體系結構以 AEOS-DIA-001 為準。
 
-## 2. Scope
+## 2.範圍
 
-### 2.1 In Scope
+### 2.1 在範圍內
 
 本標準涵蓋：
 
 - 正式文件 frontmatter 之 Metadata 欄位定義與規則。
 - Metadata Model、Mandatory Fields、Optional Fields、Field Definitions、Validation Rules、Lifecycle 與 Compliance。
 
-### 2.2 Out of Scope
+### 2.2 超出範圍
 
 本標準明確不涵蓋：
 
@@ -73,7 +73,7 @@ related:
 - Governance Roadmap 內容與優先序（由 AEOS-GOV-001 定義）。
 - Repository Foundation 文件（README、CHANGELOG、CONTRIBUTING 等）。
 
-## 3. Metadata Model
+## 3.元資料模型
 
 - Metadata 以 YAML frontmatter 呈現，位於檔案第一行，以 `---` 包覆（依 AEOS-STD-001 §3）。
 - Metadata 分為 Mandatory Fields（§4）與 Optional Fields（§5）。
@@ -81,7 +81,7 @@ related:
 - 每個欄位以 Field ID（§6，MF／OF）識別，供 Review、Compliance 與 Validator 引用。
 - Metadata 為文件身分之正式宣告；doc-id 一經發布即穩定（依 AEOS-DIA-001 EP-002）。
 
-## 4. Mandatory Fields
+## 4. 必填欄位
 
 所有正式文件 MUST 包含下列 10 個 Mandatory Fields：
 
@@ -90,15 +90,15 @@ related:
 | MF-01 | doc-id | 文件唯一身分。 |
 | MF-02 | doc-name | 文件名稱。 |
 | MF-03 | doc-type | 文件型別（依 AEOS-DIA-001 Taxonomy）。 |
-| MF-04 | repository | 所屬 Repository。 |
+| MF-04 | 儲存庫 | 所屬 Repository。 |
 | MF-05 | version | 文件版本（SemVer）。 |
-| MF-06 | status | 文件狀態（依 AEOS-DIA-001 §8）。 |
-| MF-07 | owner | 文件擁有者。 |
+| MF-06 | 狀態 | 文件狀態（依 AEOS-DIA-001 §8）。 |
+| MF-07 | 擁有者 | 文件擁有者。 |
 | MF-08 | created | 建立日期。 |
 | MF-09 | updated | 最後更新日期。 |
 | MF-10 | related | 關聯文件（來源 EWO、Review、上位文件等）。 |
 
-## 5. Optional Fields
+## 5. 可選欄位
 
 下列欄位為 Optional；適用時 MUST 依 §6 定義填寫：
 
@@ -110,17 +110,17 @@ related:
 | OF-04 | decision-owner | ADR 決策擁有者（依 AEOS-ARCH-003 §5）。 |
 | OF-05 | decision-date | ADR 決策日期（依 AEOS-ARCH-003 §5）。 |
 
-## 6. Field Definitions
+## 6. 欄位定義
 
 | Field ID | 欄位 | 型別 | 格式 | 必填 | 命名規則 | 唯一性 | 更新規則 |
 |----------|------|------|------|------|----------|--------|----------|
 | MF-01 | doc-id | string | `AEOS-<TYPE>-<###>`（例如 `AEOS-STD-002`） | 必填 | 依 AEOS-DIA-001 Taxonomy 分類碼與三位流水號 | 全 Repository 唯一 | MUST NOT 變更 |
 | MF-02 | doc-name | string | 正式文件名稱（Kebab-Case 或既有慣例） | 必填 | 與 doc-id 對應 | — | 變更視為重大變更，需 EWO |
 | MF-03 | doc-type | string | Taxonomy 型別名稱（Architecture、Constitution、Standard、Governance、Policy、Specification、Capability、ADR、Reference、Index、Template、Information Architecture 等） | 必填 | 依 AEOS-DIA-001 Taxonomy | — | 型別變更需 EWO 與 Review |
-| MF-04 | repository | string | `AEOS` | 必填 | 固定值 | — | MUST NOT 變更 |
+| MF-04 | 儲存庫 | string | `AEOS` | 必填 | 固定值 | — | MUST NOT 變更 |
 | MF-05 | version | string | SemVer `MAJOR.MINOR.PATCH` | 必填 | 依 SemVer | — | 依 §8 Metadata Lifecycle 更新 |
-| MF-06 | status | string | `Draft`／`Review`／`Approved`／`Released`／`Deprecated`／`Archived` | 必填 | 依 AEOS-DIA-001 §8 | — | 依生命週期轉換 |
-| MF-07 | owner | string | 角色名稱 | 必填 | 依 AEOS-DIA-001 §6 角色 | — | 變更需更新 Revision History |
+| MF-06 | 狀態 | string | `Draft`／`Review`／`Approved`／`Released`／`Deprecated`／`Archived` | 必填 | 依 AEOS-DIA-001 §8 | — | 依生命週期轉換 |
+| MF-07 | 擁有者 | string | 角色名稱 | 必填 | 依 AEOS-DIA-001 §6 角色 | — | 變更需更新 Revision History |
 | MF-08 | created | date | `YYYY-MM-DD` | 必填 | ISO 8601 日期 | — | MUST NOT 變更 |
 | MF-09 | updated | date | `YYYY-MM-DD` | 必填 | ISO 8601 日期 | — | 每次內容變更 MUST 更新 |
 | MF-10 | related | list | doc-id 清單 | 必填 | 至少包含來源 EWO；Review（如適用） | — | 隨內容變更更新，不得保留失效引用 |
@@ -130,7 +130,7 @@ related:
 | OF-04 | decision-owner | string | 角色名稱 | 選用（ADR） | 依 AEOS-DIA-001 §6 角色 | — | 變更需更新 Revision History |
 | OF-05 | decision-date | date | `YYYY-MM-DD` | 選用（ADR） | ISO 8601 日期 | — | 決策變更時更新 |
 
-## 7. Metadata Validation Rules
+## 7. 元資料驗證規則
 
 | # | 規則 |
 |---|------|
@@ -141,11 +141,11 @@ related:
 | V-005 | Repository：MUST 為 `AEOS`。 |
 | V-006 | doc-id 唯一性：doc-id MUST 於全 Repository 唯一；不得與已發布文件重複。 |
 | V-007 | doc-id 格式：MUST 符合 `AEOS-<TYPE>-<###>`。 |
-| V-008 | owner：MUST 為 AEOS-DIA-001 §6 定義之角色。 |
+| V-008 | 擁有者：MUST 為 AEOS-DIA-001 §6 定義之角色。 |
 | V-009 | related：MUST 使用 doc-id 引用；不得包含失效引用。 |
 | V-010 | 一致性：frontmatter 之 `version`／`status` MUST 與文件資訊表格及 Revision History 最新列一致。 |
 
-### 7.1 Cross-field Validation
+### 7.1 跨領域驗證
 
 | # | 規則 |
 |---|------|
@@ -154,7 +154,7 @@ related:
 | CF-003 | `status=Archived` 時，MUST NOT 更新 `updated`。 |
 | CF-004 | `repository` 之值 MUST 與 `doc-id` 前綴一致（`repository=AEOS` ↔ `doc-id` 以 `AEOS-` 開頭）。 |
 
-## 8. Metadata Lifecycle
+## 8. 元資料生命週期
 
 | 階段 | Metadata 更新規則 |
 |------|--------------------|
@@ -171,9 +171,9 @@ related:
 - 狀態轉換 MUST 依 AEOS-DIA-001 §8 進行；不得跳過未核准之轉換。
 - 每次 Metadata 變更 MUST 同步更新文件資訊表格與 Revision History。
 
-## 9. Compliance
+## 9. 合規性
 
-### 9.1 Metadata Compliance Checklist
+### 9.1 元資料合規性檢查表
 
 | 檢查項目 | 檢查內容 |
 |----------|----------|
@@ -184,8 +184,8 @@ related:
 | Repository | 值為 `AEOS`。 |
 | doc-id 唯一性 | 全 Repository 無重複；格式符合 `AEOS-<TYPE>-<###>`。 |
 | related | 引用有效，無失效 doc-id。 |
-| Metadata Consistency | Frontmatter、文件資訊表格與 Revision History 之 doc-id、version、status 等欄位一致。 |
-| No Placeholder | Metadata 無 TBD、TODO、XXX、待補 等未完成值。 |
+| Metadata Consistency | Frontmatter、文件資訊表格與 Revision History 之 doc-id、version、狀態等欄位一致。 |
+| No Placeholder | Metadata 無 TBD、TODO、XXX、待補等未完成值。 |
 
 規則：
 
@@ -194,7 +194,7 @@ related:
 - 本標準之變更 MUST 經 EWO 與 Review 後合併。
 - 與 AEOS-STD-001／AEOS-DIA-001／AEOS-CON-001 衝突時，以上位文件為準（依 Governance Hierarchy）。
 
-## 10. References
+## 10. 參考文獻
 
 | # | 文件 | 型別 | 用途 |
 |---|------|------|------|
@@ -204,13 +204,13 @@ related:
 | REF-004 | AEOS-CON-001 — Repository Constitution（Approved v1.0.0） | Constitution | Repository 治理基線 |
 | REF-005 | AEOS-GOV-001 — Enterprise Governance Roadmap（Approved 1.2.0） | Governance | Planned Standards 與優先序 |
 | REF-006 | AEOS-STD-001 — Documentation Format Standard（Approved 1.1.0） | Standard | 文件格式與 Mandatory Sections |
-| REF-007 | AEOS-ARCH-003 — Architecture Decision Record System | Architecture | ADR Optional Fields |
+| REF-007 | AEOS-ARCH-003 — Architecture Decision Record System |架構| ADR 選用欄位 |
 | REF-008 | EWO-AEOS-0009 — Metadata Standard | EWO | 本文件之工作來源 |
 | REF-009 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
 本標準（AEOS-STD-002）為 AEOS 唯一 Metadata 標準來源（Single Source of Truth）；其他文件 MUST NOT 定義相異之 Metadata 欄位規則。
 
-## 11. Revision History
+## 11. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|

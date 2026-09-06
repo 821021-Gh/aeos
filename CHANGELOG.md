@@ -1,10 +1,10 @@
-# Changelog
+# 變更日誌
 
 ## 1.0.0
 
-- Repository Foundation established (EWO-AEOS-0002).
-- Version promoted to 1.0.0 per Repository Review (RR-AEOS-0002-R1).
+- 建立儲存庫基礎（EWO-AEOS-0002）。
+- 依儲存庫審查 RR-AEOS-0002-R1 將版本提升到 1.0.0。
 
 ## 0.1.0-dev
 
-- Established repository foundation (EWO-AEOS-0002).
+- 建立儲存庫基礎（EWO-AEOS-0002）。

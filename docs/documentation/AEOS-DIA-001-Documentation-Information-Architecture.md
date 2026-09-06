@@ -31,14 +31,14 @@ related:
 | 型別 | Information Architecture |
 | 狀態 | Approved |
 | 版本 | 3.2.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-05 |
 | 最後更新 | 2026-08-07 |
 | 依據文件 | AEOS-ADR-002（WA-001 Fact Authority Transition）、AEOS-ARCH-001 |
 | 關聯文件 | EWO-AEOS-0003、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. Purpose
+## 1. 目的
 
 本文件定義 AEOS 之 Enterprise Documentation Information Architecture（DIA），其目的為：
 
@@ -48,7 +48,7 @@ related:
 
 注意：本文件不是 Repository Structure，也不是 Documentation Standard；其定位為文件體系之 Enterprise Information Architecture。
 
-## 2. Documentation Design Principles
+## 2. 文件設計原則
 
 | # | 原則 | 說明 |
 |---|------|------|
@@ -60,7 +60,7 @@ related:
 | DP-006 | Formal by Default | 文件以正式內容交付，MUST NOT 使用 Placeholder。 |
 | DP-007 | Consistent Identity | 每份正式文件具有唯一 doc-id，命名與目錄位置依本文件定義。 |
 
-## 3. Documentation Taxonomy
+## 3. 文件分類
 
 AEOS 正式文件依下列分類（Taxonomy）管理；分類碼為 doc-id 之前綴。
 
@@ -94,7 +94,7 @@ Report（RPT）規則：
 - Approved Architecture Candidate Assessment RPT 可作為長期分析 Fact Authority；其 Review Decision 必須追溯至對應之 AR Review Record（PR 載體）。
 - Architecture Candidate Assessment RPT 之適用 Review Type 為 AR（Architecture Review）；不另疊加 RT 作為第二核准路徑。
 
-## 4. Documentation Information Architecture
+## 4.Documentation Information Architecture
 
 AEOS 文件體系分為四個層級：
 
@@ -112,7 +112,7 @@ AEOS 文件體系分為四個層級：
 - 文件間以 Reference 連結（§7），不以內容複製連結。
 - 架構內容之權威來源為 AEOS-ARCH-001 與 Approved 架構載體；WA-001 保留為歷史來源（AEOS-ADR-002 §2.1）；L3 文件引用而非重述。
 
-## 5. Directory Organization
+## 5.目錄組織
 
 正式文件置於 `docs/` 之下，依 Taxonomy 對應目錄：
 
@@ -141,7 +141,7 @@ docs/
 - 目錄僅在首次存在實際文件需求時建立（不建立空目錄／Placeholder）。
 - 檔案路徑變更 MUST 同步更新所有交叉引用（§7）。
 
-## 6. Ownership Model
+## 6. 所有權模型
 
 | 角色 | 擁有範圍 | 職責 |
 |------|----------|------|
@@ -152,19 +152,19 @@ docs/
 
 規則：
 
-- 每份正式文件 MUST 於 frontmatter 宣告 owner。
+- 每份正式文件 MUST 於 frontmatter 宣告擁有者。
 - 文件變更由 Document Owner 主導，經 EWO 定義範圍。
 - 核准層級：正式文件合併至 main 前 MUST 經 Repository Owner 核准（Review）。
 - Review Owner 負責 Review，Repository Owner 負責最終核准；兩者為不同角色。
 
-## 7. Cross-reference Strategy
+## 7. 交叉引用策略
 
 - 引用形式：跨文件引用 MUST 使用 doc-id 與相對路徑；MUST NOT 複製被引用內容。
 - 來源宣告：架構相關文件 MUST 於 References 宣告 AEOS-ARCH-001／Approved 架構載體來源對應；WA-001 引用僅限歷史參考。
 - 樞紐文件：AEOS-ARCH-001（Architecture Register）為架構文件之引用樞紐。
 - 失效處理：被引用文件變更或移動時，引用方 MUST 於同一 EWO 或 RC 更新引用；不得保留失效連結。
 
-## 8. Lifecycle
+## 8. 生命週期
 
 文件狀態：
 
@@ -179,11 +179,11 @@ docs/
 
 規則：
 
-- 狀態於 frontmatter 記錄（status）。
+- 狀態於 frontmatter 記錄（狀態）。
 - 版本依 SemVer 管理；Review 修正（RC）更新 minor，重大變更更新 major。
 - 每次狀態或版本變更 MUST 更新 Revision History。
 
-## 9. Documentation Evolution Principles
+## 9. 文件演化原則
 
 本文件之長期演進依下列原則：
 
@@ -194,21 +194,21 @@ docs/
 | EP-003 | Incremental Evolution | 文件體系以增量方式演進，每次變更經 EWO 定義並可追溯。 |
 | EP-004 | No Duplicate Knowledge | 同一知識僅存在於單一權威文件；以 Deprecate 與引用取代複製。 |
 
-## 10. Governance
+## 10. 治理
 
 - 本文件（Taxonomy、Directory Organization、命名規則）之變更 MUST 經 EWO 與 Review。
 - 正式文件合併至 main 前 MUST 通過 Review。
 - 文件不得重新定義 AEOS-ARCH-001／Approved 架構載體已定義之架構內容。
 - Repository Foundation 文件（README 等）不描述架構內容。
 
-## 11. Extension Rules
+## 11. 擴充規則
 
 - 新增文件：依 Taxonomy 選擇分類 → 產生唯一 doc-id → 置於對應目錄 → 宣告 Owner、Status 與 References。
 - 新增分類：需先擴充 §3 Taxonomy 與 §5 Directory Organization（經 EWO）。
 - 新增目錄：僅在實際文件需求存在時建立。
 - 版本相容：Taxonomy 或 Directory Organization 之變更視為 major 變更。
 
-## 12. References
+## 12. 參考文獻
 
 | 文件 | 型別 | 用途 |
 |------|------|------|
@@ -218,7 +218,7 @@ docs/
 | AEOS-STD-006 — Enterprise Architecture Catalog and Matrix Standard | Standard | Catalog（CAT）與 Matrix（MAT）型別與 Schema 規範 |
 | EWO-AEOS-0003 — Documentation Information Architecture | EWO | 本文件之工作來源 |
 
-## 13. Revision History
+## 13. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|

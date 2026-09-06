@@ -1,16 +1,16 @@
-# Security Policy
+# 安全性策略
 
-## Supported Versions
+## 支援的版本
 
-Only the latest stable release receives security fixes. See SUPPORTED_VERSIONS.md for the current support status.
+只有最新的穩定版本會收到安全修正。目前的支援狀態請參閱 SUPPORTED_VERSIONS.md。
 
-## Reporting
+## 報告
 
-Do not disclose vulnerabilities publicly before a coordinated fix.
+在協調修復之前，請勿公開披露漏洞。
 
-When reporting, include:
+報告時，請包括：
 
-- Affected version
-- Steps to reproduce
-- Impact
-- Suggested mitigation
+- 受影響的版本
+- 重現步驟
+- 影響
+- 建議緩解措施

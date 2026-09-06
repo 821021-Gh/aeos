@@ -1,58 +1,58 @@
 # AEOS
 
-AI Enterprise Operating System.
+AI 企業作業系統。
 
-## Repository Overview
+## 儲存庫概述
 
-AEOS is the Enterprise Root Repository for the AI Engineering Workspace. It is the formal home of the workspace's enterprise-level documentation and governance, covering Enterprise Architecture, Platform Governance, and Capability Management.
+AEOS 是 AI Engineering Workspace 的 Enterprise Root Repository。它是工作區企業級文件與治理的正式所在地，涵蓋 Enterprise Architecture、Platform Governance 與 Capability Management。
 
-## Repository Purpose
+## 儲存庫用途
 
-AEOS provides a single, formal repository where the AI Engineering Workspace's enterprise architecture baseline, platform governance, and capability management are documented and maintained.
+AEOS 提供單一正式儲存庫，用以記錄及維護 AI Engineering Workspace 的企業架構基準、平台治理與能力管理。
 
-## Repository Responsibilities
+## 儲存庫職責
 
-- Maintain the formal documentation baseline of the AI Engineering Workspace.
-- Provide the entry point for architecture and governance artifacts (see Referenced Documents).
-- Keep repository foundation and architecture content decoupled.
-- Deliver production-ready formal documents without placeholders.
+- 維護 AI Engineering Workspace 的正式文件基準。
+- 提供架構與治理產出物的入口點（請參閱參考文件）。
+- 保持儲存庫基礎與架構內容分離。
+- 交付不含佔位符、可立即投入正式環境的正式文件。
 
-## Relationship to AI Engineering Workspace
+## 與 AI Engineering Workspace 的關係
 
-AEOS is the Enterprise Root Repository of the AI Engineering Workspace: it represents the workspace at the enterprise level and is the formal entry point for its architecture and governance documentation. AEOS does not implement engineering workflows itself; engineering delivery follows the YEOS Engineering Workflow (see CONTRIBUTING.md).
+AEOS 是 AI Engineering Workspace 的 Enterprise Root Repository：它代表企業層級的工作區，也是其架構與治理文件的正式入口。AEOS 本身不實作工程工作流程；工程交付遵循 YEOS 工程工作流程（請參閱 CONTRIBUTING.md）。
 
-## Repository Principles
+## 儲存庫原則
 
-- Documentation First — formal documents are the primary deliverables.
-- Specification Driven — changes are defined by specifications and work orders before implementation.
-- Single Source of Truth — repository content traces to approved sources without redefining them.
-- Decoupled Foundation — repository foundation and architecture are managed independently.
-- Production Ready — delivered documents are complete and formal; no placeholders.
+- 文件優先 — 正式文件是主要交付成果。
+- 規格驅動 — 變更須先由規格與工單定義，再進行實作。
+- Single Source of Truth — 儲存庫內容均可追溯至 Approved 來源，無須重複定義。
+- 基礎解耦 — 儲存庫基礎與架構分別管理。
+- 可投入正式環境 — 交付文件完整且正式，不含佔位符。
 
-## Repository Status
+## 儲存庫狀態
 
-| Area | Status |
-|------|--------|
-| Current Phase | Foundation |
-| Version | 1.0.0 |
+| 項目 | 狀態 |
+|------|------|
+| 目前階段 | Foundation |
+| 版本 | 1.0.0 |
 
-## Repository Structure
+## 儲存庫結構
 
-- `README.md` — Repository entry point (Overview, Purpose, Status, Structure, Workflow)
-- `docs/` — Formal documents (architecture, governance, capability, organized by domain)
-- `engineering/` — Engineering workflow and Engineering Work Orders (EWO)
-- `templates/` — Document and work order templates
-- `assets/` — Static assets
+- `README.md` — 儲存庫入口點（概述、目的、狀態、結構、工作流程）
+- `docs/` — 正式文件（架構、治理、能力，依領域整理）
+- `engineering/` — 工程工作流程與工程工單 (EWO)
+- `templates/` — 文件與工單模板
+- `assets/` — 靜態資源
 
-## Development Workflow
+## 開發工作流程
 
-- Each change is defined by an Engineering Work Order (EWO); one EWO is completed at a time.
-- Implementation happens on a feature branch; delivery is submitted as a Draft Pull Request.
-- Engineering delivery follows the YEOS Engineering Workflow (see CONTRIBUTING.md).
+- 每項變更均由 Engineering Work Order (EWO) 定義，並逐一完成各 EWO。
+- 在功能分支進行實作，並以 Draft Pull Request 提交交付內容。
+- 工程交付遵循 YEOS 工程工作流程（請參閱 CONTRIBUTING.md）。
 
-## Referenced Documents
+## 參考文件
 
-| Document | Type | Role |
-|----------|------|------|
-| [AEOS-ARCH-001 — Architecture Baseline](docs/architecture/AEOS-ARCH-001-Architecture-Baseline.md) | Architecture Entry Document | Architecture baseline and entry point |
-| WA-001 — AI Engineering Workspace Architecture (Approved v1.0.0) | Architecture Source | Approved architecture source |
+| 文件 | 類型 | 角色 |
+|------|------|------|
+| [AEOS-ARCH-001 — Architecture Baseline](docs/architecture/AEOS-ARCH-001-Architecture-Baseline.md) | 架構入口文件 | 架構基準與入口點 |
+| WA-001 — AI Engineering Workspace Architecture (Approved v1.0.0) | 架構來源 | Approved 架構來源 |

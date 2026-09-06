@@ -37,7 +37,7 @@ related:
 
 > EWO-AEOS-0034：將 EWO-AEOS-0032 已完成之 M5 Catalog／Matrix Readiness Assessment 正式文件化。本文件為 Report（RPT）型別，用途分類為 Readiness Assessment；不重新進行架構分析，直接承接 EWO-AEOS-0032 之盤點與判定。
 
-## Executive Summary
+## 執行摘要
 
 本文件為 M5 — Enterprise Architecture Catalogs 之 Catalog／Matrix Readiness Assessment 正式報告（用途分類：Readiness Assessment，依 AEOS-DIA-001 §3 RPT）。本報告承接 EWO-AEOS-0032 之結論：四份 Approved Catalog 中，Platform Catalog 與 Capability Catalog 條目數皆為 0，Repository Catalog 與 Workspace Catalog 各 1 筆；已核准實體間關係為 0。Ownership Matrix 與 Dependency Matrix 均為 Required 但 Blocked；其餘 Mapping／Placement 為 Not Defined／Not Applicable。EWO-AEOS-0033 已解決 Assessment／Report 文件治理缺口（新增 RPT 型別），使本報告得以正式文件化。
 
@@ -51,14 +51,14 @@ related:
 | 用途分類 | Readiness Assessment（Report 之正式用途分類，依 AEOS-DIA-001 §3 RPT） |
 | 狀態 | Approved |
 | 版本 | 1.1.0 |
-| Repository | AEOS |
+|儲存庫 | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-08-06 |
 | 最後更新 | 2026-08-08 |
 | 依據文件 | EWO-AEOS-0034、EWO-AEOS-0035、RT-AEOS-0035-R1、EWO-AEOS-0032、AEOS-STD-006（Approved 1.1.0）、AEOS-CAT-001～004（Approved 1.1.0）、AEOS-ARCH-004～010（Approved 1.1.0）、AEOS-DIA-001（3.2.0）、AEOS-STD-004（1.2.0）、AEOS-STD-005（1.3.0）、AEOS-ADR-002（WA-001 Fact Authority Transition） |
 | 關聯文件 | EWO-AEOS-0035、RT-AEOS-0035-R1、AEOS-ARCH-001、AEOS-ARCH-004～010、AEOS-CAT-001～004、AEOS-DIA-001、AEOS-STD-001～006、AEOS-ADR-002、WA-001（歷史來源） |
 
-## 1. Purpose
+## 1. 目的
 
 本報告之目的為：
 
@@ -66,16 +66,16 @@ related:
 - 依目前四份 Approved Catalog 之實際條目與 AEOS-STD-006，判定 Ownership Matrix、Dependency Matrix 及其他標準要求 Matrix 之建立就緒程度。
 - 記錄阻擋原因、缺少之正式依據與建議執行順序，供後續 EWO 規劃使用。
 
-## 2. Scope
+## 2.範圍
 
-### 2.1 In Scope
+### 2.1 在範圍內
 
 - 四份 Approved Catalog 之條目基線盤點。
 - 已核准實體間關係之盤點。
 - Ownership Matrix、Dependency Matrix、Platform–Capability Mapping、Repository–Platform／Capability Mapping、Workspace–Repository Placement 及其他 STD-006 要求 Matrix 之 Readiness 判定。
 - 阻擋條件、治理缺口解決紀錄與建議執行順序。
 
-### 2.2 Out of Scope
+### 2.2 超出範圍
 
 - 建立任何 Matrix 或 Mapping。
 - 新增、推測或核准任何 Platform／Capability／Repository／Workspace Entry 或 Owner incumbent。
@@ -83,7 +83,7 @@ related:
 - 重新進行架構分析或修改 EWO-AEOS-0032 之實質結論。
 - 修改四份 Catalog、AEOS-STD-006、既有 Architecture 或治理文件。
 
-## 3. Assessment Basis
+## 3.評估依據
 
 本報告直接承接 EWO-AEOS-0032 之盤點與判定，不重新進行架構分析。判定之 Fact Authority：
 
@@ -93,7 +93,7 @@ related:
 - 文件型別與識別規則：AEOS-DIA-001（3.2.0）、AEOS-STD-004（1.3.0）、AEOS-STD-005（1.4.0）。
 - 判定結論之可追溯性：本報告每一項判定均可回溯至 EWO-AEOS-0032 與上述 Fact Authority；本報告不登錄任何未經核准之事實。
 
-## 4. Catalog Baseline
+## 4. 目錄基線
 
 四份 Approved Catalog 之條目基線（承接 EWO-AEOS-0032）：
 
@@ -104,7 +104,7 @@ related:
 | AEOS-CAT-003 Repository Catalog | Approved 1.0.0 | **1** | REP-001（AEOS，Enterprise Root Repository） | Active | Repository Owner | ARCH-001／CON-001／ARCH-004 | 無 | 無（Platform／Capability References 與 Dependencies 均為「無」） |
 | AEOS-CAT-004 Workspace Catalog | Approved 1.1.0 | **1** | WS-001（AI Engineering Workspace，Enterprise Workspace） | Active | Workspace Owner（角色） | ARCH-010／ARCH-001／ARCH-004／AEOS-ADR-002 | 無 | 無（Composition 具名元素未核准） |
 
-## 5. Approved Relationship Baseline
+## 5. Approved 關係基線
 
 - 已核准之實體間關係：**0**（四份 Catalog 之 Related Entries 全為空；`docs/matrices/` 不存在，無任何 Matrix 文件）。
 - 三類事實之區分：
@@ -112,18 +112,18 @@ related:
   - **已核准實體間關係**：目前 0；僅可由正式核准之 Matrix 或條目欄位承載。
   - **尚未核准之候選關係**：不登錄、不推測；待正式核准後始可成為已核准關係。
 
-## 6. Matrix Readiness Assessment
+## 6. 矩陣就緒評估
 
 | Matrix | Required／Optional／Not Defined | Ready／Partially／Blocked／N/A | 所需來源條目 | 已存在正式依據 | 缺少正式依據 | 下一 EWO 可建立？ | 建議前置 |
 |--------|-------------------------------|-------------------------------|--------------|----------------|---------------|-------------------|----------|
-| Ownership Matrix | **Required**（STD-006 §6.2 `OWN-###`；ARCH-004 §8；ARCH-007/008 §10.2） | **Blocked** | Capability（0）＋Repository（1，無已核准關係） | STD-006 Schema、RACI 規則 | 具名 Capability 條目；已核准 accountable Owner 實體間關係 | 否 | Capability 條目登錄＋Ownership 關係核准 |
+| Ownership Matrix | **Required**（STD-006 §6.2 `OWN-###`；ARCH-004 §8；ARCH-007/008 §10.2） | **Blocked** | Capability（0）＋Repository（1，無已核准關係） | STD-006 Schema、RACI 規則 | 具名 Capability 條目；已核准負責 Owner 實體間關係 | 否 | Capability 條目登錄＋Ownership 關係核准 |
 | Dependency Matrix | **Required**（STD-006 §6.2 `DEP-###`；ARCH-009 §5/§12） | **Blocked** | Platform（0）、Capability（0）、Repository（1，Dependencies 無）、Workspace（1，Composition 未核准） | STD-006 Schema、方向/強度規則 | 具名 Platform／Capability 條目；已核准 Dependency（方向、強度） | 否 | 元素條目登錄＋Dependency 核准 |
 | Platform–Capability Mapping | **Not Defined**（STD-006／ARCH-004 §8 未定義獨立 Mapping Matrix；Capability 條目之 Platform Reference 屬條目屬性） | **Not Applicable**（且 Platform 0／Capability 0） | Platform（0）、Capability（0） | 無（未定義） | 需 STD-006 Amendment 定義型別；需雙方條目 | 否 | 如 Chief Architect 裁示建立，先 STD-006 Amendment |
 | Repository–Platform／Capability Mapping | **Not Defined**（同上；Repository 之 Platform／Capability References 屬條目屬性） | **Not Applicable／Blocked**（依 EWO-AEOS-0032 原判定完整保留） | Platform（0）、Capability（0）、REP-001（refs 無） | 無（未定義） | 同上＋雙方條目 | 否 | 同上 |
 | Workspace–Repository Placement | **Not Defined**（STD-006 未定義；ARCH-010 Composition 屬條目屬性；本系列裁示不建立 Placement） | **Not Applicable** | WS-001（Composition 未核准） | 無（未定義） | 未定義且依裁示不建立 | 否 | 無（不建立） |
 | 其他 STD-006 明確要求之 Matrix | **無**（STD-006 §6.2 僅定義 OWN／DEP 兩類 Relationship ID） | **Not Applicable** | — | — | — | — | — |
 
-## 7. Blocking Conditions
+## 7. 阻塞條件
 
 阻擋原因（承接 EWO-AEOS-0032）：
 
@@ -132,7 +132,7 @@ related:
 - Catalog 之 Owner 欄位屬條目既有屬性，MUST NOT 自動擴張為跨實體 Ownership 關係。
 - 不得因 Repository、Workspace 或 GitHub 專案實際存在而補造 Matrix 關係。
 
-## 8. Governance Gap Resolution
+## 8. 解決治理差距
 
 EWO-AEOS-0032 發現之 Assessment／Report 文件治理缺口已由 EWO-AEOS-0033 解決：
 
@@ -141,7 +141,7 @@ EWO-AEOS-0032 發現之 Assessment／Report 文件治理缺口已由 EWO-AEOS-00
 - AEOS-STD-005 **1.2.0**：Review Types 新增 Report Review（RT）。
 - 本報告（AEOS-RPT-001）即為該缺口解決後之正式化成果，用途分類為 Readiness Assessment。
 
-## 9. Recommended Execution Sequence
+## 9. 建議的執行順序
 
 下列順序為**建議執行順序（候選規劃）**，非已核准之 Platform、Capability、Ownership 或 Dependency 事實：
 
@@ -154,7 +154,7 @@ EWO-AEOS-0032 發現之 Assessment／Report 文件治理缺口已由 EWO-AEOS-00
 
 規則：上述步驟每一步均須獨立經正式核准；未核准前不得登錄任何條目或關係。
 
-## 10. Scope Control
+## 10.範圍控制
 
 本 EWO（EWO-AEOS-0034）：
 
@@ -165,7 +165,7 @@ EWO-AEOS-0032 發現之 Assessment／Report 文件治理缺口已由 EWO-AEOS-00
 - 未將 AEOS-RPT-001 升級為 Approved（維持 Draft 0.1.0）。
 - 未預先建立 EWO-AEOS-0035 之後之實體 EWO。
 
-## 11. References
+## 11. 參考文獻
 
 | ID | 文件 | 型別 | 用途 |
 |----|------|------|------|
@@ -184,7 +184,7 @@ EWO-AEOS-0032 發現之 Assessment／Report 文件治理缺口已由 EWO-AEOS-00
 | REF-013 | EWO-AEOS-0034 | EWO | 本文件之工作來源 |
 | REF-014 | AEOS-ADR-002 — WA-001 Fact Authority Transition | ADR | WA-001 Authority Classification 與 Approved Fact Authority Baseline |
 
-## 12. Revision History
+## 12. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
