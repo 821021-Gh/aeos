@@ -3,7 +3,7 @@ doc-id: AEOS-SPEC-007
 doc-name: External Control Plane Integration Contract
 doc-type: Specification
 repository: AEOS
-version: 0.1.0
+version: 0.2.0
 status: Candidate
 owner: Architecture Owner
 created: 2026-09-17
@@ -14,6 +14,7 @@ review-head: TBD
 review-result: TBD
 authority:
   - AEOS-ADR-003
+  - AEOS-ADR-004
   - AEOS-ADR-005
   - AEOS-ARCH-013
 related:
@@ -51,14 +52,14 @@ related:
 | 文件代號 | AEOS-SPEC-007 |
 | 文件名稱 | External Control Plane Integration Contract |
 | 型別 | Specification |
-| 狀態 | Candidate 0.1.0 |
+| 狀態 | Candidate 0.2.0 |
 | 儲存庫 | AEOS |
 | 擁有者 | Architecture Owner |
 | 建立日期 | 2026-09-17 |
 | 最後更新 | 2026-09-17 |
 | 工作包 | AEOS-ACC-ACP-C1 |
-| 依據文件 | AEOS-ACC-ACP-C1、AEOS-ADR-003（Approved 1.0.0）、AEOS-ADR-005（Approved 1.0.0）、AEOS-ARCH-013（Approved）、AEOS-SPEC-002（Approved 1.0.0）、AEOS-SPEC-003（Approved 1.0.0）、AEOS-SPEC-004（Approved 1.0.0） |
-| 關聯文件 | AEOS-ADR-004、AEOS-SPEC-001、AEOS-SPEC-005、AEOS-SPEC-006、ACC-ADR-001、ACC-ARCH-002 |
+| 依據文件 | AEOS-ACC-ACP-C1、AEOS-ADR-003（Approved 1.0.0）、AEOS-ADR-004（Approved 1.0.0）、AEOS-ADR-005（Approved 1.0.0）、AEOS-ARCH-013（Approved）、AEOS-SPEC-002（Approved 1.0.0）、AEOS-SPEC-003（Approved 1.0.0）、AEOS-SPEC-004（Approved 1.0.0） |
+| 關聯文件 | AEOS-SPEC-001、AEOS-SPEC-005、AEOS-SPEC-006、ACC-ADR-001、ACC-ARCH-002 |
 
 ## 1. 目的
 
@@ -536,10 +537,21 @@ ECP SHALL NOT 要求 AEOS 提供：
 | 終止狀態 | 說明 | AEOS-SPEC-004 對應 |
 |----------|------|-------------------|
 | `COMPLETED` | 執行完成 | `completed`（仍需 gate 評估） |
-| `FAILED` | 執行失敗 | `failed` |
+| `FAILED` | 執行失敗 | `failed`、`timed_out`、`rejected`、`unsupported` |
 | `CANCELLED` | 已取消 | `cancelled` |
 | `REVOKED` | 已撤銷 | N/A（AEOS 治理決策） |
 | `BLOCKED` | 永久阻塞 | N/A（AEOS 治理決策） |
+
+AEOS-SPEC-004 outcome 至 AEOS-SPEC-007 終止狀態的完整映射：
+
+| AEOS-SPEC-004 outcome | AEOS-SPEC-007 終止狀態 | 映射說明 |
+|------------------------|----------------------|----------|
+| `completed` | `COMPLETED` | 執行完成，但仍需 gate 評估 |
+| `failed` | `FAILED` | 執行環境嘗試後失敗 |
+| `timed_out` | `FAILED` | 執行超出時間限制，歸類為失敗 |
+| `rejected` | `FAILED` | 因政策、授權、驗證或防護規則被拒絕，歸類為失敗 |
+| `unsupported` | `FAILED` | 執行環境不支援契約版本、能力、工具、結構描述或必要證據，歸類為失敗 |
+| `cancelled` | `CANCELLED` | 因取消或撤銷而停止執行 |
 
 ### 11.3 Terminal State Envelope
 
@@ -781,3 +793,4 @@ ECP 收到衝突通知時：
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
 | 0.1.0 | 2026-09-17 | 建立 External Control Plane Integration Contract Candidate，定義七個整合互動點、資源衝突控制、冪等性契約、transport neutrality、權威矩陣與 fail-closed 不變量 | Codex |
+| 0.2.0 | 2026-09-17 | R1 Review 修正：(F-001) 將 AEOS-ADR-004 從關聯文件提升為依據文件並加入 frontmatter authority；(F-002) 補齊 §11.2 AEOS-SPEC-004 outcome 完整映射（timed_out→FAILED、rejected→FAILED、unsupported→FAILED） | Codex |

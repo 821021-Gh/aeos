@@ -3,7 +3,7 @@ doc-id: AEOS-RPT-006
 doc-name: AEOS-SPEC-007 Review Package
 doc-type: Report
 repository: AEOS
-version: 0.1.0
+version: 0.2.0
 status: Candidate
 owner: Architecture Owner
 created: 2026-09-17
@@ -22,11 +22,11 @@ related:
 |------|------|
 | 審查文件 | AEOS-SPEC-007 — External Control Plane Integration Contract |
 | 文件型別 | Specification |
-| 文件狀態 | Candidate 0.1.0 |
+| 文件狀態 | Candidate 0.2.0 |
 | 儲存庫 | AEOS |
 | 工作包 | AEOS-ACC-ACP-C1 |
 | 工作包授權者 | 系統架構－總控層06 |
-| Review Package 版本 | 0.1.0 |
+| Review Package 版本 | 0.2.0 |
 
 ## 2. 工作包參考
 
@@ -308,12 +308,53 @@ SPEC-007 新增以下概念（不與現有概念衝突）：
 
 ## 14. 狀態與核准
 
-本 Review Package 為 **Candidate 0.1.0**。
+本 Review Package 為 **Candidate 0.2.0**。
 
-待 AEOS-SPEC-007 Architecture Review 完成後更新。
+R1 Review 已完成，識別 2 項 Minor Finding，已於 R2 全部修正。待 AEOS-SPEC-007 Architecture Review 完成後更新。
 
-## 15. 修訂歷史
+## 15. R1 Review 發現與 R2 修正
+
+### 15.1 R1 Review 參考
+
+| 項目 | 內容 |
+|------|------|
+| Review 輪次 | R1 |
+| Reviewed HEAD | `2f2e890cde4cb6bf14665d2260e892e1afc8620d` |
+| Review PR | #85 |
+| Review 結果 | 2 項 Minor Finding |
+
+### 15.2 R1 發現
+
+| # | 嚴重度 | 發現 | 說明 |
+|---|--------|------|------|
+| F-001 | Minor | AEOS-ADR-004 未列入 frontmatter authority 與依據文件 | AEOS-ADR-004（Productization Boundary）在 §3 管理機構中已作為權威來源引用，但 frontmatter `authority` 與文件資訊表「依據文件」均未列入，僅出現在 `related` 與「關聯文件」。 |
+| F-002 | Minor | §11.2 缺少 AEOS-SPEC-004 部分 outcome 的終止狀態映射 | AEOS-SPEC-004 定義 `timed_out`、`rejected`、`unsupported` 三種 outcome，但 §11.2 Terminal States 僅映射 `completed`、`failed`、`cancelled`，缺少前述三種 outcome 至 `FAILED` 的明確映射。 |
+
+### 15.3 R2 修正內容
+
+工作包：AEOS-ACC-ACP-C1-R2
+
+| Finding | 修正內容 | 影響檔案 |
+|---------|----------|----------|
+| F-001 | Frontmatter `authority` 新增 AEOS-ADR-004；文件資訊表「依據文件」新增 AEOS-ADR-004（Approved 1.0.0）；「關聯文件」移除 AEOS-ADR-004 | AEOS-SPEC-007 |
+| F-002 | §11.2 Terminal States 表格 `FAILED` 行擴展為 `failed`、`timed_out`、`rejected`、`unsupported`；新增完整 AEOS-SPEC-004 outcome → AEOS-SPEC-007 終止狀態映射表 | AEOS-SPEC-007 |
+
+### 15.4 版本治理
+
+依 AEOS-CON-001「版本依 SemVer 管理：Review 修正更新 minor」，AEOS-SPEC-007 版本由 0.1.0 更新至 0.2.0。AEOS-RPT-006 同步更新至 0.2.0。
+
+### 15.5 R2 基線參考
+
+| 項目 | 內容 |
+|------|------|
+| R2 HEAD | 待 commit |
+| R2 Branch | `aeos-acc-acp-c1/integration-contract` |
+| R1 Reviewed HEAD | `2f2e890cde4cb6bf14665d2260e892e1afc8620d` |
+| R1 vs R2 diff | F-001（authority 提升）、F-002（§11.2 映射補齊）、版本號更新 |
+
+## 16. 修訂歷史
 
 | 版本 | 日期 | 變更摘要 | 作者 |
 |------|------|----------|------|
 | 0.1.0 | 2026-09-17 | 建立 AEOS-SPEC-007 Review Package，涵蓋文件資訊、工作包參考、基線參考、缺口分析摘要、設計決策、權威邊界確認、TBD/BLOCKED 項目、未實作確認、一致性檢查、自我審查檢查表 | Codex |
+| 0.2.0 | 2026-09-17 | R1 Review 修正：新增 §15 記錄 F-001（AEOS-ADR-004 authority 提升）與 F-002（§11.2 SPEC-004 outcome 映射補齊）之發現與修正；版本同步更新至 0.2.0 | Codex |
