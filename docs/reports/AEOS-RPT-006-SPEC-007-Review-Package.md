@@ -347,7 +347,7 @@ R1 Review 已完成，識別 2 項 Minor Finding，已於 R2 全部修正。待 
 
 | 項目 | 內容 |
 |------|------|
-| R2 HEAD | `ed267abba8c949b92a89397f4968778d1f4742d8` |
+| R2 HEAD | `14cb99d3aa7a05f3ce81307a1ccf12be3a7553d3` |
 | R2 Branch | `aeos-acc-acp-c1/integration-contract` |
 | R1 Reviewed HEAD | `2f2e890cde4cb6bf14665d2260e892e1afc8620d` |
 | R1 vs R2 diff | F-001（authority 提升）、F-002（§11.2 映射補齊）、版本號更新 |
